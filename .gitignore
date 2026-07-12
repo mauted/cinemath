@@ -27,3 +27,14 @@ outputs/*
 .idea/
 .vscode/
 *.swp
+
+# LaTeX build products
+docs/*.aux
+docs/*.bbl
+docs/*.blg
+docs/*.fdb_latexmk
+docs/*.fls
+docs/*.log
+docs/*.out
+docs/*.synctex.gz
+docs/*.toc

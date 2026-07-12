@@ -1,0 +1,356 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit,calc,shapes.geometric}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[all]{hypcap}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=blue
+}
+
+\title{Cinemath: Separating Pedagogical Reasoning from\\
+Deterministic Educational Animation}
+\author{Mauricio Tedeschi}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Large language models can explain mathematical and physical reasoning, but
+they are unreliable authors of low-level animation code. We present
+\textsc{Cinemath}, an open-source pipeline that turns a typed or photographed
+problem into a short educational Manim video while keeping those roles
+strictly separated. An LLM acts only as a teacher: it produces a structured
+lesson plan consisting of conceptual steps and a list of named visual-tool
+calls. Local compilers then expand those calls into a validated animation
+script, optionally check arithmetic and symbolic claims with SymPy, and
+render the result with Manim Community. Because scene construction never
+depends on free-form model-generated Python, visual fidelity is controlled by
+hand-written templates spanning paper arithmetic, algebra boards, calculus
+plots, formal proofs, and quantum-field-theory diagrams including
+one-loop layouts and renormalization-group flow sketches. We describe the
+architecture, the plan schema, the visual-tool catalog, and a difficulty
+ladder from elementary arithmetic through Peskin-style $\beta$-function
+problems.
+\end{abstract}
+
+\section{Introduction}
+
+Educational animation systems such as Manim make it possible to present
+equations, graphs, and diagrams with cinematic timing
+\citep{manim2024community}. At the same time, frontier language models have
+become competent tutors for multi-step mathematics and physics
+\citep{anthropic2024claude}. Combining the two is attractive: given a
+homework-style prompt, one would like a narrated visual solution rather than
+a static wall of text.
+
+A na\"ive approach---asking the model to emit Manim source directly---fails
+in predictable ways. Generated code frequently invents nonexistent APIs,
+breaks LaTeX mid-expression, hard-codes fragile layout constants, or
+silently skips pedagogically important beats. Even when the mathematics in
+the explanation is correct, the animation layer may not compile.
+
+\textsc{Cinemath} adopts the opposite contract. The language model is
+restricted to \emph{teaching}: it must return a versioned JSON plan with a
+normalized problem statement, a final answer, a short sequence of conceptual
+steps, and a non-empty list of visual tools drawn from a fixed catalog. All
+animation construction, validation, and rendering remain local and
+deterministic. This separation mirrors classical compiler design: the LLM
+emits an intermediate representation; trusted backends lower it to pixels.
+
+The system is deliberately domain-agnostic at the plan level. Instead of a
+single mutually exclusive ``problem type,'' the teacher selects a
+composition of tools (for example, a rectangular double integral may request
+a region outline, an equation board, a three-dimensional surface, and a
+final answer beat). Specialized QFT tools cover interaction Lagrangians,
+tree-level $1\to 2$ decays, one-loop / 1PI diagrams, and two-dimensional
+renormalization-group flow fields of the kind appearing in textbook exercises
+\citep{peskin1995introduction}.
+
+\section{Architecture}
+
+Figure~\ref{fig:pipeline} summarizes the end-to-end pipeline. A run begins
+with a text file, Markdown note, or image of a problem. Images are OCR'd /
+transcribed by the same model family used for teaching; the extracted
+statement is then passed to the teacher prompt. The teacher may call local
+arithmetic tools for long multiplication, division, addition, or
+subtraction so that digit-level results are ground-truth rather than
+model-invented. After the plan is accepted, a verifier inspects known
+visual-tool payloads (for example, quadratic coefficients and roots, or
+paper-arithmetic products). Local template compilers expand
+\texttt{visuals[]} into an internal animation DSL, prepend a problem-statement
+scene, and validate the script. Manim finally renders \texttt{animation.mp4}
+together with a Markdown lesson transcript.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  font=\sffamily\small,
+  box/.style={
+    draw=black!70,
+    rounded corners=2pt,
+    align=center,
+    inner sep=6pt,
+    minimum height=1.05cm,
+    minimum width=2.55cm,
+    fill=black!3
+  },
+  llm/.style={box, fill=blue!8},
+  local/.style={box, fill=green!8},
+  artifact/.style={
+    draw=black!50,
+    dashed,
+    rounded corners=2pt,
+    align=center,
+    inner sep=4pt,
+    font=\ttfamily\footnotesize,
+    fill=white
+  },
+  arr/.style={-{Latex[length=2.2mm]}, thick, black!70},
+  note/.style={font=\footnotesize\itshape, text=black!60}
+]
+  % Row 1: ingest
+  \node[box] (in) {Input\\[.1em]{\footnotesize text / Markdown / image}};
+  \node[llm, right=0.55cm of in] (extract) {Extract\\statement};
+  \node[llm, right=0.55cm of extract] (teach) {Teach\\plan + visuals};
+  \node[local, right=0.55cm of teach] (arith) {Arithmetic\\tools};
+
+  % Artifacts under teach
+  \node[artifact, below=0.55cm of teach] (plan) {plan.json};
+
+  % Row 2
+  \node[local, below=1.35cm of extract] (verify) {Verify\\SymPy / checks};
+  \node[local, right=0.55cm of verify] (compile) {Compile\\visual tools};
+  \node[local, right=0.55cm of compile] (validate) {Validate\\animation DSL};
+  \node[local, right=0.55cm of validate] (render) {Render\\Manim};
+
+  \node[artifact, below=0.45cm of verify] (ver) {verify.json};
+  \node[artifact, below=0.45cm of compile] (anim) {animation.json};
+  \node[artifact, below=0.45cm of render] (mp4) {animation.mp4};
+
+  \draw[arr] (in) -- (extract);
+  \draw[arr] (extract) -- (teach);
+  \draw[arr] (teach) -- (arith);
+  \draw[arr] (arith.north) |- ++(0,0.45) -| (teach.north);
+  \draw[arr] (teach) -- (plan);
+  \draw[arr] (plan) |- (verify);
+  \draw[arr] (verify) -- (compile);
+  \draw[arr] (compile) -- (validate);
+  \draw[arr] (validate) -- (render);
+  \draw[arr] (verify) -- (ver);
+  \draw[arr] (compile) -- (anim);
+  \draw[arr] (render) -- (mp4);
+
+  \node[note, above=0.15cm of extract] {LLM};
+  \node[note, above=0.15cm of teach] {LLM};
+  \node[note, above=0.15cm of arith] {local};
+  \node[note, above=0.15cm of verify] {local};
+\end{tikzpicture}
+\caption{Cinemath pipeline. Blue-tinted stages may call the language model;
+green-tinted stages are fully local. Dashed boxes are on-disk artifacts written
+for every run. The teacher is allowed to invoke local arithmetic tools before
+emitting the final plan; it never authors Manim scenes.}
+\label{fig:pipeline}
+\end{figure}
+
+\subsection{Trust boundary}
+
+The critical invariant is that \texttt{animation.json} is never authored by
+the model. The teacher may choose \emph{which} visual capabilities to invoke
+and fill their typed fields (coefficients, region bounds, Feynman labels,
+$\beta$-function expressions), but scene graph construction, caption timing,
+equation-chain morphs, and camera moves live in versioned Python modules
+under \texttt{templates/} and \texttt{render\_engine/}.
+
+\subsection{Artifacts}
+
+Each successful \texttt{cinemath solve} run creates a timestamped directory
+containing
+\begin{itemize}
+  \item \texttt{problem.txt} --- normalized statement with ASCII LaTeX in
+    \texttt{\$...\$};
+  \item \texttt{plan.json} --- teacher plan (version~2);
+  \item \texttt{verify.json} --- local check summary;
+  \item \texttt{lesson.md} --- human-readable lesson transcript;
+  \item \texttt{animation.json} --- validated internal DSL;
+  \item \texttt{scene.py} / \texttt{animation.mp4} --- Manim entrypoint and
+    rendered video.
+\end{itemize}
+
+\section{Teacher plan schema}
+
+Plans are JSON objects with schema version~2. The required fields are
+\texttt{problem}, \texttt{answer}, \texttt{steps}, and a non-empty
+\texttt{visuals} array. Each step carries a short board title, a one-to-three
+sentence explanation, and zero or more display-math fragments. Visual entries
+are tagged by \texttt{tool} and validated against a closed catalog
+(Section~\ref{sec:tools}).
+
+The system prompt forbids animation design language: the model must not
+mention Manim, colors, camera angles, or frame timing. Mathematical hygiene
+rules require ASCII LaTeX (no Unicode glyphs such as $\mu$ or $\phi$ written
+as code points) and consistent dollar wrapping in prose fields. Pure formula
+fields omit surrounding dollars so that Manim's \texttt{MathTex} path remains
+unambiguous.
+
+For long arithmetic, the teacher must call the matching local tool
+(\texttt{long\_multiply}, \texttt{long\_divide}, \texttt{long\_add}, or
+\texttt{long\_subtract}) and copy the returned digits into both
+\texttt{answer} and the corresponding \texttt{paper\_long\_*} visual. This
+prevents the common failure mode in which a fluent explanation ends with an
+incorrect product.
+
+\section{Visual tools}
+\label{sec:tools}
+
+Table~\ref{tab:tools} lists the current catalog. Tools are intentionally
+composable: a proof uses \texttt{state\_claim}, \texttt{equation\_board}, and
+\texttt{show\_qed}; a rectangular double integral typically stacks region,
+board, surface, and answer beats; a Yukawa $\beta$-function exercise may
+combine a Lagrangian frame, one or more loop diagrams, the equation board,
+an RG flow field, and a highlighted answer.
+
+\begin{table}[H]
+\centering
+\caption{Visual-tool catalog exposed to the teacher (plan version~2).}
+\label{tab:tools}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Tool & Role \\
+\midrule
+\texttt{equation\_board} & Caption + stacked derivation lines \\
+\texttt{state\_claim} / \texttt{show\_qed} & Proof opener / closer \\
+\texttt{plot\_2d} & Quadratic parabola with marked roots \\
+\texttt{show\_region\_rectangle} & 2D rectangular integration region \\
+\texttt{plot\_surface\_3d} & Surface over a rectangular domain \\
+\texttt{paper\_long\_*} & Stacked paper arithmetic layouts \\
+\texttt{show\_lagrangian} & Interaction / Lagrangian setup \\
+\texttt{feynman\_1to2} & Tree-level $1\to 2$ decay diagram \\
+\texttt{feynman\_loop} & One-loop layouts (bubble, 4-point, Yukawa triangle) \\
+\texttt{rg\_flow\_2d} & Arrow field from $\beta_x(x,y)$, $\beta_y(x,y)$ \\
+\texttt{show\_answer} & Final highlighted answer beat \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Each tool maps to a small compiler that emits objects in an internal DSL
+(\texttt{math}, \texttt{prose}, \texttt{axes}, \texttt{plot}, \texttt{feynman},
+\texttt{flow\_field}, \ldots) and a short action list
+(\texttt{write}, \texttt{create}, \texttt{indicate}, \texttt{wait}, \ldots).
+The renderer interprets that DSL only after schema validation, including
+safe-expression checks for plots and RG fields.
+
+\section{Rendering and pedagogy}
+
+Algebraic derivations use an equation chain: the previous line is dimmed,
+the board scrolls to make room, and a copy morphs into the next expression
+via Manim's \texttt{TransformMatchingTex}. Step explanations become wrapped
+instruction banners sized for full-frame or split-stage layouts. Every video
+opens with a problem-statement beat so the viewer sees the claim before the
+solution choreography begins.
+
+Two- and three-dimensional graph helpers auto-select axis ranges, optionally
+shade regions, and keep captions clear of plot chrome. QFT helpers draw
+schematic Feynman layouts and sample renormalization-group arrow fields from
+safe arithmetic expressions in variables $(x,y)$, which the teacher uses as
+stand-ins for couplings such as $(\lambda,g)$.
+
+\section{Examples}
+
+The repository ships a difficulty ladder from elementary word problems to
+tree-level scalar decay and related QFT exercises
+(Table~\ref{tab:ladder}). In practice the same architecture also covers
+photographed textbook problems, including Callan--Symanzik $\beta$-function
+computations in pseudoscalar Yukawa theory with qualitative RG-flow sketches
+\citep{peskin1995introduction}.
+
+\begin{table}[H]
+\centering
+\caption{Representative example ladder shipped with the package.}
+\label{tab:ladder}
+\begin{tabular}{@{}cll@{}}
+\toprule
+Level & Example & Typical visuals \\
+\midrule
+1--3 & Arithmetic / percent word problems & \texttt{equation\_board} \\
+4 & Quadratic equation & \texttt{plot\_2d}, board, answer \\
+7 & Rectangular double integral & region, board, surface, answer \\
+8 & Euler totient identity & claim, board, QED \\
+10 & Scalar $\Phi\to\phi\phi$ decay & Lagrangian, Feynman, board, answer \\
+11--15 & Paper long arithmetic & matching \texttt{paper\_long\_*} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Discussion}
+
+Restricting the model to a typed intermediate representation trades
+expressive freedom for reliability. New visual genres require new local
+compilers, but once written they are reused across every problem that selects
+them. The current catalog already tags tools by coarse domain
+(\texttt{core}, \texttt{proof}, \texttt{calculus}, \texttt{arithmetic},
+\texttt{qft}) in preparation for a classify-then-gate prompt strategy that
+would expose only the relevant subset and thereby save context as the catalog
+grows.
+
+Limitations remain. Verification coverage is uneven across tools; symbolic
+checks are strongest for arithmetic and selected algebraic payloads.
+Pedagogical quality still depends on the teacher's step decomposition.
+Schematic Feynman diagrams are illustrative rather than automated 1PI
+generators, and RG flow fields visualize provided $\beta$ expressions rather
+than deriving them. Finally, image OCR inherits the usual transcription
+failure modes for dense blackboard photography.
+
+Natural extensions include domain-gated tool catalogs, richer diagrammatic
+calculus, tighter SymPy verification of board lines, and optional narration
+audio aligned to scene captions.
+
+\section{Conclusions}
+
+\textsc{Cinemath} demonstrates a practical split between LLM pedagogy and
+deterministic educational animation. A language model teaches; local visual
+tools compile and Manim renders. The resulting pipeline produces short lesson
+videos across arithmetic, algebra, calculus, proof, and selected quantum
+field theory topics without asking the model to write animation code. Source
+code, examples, and this manuscript are available in the accompanying
+repository.
+
+\section*{Software}
+
+Implementation is in Python~3.12+ using the Anthropic API
+\citep{anthropic2024claude}, SymPy \citep{meurer2017sympy}, Typer, and Manim
+Community \citep{manim2024community}. The command-line entrypoint is
+\begin{verbatim}
+uv run cinemath solve path/to/problem
+\end{verbatim}
+Artifacts for each run are written under \texttt{outputs/}.
+
+\appendix
+
+\section{Reproducibility}
+\label{app:repro}
+
+From the project root,
+\begin{verbatim}
+uv sync
+cp .env.example .env   # set ANTHROPIC_API_KEY
+uv run cinemath solve examples/04_quadratic.txt
+latexmk -pdf -cd docs/cinemath_showcase_report.tex
+\end{verbatim}
+The compiled PDF is \path{docs/cinemath_showcase_report.pdf}. Figure~1 is
+drawn with Ti\textit{k}Z and does not require external image assets.
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+
+\end{document}
