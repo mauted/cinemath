@@ -210,104 +210,64 @@ Figure~\ref{fig:artifact-frames} shows four frames from that same video.
 
 \begin{figure}[H]
 \centering
-\resizebox{\textwidth}{!}{%
 \begin{tikzpicture}[
   font=\sffamily\scriptsize,
   >=Latex,
-  card/.style={
-    draw=black!55, rounded corners=3pt,
-    inner sep=0pt, minimum width=3.55cm, minimum height=3.35cm,
+  box/.style={
+    draw=black!50, rounded corners=2.5pt,
+    align=center, inner xsep=3pt, inner ysep=5pt,
+    minimum width=2.55cm, minimum height=2.5cm,
     fill=black!2
   },
-  arr/.style={->, very thick, black!60},
-  lbl/.style={font=\ttfamily\bfseries\tiny},
-  chip/.style={
-    align=left, font=\ttfamily\tiny,
-    text width=3.15cm
-  }
+  llm/.style={box, fill=blue!6, draw=blue!35!black!55},
+  loc/.style={box, fill=green!6, draw=green!35!black!55},
+  arr/.style={->, thick, black!55}
 ]
-  % --- problem ---
-  \node[card] (c1) {};
-  \node[anchor=north, lbl, blue!50!black] at ([yshift=-0.18cm]c1.north) {problem.txt};
-  \node[anchor=north] at ([yshift=-0.55cm]c1.north) {
-    \tikz\draw[fill=blue!8, draw=black!50, rounded corners=1pt]
-      (0,0) rectangle (0.7,0.85) node[midway,font=\tiny\bfseries\ttfamily] {TXT};
+  \node[box] (c1) {%
+    {\ttfamily\bfseries\tiny input}\\[4pt]
+    {\sffamily\footnotesize text / image}\\[3pt]
+    {\ttfamily\tiny Solve}\\[-1pt]
+    {\ttfamily\tiny $x^{2}-5x+6=0$}
   };
-  \node[chip, anchor=north] at ([yshift=-1.55cm]c1.north) {%
-    Solve for $x^{2}-5x+6=0$
+  \node[llm, right=0.42cm of c1] (c2) {%
+    {\color{blue!50!black}\ttfamily\bfseries\tiny plan.json}\\[4pt]
+    {\ttfamily\tiny version}\\[-1pt]
+    {\ttfamily\tiny steps[\,]}\\[-1pt]
+    {\ttfamily\tiny visuals[\,]}\\[3pt]
+    {\sffamily\tiny plot\_2d $\cdot$ board $\cdot$ answer}
   };
-
-  % --- plan ---
-  \node[card, right=0.55cm of c1, fill=blue!6] (c2) {};
-  \node[anchor=north, lbl, blue!50!black] at ([yshift=-0.18cm]c2.north) {plan.json};
-  \node[anchor=north] at ([yshift=-0.55cm]c2.north) {
-    \tikz\draw[fill=blue!12, draw=black!50, rounded corners=1pt]
-      (0,0) rectangle (0.7,0.85) node[midway,font=\tiny\bfseries\ttfamily] {JSON};
+  \node[loc, right=0.42cm of c2] (c3) {%
+    {\color{green!35!black}\ttfamily\bfseries\tiny verify.json}\\[4pt]
+    {\ttfamily\tiny ok: true}\\[-1pt]
+    {\ttfamily\tiny tools[\,]}\\[-1pt]
+    {\ttfamily\tiny roots: [2, 3]}
   };
-  \node[chip, anchor=north] at ([yshift=-1.55cm]c2.north) {%
-    \{ version, problem,\\
-    \phantom{\{} answer, steps[],\\
-    \phantom{\{} visuals:[\\
-    \phantom{\{\{} \{tool: plot\_2d,\\
-    \phantom{\{\{\{} roots:[2,3]\},\\
-    \phantom{\{\{} \{tool: equation\_board\},\\
-    \phantom{\{\{} \{tool: show\_answer\} ] \}
+  \node[loc, right=0.42cm of c3] (c4) {%
+    {\color{green!35!black}\ttfamily\bfseries\tiny animation.json}\\[4pt]
+    {\ttfamily\tiny scenes[\,]}\\[-1pt]
+    {\ttfamily\tiny objects[\,]}\\[-1pt]
+    {\ttfamily\tiny actions[\,]}
   };
-
-  % --- verify ---
-  \node[card, right=0.55cm of c2, fill=green!6] (c3) {};
-  \node[anchor=north, lbl, green!40!black] at ([yshift=-0.18cm]c3.north) {verify.json};
-  \node[anchor=north] at ([yshift=-0.55cm]c3.north) {
-    \tikz\draw[fill=green!12, draw=black!50, rounded corners=1pt]
-      (0,0) rectangle (0.7,0.85) node[midway,font=\tiny\bfseries\ttfamily] {JSON};
-  };
-  \node[chip, anchor=north] at ([yshift=-1.55cm]c3.north) {%
-    \{ ok: true,\\
-    \phantom{\{} tools: [plot\_2d,\ldots],\\
-    \phantom{\{} computed\_roots:\\
-    \phantom{\{\{} [2.0, 3.0] \}
+  \node[loc, right=0.42cm of c4] (c5) {%
+    {\color{green!35!black}\ttfamily\bfseries\tiny animation.mp4}\\[4pt]
+    {\sffamily\footnotesize video}\\[3pt]
+    {\ttfamily\tiny problem $\to$ plot}\\[-1pt]
+    {\ttfamily\tiny $\to$ board $\to$ answer}
   };
 
-  % --- animation ---
-  \node[card, right=0.55cm of c3, fill=green!6] (c4) {};
-  \node[anchor=north, lbl, green!40!black] at ([yshift=-0.18cm]c4.north) {animation.json};
-  \node[anchor=north] at ([yshift=-0.55cm]c4.north) {
-    \tikz\draw[fill=green!12, draw=black!50, rounded corners=1pt]
-      (0,0) rectangle (0.7,0.85) node[midway,font=\tiny\bfseries\ttfamily] {JSON};
-  };
-  \node[chip, anchor=north] at ([yshift=-1.55cm]c4.north) {%
-    \{ scenes:[\\
-    \phantom{\{} \{ objects:\\
-    \phantom{\{\{} [math, axes,\\
-    \phantom{\{\{\{} plot, dot, dot],\\
-    \phantom{\{\{} actions:[write,\ldots] \} ] \}
-  };
+  \foreach \a/\b in {c1/c2, c2/c3, c3/c4, c4/c5}
+    \draw[arr] (\a) -- (\b);
 
-  % --- mp4 ---
-  \node[card, right=0.55cm of c4, fill=green!6] (c5) {};
-  \node[anchor=north, lbl, green!40!black] at ([yshift=-0.18cm]c5.north) {animation.mp4};
-  \node[anchor=north] at ([yshift=-0.55cm]c5.north) {
-    \tikz{
-      \draw[fill=black!80, rounded corners=1pt] (0,0) rectangle (0.95,0.7);
-      \fill[white] (0.35,0.2) -- (0.35,0.5) -- (0.7,0.35) -- cycle;
-    }
-  };
-  \node[chip, anchor=north] at ([yshift=-1.55cm]c5.north) {%
-    Manim video\\
-    problem $\to$ plot\\
-    $\to$ board $\to$ answer
-  };
-
-  \draw[arr] (c1) -- (c2);
-  \draw[arr] (c2) -- (c3);
-  \draw[arr] (c3) -- (c4);
-  \draw[arr] (c4) -- (c5);
-
-  \node[font=\tiny\itshape, text=black!55, anchor=west]
-    at ([yshift=0.35cm]c1.north west) {blue = LLM artifact \quad green = local artifact};
-\end{tikzpicture}%
-}
-\caption{Quadratic run as pictographs. Chips sketch the JSON \emph{shape}
+  \node[font=\scriptsize, text=black!60, anchor=north]
+    at ([yshift=-0.22cm]current bounding box.south) {%
+    {\tikz[baseline=-0.45ex]\fill[blue!6,draw=blue!35!black!55,rounded corners=1pt]
+      (0,0) rectangle (0.4,0.2);}~~LLM artifact
+    \quad
+    {\tikz[baseline=-0.45ex]\fill[green!6,draw=green!35!black!55,rounded corners=1pt]
+      (0,0) rectangle (0.4,0.2);}~~local artifact%
+    };
+\end{tikzpicture}
+\caption{Quadratic run as pictographs. Boxes sketch the JSON \emph{shape}
 (keys / tool names), not complete file contents.}
 \label{fig:artifact-shapes}
 \end{figure}
