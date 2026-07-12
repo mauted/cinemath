@@ -40,13 +40,7 @@ See [`examples/README.md`](examples/README.md) for the full **10-level** difficu
 ## Preprint
 
 Architecture write-up with pipeline diagram:
-
-- TeX: [`docs/cinemath_showcase_report.tex`](docs/cinemath_showcase_report.tex)
-- PDF: [`docs/cinemath_showcase_report.pdf`](docs/cinemath_showcase_report.pdf)
-
-```bash
-latexmk -pdf -cd docs/cinemath_showcase_report.tex
-```
+[`docs/cinemath_showcase_report.pdf`](docs/cinemath_showcase_report.pdf)
 
 ## Output
 

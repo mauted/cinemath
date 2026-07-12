@@ -56,7 +56,7 @@ a static wall of text.
 
 A na\"ive approach---asking the model to emit Manim source directly---fails
 in predictable ways. Generated code frequently invents nonexistent APIs,
-breaks LaTeX mid-expression, hard-codes fragile layout constants, or
+breaks \LaTeX \ mid-expression, hard-codes fragile layout constants, or
 silently skips pedagogically important beats. Even when the mathematics in
 the explanation is correct, the animation layer may not compile.
 
@@ -177,7 +177,7 @@ under \texttt{templates/} and \texttt{render\_engine/}.
 Each successful \texttt{cinemath solve} run creates a timestamped directory
 containing
 \begin{itemize}
-  \item \texttt{problem.txt} --- normalized statement with ASCII LaTeX in
+  \item \texttt{problem.txt} --- normalized statement with ASCII \LaTeX \ in
     \texttt{\$...\$};
   \item \texttt{plan.json} --- teacher plan (version~2);
   \item \texttt{verify.json} --- local check summary;
@@ -198,7 +198,7 @@ are tagged by \texttt{tool} and validated against a closed catalog
 
 The system prompt forbids animation design language: the model must not
 mention Manim, colors, camera angles, or frame timing. Mathematical hygiene
-rules require ASCII LaTeX (no Unicode glyphs such as $\mu$ or $\phi$ written
+rules require ASCII \LaTeX \ (no Unicode glyphs such as $\mu$ or $\phi$ written
 as code points) and consistent dollar wrapping in prose fields. Pure formula
 fields omit surrounding dollars so that Manim's \texttt{MathTex} path remains
 unambiguous.
@@ -322,8 +322,7 @@ deterministic educational animation. A language model teaches; local visual
 tools compile and Manim renders. The resulting pipeline produces short lesson
 videos across arithmetic, algebra, calculus, proof, and selected quantum
 field theory topics without asking the model to write animation code. Source
-code, examples, and this manuscript are available in the accompanying
-repository.
+code and examples are available in the accompanying repository.
 
 \section*{Software}
 
@@ -345,10 +344,7 @@ From the project root,
 uv sync
 cp .env.example .env   # set ANTHROPIC_API_KEY
 uv run cinemath solve examples/04_quadratic.txt
-latexmk -pdf -cd docs/cinemath_showcase_report.tex
 \end{verbatim}
-The compiled PDF is \path{docs/cinemath_showcase_report.pdf}. Figure~1 is
-drawn with Ti\textit{k}Z and does not require external image assets.
 
 \bibliographystyle{unsrtnat}
 \bibliography{references}
