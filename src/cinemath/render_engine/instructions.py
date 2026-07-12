@@ -14,8 +14,8 @@ from typing import Any
 
 from manim import DOWN, RIGHT, UP, FadeIn, FadeOut, VMobject
 
-from mathanim.render_engine.sanitize import unicode_math_char
-from mathanim.render_engine.texutil import escape_latex_text
+from cinemath.render_engine.sanitize import unicode_math_char
+from cinemath.render_engine.texutil import escape_latex_text
 
 # Manim frame is ~14.2 wide (±7.1). Leave side margins.
 _FULL_MAX_W = 12.6

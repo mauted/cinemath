@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from mathanim.render_engine import graph_2d, graph_3d
+from cinemath.render_engine import graph_2d, graph_3d
 
 from . import dsl
 from .board import equation_board_scene

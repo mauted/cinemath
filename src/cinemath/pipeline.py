@@ -9,13 +9,13 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 
-from mathanim.ingest import load_problem
-from mathanim.llm import extract_problem_text, generate_teacher_plan
-from mathanim.render_engine.builder import write_scene_module
-from mathanim.render_engine.render import copy_animation, render_scene
-from mathanim.render_engine.validate import validate_animation
-from mathanim.templates import compile_plan
-from mathanim.verify import verify_plan
+from cinemath.ingest import load_problem
+from cinemath.llm import extract_problem_text, generate_teacher_plan
+from cinemath.render_engine.builder import write_scene_module
+from cinemath.render_engine.render import copy_animation, render_scene
+from cinemath.render_engine.validate import validate_animation
+from cinemath.templates import compile_plan
+from cinemath.verify import verify_plan
 
 
 @dataclass(frozen=True)
@@ -33,7 +33,7 @@ def _slug(text: str, *, max_len: int = 40) -> str:
 
 
 def _output_root() -> Path:
-    override = os.environ.get("MATHANIM_OUTPUT_DIR")
+    override = os.environ.get("CINEMATH_OUTPUT_DIR")
     if override:
         return Path(override).expanduser().resolve()
     return Path.cwd() / "outputs"

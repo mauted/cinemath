@@ -6,7 +6,7 @@ from typing import Any
 
 from manim import DOWN, RIGHT, UP, Axes, Dot, VGroup, VMobject
 
-from mathanim.render_engine.validate import compile_expr
+from cinemath.render_engine.validate import compile_expr
 
 # Default plot footprint (leaves room for a title label + caption).
 PLOT_AT = [0.0, -0.9]
@@ -301,7 +301,7 @@ def build_flow_field(obj: dict[str, Any], axes: Axes, *, color: Any) -> VMobject
     """Sample a 2D arrow field for RG flow ``(beta_x(x,y), beta_y(x,y))``."""
     from manim import Arrow
 
-    from mathanim.render_engine.validate import compile_expr2
+    from cinemath.render_engine.validate import compile_expr2
 
     fx = compile_expr2(obj["beta_x"])
     fy = compile_expr2(obj["beta_y"])

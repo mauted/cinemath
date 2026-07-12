@@ -29,12 +29,12 @@ tool list instead of one hard-coded problem type. In practice that means:
 | 15 | `15_long_subtraction.txt` | Long subtraction (with borrowing) |
 
 ```bash
-uv run mathanim solve examples/01_watermelons.txt
+uv run cinemath solve examples/01_watermelons.txt
 # …
-uv run mathanim solve examples/10_scalar_decay.md
-uv run mathanim solve examples/11_long_multiplication.txt
-uv run mathanim solve examples/12_long_division.txt
-uv run mathanim solve examples/13_decimal_multiplication.txt
-uv run mathanim solve examples/14_long_addition.txt
-uv run mathanim solve examples/15_long_subtraction.txt
+uv run cinemath solve examples/10_scalar_decay.md
+uv run cinemath solve examples/11_long_multiplication.txt
+uv run cinemath solve examples/12_long_division.txt
+uv run cinemath solve examples/13_decimal_multiplication.txt
+uv run cinemath solve examples/14_long_addition.txt
+uv run cinemath solve examples/15_long_subtraction.txt
 ```

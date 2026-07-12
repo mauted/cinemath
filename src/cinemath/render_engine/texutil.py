@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from manim import Tex, VMobject
 
-from mathanim.render_engine.sanitize import to_plain_tex_text
+from cinemath.render_engine.sanitize import to_plain_tex_text
 
 _ESCAPE = {
     "\\": r"\textbackslash{}",
@@ -43,6 +43,6 @@ def caption_tex(
     width_cm: float = 10.0,
 ) -> VMobject:
     """Deprecated helper — prefer ``instructions.build_instruction`` + place."""
-    from mathanim.render_engine.instructions import build_instruction
+    from cinemath.render_engine.instructions import build_instruction
 
     return build_instruction(text, color=color or "#888888", font_size=font_size)

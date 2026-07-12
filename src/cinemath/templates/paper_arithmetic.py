@@ -4,15 +4,15 @@ from __future__ import annotations
 
 from typing import Any, Callable
 
-from mathanim.arithmetic import (
+from cinemath.arithmetic import (
     analyze_long_addition,
     analyze_long_division,
     analyze_long_multiplication,
     analyze_long_subtraction,
     split_decimal_parts,
 )
-from mathanim.templates import dsl
-from mathanim.templates.narration import read_wait, step_narration
+from cinemath.templates import dsl
+from cinemath.templates.narration import read_wait, step_narration
 
 DIGIT_W = 0.58
 ROW_H = 0.58

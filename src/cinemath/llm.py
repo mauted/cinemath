@@ -9,10 +9,10 @@ from typing import Any
 
 from anthropic import Anthropic
 
-from mathanim.arithmetic import ARITHMETIC_TOOLS, run_arithmetic_tool, tool_result_content
-from mathanim.ingest import ProblemInput
-from mathanim.plan import TEACH_SYSTEM
-from mathanim.validate_plan import PlanValidationError, validate_plan
+from cinemath.arithmetic import ARITHMETIC_TOOLS, run_arithmetic_tool, tool_result_content
+from cinemath.ingest import ProblemInput
+from cinemath.plan import TEACH_SYSTEM
+from cinemath.validate_plan import PlanValidationError, validate_plan
 
 DEFAULT_MODEL = "claude-sonnet-5"
 _MAX_TOOL_ROUNDS = 6

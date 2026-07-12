@@ -20,7 +20,7 @@ from manim import (
     VMobject,
 )
 
-from mathanim.render_engine.sanitize import to_math_tex
+from cinemath.render_engine.sanitize import to_math_tex
 
 # Tree decay + one-loop layouts used by QFT tools.
 PROCESSES = frozenset(

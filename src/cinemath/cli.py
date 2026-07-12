@@ -1,4 +1,4 @@
-"""CLI: `mathanim solve <input>`."""
+"""CLI: `cinemath solve <input>`."""
 
 from __future__ import annotations
 
@@ -8,11 +8,11 @@ from typing import Optional
 import typer
 from dotenv import load_dotenv
 
-from mathanim import __version__
-from mathanim.pipeline import run_pipeline
+from cinemath import __version__
+from cinemath.pipeline import run_pipeline
 
 app = typer.Typer(
-    name="mathanim",
+    name="cinemath",
     help="LLM teaches the math; local templates build the Manim animation.",
     add_completion=False,
     no_args_is_help=True,

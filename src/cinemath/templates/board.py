@@ -8,8 +8,8 @@ from __future__ import annotations
 
 from typing import Any
 
-from mathanim.templates import dsl
-from mathanim.templates.narration import read_wait, step_narration
+from cinemath.templates import dsl
+from cinemath.templates.narration import read_wait, step_narration
 
 
 def equation_board_scene(

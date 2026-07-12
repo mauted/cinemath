@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from typing import Any
 
-from mathanim.arithmetic import normalize_numeric_literal
-from mathanim.plan import PLAN_VERSION, VISUAL_TOOLS
+from cinemath.arithmetic import normalize_numeric_literal
+from cinemath.plan import PLAN_VERSION, VISUAL_TOOLS
 
 
 class PlanValidationError(ValueError):
@@ -186,7 +186,7 @@ def _validate_visual_call(index: int, raw: Any) -> dict[str, Any]:
         }
 
     if tool == "feynman_loop":
-        from mathanim.render_engine.feynman import PROCESSES
+        from cinemath.render_engine.feynman import PROCESSES
 
         process = str(raw.get("process") or "").strip()
         allowed = PROCESSES - {"1_to_2"}
@@ -206,7 +206,7 @@ def _validate_visual_call(index: int, raw: Any) -> dict[str, Any]:
         }
 
     if tool == "rg_flow_2d":
-        from mathanim.render_engine.validate import _safe_expr
+        from cinemath.render_engine.validate import _safe_expr
 
         beta_x = _require_string(raw, "beta_x", f"visuals[{index}].beta_x")
         beta_y = _require_string(raw, "beta_y", f"visuals[{index}].beta_y")

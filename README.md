@@ -1,4 +1,4 @@
-# mathanim
+# cinemath
 
 CLI that turns a math problem into a short educational Manim animation.
 
@@ -20,7 +20,7 @@ Graphs live in **`graph_2d.py`** / **`graph_3d.py`**: auto axis ranges, filled r
 ## Setup
 
 ```bash
-cd mathanim
+cd cinemath
 brew install cairo pkg-config   # once, for Manim
 uv sync
 cp .env.example .env            # set ANTHROPIC_API_KEY
@@ -29,10 +29,10 @@ cp .env.example .env            # set ANTHROPIC_API_KEY
 ## Usage
 
 ```bash
-uv run mathanim solve examples/01_watermelons.txt
-uv run mathanim solve examples/07_double_integral.md
-uv run mathanim solve examples/10_scalar_decay.md
-uv run mathanim solve path/to/photo.png
+uv run cinemath solve examples/01_watermelons.txt
+uv run cinemath solve examples/07_double_integral.md
+uv run cinemath solve examples/10_scalar_decay.md
+uv run cinemath solve path/to/photo.png
 ```
 
 See [`examples/README.md`](examples/README.md) for the full **10-level** difficulty ladder (arithmetic → QFT).

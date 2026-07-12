@@ -6,7 +6,7 @@ from typing import Any
 
 from manim import DEGREES, DOWN, FadeIn, ThreeDAxes, ThreeDScene, VMobject
 
-from mathanim.render_engine.validate import compile_expr2
+from cinemath.render_engine.validate import compile_expr2
 
 SURFACE_RESOLUTION = 28
 DEFAULT_PHI = 70.0

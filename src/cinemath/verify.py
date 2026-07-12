@@ -6,7 +6,7 @@ from typing import Any
 
 import sympy as sp
 
-from mathanim.arithmetic import (
+from cinemath.arithmetic import (
     analyze_long_addition,
     analyze_long_division,
     analyze_long_multiplication,

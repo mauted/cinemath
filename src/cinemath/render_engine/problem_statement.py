@@ -6,7 +6,7 @@ from typing import Any
 
 from manim import ORIGIN, VMobject, Write
 
-from mathanim.render_engine.instructions import format_instruction_body
+from cinemath.render_engine.instructions import format_instruction_body
 
 _FONT_SIZE = 30
 _PARBOX_CM = 12.0

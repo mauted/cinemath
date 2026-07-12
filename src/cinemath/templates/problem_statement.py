@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from mathanim.templates import dsl
-from mathanim.templates.narration import read_wait
+from cinemath.templates import dsl
+from cinemath.templates.narration import read_wait
 
 
 def problem_statement_scene(problem: str) -> dict[str, object]:

@@ -6,7 +6,7 @@ import ast
 import operator
 from typing import Any
 
-from mathanim.render_engine import COLORS
+from cinemath.render_engine import COLORS
 
 OBJECT_TYPES = frozenset(
     {
@@ -204,7 +204,7 @@ def _object(obj: Any, sid: str, index: int) -> dict[str, Any]:
         out["x_range"] = _range3(obj.get("x_range", [-5, 5, 1]))
         out["length"] = float(obj.get("length", 8))
     elif otype == "feynman":
-        from mathanim.render_engine.feynman import PROCESSES
+        from cinemath.render_engine.feynman import PROCESSES
 
         process = obj.get("process", "1_to_2")
         if process not in PROCESSES:

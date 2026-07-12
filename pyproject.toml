@@ -1,5 +1,5 @@
 [project]
-name = "mathanim"
+name = "cinemath"
 version = "0.2.0"
 description = "CLI: LLM teaches the math; local templates build the Manim animation."
 readme = "README.md"
@@ -17,7 +17,7 @@ dependencies = [
 ]
 
 [project.scripts]
-mathanim = "mathanim.cli:app"
+cinemath = "cinemath.cli:app"
 
 [build-system]
 requires = ["uv_build>=0.9.27,<0.10.0"]

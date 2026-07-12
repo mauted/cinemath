@@ -31,15 +31,15 @@ from manim import (
     VMobject,
 )
 
-from mathanim.render_engine import COLORS
-from mathanim.render_engine import feynman as feynman_mod
-from mathanim.render_engine import graph_2d, graph_3d
-from mathanim.render_engine import instructions as instr
-from mathanim.render_engine import problem_statement as stmt
-from mathanim.render_engine.equation_chain import EquationChain
-from mathanim.render_engine.sanitize import to_math_tex
-from mathanim.render_engine.texutil import plain_tex
-from mathanim.render_engine.validate import validate_animation
+from cinemath.render_engine import COLORS
+from cinemath.render_engine import feynman as feynman_mod
+from cinemath.render_engine import graph_2d, graph_3d
+from cinemath.render_engine import instructions as instr
+from cinemath.render_engine import problem_statement as stmt
+from cinemath.render_engine.equation_chain import EquationChain
+from cinemath.render_engine.sanitize import to_math_tex
+from cinemath.render_engine.texutil import plain_tex
+from cinemath.render_engine.validate import validate_animation
 
 _DIRECTION = {"up": UP, "down": DOWN, "left": LEFT, "right": RIGHT}
 _SLOT = {
@@ -80,7 +80,7 @@ _LABEL_TYPES = frozenset({"math", "text", "prose"})
 
 SCENE_WRAPPER = '''\
 """Auto-generated. Source of truth: animation.json"""
-from mathanim.render_engine.builder import ScriptedScene
+from cinemath.render_engine.builder import ScriptedScene
 
 class MathSolution(ScriptedScene):
     pass
