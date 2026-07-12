@@ -4,26 +4,12 @@
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{xcolor}
-\usepackage{listings}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,positioning,fit,calc,shapes.geometric}
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage{float}
 \usepackage{hyperref}
 \usepackage[all]{hypcap}
-
-\lstset{
-  basicstyle=\ttfamily\footnotesize,
-  breaklines=true,
-  frame=single,
-  rulecolor=\color{black!40},
-  framesep=3pt,
-  xleftmargin=0.5em,
-  xrightmargin=0.5em,
-  showstringspaces=false,
-  columns=fullflexible,
-  keepspaces=true
-}
 
 \hypersetup{
   colorlinks=true,
@@ -215,104 +201,142 @@ containing
 \subsection{Worked example: quadratic roots}
 \label{sec:worked}
 
-Figure~\ref{fig:artifact-flow} and Listings~\ref{lst:plan}--\ref{lst:anim}
-walk through a real run of
-\texttt{examples/04\_quadratic.txt}
-($x^{2}-5x+6=0$).
-The teacher returns the abbreviated plan in Listing~\ref{lst:plan}
-(full five-step explanations omitted with ``\texttt{...}'').
-Local verification confirms the claimed roots against SymPy
-(Listing~\ref{lst:verify}). The \texttt{plot\_2d} compiler then expands the
-visual payload into the animation-DSL scene in Listing~\ref{lst:anim}, which
-Manim renders as the parabola / root markers in Figure~\ref{fig:artifact-frames}(b).
+Figure~\ref{fig:artifact-shapes} summarizes the on-disk contract for a real run of
+\texttt{examples/04\_quadratic.txt} ($x^{2}-5x+6=0$).
+The LLM writes only \texttt{plan.json}; local stages emit
+\texttt{verify.json} and \texttt{animation.json}, then Manim produces
+\texttt{animation.mp4}. The JSON chips show \emph{shape}, not full payloads.
+Figure~\ref{fig:artifact-frames} shows four frames from that same video.
 
 \begin{figure}[H]
 \centering
+\resizebox{\textwidth}{!}{%
 \begin{tikzpicture}[
-  font=\sffamily\footnotesize,
+  font=\sffamily\scriptsize,
   >=Latex,
-  box/.style={
-    draw=black!65, rounded corners=2pt, align=center,
-    inner sep=5pt, minimum height=0.85cm, minimum width=2.15cm,
-    fill=black!3
+  card/.style={
+    draw=black!55, rounded corners=3pt,
+    inner sep=0pt, minimum width=3.55cm, minimum height=3.35cm,
+    fill=black!2
   },
-  file/.style={
-    draw=black!50, dashed, rounded corners=1.5pt, align=center,
-    inner sep=3pt, font=\ttfamily\scriptsize, fill=white
-  },
-  arr/.style={->, thick, black!65}
+  arr/.style={->, very thick, black!60},
+  lbl/.style={font=\ttfamily\bfseries\tiny},
+  chip/.style={
+    align=left, font=\ttfamily\tiny,
+    text width=3.15cm
+  }
 ]
-  \node[box] (in) {Input\\[-0.1em]{\scriptsize\texttt{04\_quadratic.txt}}};
-  \node[box, right=0.55cm of in, fill=blue!10] (teach) {Teach\\[-0.1em]{\scriptsize LLM}};
-  \node[file, right=0.55cm of teach] (plan) {plan.json};
-  \node[box, right=0.55cm of plan, fill=green!10] (verify) {Verify};
-  \node[file, below=0.55cm of verify] (verj) {verify.json};
-  \node[box, right=0.55cm of verify, fill=green!10] (compile) {Compile};
-  \node[file, below=0.55cm of compile] (anim) {animation.json};
-  \node[box, right=0.55cm of compile, fill=green!10] (render) {Render};
-  \node[file, below=0.55cm of render] (mp4) {animation.mp4};
+  % --- problem ---
+  \node[card] (c1) {};
+  \node[anchor=north, lbl, blue!50!black] at ([yshift=-0.18cm]c1.north) {problem.txt};
+  \node[anchor=north] at ([yshift=-0.55cm]c1.north) {
+    \tikz\draw[fill=blue!8, draw=black!50, rounded corners=1pt]
+      (0,0) rectangle (0.7,0.85) node[midway,font=\tiny\bfseries\ttfamily] {TXT};
+  };
+  \node[chip, anchor=north] at ([yshift=-1.55cm]c1.north) {%
+    Solve for $x^{2}-5x+6=0$
+  };
 
-  \draw[arr] (in) -- (teach);
-  \draw[arr] (teach) -- (plan);
-  \draw[arr] (plan) -- (verify);
-  \draw[arr] (verify) -- (compile);
-  \draw[arr] (compile) -- (render);
-  \draw[arr] (verify) -- (verj);
-  \draw[arr] (compile) -- (anim);
-  \draw[arr] (render) -- (mp4);
-\end{tikzpicture}
-\caption{Artifact flow for the quadratic example. Blue is LLM-authored JSON;
-green stages are local. Excerpt files used below live under
-\texttt{docs/examples/quadratic/}.}
-\label{fig:artifact-flow}
+  % --- plan ---
+  \node[card, right=0.55cm of c1, fill=blue!6] (c2) {};
+  \node[anchor=north, lbl, blue!50!black] at ([yshift=-0.18cm]c2.north) {plan.json};
+  \node[anchor=north] at ([yshift=-0.55cm]c2.north) {
+    \tikz\draw[fill=blue!12, draw=black!50, rounded corners=1pt]
+      (0,0) rectangle (0.7,0.85) node[midway,font=\tiny\bfseries\ttfamily] {JSON};
+  };
+  \node[chip, anchor=north] at ([yshift=-1.55cm]c2.north) {%
+    \{ version, problem,\\
+    \phantom{\{} answer, steps[],\\
+    \phantom{\{} visuals:[\\
+    \phantom{\{\{} \{tool: plot\_2d,\\
+    \phantom{\{\{\{} roots:[2,3]\},\\
+    \phantom{\{\{} \{tool: equation\_board\},\\
+    \phantom{\{\{} \{tool: show\_answer\} ] \}
+  };
+
+  % --- verify ---
+  \node[card, right=0.55cm of c2, fill=green!6] (c3) {};
+  \node[anchor=north, lbl, green!40!black] at ([yshift=-0.18cm]c3.north) {verify.json};
+  \node[anchor=north] at ([yshift=-0.55cm]c3.north) {
+    \tikz\draw[fill=green!12, draw=black!50, rounded corners=1pt]
+      (0,0) rectangle (0.7,0.85) node[midway,font=\tiny\bfseries\ttfamily] {JSON};
+  };
+  \node[chip, anchor=north] at ([yshift=-1.55cm]c3.north) {%
+    \{ ok: true,\\
+    \phantom{\{} tools: [plot\_2d,\ldots],\\
+    \phantom{\{} computed\_roots:\\
+    \phantom{\{\{} [2.0, 3.0] \}
+  };
+
+  % --- animation ---
+  \node[card, right=0.55cm of c3, fill=green!6] (c4) {};
+  \node[anchor=north, lbl, green!40!black] at ([yshift=-0.18cm]c4.north) {animation.json};
+  \node[anchor=north] at ([yshift=-0.55cm]c4.north) {
+    \tikz\draw[fill=green!12, draw=black!50, rounded corners=1pt]
+      (0,0) rectangle (0.7,0.85) node[midway,font=\tiny\bfseries\ttfamily] {JSON};
+  };
+  \node[chip, anchor=north] at ([yshift=-1.55cm]c4.north) {%
+    \{ scenes:[\\
+    \phantom{\{} \{ objects:\\
+    \phantom{\{\{} [math, axes,\\
+    \phantom{\{\{\{} plot, dot, dot],\\
+    \phantom{\{\{} actions:[write,\ldots] \} ] \}
+  };
+
+  % --- mp4 ---
+  \node[card, right=0.55cm of c4, fill=green!6] (c5) {};
+  \node[anchor=north, lbl, green!40!black] at ([yshift=-0.18cm]c5.north) {animation.mp4};
+  \node[anchor=north] at ([yshift=-0.55cm]c5.north) {
+    \tikz{
+      \draw[fill=black!80, rounded corners=1pt] (0,0) rectangle (0.95,0.7);
+      \fill[white] (0.35,0.2) -- (0.35,0.5) -- (0.7,0.35) -- cycle;
+    }
+  };
+  \node[chip, anchor=north] at ([yshift=-1.55cm]c5.north) {%
+    Manim video\\
+    problem $\to$ plot\\
+    $\to$ board $\to$ answer
+  };
+
+  \draw[arr] (c1) -- (c2);
+  \draw[arr] (c2) -- (c3);
+  \draw[arr] (c3) -- (c4);
+  \draw[arr] (c4) -- (c5);
+
+  \node[font=\tiny\itshape, text=black!55, anchor=west]
+    at ([yshift=0.35cm]c1.north west) {blue = LLM artifact \quad green = local artifact};
+\end{tikzpicture}%
+}
+\caption{Quadratic run as pictographs. Chips sketch the JSON \emph{shape}
+(keys / tool names), not complete file contents.}
+\label{fig:artifact-shapes}
 \end{figure}
 
-\lstinputlisting[
-  caption={Abbreviated teacher \texttt{plan.json} (visuals retained in full).},
-  label={lst:plan}
-]{examples/quadratic/plan.json}
-
-\lstinputlisting[
-  caption={Local \texttt{verify.json}: SymPy agrees with the claimed roots.},
-  label={lst:verify}
-]{examples/quadratic/verify.json}
-
-\lstinputlisting[
-  caption={Compiled \texttt{plot\_2d} scene from \texttt{animation.json}
-    (axes, curve, and root dots).},
-  label={lst:anim}
-]{examples/quadratic/animation_plot_scene.json}
-
 \begin{figure}[H]
 \centering
 \begin{minipage}[t]{0.48\textwidth}
 \centering
-\includegraphics[width=\linewidth]{figures/ex_problem.jpg}
-\vspace{2pt}
-{\footnotesize (a) Problem-statement beat from \texttt{problem.txt}.}
+\includegraphics[width=\linewidth]{figures/ex_problem.jpg}\\[2pt]
+{\footnotesize (a) Problem beat}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.48\textwidth}
 \centering
-\includegraphics[width=\linewidth]{figures/ex_plot.jpg}
-\vspace{2pt}
-{\footnotesize (b) Frame from the compiled \texttt{plot\_2d} scene.}
+\includegraphics[width=\linewidth]{figures/ex_plot.jpg}\\[2pt]
+{\footnotesize (b) \texttt{plot\_2d} beat}
 \end{minipage}
 
-\vspace{0.5em}
+\vspace{0.35em}
 \begin{minipage}[t]{0.48\textwidth}
 \centering
-\includegraphics[width=\linewidth]{figures/ex_board.jpg}
-\vspace{2pt}
-{\footnotesize (c) Equation board advancing through factoring steps.}
+\includegraphics[width=\linewidth]{figures/ex_board.jpg}\\[2pt]
+{\footnotesize (c) Equation board}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.48\textwidth}
 \centering
-\includegraphics[width=\linewidth]{figures/ex_answer.jpg}
-\vspace{2pt}
-{\footnotesize (d) Final \texttt{show\_answer} beat ($x=2$, $x=3$).}
+\includegraphics[width=\linewidth]{figures/ex_answer.jpg}\\[2pt]
+{\footnotesize (d) Answer beat}
 \end{minipage}
-\caption{Rendered frames from the same quadratic run, in pipeline order.
-Source video: \texttt{outputs/.../animation.mp4}.}
+\caption{Frames from the same quadratic \texttt{animation.mp4}, in order.}
 \label{fig:artifact-frames}
 \end{figure}
 
@@ -405,6 +429,28 @@ computations in pseudoscalar Yukawa theory with qualitative RG-flow sketches
 Figure~\ref{fig:snapshots} shows representative frames from rendered lessons
 across several tool recipes.
 
+\begin{figure}[H]
+\centering
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{0.85}
+\begin{tabular}{@{}c@{\hspace{0.28cm}}c@{}}
+\includegraphics[width=0.40\textwidth]{figures/snap_quadratic.jpg} &
+\includegraphics[width=0.40\textwidth]{figures/snap_integral.jpg} \\
+{\footnotesize (a) Quadratic + \texttt{plot\_2d}} &
+{\footnotesize (b) Double-integral region} \\[0.35em]
+\includegraphics[width=0.40\textwidth]{figures/snap_multiply.jpg} &
+\includegraphics[width=0.40\textwidth]{figures/snap_proof.jpg} \\
+{\footnotesize (c) Paper long multiplication} &
+{\footnotesize (d) Totient proof board} \\[0.35em]
+\includegraphics[width=0.40\textwidth]{figures/snap_decay.jpg} &
+\includegraphics[width=0.40\textwidth]{figures/snap_rg.jpg} \\
+{\footnotesize (e) Tree-level $1\to 2$ decay} &
+{\footnotesize (f) RG flow + one-loop betas}
+\end{tabular}
+\caption{Representative frames from \textsc{Cinemath} lessons (algebra through QFT).}
+\label{fig:snapshots}
+\end{figure}
+
 \begin{table}[H]
 \centering
 \caption{Representative example ladder shipped with the package.}
@@ -422,62 +468,6 @@ Level & Example & Typical visuals \\
 \bottomrule
 \end{tabular}
 \end{table}
-
-\begin{figure}[H]
-\centering
-\begin{minipage}[t]{0.48\textwidth}
-\centering
-\includegraphics[width=\linewidth]{figures/snap_quadratic.jpg}
-\vspace{2pt}
-{\footnotesize (a) Quadratic roots with \texttt{plot\_2d} and equation board.}
-\end{minipage}\hfill
-\begin{minipage}[t]{0.48\textwidth}
-\centering
-\includegraphics[width=\linewidth]{figures/snap_integral.jpg}
-\vspace{2pt}
-{\footnotesize (b) Rectangular region with iterated double-integral board.}
-\end{minipage}
-
-\vspace{0.55em}
-\begin{minipage}[t]{0.48\textwidth}
-\centering
-\includegraphics[width=\linewidth]{figures/snap_multiply.jpg}
-\vspace{2pt}
-{\footnotesize (c) Paper long multiplication with carry marks.}
-\end{minipage}\hfill
-\begin{minipage}[t]{0.48\textwidth}
-\centering
-\includegraphics[width=\linewidth]{figures/snap_proof.jpg}
-\vspace{2pt}
-{\footnotesize (d) Totient identity with claim opener and derivation board.}
-\end{minipage}
-
-\vspace{0.55em}
-\begin{minipage}[t]{0.48\textwidth}
-\centering
-\includegraphics[width=\linewidth]{figures/snap_decay.jpg}
-\vspace{2pt}
-{\footnotesize (e) Tree-level $1\to 2$ decay diagram and interaction term.}
-\end{minipage}\hfill
-\begin{minipage}[t]{0.48\textwidth}
-\centering
-\includegraphics[width=\linewidth]{figures/snap_yukawa.jpg}
-\vspace{2pt}
-{\footnotesize (f) Yukawa Lagrangian with one-loop triangle layout.}
-\end{minipage}
-
-\vspace{0.55em}
-\begin{minipage}[t]{0.72\textwidth}
-\centering
-\includegraphics[width=\linewidth]{figures/snap_rg.jpg}
-\vspace{2pt}
-{\footnotesize (g) RG flow field $(\beta_\lambda,\beta_g)$ with highlighted one-loop betas.}
-\end{minipage}
-\caption{Frames from Manim lessons produced by \textsc{Cinemath}. Each panel is a
-snapshot from a complete \texttt{animation.mp4} spanning algebra, calculus,
-arithmetic, proof, and QFT visual tools.}
-\label{fig:snapshots}
-\end{figure}
 
 \section{Discussion}
 
