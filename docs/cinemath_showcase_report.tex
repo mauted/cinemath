@@ -94,72 +94,82 @@ together with a Markdown lesson transcript.
 
 \begin{figure}[H]
 \centering
+\resizebox{\textwidth}{!}{%
 \begin{tikzpicture}[
   font=\sffamily\small,
-  box/.style={
-    draw=black!70,
-    rounded corners=2pt,
+  >=Latex,
+  node distance=0.55cm and 0.5cm,
+  stage/.style={
+    draw=black!65,
+    rounded corners=2.5pt,
     align=center,
-    inner sep=6pt,
-    minimum height=1.05cm,
-    minimum width=2.55cm,
-    fill=black!3
+    inner xsep=6pt,
+    inner ysep=5pt,
+    minimum height=1.0cm,
+    minimum width=2.5cm,
+    fill=black!4
   },
-  llm/.style={box, fill=blue!8},
-  local/.style={box, fill=green!8},
-  artifact/.style={
+  llm/.style={stage, fill=blue!10},
+  local/.style={stage, fill=green!10},
+  file/.style={
     draw=black!50,
     dashed,
-    rounded corners=2pt,
+    rounded corners=1.5pt,
     align=center,
-    inner sep=4pt,
-    font=\ttfamily\footnotesize,
+    inner sep=3.5pt,
+    font=\ttfamily\scriptsize,
     fill=white
   },
-  arr/.style={-{Latex[length=2.2mm]}, thick, black!70},
-  note/.style={font=\footnotesize\itshape, text=black!60}
+  arr/.style={->, thick, black!65}
 ]
-  % Row 1: ingest
-  \node[box] (in) {Input\\[.1em]{\footnotesize text / Markdown / image}};
-  \node[llm, right=0.55cm of in] (extract) {Extract\\statement};
-  \node[llm, right=0.55cm of extract] (teach) {Teach\\plan + visuals};
-  \node[local, right=0.55cm of teach] (arith) {Arithmetic\\tools};
-
-  % Artifacts under teach
-  \node[artifact, below=0.55cm of teach] (plan) {plan.json};
-
-  % Row 2
-  \node[local, below=1.35cm of extract] (verify) {Verify\\SymPy / checks};
-  \node[local, right=0.55cm of verify] (compile) {Compile\\visual tools};
-  \node[local, right=0.55cm of compile] (validate) {Validate\\animation DSL};
-  \node[local, right=0.55cm of validate] (render) {Render\\Manim};
-
-  \node[artifact, below=0.45cm of verify] (ver) {verify.json};
-  \node[artifact, below=0.45cm of compile] (anim) {animation.json};
-  \node[artifact, below=0.45cm of render] (mp4) {animation.mp4};
+  % Top row
+  \node[stage] (in) {Input\\[-0.1em]{\scriptsize text / image}};
+  \node[llm, right=of in] (extract) {Extract\\[-0.1em]{\scriptsize statement}};
+  \node[llm, right=of extract] (teach) {Teach\\[-0.1em]{\scriptsize plan + visuals}};
+  \node[local, right=of teach] (arith) {Arithmetic\\[-0.1em]{\scriptsize tools}};
 
   \draw[arr] (in) -- (extract);
   \draw[arr] (extract) -- (teach);
-  \draw[arr] (teach) -- (arith);
-  \draw[arr] (arith.north) |- ++(0,0.45) -| (teach.north);
+  \draw[arr,<->] (teach) -- (arith);
+
+  % Bridge artifact under teach
+  \node[file, below=0.7cm of teach] (plan) {plan.json};
   \draw[arr] (teach) -- (plan);
-  \draw[arr] (plan) |- (verify);
+
+  % Bottom row, anchored so verify sits under plan
+  \node[local, below=0.7cm of plan] (verify) {Verify\\[-0.1em]{\scriptsize SymPy / checks}};
+  \node[local, right=of verify] (compile) {Compile\\[-0.1em]{\scriptsize visual tools}};
+  \node[local, right=of compile] (validate) {Validate\\[-0.1em]{\scriptsize animation DSL}};
+  \node[local, right=of validate] (render) {Render\\[-0.1em]{\scriptsize Manim}};
+
+  \draw[arr] (plan) -- (verify);
   \draw[arr] (verify) -- (compile);
   \draw[arr] (compile) -- (validate);
   \draw[arr] (validate) -- (render);
+
+  % Output artifacts
+  \node[file, below=0.45cm of verify] (ver) {verify.json};
+  \node[file, below=0.45cm of compile] (anim) {animation.json};
+  \node[file, below=0.45cm of render] (mp4) {animation.mp4};
   \draw[arr] (verify) -- (ver);
   \draw[arr] (compile) -- (anim);
   \draw[arr] (render) -- (mp4);
 
-  \node[note, above=0.15cm of extract] {LLM};
-  \node[note, above=0.15cm of teach] {LLM};
-  \node[note, above=0.15cm of arith] {local};
-  \node[note, above=0.15cm of verify] {local};
-\end{tikzpicture}
-\caption{Cinemath pipeline. Blue-tinted stages may call the language model;
-green-tinted stages are fully local. Dashed boxes are on-disk artifacts written
-for every run. The teacher is allowed to invoke local arithmetic tools before
-emitting the final plan; it never authors Manim scenes.}
+  % Legend
+  \node[anchor=south west, font=\scriptsize, text=black!60]
+    at ([yshift=0.45cm]in.north west) {%
+    {\tikz[baseline=-0.45ex]\fill[blue!10,draw=black!65,rounded corners=1pt]
+      (0,0) rectangle (0.4,0.2);}~~LLM
+    \quad
+    {\tikz[baseline=-0.45ex]\fill[green!10,draw=black!65,rounded corners=1pt]
+      (0,0) rectangle (0.4,0.2);}~~local
+  };
+\end{tikzpicture}%
+}
+\caption{Cinemath pipeline. Blue stages may call the language model; green stages
+are fully local. Dashed boxes are on-disk artifacts written for every run.
+The teacher may call local arithmetic tools before emitting the final plan;
+it never authors Manim scenes.}
 \label{fig:pipeline}
 \end{figure}
 
