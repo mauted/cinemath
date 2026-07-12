@@ -1,0 +1,2 @@
+Bob has 60 watermelons. He gives 15 to Alice and then buys 8 more.
+How many watermelons does Bob have now?

@@ -1,0 +1,2 @@
+A right triangle has legs of length 3 and 4.
+Find the length of the hypotenuse.
