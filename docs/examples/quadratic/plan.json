@@ -1,0 +1,36 @@
+{
+  "version": 2,
+  "problem": "Solve for x: x^2 - 5x + 6 = 0",
+  "answer": "x = 2, x = 3",
+  "steps": [
+    {
+      "title": "Identify the quadratic",
+      "explanation": "This is a quadratic equation in standard form $ax^{2}+bx+c=0$ with $a=1$, $b=-5$, $c=6$.",
+      "math": ["x^2 - 5x + 6 = 0", "a=1,\\; b=-5,\\; c=6"]
+    },
+    {
+      "title": "...",
+      "explanation": "(three more factoring / verification steps omitted)",
+      "math": ["..."]
+    },
+    {
+      "title": "Verify the roots",
+      "explanation": "Check by substitution that both roots satisfy the equation.",
+      "math": ["2^2 - 5(2) + 6 = 0", "3^2 - 5(3) + 6 = 0"]
+    }
+  ],
+  "visuals": [
+    {
+      "tool": "plot_2d",
+      "equation": "x^2 - 5x + 6 = 0",
+      "coefficients": {"a": 1.0, "b": -5.0, "c": 6.0},
+      "roots": [2.0, 3.0]
+    },
+    {"tool": "equation_board"},
+    {
+      "tool": "show_answer",
+      "tex": "x=2,\\; x=3",
+      "caption": "Solutions to the quadratic"
+    }
+  ]
+}

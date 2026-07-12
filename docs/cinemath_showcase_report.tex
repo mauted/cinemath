@@ -3,12 +3,27 @@
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
 \usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{listings}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,positioning,fit,calc,shapes.geometric}
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage{float}
 \usepackage{hyperref}
 \usepackage[all]{hypcap}
+
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true,
+  frame=single,
+  rulecolor=\color{black!40},
+  framesep=3pt,
+  xleftmargin=0.5em,
+  xrightmargin=0.5em,
+  showstringspaces=false,
+  columns=fullflexible,
+  keepspaces=true
+}
 
 \hypersetup{
   colorlinks=true,
@@ -187,7 +202,7 @@ under \texttt{templates/} and \texttt{render\_engine/}.
 Each successful \texttt{cinemath solve} run creates a timestamped directory
 containing
 \begin{itemize}
-  \item \texttt{problem.txt} --- normalized statement with ASCII \LaTeX \ in
+  \item \texttt{problem.txt} --- normalized statement with ASCII \LaTeX\ in
     \texttt{\$...\$};
   \item \texttt{plan.json} --- teacher plan (version~2);
   \item \texttt{verify.json} --- local check summary;
@@ -196,6 +211,110 @@ containing
   \item \texttt{scene.py} / \texttt{animation.mp4} --- Manim entrypoint and
     rendered video.
 \end{itemize}
+
+\subsection{Worked example: quadratic roots}
+\label{sec:worked}
+
+Figure~\ref{fig:artifact-flow} and Listings~\ref{lst:plan}--\ref{lst:anim}
+walk through a real run of
+\texttt{examples/04\_quadratic.txt}
+($x^{2}-5x+6=0$).
+The teacher returns the abbreviated plan in Listing~\ref{lst:plan}
+(full five-step explanations omitted with ``\texttt{...}'').
+Local verification confirms the claimed roots against SymPy
+(Listing~\ref{lst:verify}). The \texttt{plot\_2d} compiler then expands the
+visual payload into the animation-DSL scene in Listing~\ref{lst:anim}, which
+Manim renders as the parabola / root markers in Figure~\ref{fig:artifact-frames}(b).
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  font=\sffamily\footnotesize,
+  >=Latex,
+  box/.style={
+    draw=black!65, rounded corners=2pt, align=center,
+    inner sep=5pt, minimum height=0.85cm, minimum width=2.15cm,
+    fill=black!3
+  },
+  file/.style={
+    draw=black!50, dashed, rounded corners=1.5pt, align=center,
+    inner sep=3pt, font=\ttfamily\scriptsize, fill=white
+  },
+  arr/.style={->, thick, black!65}
+]
+  \node[box] (in) {Input\\[-0.1em]{\scriptsize\texttt{04\_quadratic.txt}}};
+  \node[box, right=0.55cm of in, fill=blue!10] (teach) {Teach\\[-0.1em]{\scriptsize LLM}};
+  \node[file, right=0.55cm of teach] (plan) {plan.json};
+  \node[box, right=0.55cm of plan, fill=green!10] (verify) {Verify};
+  \node[file, below=0.55cm of verify] (verj) {verify.json};
+  \node[box, right=0.55cm of verify, fill=green!10] (compile) {Compile};
+  \node[file, below=0.55cm of compile] (anim) {animation.json};
+  \node[box, right=0.55cm of compile, fill=green!10] (render) {Render};
+  \node[file, below=0.55cm of render] (mp4) {animation.mp4};
+
+  \draw[arr] (in) -- (teach);
+  \draw[arr] (teach) -- (plan);
+  \draw[arr] (plan) -- (verify);
+  \draw[arr] (verify) -- (compile);
+  \draw[arr] (compile) -- (render);
+  \draw[arr] (verify) -- (verj);
+  \draw[arr] (compile) -- (anim);
+  \draw[arr] (render) -- (mp4);
+\end{tikzpicture}
+\caption{Artifact flow for the quadratic example. Blue is LLM-authored JSON;
+green stages are local. Excerpt files used below live under
+\texttt{docs/examples/quadratic/}.}
+\label{fig:artifact-flow}
+\end{figure}
+
+\lstinputlisting[
+  caption={Abbreviated teacher \texttt{plan.json} (visuals retained in full).},
+  label={lst:plan}
+]{examples/quadratic/plan.json}
+
+\lstinputlisting[
+  caption={Local \texttt{verify.json}: SymPy agrees with the claimed roots.},
+  label={lst:verify}
+]{examples/quadratic/verify.json}
+
+\lstinputlisting[
+  caption={Compiled \texttt{plot\_2d} scene from \texttt{animation.json}
+    (axes, curve, and root dots).},
+  label={lst:anim}
+]{examples/quadratic/animation_plot_scene.json}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{figures/ex_problem.jpg}
+\vspace{2pt}
+{\footnotesize (a) Problem-statement beat from \texttt{problem.txt}.}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{figures/ex_plot.jpg}
+\vspace{2pt}
+{\footnotesize (b) Frame from the compiled \texttt{plot\_2d} scene.}
+\end{minipage}
+
+\vspace{0.5em}
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{figures/ex_board.jpg}
+\vspace{2pt}
+{\footnotesize (c) Equation board advancing through factoring steps.}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{figures/ex_answer.jpg}
+\vspace{2pt}
+{\footnotesize (d) Final \texttt{show\_answer} beat ($x=2$, $x=3$).}
+\end{minipage}
+\caption{Rendered frames from the same quadratic run, in pipeline order.
+Source video: \texttt{outputs/.../animation.mp4}.}
+\label{fig:artifact-frames}
+\end{figure}
 
 \section{Teacher plan schema}
 

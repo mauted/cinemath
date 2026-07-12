@@ -1,0 +1,100 @@
+{
+  "id": "plot_2d_0",
+  "caption": "Where the parabola meets the x-axis",
+  "objects": [
+    {
+      "id": "quad_lab_0",
+      "type": "math",
+      "color": "white",
+      "font_size": 34.0,
+      "at": "title",
+      "tex": "y = x^2 - 5x + 6"
+    },
+    {
+      "id": "quad_ax_0",
+      "type": "axes",
+      "color": "white",
+      "at": [
+        0.0,
+        -0.9
+      ],
+      "x_range": [
+        0.0,
+        5.0,
+        1.0
+      ],
+      "y_range": [
+        -2.0,
+        7.0,
+        1.0
+      ],
+      "x_length": 6.5,
+      "y_length": 3.0
+    },
+    {
+      "id": "quad_curve_0",
+      "type": "plot",
+      "color": "blue",
+      "axes": "quad_ax_0",
+      "expr": "1.0*x**2 + (-5.0)*x + (6.0)",
+      "x_range": [
+        0.05,
+        4.95
+      ],
+      "shade": "none"
+    },
+    {
+      "id": "quad_root_0_0",
+      "type": "dot",
+      "color": "red",
+      "at": [
+        2.0,
+        0.0
+      ],
+      "axes": "quad_ax_0"
+    },
+    {
+      "id": "quad_root_0_1",
+      "type": "dot",
+      "color": "red",
+      "at": [
+        3.0,
+        0.0
+      ],
+      "axes": "quad_ax_0"
+    }
+  ],
+  "actions": [
+    {
+      "op": "write",
+      "targets": [
+        "quad_lab_0"
+      ]
+    },
+    {
+      "op": "create",
+      "targets": [
+        "quad_ax_0",
+        "quad_curve_0"
+      ]
+    },
+    {
+      "op": "fade_in",
+      "targets": [
+        "quad_root_0_0",
+        "quad_root_0_1"
+      ]
+    },
+    {
+      "op": "indicate",
+      "targets": [
+        "quad_root_0_0",
+        "quad_root_0_1"
+      ]
+    },
+    {
+      "op": "wait",
+      "seconds": 0.8
+    }
+  ]
+}
