@@ -1,0 +1,8 @@
+# Section 10.15 : Power Series and Functions (problem 5)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/PowerSeriesandFunctions.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/PowerSeriesandFunctions/Prob5.aspxSolution
+    
+
+Evaluate
+
+$Give a power series representation for the integral of the following function. \[h\left x \right = \frac{{x^{4}}}{{9 + x^{2}}}\]$

@@ -1,0 +1,7 @@
+# Section 12.4 : Quadric Surfaces (problem 2)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/QuadricSurfaces.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/QuadricSurfaces/Prob2.aspxSolution
+
+Evaluate
+
+$\frac{{x^{2}}}4 + \frac{{y^{2}}}9 + \frac{{z^{2}}}6 = 1$

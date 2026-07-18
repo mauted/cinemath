@@ -1,0 +1,7 @@
+# Section 15.8 : Change of Variables (problem 10)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/ChangeOfVariables.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ChangeOfVariables/Prob10.aspxSolution
+
+Evaluate
+
+$Derive the transformation used in problem 8.$

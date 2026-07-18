@@ -1,0 +1,6 @@
+# Section 13.3 : Interpretations of Partial Derivatives (problem 2)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/PartialDerivInterp.aspx
+
+Evaluate
+
+$we allow y to vary and hold x fixed.$

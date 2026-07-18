@@ -1,0 +1,7 @@
+# Section 9.7 : Tangents with Polar Coordinates (problem 1)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/PolarTangents.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/PolarTangents/Prob1.aspxSolution
+
+Evaluate
+
+$Find the tangent line to r = \sin 4\theta \right\cos \left \theta \right at \theta = \frac\pi 6.$

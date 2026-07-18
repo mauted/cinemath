@@ -1,0 +1,7 @@
+# Section 9.3 : Area with Parametric Equations (problem 1)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ParaArea.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ParaArea/Prob1.aspxSolution
+
+Evaluate
+
+$x = 4t^{3} - t^{2}\hspace0.25in y = t^{4} + 2t^{2}\hspace0.25in1 \le t \le 3$

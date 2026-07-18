@@ -25,3 +25,13 @@ build-backend = "uv_build"
 
 [tool.uv]
 package = true
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+pythonpath = ["tests"]
+testpaths = ["tests"]
+markers = [
+    "e2e: live LLM pipeline tests (requires ANTHROPIC_API_KEY)",
+]

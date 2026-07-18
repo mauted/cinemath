@@ -1,0 +1,7 @@
+# Section 11.3 : Dot Product (problem 11)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/DotProduct.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/DotProduct/Prob11.aspxSolution
+
+Evaluate
+
+$Determine the direction cosines and direction angles for \vec r = \left\langle { - 3, - \frac14,1} \right\rangle .$

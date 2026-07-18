@@ -1,0 +1,7 @@
+# Section 13.4 : Higher Order Partial Derivatives (problem 4)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/HighOrderPartialDerivs.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/HighOrderPartialDerivs/Prob4.aspxSolution
+
+Evaluate
+
+$fs,t \right = s^{2}t + \ln {t^{2} - s} \right$

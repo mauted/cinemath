@@ -1,0 +1,8 @@
+# Section 13.6 : Chain Rule (problem 11)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/ChainRule.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ChainRule/Prob11.aspxSolution
+    
+
+Evaluate
+
+$Determine {f_u\,u} for the following situation. \[f = fx,y \right\hspace0.5inx = u^{2} + 3v,\,\,\,\,\,\,\,y = uv\]$

@@ -1,0 +1,7 @@
+# Section 15.4 : Double Integrals in Polar Coordinates (problem 3)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/DIPolarCoords.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/DIPolarCoords/Prob3.aspxSolution
+
+Evaluate
+
+$Evaluate \iint\limits_D{4xy - 7\,dA} where D is the portion of x^{2} + y^{2} = 2 in the 1st quadrant.$

@@ -1,0 +1,7 @@
+# Section 9.1 : Parametric Equations and Curves (problem 14)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ParametricEqn.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ParametricEqn/Prob10.aspxSolution
+
+Evaluate
+
+$x = 2e^t\hspace0.5iny = \cos {1 + {e^{3}t}} \right \hspace0.5in 0 \le t \le \frac34$

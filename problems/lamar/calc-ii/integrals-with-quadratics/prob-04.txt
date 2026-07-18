@@ -1,0 +1,7 @@
+# Section 7.6 : Integrals Involving Quadratics (problem 4)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/IntegralsWithQuadratics.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/IntegralsWithQuadratics/Prob4.aspxSolution
+
+Evaluate
+
+$\int{{\frac{3z}{{{{{1 - 4z - 2z^{2}} }^{2}}}}\,dz}}$

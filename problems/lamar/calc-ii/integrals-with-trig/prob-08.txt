@@ -1,0 +1,7 @@
+# Section 7.2 : Integrals Involving Trig Functions (problem 8)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/IntegralsWithTrig.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/IntegralsWithTrig/Prob8.aspxSolution
+
+Evaluate
+
+$\int{{\cos 3t \right\sin 8t \right\,dt}}$

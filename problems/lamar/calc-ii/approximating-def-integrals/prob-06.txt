@@ -1,0 +1,7 @@
+# Section 7.10 : Approximating Definite Integrals (problem 6)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ApproximatingDefIntegrals.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ApproximatingDefIntegrals/Prob3.aspxSolution
+
+Evaluate
+
+$\int_0^{4}{{\cos 1 + \sqrt x \right\,dx}} using n = 8$

@@ -1,0 +1,7 @@
+# Section 7.6 : Integrals Involving Quadratics (problem 3)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/IntegralsWithQuadratics.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/IntegralsWithQuadratics/Prob3.aspxSolution
+
+Evaluate
+
+$\int{{\frac{2t + 9}{{{{{t^{2} - 14t + 46} }^{\frac52}}}}\,dt}}$

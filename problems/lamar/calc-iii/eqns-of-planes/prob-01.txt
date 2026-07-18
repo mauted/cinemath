@@ -1,0 +1,7 @@
+# Section 12.3 : Equations of Planes (problem 1)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/EqnsOfPlanes.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/EqnsOfPlanes/Prob1.aspxSolution
+
+Evaluate
+
+$The plane containing the points 4, - 3,1 \right, - 3, - 1,1 \right and 4, - 2,8 \right.$

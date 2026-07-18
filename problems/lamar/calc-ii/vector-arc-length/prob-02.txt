@@ -1,0 +1,7 @@
+# Section 12.9 : Arc Length with Vector Functions (problem 2)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/VectorArcLength.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/VectorArcLength/Prob2.aspxSolution
+
+Evaluate
+
+$\vec r\left t \right = \left\langle {\frac13t^{3},4t,\sqrt 2 t^{2}} \right\rangle from 0 \le t \le 2.$

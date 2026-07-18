@@ -1,0 +1,7 @@
+# Section 13.4 : Higher Order Partial Derivatives (problem 2)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/HighOrderPartialDerivs.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/HighOrderPartialDerivs/Prob2.aspxSolution
+
+Evaluate
+
+$Ax,y \right = \cos {\fracxy} \right - x^{7}y^{4} + {y^{10}}$

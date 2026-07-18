@@ -1,0 +1,7 @@
+# Section 14.2 : Gradient Vector, Tangent Planes and Normal Lines (problem 1)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/GradientVectorTangentPlane.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/GradientVectorTangentPlane/Prob1.aspxSolution
+
+Evaluate
+
+$Find the tangent plane and normal line to x^{2}y = 4z{e^x + y} - 35 at 3, - 3,2 \right.$

@@ -1,0 +1,7 @@
+# Section 9.1 : Parametric Equations and Curves (problem 18)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ParametricEqn.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ParametricEqn/Prob14.aspxSolution
+
+Evaluate
+
+$\frac{{x^{2}}}4 + \frac{{y^{2}}}49 = 1 and the parametric curve resulting from the parametric equations should be at 0, - 7 \right when t = 0 and the curve should have a clockwise rotation.$

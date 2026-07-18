@@ -1,0 +1,6 @@
+# Section 7.10 : Approximating Definite Integrals (problem 2)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ApproximatingDefIntegrals.aspx
+
+Evaluate
+
+$the Trapezoid Rule, and$

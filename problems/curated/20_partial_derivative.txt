@@ -1,0 +1,3 @@
+# Lamar Calc III style - partial derivative
+
+Let $f(x, y) = x^2 y + \sin(xy)$. Find $\frac{\partial f}{\partial x}$.

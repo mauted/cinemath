@@ -1,0 +1,7 @@
+# Section 7.1 : Integration by Parts (problem 1)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/IntegrationByParts.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/IntegrationByParts/Prob1.aspxSolution
+
+Evaluate
+
+$\int{{4x\cos 2 - 3x \right\,dx}}$

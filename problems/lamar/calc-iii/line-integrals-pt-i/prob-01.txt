@@ -1,0 +1,7 @@
+# Section 16.2 : Line Integrals - Part I (problem 1)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/LineIntegralsPtI.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/LineIntegralsPtI/Prob1.aspxSolution
+
+Evaluate
+
+$Evaluate \int\limits_C{{3x^{2} - 2y\,ds}} where C is the line segment from 3,6 \right to 1, - 1 \right.$

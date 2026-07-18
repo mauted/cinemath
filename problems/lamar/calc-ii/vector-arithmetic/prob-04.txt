@@ -1,0 +1,6 @@
+# Section 11.2 : Vector Arithmetic (problem 4)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/VectorArithmetic.aspx
+
+Evaluate
+
+$- 3\vec v$

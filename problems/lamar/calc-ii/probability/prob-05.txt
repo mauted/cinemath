@@ -1,0 +1,6 @@
+# Section 8.5 : Probability (problem 5)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/Probability.aspx
+
+Evaluate
+
+$Determine the mean value of X.$

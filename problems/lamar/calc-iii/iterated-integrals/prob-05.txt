@@ -1,0 +1,7 @@
+# Section 15.2 : Iterated Integrals (problem 5)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/IteratedIntegrals.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/IteratedIntegrals/Prob5.aspxSolution
+
+Evaluate
+
+$\iint\limits_R{{y{e^{{y^\,2} - 4x}}\,dA}}\hspace0.25in\hspace0.25in\hspace0.25inR = [ 0,2 ] \times [ 0,\sqrt 8 ]$

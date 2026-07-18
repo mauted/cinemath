@@ -1,0 +1,7 @@
+# Section 17.3 : Surface Integrals (problem 1)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/SurfaceIntegrals.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/SurfaceIntegrals/Prob1.aspxSolution
+
+Evaluate
+
+$Evaluate \iint\limits_S{{z + 3y - x^{2}\,dS}} where S is the portion of z = 2 - 3y + x^{2} that lies over the triangle in the xy-plane with vertices 0,0 \right, 2,0 \right and 2, - 4 \right.$

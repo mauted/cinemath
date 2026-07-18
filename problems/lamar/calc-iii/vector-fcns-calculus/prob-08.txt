@@ -1,0 +1,7 @@
+# Section 12.7 : Calculus with Vector Functions (problem 8)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/VectorFcnsCalculus.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/VectorFcnsCalculus/Prob8.aspxSolution
+
+Evaluate
+
+$\int_{- 1}^{2}{\vec r\left t \right\,dt} where \vec r\left t \right = \left\langle {6,6t^{2} - 4t,t{e^{2}t}} \right\rangle$

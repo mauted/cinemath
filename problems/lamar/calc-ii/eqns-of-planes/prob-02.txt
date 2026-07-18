@@ -1,0 +1,7 @@
+# Section 12.3 : Equations of Planes (problem 2)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/EqnsOfPlanes.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/EqnsOfPlanes/Prob2.aspxSolution
+
+Evaluate
+
+$The plane containing the point 3,0, - 4 \right and orthogonal to the line given by \vec r\left t \right = \left\langle 12 - t,1 + 8t,4 + 6t \right\rangle .$

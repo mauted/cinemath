@@ -1,0 +1,7 @@
+# Section 9.8 : Area with Polar Coordinates (problem 3)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/PolarArea.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/PolarArea/Prob3.aspxSolution
+
+Evaluate
+
+$Find the area that is inside r = 3 + 3\sin \theta and outside r = 2.$

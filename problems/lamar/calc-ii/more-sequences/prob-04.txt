@@ -1,0 +1,7 @@
+# Section 10.2 : More on Sequences (problem 4)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/MoreSequences.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/MoreSequences/Prob4.aspxSolution
+
+Evaluate
+
+$\left\{ {\frac{{2n^{2} - 1}}n} \right\}_n = 2^\infty$

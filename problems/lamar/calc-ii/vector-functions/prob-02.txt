@@ -1,0 +1,7 @@
+# Section 12.6 : Vector Functions (problem 2)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/VectorFunctions.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/VectorFunctions/Prob2.aspxSolution
+
+Evaluate
+
+$\vec r\left t \right = \left\langle {\ln {4 - t^{2}} \right,\sqrt t + 1 } \right\rangle$

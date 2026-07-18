@@ -1,0 +1,7 @@
+# Section 13.7 : Directional Derivatives (problem 6)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/DirectionalDeriv.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/DirectionalDeriv/Prob6.aspxSolution
+
+Evaluate
+
+$fx,y \right = \sqrt {x^{2} + y^{4}} at - 2,3 \right$

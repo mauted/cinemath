@@ -1,0 +1,7 @@
+# Section 16.3 : Line Integrals - Part II (problem 1)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/LineIntegralsPtII.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/LineIntegralsPtII/Prob1.aspxSolution
+
+Evaluate
+
+$Evaluate \int\limits_C{{\sqrt 1 + y \,dy}} where C is the portion of y = {e^{2}x} from x = 0 to x = 2.$

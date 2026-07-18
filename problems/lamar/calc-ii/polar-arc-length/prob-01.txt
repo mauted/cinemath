@@ -1,0 +1,8 @@
+# Section 9.9 : Arc Length with Polar Coordinates (problem 1)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/PolarArcLength.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/PolarArcLength/Prob1.aspxSolution
+    
+
+Evaluate
+
+$1. Determine the length of the following polar curve. You may assume that the curve traces out exactly once for the given range of \theta . \[r = - 4\sin \theta , \,\, 0 \le \theta \le \pi \]$

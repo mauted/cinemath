@@ -10,6 +10,8 @@ VISUAL_TOOLS = frozenset(
         "state_claim",
         "show_qed",
         "plot_2d",
+        "plot_lines_2d",
+        "plot_planes_3d",
         "show_region_rectangle",
         "plot_surface_3d",
         "paper_long_multiply",
@@ -30,6 +32,8 @@ TOOL_DOMAINS: dict[str, frozenset[str]] = {
     "state_claim": frozenset({"proof"}),
     "show_qed": frozenset({"proof"}),
     "plot_2d": frozenset({"algebra", "calculus"}),
+    "plot_lines_2d": frozenset({"algebra"}),
+    "plot_planes_3d": frozenset({"algebra"}),
     "show_region_rectangle": frozenset({"calculus"}),
     "plot_surface_3d": frozenset({"calculus"}),
     "paper_long_multiply": frozenset({"arithmetic"}),
@@ -61,7 +65,10 @@ When you are done teaching, respond with ONLY valid JSON (no markdown fences):
     {
       "title": "short board heading a teacher would write",
       "explanation": "1-3 sentences; ALL math in $...$ (ASCII LaTeX only, no unicode)",
-      "math": ["latex expression or equation shown on the board"]
+      "math": ["latex expression or equation shown on the board"],
+      "cases": [
+        {"math": ["optional branch line 1", "optional branch line 2"]}
+      ]
     }
   ],
   "visuals": [
@@ -70,6 +77,8 @@ When you are done teaching, respond with ONLY valid JSON (no markdown fences):
 }
 
 The `visuals` array chooses local visual capabilities. Use the most specific visuals that fit.
+A step may also include optional `cases` when one line splits into parallel branches
+like zero-product or $\\pm$ cases. Each case is its own mini-chain of `math` lines.
 Available visual tools:
 
 1. {"tool": "equation_board"}
@@ -93,6 +102,27 @@ Available visual tools:
    - Use for quadratic equations with a real parabola / real roots.
 
 5. {
+     "tool": "plot_lines_2d",
+     "equations": [
+       {"a": 1, "b": 1, "c": 5},
+       {"a": 1, "b": -1, "c": 1}
+     ],
+     "solution": {"x": 3, "y": 2}
+   }
+   - Two lines ``a x + b y = c`` intersecting at a unique solution (2x2 system).
+
+6. {
+     "tool": "plot_planes_3d",
+     "equations": [
+       {"a": 1, "b": 1, "c": 0, "d": 3},
+       {"a": 0, "b": 1, "c": 1, "d": 5},
+       {"a": 1, "b": 0, "c": 1, "d": 4}
+     ],
+     "solution": {"x": 1, "y": 2, "z": 3}
+   }
+   - Three planes ``a x + b y + c z = d`` meeting at a unique solution (3x3 system).
+
+7. {
      "tool": "show_region_rectangle",
      "integrand": "6*x*y**2",
      "x_min": 2, "x_max": 4, "y_min": 1, "y_max": 2,
@@ -101,14 +131,14 @@ Available visual tools:
    }
    - Use for double integrals over a rectangular region.
 
-6. {
+8. {
      "tool": "plot_surface_3d",
      "integrand": "6*x*y**2",
      "x_min": 2, "x_max": 4, "y_min": 1, "y_max": 2
    }
    - Use with a rectangular double integral when a 3D surface is helpful.
 
-7. {
+9. {
      "tool": "paper_long_multiply",
      "multiplicand": "12.75",
      "multiplier": "3.4",
@@ -116,7 +146,7 @@ Available visual tools:
    }
    - Standard stacked long multiplication.
 
-8. {
+10. {
      "tool": "paper_long_divide",
      "dividend": "9876",
      "divisor": "24",
@@ -124,14 +154,14 @@ Available visual tools:
    }
    - Standard long division.
 
-9. {
+11. {
      "tool": "paper_long_add",
      "addends": ["456.7", "89.25"],
      "sum": "545.95"
    }
    - Standard stacked long addition.
 
-10. {
+12. {
       "tool": "paper_long_subtract",
       "minuend": "1000",
       "subtrahend": "378",
@@ -139,7 +169,7 @@ Available visual tools:
     }
    - Standard stacked long subtraction.
 
-11. {
+13. {
       "tool": "show_lagrangian",
       "interaction": "-\\mu\\Phi\\phi\\phi",
       "condition": "M>2m",
@@ -148,7 +178,7 @@ Available visual tools:
    - Use for QFT Lagrangian / interaction setup. Put the full interaction
      expression in `interaction` (include the leading sign). `caption` is optional.
 
-12. {
+14. {
       "tool": "feynman_1to2",
       "parent": "\\Phi",
       "daughters": ["\\phi", "\\phi"],
@@ -156,7 +186,7 @@ Available visual tools:
     }
    - Use for tree-level 1->2 decay diagrams.
 
-13. {
+15. {
       "tool": "feynman_loop",
       "process": "four_point_loop",
       "labels": {"ul": "\\phi", "ur": "\\phi", "ll": "\\phi", "lr": "\\phi", "loop": "\\psi"},
@@ -169,7 +199,7 @@ Available visual tools:
      - four_point_loop: ul, ur, lr, ll, loop (or ext for all external legs)
      - yukawa_triangle: scalar, in, out, loop
 
-14. {
+16. {
       "tool": "rg_flow_2d",
       "beta_x": "3*x**2/(16*3.1416**2) + x*y**2/(4*3.1416**2)",
       "beta_y": "5*y**3/(16*3.1416**2) + y*x/(4*3.1416**2)",
@@ -183,7 +213,7 @@ Available visual tools:
    - `beta_x` / `beta_y` are safe arithmetic expressions in variables `x` and `y`
      (the plane coordinates). Use ASCII `**` and `*`.
 
-15. {
+17. {
       "tool": "show_answer",
       "tex": "\\tau = 1/\\Gamma",
       "caption": "Lifetime"
@@ -193,6 +223,8 @@ Available visual tools:
 Recommended visual recipes:
 - Generic worked solution: `equation_board`
 - Quadratic with real roots: `plot_2d`, `equation_board`, `show_answer`
+- 2x2 linear system: `plot_lines_2d`, `equation_board`, `show_answer`
+- 3x3 linear system: `plot_planes_3d`, `equation_board`, `show_answer`
 - Double integral over a rectangle: `show_region_rectangle`, `equation_board`,
   `plot_surface_3d`, `show_answer`
 - Proof / identity derivation: `state_claim`, `equation_board`, `show_qed`
@@ -205,6 +237,7 @@ Rules:
 - 3-8 steps. Teach conceptually; show key formulas.
 - `visuals` must be present and non-empty.
 - Include `equation_board` whenever the lesson has algebra / derivation lines to show.
+- Use step-level `cases` when a single equation branches into parallel sub-solutions.
 - For long multiplication / long division / long addition / long subtraction you MUST
   call the matching local arithmetic tool before writing the final JSON. Do NOT invent
   the product, quotient, sum, or difference; copy them from the tool result into both

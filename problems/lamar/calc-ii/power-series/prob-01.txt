@@ -1,0 +1,7 @@
+# Section 10.14 : Power Series (problem 1)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/PowerSeries.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/PowerSeries/Prob1.aspxSolution
+
+Evaluate
+
+$\sum\limits_n = 0^\infty {\frac1{{{{- 3 }^{2} + n}{n^{2} + 1} }}{{4x - 12 }^n}}$

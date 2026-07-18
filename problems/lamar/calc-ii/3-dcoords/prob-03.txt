@@ -1,0 +1,7 @@
+# Section 12.1 : The 3-D Coordinate System (problem 3)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/3DCoords.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/3DCoords/Prob3.aspxSolution
+
+Evaluate
+
+$Which of the points P = - 1,4, - 7 \right and Q = 6, - 1,5 \right is closest to the z-axis?$

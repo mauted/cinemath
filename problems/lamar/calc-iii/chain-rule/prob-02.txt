@@ -1,0 +1,8 @@
+# Section 13.6 : Chain Rule (problem 2)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/ChainRule.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ChainRule/Prob2.aspxSolution
+    
+
+Evaluate
+
+$Given the following information use the Chain Rule to determine \frac{dw}{dt} . \[w = \frac{{x^{2} - z}}{{y^{4}}}\,\hspace0.5inx = t^{3} + 7,\,\,\,\,y = \cos 2t \right,\,\,\,\,z = 4t\]$

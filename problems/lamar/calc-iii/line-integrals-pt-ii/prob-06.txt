@@ -1,0 +1,6 @@
+# Section 16.3 : Line Integrals - Part II (problem 6)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/LineIntegralsPtII.aspx
+
+Evaluate
+
+$C is the portion of the circle of radius 6 in the 1st, 2nd and 3rd quadrant with clockwise rotation.$

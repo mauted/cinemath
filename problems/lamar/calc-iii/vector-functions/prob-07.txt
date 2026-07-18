@@ -1,0 +1,7 @@
+# Section 12.6 : Vector Functions (problem 7)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/VectorFunctions.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/VectorFunctions/Prob7.aspxSolution
+
+Evaluate
+
+$\vec r\left t \right = \left\langle 2 - t,4 + 7t, - 1 - 3t \right\rangle$

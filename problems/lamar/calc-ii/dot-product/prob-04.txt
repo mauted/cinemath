@@ -1,0 +1,7 @@
+# Section 11.3 : Dot Product (problem 4)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/DotProduct.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/DotProduct/Prob4.aspxSolution
+
+Evaluate
+
+$\vec v = \left\langle 1,2,3,4 \right\rangle , \vec w = \left\langle 0, - 1,4, - 2 \right\rangle$

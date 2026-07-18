@@ -1,0 +1,7 @@
+# Section 10.7 : Comparison Test/Limit Comparison Test (problem 9)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/SeriesCompTest.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/SeriesCompTest/Prob9.aspxSolution
+
+Evaluate
+
+$\sum\limits_n = 1^\infty {\frac{{4n^{2} - n}}{{n^{3} + 9}}}$

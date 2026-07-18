@@ -21,6 +21,7 @@ OBJECT_TYPES = frozenset(
         "number_line",
         "axes3d",
         "surface",
+        "plane",
         "polygon",
         "feynman",
         "flow_field",
@@ -39,6 +40,7 @@ ACTION_OPS = frozenset(
         "clear",
         "move_camera",
         "derive",
+        "fork",
         "set_caption",
     }
 )
@@ -93,10 +95,19 @@ def _scene(scene: Any, index: int) -> dict[str, Any]:
         if o["type"] == "polygon":
             if next(x for x in objects if x["id"] == o["axes"])["type"] != "axes":
                 raise AnimValidationError(f"{sid}/{o['id']} polygon needs axes")
+        if o["type"] == "plane":
+            if next(x for x in objects if x["id"] == o["axes"])["type"] != "axes3d":
+                raise AnimValidationError(f"{sid}/{o['id']} plane needs axes3d")
         if o["type"] == "flow_field":
             if next(x for x in objects if x["id"] == o["axes"])["type"] != "axes":
                 raise AnimValidationError(f"{sid}/{o['id']} flow_field needs axes")
-    if any(o["type"] in {"axes3d", "surface"} for o in objects):
+        if o["type"] == "dot" and "axes" in o:
+            axes_type = next(x for x in objects if x["id"] == o["axes"])["type"]
+            if axes_type not in {"axes", "axes3d"}:
+                raise AnimValidationError(f"{sid}/{o['id']} dot needs axes or axes3d")
+            if axes_type == "axes3d" and len(o["at"]) < 3:
+                raise AnimValidationError(f"{sid}/{o['id']} 3d dot needs [x,y,z]")
+    if any(o["type"] in {"axes3d", "surface", "plane"} for o in objects):
         mode = "3d"
     actions = [_action(a, sid, k, ids) for k, a in enumerate(scene.get("actions") or [])]
     if not actions:
@@ -173,6 +184,13 @@ def _object(obj: Any, sid: str, index: int) -> dict[str, Any]:
         out["y_range"] = _range2(obj.get("y_range", [-2, 2]))
         out["opacity"] = float(obj.get("opacity", 0.75))
         out["resolution"] = int(obj.get("resolution", 24))
+    elif otype == "plane":
+        out["axes"] = str(obj["axes"])
+        for key in ("a", "b", "c", "d"):
+            if key not in obj or not isinstance(obj[key], (int, float)):
+                raise AnimValidationError(f"plane needs numeric {key}")
+            out[key] = float(obj[key])
+        out["opacity"] = float(obj.get("opacity", 0.35))
     elif otype == "polygon":
         out["axes"] = str(obj["axes"])
         pts = obj.get("points")
@@ -269,6 +287,19 @@ def _action(action: Any, sid: str, index: int, ids: set[str]) -> dict[str, Any]:
         out["to"] = to
         out["buff"] = float(action.get("buff", 0.55))
         return out
+    if op == "fork":
+        frm = action.get("from")
+        to = action.get("to")
+        if not isinstance(frm, str) or not isinstance(to, list) or len(to) < 2:
+            raise AnimValidationError(f"{sid} fork needs from/to[]")
+        if not all(isinstance(item, str) for item in to):
+            raise AnimValidationError(f"{sid} fork targets must be ids")
+        if frm not in ids or any(item not in ids for item in to):
+            raise AnimValidationError(f"{sid} fork unknown ids")
+        out["from"] = frm
+        out["to"] = list(to)
+        out["buff"] = float(action.get("buff", 0.75))
+        return out
     if op == "move_camera":
         out["phi"] = float(action.get("phi", 70))
         out["theta"] = float(action.get("theta", -45))
@@ -304,7 +335,12 @@ def _pos(value: Any) -> Any:
 
 
 def _point(value: Any) -> list[float]:
-    return [float(value[0]), float(value[1])]
+    if not isinstance(value, (list, tuple)) or len(value) < 2:
+        raise AnimValidationError("point needs [x, y] or [x, y, z]")
+    pts = [float(value[0]), float(value[1])]
+    if len(value) > 2:
+        pts.append(float(value[2]))
+    return pts
 
 
 def _range3(value: Any) -> list[float]:

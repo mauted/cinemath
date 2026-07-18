@@ -1,0 +1,8 @@
+# Section 15.3 : Double Integrals over General Regions (problem 7)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/DIGeneralRegion.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/DIGeneralRegion/Prob7.aspxSolution
+    
+
+Evaluate
+
+$Evaluate \iint\limits_D{3 - 6xy\,dA} where D is the region shown below.$

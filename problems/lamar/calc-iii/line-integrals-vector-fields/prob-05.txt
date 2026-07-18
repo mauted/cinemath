@@ -1,0 +1,8 @@
+# Section 16.4 : Line Integrals of Vector Fields (problem 5)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/LineIntegralsVectorFields.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/LineIntegralsVectorFields/Prob5.aspxSolution
+    
+
+Evaluate
+
+$Evaluate \int\limits_C{\vec F\centerdot d\vec r} where \vec Fx,y \right = 3y\,\vec i + {x^{2} - y} \right\vec j and C is the upper half of the circle centered at the origin of radius 1 with counter clockwise rotation and the portion of y = x^{2} - 1 from x = - 1 to x = 1. See the sketch below.$

@@ -1,0 +1,7 @@
+# Section 9.6 : Polar Coordinates (problem 1)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/PolarCoordinates.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/PolarCoordinates/Prob1.aspxSolution
+
+Evaluate
+
+$For the point with polar coordinates {2,\frac\pi 7} \right determine three different sets of coordinates for the same point all of which have angles different from \frac\pi 7 and are in the range - 2\pi \le \theta \le 2\pi .$

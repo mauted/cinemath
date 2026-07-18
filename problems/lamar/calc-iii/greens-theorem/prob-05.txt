@@ -1,0 +1,8 @@
+# Section 16.7 : Green's Theorem (problem 5)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/GreensTheorem.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/GreensTheorem/Prob5.aspxSolution
+    
+
+Evaluate
+
+$Verify Green’s Theorem for \oint_C{{{xy^{2} + x^{2}} \right\,dx + 4x - 1 \right\,dy}} where C is shown below by acomputing the line integral directly and b using Green’s Theorem to compute the line integral.$

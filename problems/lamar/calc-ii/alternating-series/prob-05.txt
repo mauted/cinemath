@@ -1,0 +1,7 @@
+# Section 10.8 : Alternating Series Test (problem 5)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/AlternatingSeries.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/AlternatingSeries/Prob5.aspxSolution
+
+Evaluate
+
+$\sum\limits_n = 4^\infty {\frac{{{{- 1 }^n + 2}1 - n }}{{3n - n^{2}}}}$

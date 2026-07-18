@@ -1,0 +1,7 @@
+# Section 16.5 : Fundamental Theorem for Line Integrals (problem 3)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/FundThmLineIntegrals.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/FundThmLineIntegrals/Prob3.aspxSolution
+
+Evaluate
+
+$Given that \int\limits_C{\vec F\centerdot d\vec r} is independent of path compute \int\limits_C{\vec F\centerdot d\vec r} where C is the ellipse given by \frac{{{{x - 5 }^{2}}}}4 + \frac{{y^{2}}}9 = 1 with the counter clockwise rotation.$

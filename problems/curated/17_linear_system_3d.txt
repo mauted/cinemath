@@ -1,0 +1,5 @@
+Solve the system of equations:
+
+$x + y = 3$
+$y + z = 5$
+$x + z = 4$

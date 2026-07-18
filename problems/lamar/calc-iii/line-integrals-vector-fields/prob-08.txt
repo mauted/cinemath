@@ -1,0 +1,6 @@
+# Section 16.4 : Line Integrals of Vector Fields (problem 8)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/LineIntegralsVectorFields.aspx
+
+Evaluate
+
+$C is the line segment from 6, - 3 \right to 6,3 \right.$

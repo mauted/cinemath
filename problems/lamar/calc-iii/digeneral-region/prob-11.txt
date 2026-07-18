@@ -1,0 +1,7 @@
+# Section 15.3 : Double Integrals over General Regions (problem 11)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/DIGeneralRegion.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/DIGeneralRegion/Prob10.aspxSolution
+
+Evaluate
+
+$\int_0^{3}{{\int_{2x}^{6}{{\sqrt {y^{2} + 2} \,dy}}\,dx}}$

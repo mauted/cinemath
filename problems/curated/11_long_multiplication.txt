@@ -1,0 +1,3 @@
+Compute the product using the standard long-multiplication algorithm:
+
+$384 \times 67$

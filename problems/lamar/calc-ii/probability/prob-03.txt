@@ -1,0 +1,6 @@
+# Section 8.5 : Probability (problem 3)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/Probability.aspx
+
+Evaluate
+
+$Find PX \ge 7 \right.$

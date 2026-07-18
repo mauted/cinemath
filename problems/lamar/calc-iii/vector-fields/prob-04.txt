@@ -1,0 +1,7 @@
+# Section 16.1 : Vector Fields (problem 4)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/VectorFields.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/VectorFields/Prob4.aspxSolution
+
+Evaluate
+
+$Compute the gradient vector field for fx,y,z \right = z^{2}{e^{{x^\,2} + 4y}} + \ln {\frac{xy}z} \right.$

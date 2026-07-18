@@ -4,12 +4,13 @@ from __future__ import annotations
 
 from typing import Any
 
-from manim import DOWN, RIGHT, UP, Axes, Dot, VGroup, VMobject
+from manim import Axes, Dot, VGroup, VMobject
 
+from cinemath.render_engine.geometry import clip_line_to_rect
 from cinemath.render_engine.validate import compile_expr
 
-# Default plot footprint (leaves room for a title label + caption).
-PLOT_AT = [0.0, -0.9]
+# Soft placement hints resolved by StageConductor (no baked Y offsets).
+PLOT_AT = "center"
 PLOT_X_LENGTH = 6.5
 PLOT_Y_LENGTH = 3.0
 LABEL_AT = "title"
@@ -132,15 +133,50 @@ def _plot_x_span(obj: dict[str, Any], axes: Axes) -> tuple[float, float]:
 
 
 def build_axes_dot(obj: dict[str, Any], axes: Axes, *, color: Any) -> Dot:
-    return Dot(axes.c2p(*obj["at"]), color=color)
+    return Dot(axes.c2p(*obj["at"][:2]), color=color)
 
 
-def place_axes(mob: VMobject, obj: dict[str, Any]) -> None:
-    at = obj.get("at", PLOT_AT)
-    if isinstance(at, str):
-        # Named slots are resolved by the builder; graph templates should use coords.
-        return
-    mob.move_to(float(at[0]) * RIGHT + float(at[1]) * UP)
+def line_object(
+    oid: str,
+    *,
+    axes: str,
+    start: list[float],
+    end: list[float],
+    color: str = "blue",
+    stroke_width: float = 4.0,
+) -> dict[str, Any]:
+    return {
+        "id": oid,
+        "type": "line",
+        "axes": axes,
+        "start": list(start),
+        "end": list(end),
+        "color": color,
+        "stroke_width": stroke_width,
+    }
+
+
+def clip_line_eq(
+    a: float,
+    b: float,
+    c: float,
+    x0: float,
+    x1: float,
+    y0: float,
+    y1: float,
+) -> tuple[list[float], list[float]] | None:
+    """Clip ``a x + b y = c`` to a rectangle; return start/end lists or None."""
+    ends = clip_line_to_rect(a, b, c, x0, x1, y0, y1)
+    if ends is None:
+        return None
+    (sx, sy), (ex, ey) = ends
+    return [float(sx), float(sy)], [float(ex), float(ey)]
+
+
+def place_axes(mob: VMobject, obj: dict[str, Any] | None = None) -> None:
+    """Build-time no-op: StageConductor places axes into the content region."""
+    del mob, obj
+    return
 
 
 def auto_y_range(
@@ -232,35 +268,12 @@ def build_polygon(obj: dict[str, Any], axes: Axes, *, color: Any) -> VMobject:
     return poly
 
 
-def layout_label_above_chrome(
-    labels: list[VMobject],
-    chrome: list[VMobject],
-    *,
-    buff: float = 0.4,
-    caption_ceiling: float = 2.7,
-) -> None:
-    """Stack labels above axes/plots; drop geometry if labels hit the caption band."""
-    if not labels or not chrome:
-        return
-
-    chrome_group = VGroup(*chrome)
-    for lab in labels:
-        lab.next_to(chrome_group, UP, buff=buff)
-
-    highest = max(float(lab.get_top()[1]) for lab in labels)
-    if highest > caption_ceiling:
-        drop = highest - caption_ceiling + 0.15
-        chrome_group.shift(DOWN * drop)
-        for lab in labels:
-            lab.next_to(chrome_group, UP, buff=buff)
-
-
 def axes_object(
     oid: str,
     *,
     x_range: list[float],
     y_range: list[float],
-    at: list[float] | None = None,
+    at: str | list[float] | None = None,
     x_length: float = PLOT_X_LENGTH,
     y_length: float = PLOT_Y_LENGTH,
     color: str = "white",
@@ -270,7 +283,7 @@ def axes_object(
         "type": "axes",
         "x_range": x_range,
         "y_range": y_range,
-        "at": at if at is not None else list(PLOT_AT),
+        "at": at if at is not None else PLOT_AT,
         "x_length": x_length,
         "y_length": y_length,
         "color": color,

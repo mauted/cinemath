@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from typing import Any
 
 import sympy as sp
@@ -15,12 +16,16 @@ from cinemath.arithmetic import (
 
 
 def verify_plan(plan: dict[str, Any]) -> dict[str, Any]:
-    """Return a verification report; may correct answer for known visual tools."""
+    """Return a verification report without mutating the plan."""
     tools = [str(v.get("tool")) for v in plan.get("visuals") or [] if isinstance(v, dict)]
     report: dict[str, Any] = {"checked": False, "ok": True, "notes": [], "tools": tools}
 
     if _first_visual(plan, "plot_2d") is not None:
         return _verify_quadratic(plan, report)
+    if _first_visual(plan, "plot_lines_2d") is not None:
+        return _verify_linear_system_2d(plan, report)
+    if _first_visual(plan, "plot_planes_3d") is not None:
+        return _verify_linear_system_3d(plan, report)
     if _first_visual(plan, "show_region_rectangle") is not None:
         return _verify_double_integral(plan, report)
     if _first_visual(plan, "paper_long_multiply") is not None:
@@ -34,6 +39,16 @@ def verify_plan(plan: dict[str, Any]) -> dict[str, Any]:
 
     report["notes"].append("No symbolic checker for these visual tools; skipped.")
     return report
+
+
+def verify_feedback_message(report: dict[str, Any]) -> str:
+    """User message asking the freeform teacher to fix a failed verification."""
+    payload = {k: v for k, v in report.items() if k != "tools"}
+    return (
+        "Your lesson plan failed local verification. "
+        "Fix the mathematics in your JSON plan and return ONLY corrected JSON.\n\n"
+        f"Verification report:\n{json.dumps(payload, indent=2)}"
+    )
 
 
 def _verify_quadratic(plan: dict[str, Any], report: dict[str, Any]) -> dict[str, Any]:
@@ -50,12 +65,71 @@ def _verify_quadratic(plan: dict[str, Any], report: dict[str, Any]) -> dict[str,
     report["claimed_roots"] = claimed
     if len(numeric) != len(claimed) or any(abs(left - right) > 1e-6 for left, right in zip(numeric, claimed)):
         report["ok"] = False
-        report["notes"].append("Root mismatch; correcting plot_2d roots and answer from SymPy.")
-        visual["roots"] = numeric
-        plan["answer"] = " or ".join(f"x = {_fmt(r)}" for r in numeric)
-        _update_show_answer(plan, _quadratic_answer_tex(numeric), caption="Solutions")
+        report["notes"].append("Root mismatch.")
     else:
         report["notes"].append("Roots match SymPy.")
+    return report
+
+
+def _verify_linear_system_2d(plan: dict[str, Any], report: dict[str, Any]) -> dict[str, Any]:
+    report["checked"] = True
+    visual = _first_visual(plan, "plot_lines_2d")
+    assert visual is not None
+    eqs = visual["equations"]
+    x, y = sp.symbols("x y")
+    system = [
+        sp.Eq(eq["a"] * x + eq["b"] * y, eq["c"])
+        for eq in eqs
+    ]
+    sol = sp.solve(system, [x, y], dict=True)
+    if len(sol) != 1:
+        report["ok"] = False
+        report["notes"].append("System does not have a unique solution.")
+        return report
+    computed = {"x": float(sp.N(sol[0][x])), "y": float(sp.N(sol[0][y]))}
+    claimed = {"x": float(visual["solution"]["x"]), "y": float(visual["solution"]["y"])}
+    report["computed_solution"] = computed
+    report["claimed_solution"] = claimed
+    if any(abs(computed[k] - claimed[k]) > 1e-6 for k in ("x", "y")):
+        report["ok"] = False
+        report["notes"].append("2x2 system solution mismatch.")
+    else:
+        report["notes"].append("2x2 system matches SymPy.")
+    return report
+
+
+def _verify_linear_system_3d(plan: dict[str, Any], report: dict[str, Any]) -> dict[str, Any]:
+    report["checked"] = True
+    visual = _first_visual(plan, "plot_planes_3d")
+    assert visual is not None
+    eqs = visual["equations"]
+    x, y, z = sp.symbols("x y z")
+    system = [
+        sp.Eq(eq["a"] * x + eq["b"] * y + eq["c"] * z, eq["d"])
+        for eq in eqs
+    ]
+    sol = sp.solve(system, [x, y, z], dict=True)
+    if len(sol) != 1:
+        report["ok"] = False
+        report["notes"].append("System does not have a unique solution.")
+        return report
+    computed = {
+        "x": float(sp.N(sol[0][x])),
+        "y": float(sp.N(sol[0][y])),
+        "z": float(sp.N(sol[0][z])),
+    }
+    claimed = {
+        "x": float(visual["solution"]["x"]),
+        "y": float(visual["solution"]["y"]),
+        "z": float(visual["solution"]["z"]),
+    }
+    report["computed_solution"] = computed
+    report["claimed_solution"] = claimed
+    if any(abs(computed[k] - claimed[k]) > 1e-6 for k in ("x", "y", "z")):
+        report["ok"] = False
+        report["notes"].append("3x3 system solution mismatch.")
+    else:
+        report["notes"].append("3x3 system matches SymPy.")
     return report
 
 
@@ -87,10 +161,7 @@ def _verify_double_integral(plan: dict[str, Any], report: dict[str, Any]) -> dic
     report["claimed_value"] = claimed
     if abs(computed - claimed) > 1e-6:
         report["ok"] = False
-        report["notes"].append("Integral value mismatch; correcting rectangle value and answer.")
-        visual["value"] = computed
-        plan["answer"] = _fmt(computed)
-        _update_show_answer(plan, _double_integral_answer_tex(visual, computed), caption="Final value")
+        report["notes"].append("Integral value mismatch.")
     else:
         report["notes"].append("Integral value matches SymPy.")
     return report
@@ -106,9 +177,7 @@ def _verify_long_multiplication(plan: dict[str, Any], report: dict[str, Any]) ->
     report["claimed_product"] = claimed
     if computed != claimed or plan["answer"] != computed:
         report["ok"] = False
-        report["notes"].append("Product mismatch; correcting from local arithmetic.")
-        visual["product"] = computed
-        plan["answer"] = computed
+        report["notes"].append("Product mismatch.")
     else:
         report["notes"].append("Product matches local arithmetic.")
     return report
@@ -125,9 +194,7 @@ def _verify_long_division(plan: dict[str, Any], report: dict[str, Any]) -> dict[
     report["claimed_quotient"] = claimed
     if computed != claimed or plan["answer"] != computed:
         report["ok"] = False
-        report["notes"].append("Quotient mismatch; correcting from local arithmetic.")
-        visual["quotient"] = computed
-        plan["answer"] = computed
+        report["notes"].append("Quotient mismatch.")
     else:
         report["notes"].append("Quotient matches local arithmetic.")
     if not analysis["terminated"]:
@@ -145,9 +212,7 @@ def _verify_long_addition(plan: dict[str, Any], report: dict[str, Any]) -> dict[
     report["claimed_sum"] = claimed
     if computed != claimed or plan["answer"] != computed:
         report["ok"] = False
-        report["notes"].append("Sum mismatch; correcting from local arithmetic.")
-        visual["sum"] = computed
-        plan["answer"] = computed
+        report["notes"].append("Sum mismatch.")
     else:
         report["notes"].append("Sum matches local arithmetic.")
     return report
@@ -168,9 +233,7 @@ def _verify_long_subtraction(plan: dict[str, Any], report: dict[str, Any]) -> di
     report["claimed_difference"] = claimed
     if computed != claimed or plan["answer"] != computed:
         report["ok"] = False
-        report["notes"].append("Difference mismatch; correcting from local arithmetic.")
-        visual["difference"] = computed
-        plan["answer"] = computed
+        report["notes"].append("Difference mismatch.")
     else:
         report["notes"].append("Difference matches local arithmetic.")
     return report
@@ -181,26 +244,3 @@ def _first_visual(plan: dict[str, Any], tool: str) -> dict[str, Any] | None:
         if isinstance(visual, dict) and visual.get("tool") == tool:
             return visual
     return None
-
-
-def _update_show_answer(plan: dict[str, Any], tex: str, *, caption: str) -> None:
-    visual = _first_visual(plan, "show_answer")
-    if visual is None:
-        return
-    visual["tex"] = tex
-    visual["caption"] = caption
-
-
-def _quadratic_answer_tex(roots: list[float]) -> str:
-    return r" \quad\text{or}\quad ".join(f"x={_fmt(root)}" for root in roots)
-
-
-def _double_integral_answer_tex(visual: dict[str, Any], value: float) -> str:
-    body = str(visual["integrand"]).replace("**", "^").replace("*", "").replace(" ", "")
-    return rf"\iint_R {body}\,dA = {_fmt(value)}"
-
-
-def _fmt(value: float) -> str:
-    if abs(value - round(value)) < 1e-9:
-        return str(int(round(value)))
-    return f"{value:.6g}"

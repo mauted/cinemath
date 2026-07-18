@@ -1,0 +1,7 @@
+# Section 12.8 : Tangent, Normal and Binormal Vectors (problem 4)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/TangentNormalVectors.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/TangentNormalVectors/Prob4.aspxSolution
+
+Evaluate
+
+$\vec r\left t \right = \left\langle {7{e^{2} - t},\frac16{{t^{3}}},5 - t} \right\rangle at t = 2.$

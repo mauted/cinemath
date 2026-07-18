@@ -1,0 +1,7 @@
+# Section 15.8 : Change of Variables (problem 5)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/ChangeOfVariables.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ChangeOfVariables/Prob5.aspxSolution
+
+Evaluate
+
+$If R is the parallelogram with vertices 1,0 \right, 4,3 \right, 1,6 \right and - 2,3 \right determine the region we would get applying the transformation x = \frac12v - u \right, y = \frac12v + u \right to R.$

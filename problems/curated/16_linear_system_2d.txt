@@ -1,0 +1,4 @@
+Solve the system of equations:
+
+$x + y = 5$
+$x - y = 1$

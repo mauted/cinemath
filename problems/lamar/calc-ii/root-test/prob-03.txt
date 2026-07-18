@@ -1,0 +1,7 @@
+# Section 10.11 : Root Test (problem 3)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/RootTest.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/RootTest/Prob3.aspxSolution
+
+Evaluate
+
+$\sum\limits_n = 4^\infty {\frac{{{{- 5 }^{1} + 2n}}}{{{2^{5}n - 3}}}}$

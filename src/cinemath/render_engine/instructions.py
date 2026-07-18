@@ -1,31 +1,29 @@
 """On-screen instruction / narration banner.
 
-Owns wrapping, half-frame vs full-frame width, and top placement so copy
-never crops off the edge (Manim ``font_size`` scales TeX parboxes).
-
-Prose is mixed text + inline math: unicode glyphs, ``$...$``, and
-algebra-like tokens (``y^2``, ``6xy^2``) render as real TeX math.
+Owns wrapping and relative placement heuristics inside a Region supplied by
+StageConductor. Does not encode half-stage or caption-ceiling policy.
 """
 
 from __future__ import annotations
 
 import re
+from collections.abc import Callable, Sequence
 from typing import Any
 
-from manim import DOWN, RIGHT, UP, FadeIn, FadeOut, VMobject
+from manim import DOWN, LEFT, RIGHT, UP, FadeIn, FadeOut, VGroup, VMobject
 
 from cinemath.render_engine.sanitize import unicode_math_char
+from cinemath.render_engine.stage import Region, full_frame
 from cinemath.render_engine.texutil import escape_latex_text
 
-# Manim frame is ~14.2 wide (±7.1). Leave side margins.
-_FULL_MAX_W = 12.6
-_HALF_MAX_W = 5.8
-_HALF_CENTER_X = 3.35
-_TOP_BUFF = 0.22
-_FONT_SIZE = 26
-_FULL_PARBOX_CM = 11.5
-_HALF_PARBOX_CM = 6.4
+_TOP_BUFF = 0.2
+_BOTTOM_BUFF = 0.32
+_CONTENT_BUFF = 0.85
 
+_FONT_SIZE = 34
+_FULL_PARBOX_CM = 11.8
+_HALF_PARBOX_CM = 6.6
+_OVERLAP_PAD = 0.28
 # Already-delimited inline math.
 _DELIM_MATH = re.compile(r"\$.+?\$|\\\(.+?\\\)")
 
@@ -39,6 +37,7 @@ _MATH_TOKEN = re.compile(
 )
 
 _DASH_CHARS = {"-", "–", "—", "−"}
+Box = tuple[float, float, float, float]  # left, right, bottom, top
 
 
 def build_instruction(
@@ -46,15 +45,17 @@ def build_instruction(
     *,
     color: Any,
     font_size: int = _FONT_SIZE,
+    max_width_cm: float | None = None,
     right_stage: bool = False,
 ) -> VMobject:
-    """Wrapped Computer Modern paragraph with inline math; width finalized by place."""
+    """Wrapped Computer Modern paragraph with inline math; placement via StageConductor."""
     from manim import Tex
 
     body = format_instruction_body(text)
-    # Stage-aware parbox: wrap at the right width so larger fonts stay readable
-    # instead of being built wide and then scaled down.
-    width_cm = _HALF_PARBOX_CM if right_stage else _FULL_PARBOX_CM
+    if max_width_cm is not None:
+        width_cm = max_width_cm
+    else:
+        width_cm = _HALF_PARBOX_CM if right_stage else _FULL_PARBOX_CM
     return Tex(
         rf"\parbox{{{width_cm:.1f}cm}}{{\raggedright {body}}}",
         font_size=font_size,
@@ -67,15 +68,11 @@ def format_instruction_body(text: str) -> str:
     s = " ".join(text.strip().split())
     if not s:
         return ""
-    # Superscript digits → ASCII carets so algebra mathify can catch them.
     s = s.translate(str.maketrans({"²": "^2", "³": "^3", "⁴": "^4"}))
-    # Normalize dashes before wrapping math (avoid ``$\sqrt{1 $-$ x}$`` breakage).
     s = s.replace("−", "-").replace("–", "-").replace("—", "-").replace("…", "...")
-    # √(expr) → inline sqrt math.
     s = re.sub(r"√\(([^)]*)\)", r"$\\sqrt{\1}$", s)
     s = s.replace("√", r"$\sqrt{}$")
 
-    # Unicode glyphs → inline math, but never rewrite inside existing ``$...$``.
     pieces: list[str] = []
     pos = 0
     for match in _DELIM_MATH.finditer(s):
@@ -102,19 +99,22 @@ def format_instruction_body(text: str) -> str:
 def place_instruction(
     mob: VMobject,
     *,
-    right_stage: bool = False,
+    region: Region | None = None,
+    content: Sequence[VMobject] | None = None,
+    pin_top: bool = False,
+    right_stage: bool | None = None,
 ) -> None:
-    """Fit width to the active stage and pin under the top edge."""
-    max_w = _HALF_MAX_W if right_stage else _FULL_MAX_W
-    _fit_width(mob, max_w)
-    if right_stage:
-        mob.move_to(RIGHT * _HALF_CENTER_X)
-        mob.to_edge(UP, buff=_TOP_BUFF)
-        # to_edge recenters horizontally — restore right-half anchor.
-        mob.set_x(_HALF_CENTER_X)
+    """Fit the banner in ``region``, clear of other mobjects when possible."""
+    region = _resolve_region(region, right_stage)
+    if pin_top:
+        _place_instruction_top(mob, region)
     else:
-        mob.to_edge(UP, buff=_TOP_BUFF)
-    _clamp_in_frame(mob, right_stage=right_stage)
+        items = [m for m in (content or ()) if m is not None and m is not mob]
+        if items:
+            _place_instruction_smart(mob, region=region, content=items)
+        else:
+            _place_instruction_top(mob, region)
+    _clamp_in_frame(mob, region)
 
 
 def play_set_instruction(
@@ -123,11 +123,20 @@ def play_set_instruction(
     text: str,
     *,
     color: Any,
-    right_stage: bool = False,
+    region: Region | None = None,
+    content: Sequence[VMobject] | None = None,
+    pin_top: bool = False,
+    right_stage: bool | None = None,
 ) -> VMobject:
     """Fade to a new instruction banner; returns the new mobject."""
-    new_mob = build_instruction(text, color=color, right_stage=right_stage)
-    place_instruction(new_mob, right_stage=right_stage)
+    region = _resolve_region(region, right_stage)
+    half = region.center[0] > 0.5
+    new_mob = build_instruction(
+        text,
+        color=color,
+        max_width_cm=_HALF_PARBOX_CM if half else _FULL_PARBOX_CM,
+    )
+    place_instruction(new_mob, region=region, content=content, pin_top=pin_top)
     if old is None:
         scene.play(FadeIn(new_mob), run_time=0.3)
         return new_mob
@@ -139,8 +148,145 @@ def play_set_instruction(
     return new_mob
 
 
+def _resolve_region(region: Region | None, right_stage: bool | None) -> Region:
+    if region is not None:
+        return region
+    if right_stage:
+        from cinemath.render_engine.stage import right_active
+
+        return right_active()
+    return full_frame()
+
+
+def _place_instruction_smart(
+    mob: VMobject,
+    *,
+    region: Region,
+    content: Sequence[VMobject],
+) -> None:
+    max_w = min(region.max_w, 6.0 if region.center[0] > 0.5 else region.max_w)
+    _fit_width(mob, max_w)
+    bounds = _region_box(region)
+    content_boxes = [_mob_box(m) for m in content]
+    profile = _content_profile(content_boxes)
+
+    anchors: list[Callable[[], None]] = []
+    for name in profile:
+        if name == "above":
+            anchors.append(lambda: _place_above_content(mob, content, region, max_w))
+        elif name == "bottom":
+            anchors.append(lambda: _place_bottom(mob, region, max_w))
+        else:
+            anchors.append(lambda: _place_instruction_top(mob, region, max_w))
+
+    best_score = float("-inf")
+    best_center = mob.get_center().copy()
+    for anchor in anchors:
+        anchor()
+        score = _score_placement(_mob_box(mob), content_boxes, bounds)
+        if score > best_score:
+            best_score = score
+            best_center = mob.get_center().copy()
+
+    mob.move_to(best_center)
+    _maybe_scale_up(mob, content_boxes, bounds)
+
+
+def _content_profile(content_boxes: Sequence[Box]) -> tuple[str, ...]:
+    """Prefer bottom band for tall plots; hug equations from above otherwise."""
+    if not content_boxes:
+        return ("top", "above", "bottom")
+    cy = sum((b[2] + b[3]) for b in content_boxes) / (2 * len(content_boxes))
+    height = max(b[3] for b in content_boxes) - min(b[2] for b in content_boxes)
+    if cy > 0.35 and height > 2.4:
+        return ("bottom", "top", "above")
+    if cy < -0.2:
+        return ("above", "top", "bottom")
+    return ("above", "top", "bottom")
+
+
+def _place_instruction_top(
+    mob: VMobject,
+    region: Region,
+    max_w: float | None = None,
+) -> None:
+    _fit_width(mob, max_w if max_w is not None else region.max_w)
+    mob.move_to(float(region.center[0]) * RIGHT)
+    mob.to_edge(UP, buff=_TOP_BUFF)
+    mob.set_x(float(region.center[0]))
+
+
+def _place_bottom(mob: VMobject, region: Region, max_w: float) -> None:
+    _fit_width(mob, max_w)
+    mob.to_edge(DOWN, buff=_BOTTOM_BUFF)
+    mob.set_x(float(region.center[0]))
+
+
+def _place_above_content(
+    mob: VMobject,
+    content: Sequence[VMobject],
+    region: Region,
+    max_w: float,
+) -> None:
+    _fit_width(mob, max_w)
+    group = VGroup(*content)
+    mob.next_to(group, UP, buff=_CONTENT_BUFF)
+    mob.set_x(float(group.get_center()[0]))
+    if float(mob.get_left()[0]) < region.left:
+        mob.shift(RIGHT * (region.left - float(mob.get_left()[0])))
+    if float(mob.get_right()[0]) > region.right:
+        mob.shift(LEFT * (float(mob.get_right()[0]) - region.right))
+
+
+def _maybe_scale_up(mob: VMobject, content_boxes: Sequence[Box], bounds: Box) -> None:
+    for factor in (1.14, 1.08):
+        mob.scale(factor)
+        if _score_placement(_mob_box(mob), content_boxes, bounds) > 0:
+            return
+        mob.scale(1 / factor)
+
+
+def _score_placement(instr: Box, content_boxes: Sequence[Box], bounds: Box) -> float:
+    left, right, bottom, top = bounds
+    i_left, i_right, i_bottom, i_top = instr
+    if i_left < left or i_right > right or i_bottom < bottom or i_top > top:
+        return -1e6
+    overlap = sum(_overlap_area(instr, box) for box in content_boxes)
+    area = max(0.01, (i_right - i_left) * (i_top - i_bottom))
+    return area - overlap * 40.0
+
+
+def _region_box(region: Region) -> Box:
+    return (region.left, region.right, region.bottom, region.top)
+
+
+def _stage_bounds(right_stage: bool) -> Box:
+    """Test helper: stage AABB for full or right-active region."""
+    return _region_box(_resolve_region(None, right_stage))
+
+
+def _mob_box(mob: VMobject) -> Box:
+    return (
+        float(mob.get_left()[0]),
+        float(mob.get_right()[0]),
+        float(mob.get_bottom()[1]),
+        float(mob.get_top()[1]),
+    )
+
+
+def _overlap_area(a: Box, b: Box, *, pad: float = _OVERLAP_PAD) -> float:
+    l1, r1, b1, t1 = a
+    l2, r2, b2, t2 = b
+    l1 -= pad
+    r1 += pad
+    b1 -= pad
+    t1 += pad
+    w = max(0.0, min(r1, r2) - max(l1, l2))
+    h = max(0.0, min(t1, t2) - max(b1, b2))
+    return w * h
+
+
 def _unicode_math_to_inline(s: str) -> str:
-    """Map unicode math glyphs to inline ``$...$`` (merge step combines runs)."""
     out: list[str] = []
     for ch in s:
         tex = unicode_math_char(ch)
@@ -154,7 +300,6 @@ def _unicode_math_to_inline(s: str) -> str:
 
 
 def _mathify_text_segment(segment: str) -> str:
-    """Escape prose; wrap algebra / TeX-command tokens in ``$...$``."""
     if not segment:
         return ""
     parts: list[str] = []
@@ -183,20 +328,14 @@ def _normalize_delimited_math(chunk: str) -> str:
 
 
 def _caret_braces(expr: str) -> str:
-    """Normalize ``x^2`` → ``x^{2}`` inside math."""
     return re.sub(r"\^(\d+)", r"^{\1}", expr)
 
 
 def _merge_adjacent_math(s: str) -> str:
-    """Collapse ``$a$$b$`` / ``$a$ $b$`` into one math group (repeat)."""
-
     def _join(match: re.Match[str]) -> str:
         left, sep, right = match.group(1), match.group(2), match.group(3)
-        # Avoid gluing ``\pi`` + ``M`` into the unknown command ``\piM``.
         if re.search(r"\\[A-Za-z]+\s*$", left) and re.match(r"[A-Za-z]", right):
             return f"${left} {right}$"
-        # Keep a space when the source had one between identifier-like chunks
-        # (e.g. ``$M^{2}$ $Phi^{2}$`` should not become ``$M^{2}Phi^{2}$``).
         if sep and re.search(r"[A-Za-z0-9}]$", left) and re.match(r"[A-Za-z\\]", right):
             return f"${left} {right}$"
         return f"${left}{right}$"
@@ -214,21 +353,20 @@ def _fit_width(mob: VMobject, max_w: float) -> None:
         mob.scale(max_w / w)
 
 
-def _clamp_in_frame(mob: VMobject, *, right_stage: bool) -> None:
-    right_limit = 6.9
-    left_limit = 0.4 if right_stage else -6.9
-    top_limit = 3.85
+def _clamp_in_frame(mob: VMobject, region: Region) -> None:
+    left_limit, right_limit, bottom_limit, top_limit = _region_box(region)
 
     if float(mob.get_right()[0]) > right_limit:
         _fit_width(mob, max(0.5, right_limit - float(mob.get_left()[0]) - 0.05))
-        if right_stage:
-            mob.set_x(_HALF_CENTER_X)
+        mob.set_x(float(region.center[0]))
         mob.to_edge(UP, buff=_TOP_BUFF)
-        if right_stage:
-            mob.set_x(_HALF_CENTER_X)
+        mob.set_x(float(region.center[0]))
 
     if float(mob.get_left()[0]) < left_limit:
         mob.shift(RIGHT * (left_limit - float(mob.get_left()[0])))
 
     if float(mob.get_top()[1]) > top_limit:
         mob.shift(DOWN * (float(mob.get_top()[1]) - top_limit))
+
+    if float(mob.get_bottom()[1]) < bottom_limit:
+        mob.shift(UP * (bottom_limit - float(mob.get_bottom()[1])))

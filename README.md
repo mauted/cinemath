@@ -4,14 +4,16 @@ CLI that turns a math problem into a short educational Manim animation.
 
 ![Pseudoscalar Yukawa β-function lesson](preview.gif)
 
-**Architecture (v0.3):**
+**Architecture (v0.4):**
 
-1. **LLM teaches only** → `plan.json` (`steps` + `visuals[]`)
-2. **Local verify** → SymPy / arithmetic checks known visual tools (`verify.json`)
-3. **Local visual compilers** → `animation.json` (never LLM-authored)
-4. **Local renderer** → Manim video
+1. **LLM classifies** → picks one catalog planner (`plan_*`) or `teach_freeform`
+2. **Catalog planner** → local `plan_*` builds `plan.json` (SymPy / arithmetic)
+3. **Freeform teacher** → LLM writes `plan.json` when no catalog entry fits
+4. **Local verify** → SymPy checks freeform plans; failures are re-fed to the LLM until correct (`verify.json`)
+5. **Local visual compilers** → `animation.json`
+6. **Local renderer** → Manim video
 
-Algebra steps use an **equation chain** (`render_engine/equation_chain.py`): dim the prior line, scroll up to make room, then morph a copy into the next equation with `TransformMatchingTex`. Step **explanations** become wrapped instruction banners (`render_engine/instructions.py`) fitted to the full frame or right half.
+Algebra steps use an **equation chain** (`render_engine/equation_chain.py`): dim the prior line, scroll up to make room, then morph a copy into the next equation with `TransformMatchingTex`. Step **explanations** become larger instruction banners (`render_engine/instructions.py`) placed above the active work, at the bottom under plots, or at the top when that is clearest.
 
 Every animation opens with a **problem statement** beat (`problem_statement.py`): the statement is written onto the board, held to read, then cleared before the solution.
 
@@ -26,6 +28,8 @@ uv sync
 cp .env.example .env            # set ANTHROPIC_API_KEY
 ```
 
+Optional: `ANTHROPIC_CLASSIFY_MODEL` (default Haiku) for routing/OCR; `ANTHROPIC_TEACH_MODEL` (default Sonnet) for freeform plans. `ANTHROPIC_MODEL` overrides both when the specific vars are unset. Use `--verbose` / `CINEMATH_LOG_LEVEL=DEBUG` for full pipeline logs (color on in TTY; set `NO_COLOR=1` or `CINEMATH_LOG_COLOR=0` to disable).
+
 ## Usage
 
 ```bash
@@ -35,7 +39,11 @@ uv run cinemath solve examples/10_scalar_decay.md
 uv run cinemath solve path/to/photo.png
 ```
 
-See [`examples/README.md`](examples/README.md) for the full **10-level** difficulty ladder (arithmetic → QFT).
+See [`problems/curated/README.md`](../problems/curated/README.md) for the full **difficulty ladder** (arithmetic → QFT).
+
+**Problem banks:** [`problems/README.md`](problems/README.md) — Lamar (650+ scraped), MIT, Arizona, OpenStax topic trees. Sync with `uv run python scripts/sync_problem_banks.py`.
+
+**Source layout:** catalog planners live in `src/cinemath/planners/` (`algebra`, `calculus`, `arithmetic`, `registry`); problem-bank tooling in `src/cinemath/problems/`.
 
 ## Preprint
 
@@ -47,13 +55,14 @@ Architecture write-up with pipeline diagram:
 ```text
 outputs/<timestamp>_<slug>/
   problem.txt
-  plan.json         # teacher plan (LLM)
+  plan.json         # catalog planner or freeform LLM teacher
   lesson.md
-  verify.json       # SymPy check / corrections
-  animation.json    # built locally from templates
-  scene.py
+  verify.json       # freeform plans only (SymPy check + retry summary)
+  animation.json    # intermediate representation (re-render with cinemath)
   animation.mp4
 ```
+
+Manim renders into a temp directory by default; use `--keep-media` to retain `media/` for debugging.
 
 ## Visual tools
 

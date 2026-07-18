@@ -1,0 +1,7 @@
+# Section 12.3 : Equations of Planes (problem 3)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/EqnsOfPlanes.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/EqnsOfPlanes/Prob3.aspxSolution
+
+Evaluate
+
+$The plane containing the point - 8,3,7 \right and parallel to the plane given by 4x + 8y - 2z = 45.$

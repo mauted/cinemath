@@ -1,0 +1,7 @@
+# Section 12.8 : Tangent, Normal and Binormal Vectors (problem 5)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/TangentNormalVectors.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/TangentNormalVectors/Prob5.aspxSolution
+
+Evaluate
+
+$Find the unit normal and the binormal vectors for the following vector function. \vec r\left t \right = \left\langle {\cos 2t \right,\sin 2t \right,3} \right\rangle$

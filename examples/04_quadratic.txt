@@ -1,3 +1,0 @@
-Solve for x:
-
-x² - 5x + 6 = 0

@@ -1,0 +1,5 @@
+# Lamar Calc II style - integration by parts
+
+Evaluate the definite integral
+
+$\int_0^1 x e^x\, dx$

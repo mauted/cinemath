@@ -37,6 +37,10 @@ def compile_visual(visual: dict[str, Any], plan: dict[str, Any], *, index: int) 
         return [_show_qed_scene(visual, index=index)]
     if tool == "plot_2d":
         return [_plot_2d_scene(visual, index=index)]
+    if tool == "plot_lines_2d":
+        return [_plot_lines_2d_scene(visual, index=index)]
+    if tool == "plot_planes_3d":
+        return [_plot_planes_3d_scene(visual, index=index)]
     if tool == "show_region_rectangle":
         return [_region_scene(visual, index=index)]
     if tool == "plot_surface_3d":
@@ -153,6 +157,138 @@ def _plot_2d_scene(visual: dict[str, Any], *, index: int) -> dict[str, Any]:
             dsl.fade_in(*dot_ids),
             dsl.indicate(*dot_ids),
             dsl.wait(0.8),
+        ],
+    )
+
+
+def _plot_lines_2d_scene(visual: dict[str, Any], *, index: int) -> dict[str, Any]:
+    eqs = list(visual["equations"])
+    sol = visual["solution"]
+    sx, sy = float(sol["x"]), float(sol["y"])
+    pad = 3.0
+    x_range = graph_2d.integer_axis_range(sx - pad, sx + pad, step=1.0)
+    y_range = graph_2d.integer_axis_range(sy - pad, sy + pad, step=1.0)
+    x0, x1 = x_range[0], x_range[1]
+    y0, y1 = y_range[0], y_range[1]
+
+    label_id = f"lines_lab_{index}"
+    axis_id = f"lines_ax_{index}"
+    colors = ("blue", "green")
+    line_ids: list[str] = []
+    objects: list[dict[str, Any]] = [
+        dsl.math(
+            label_id,
+            r"\text{intersection of two lines}",
+            at=graph_2d.LABEL_AT,
+            font_size=32,
+        ),
+        graph_2d.axes_object(
+            axis_id,
+            x_range=x_range,
+            y_range=y_range,
+            x_length=graph_2d.PLOT_X_LENGTH,
+            y_length=graph_2d.PLOT_Y_LENGTH,
+        ),
+    ]
+    for i, eq in enumerate(eqs):
+        clipped = graph_2d.clip_line_eq(eq["a"], eq["b"], eq["c"], x0, x1, y0, y1)
+        if clipped is None:
+            raise ValueError(f"line {i} does not intersect the plot window")
+        start, end = clipped
+        lid = f"line_{index}_{i}"
+        line_ids.append(lid)
+        objects.append(
+            graph_2d.line_object(
+                lid,
+                axes=axis_id,
+                start=start,
+                end=end,
+                color=colors[i % len(colors)],
+                stroke_width=4.0,
+            )
+        )
+
+    dot_id = f"lines_sol_{index}"
+    objects.append(
+        {
+            "id": dot_id,
+            "type": "dot",
+            "axes": axis_id,
+            "at": [sx, sy],
+            "color": "red",
+        }
+    )
+    return dsl.scene(
+        f"plot_lines_2d_{index}",
+        caption="Where the two lines meet",
+        objects=objects,
+        actions=[
+            dsl.write(label_id),
+            dsl.create(axis_id, *line_ids),
+            dsl.fade_in(dot_id),
+            dsl.indicate(dot_id),
+            dsl.wait(0.9),
+        ],
+    )
+
+
+def _plot_planes_3d_scene(visual: dict[str, Any], *, index: int) -> dict[str, Any]:
+    eqs = list(visual["equations"])
+    sol = visual["solution"]
+    sx, sy, sz = float(sol["x"]), float(sol["y"]), float(sol["z"])
+    pad = 3.0
+    x_range = graph_2d.integer_axis_range(sx - pad, sx + pad, step=1.0)
+    y_range = graph_2d.integer_axis_range(sy - pad, sy + pad, step=1.0)
+    z_range = graph_2d.integer_axis_range(sz - pad, sz + pad, step=1.0)
+
+    axes_id = f"planes_ax_{index}"
+    colors = ("blue", "green", "yellow")
+    plane_ids: list[str] = []
+    objects: list[dict[str, Any]] = [
+        graph_3d.axes3d_object(
+            axes_id,
+            x_range=x_range,
+            y_range=y_range,
+            z_range=z_range,
+        )
+    ]
+    for i, eq in enumerate(eqs):
+        pid = f"plane_{index}_{i}"
+        plane_ids.append(pid)
+        objects.append(
+            graph_3d.plane_object(
+                pid,
+                axes=axes_id,
+                a=eq["a"],
+                b=eq["b"],
+                c=eq["c"],
+                d=eq["d"],
+                color=colors[i % len(colors)],
+                opacity=0.32,
+            )
+        )
+    dot_id = f"planes_sol_{index}"
+    objects.append(
+        {
+            "id": dot_id,
+            "type": "dot",
+            "axes": axes_id,
+            "at": [sx, sy, sz],
+            "color": "red",
+        }
+    )
+    return dsl.scene(
+        f"plot_planes_3d_{index}",
+        caption="Where the three planes meet",
+        mode="3d",
+        pin=False,
+        objects=objects,
+        actions=[
+            dsl.move_camera(graph_3d.DEFAULT_PHI, graph_3d.DEFAULT_THETA),
+            dsl.create(axes_id, *plane_ids),
+            dsl.fade_in(dot_id),
+            dsl.indicate(dot_id),
+            dsl.wait(1.2),
         ],
     )
 

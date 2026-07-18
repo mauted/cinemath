@@ -1,0 +1,6 @@
+# MIT 18.01 style - polynomial derivative
+# Source: https://ocw.mit.edu/courses/18-01-single-variable-calculus-fall-2006/
+
+Differentiate with respect to $x$:
+
+$f(x) = 3x^4 - 2x^2 + 7$

@@ -1,0 +1,7 @@
+# Section 16.3 : Line Integrals - Part II (problem 3)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/LineIntegralsPtII.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/LineIntegralsPtII/Prob3.aspxSolution
+
+Evaluate
+
+$Evaluate \int\limits_C{{x^{2}\,dy - yz\,dz}} where C is the line segment from 4, - 1,2 \right to 1,7, - 1 \right.$

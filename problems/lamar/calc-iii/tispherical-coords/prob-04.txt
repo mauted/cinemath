@@ -1,0 +1,7 @@
+# Section 15.7 : Triple Integrals in Spherical Coordinates (problem 4)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/TISphericalCoords.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/TISphericalCoords/Prob4.aspxSolution
+
+Evaluate
+
+$Evaluate \iiint\limits_E{{x^{2}\,dV}} where E is the region inside both x^{2} + y^{2} + z^{2} = 36 and z = - \sqrt {3x^{2} + 3y^{2}} .$

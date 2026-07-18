@@ -1,0 +1,7 @@
+# Section 12.5 : Functions of Several Variables (problem 2)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/MultiVrbleFcns.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/MultiVrbleFcns/Prob2.aspxSolution
+
+Evaluate
+
+$fx,y \right = \ln 2x - 3y + 1 \right$

@@ -1,0 +1,7 @@
+# Section 15.2 : Iterated Integrals (problem 7)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/IteratedIntegrals.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/IteratedIntegrals/Prob7.aspxSolution
+
+Evaluate
+
+$\iint\limits_R{{xy\cos {y\,x^{2}} \right\,dA}}\hspace0.25in\hspace0.25inR = [ - 2,3 ] \times [ - 1,1 ]$

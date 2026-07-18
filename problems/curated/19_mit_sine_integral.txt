@@ -1,0 +1,5 @@
+# MIT 18.01 style - basic definite integral
+
+Evaluate
+
+$\int_0^{\pi/2} \sin(x)\, dx$

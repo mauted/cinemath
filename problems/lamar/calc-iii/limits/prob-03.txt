@@ -1,0 +1,7 @@
+# Section 13.1 : Limits (problem 3)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/Limits.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/Limits/Prob3.aspxSolution
+
+Evaluate
+
+$\mathop \lim \limits_{x,y \right \to 0,0 } \frac{x - 4y}{6y + 7x}$

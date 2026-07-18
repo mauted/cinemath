@@ -1,0 +1,3 @@
+Compute the product (keep track of the decimal places):
+
+$12.75 \times 3.4$

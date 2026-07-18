@@ -10,7 +10,6 @@ from manim import (
     DEGREES,
     DOWN,
     LEFT,
-    ORIGIN,
     RIGHT,
     UP,
     Arrow,
@@ -36,31 +35,13 @@ from cinemath.render_engine import feynman as feynman_mod
 from cinemath.render_engine import graph_2d, graph_3d
 from cinemath.render_engine import instructions as instr
 from cinemath.render_engine import problem_statement as stmt
-from cinemath.render_engine.equation_chain import EquationChain
+from cinemath.render_engine.equation_chain import EquationBoard
 from cinemath.render_engine.sanitize import to_math_tex
+from cinemath.render_engine.stage import StageConductor
 from cinemath.render_engine.texutil import plain_tex
 from cinemath.render_engine.validate import validate_animation
 
 _DIRECTION = {"up": UP, "down": DOWN, "left": LEFT, "right": RIGHT}
-_SLOT = {
-    "title": UP * 2.15,
-    "center": DOWN * 0.15,
-    "upper": UP * 1.15,
-    "lower": DOWN * 2.15,
-    "left": LEFT * 3.2 + DOWN * 0.1,
-    "right": RIGHT * 3.2 + DOWN * 0.1,
-    "ul": UP * 1.6 + LEFT * 3.4,
-    "ur": UP * 1.6 + RIGHT * 3.4,
-    "ll": DOWN * 2.3 + LEFT * 3.4,
-    "lr": DOWN * 2.3 + RIGHT * 3.4,
-}
-# Split-stage transition: previous step → left half, new step → right half.
-_LEFT_CENTER = LEFT * 3.35
-_RIGHT_CENTER = RIGHT * 3.35
-_HALF_MAX_W = 5.7
-_HALF_MAX_H = 6.2
-_LEFT_PANEL_OPACITY = 0.55
-_CAPTION_CEILING = 2.7
 _CHROME_TYPES = frozenset(
     {
         "axes",
@@ -78,26 +59,17 @@ _CHROME_TYPES = frozenset(
 )
 _LABEL_TYPES = frozenset({"math", "text", "prose"})
 
-SCENE_WRAPPER = '''\
-"""Auto-generated. Source of truth: animation.json"""
-from cinemath.render_engine.builder import ScriptedScene
-
-class MathSolution(ScriptedScene):
-    pass
-'''
-
-
-def write_scene_module(path: Path) -> Path:
-    path.write_text(SCENE_WRAPPER, encoding="utf-8")
-    return path
+_ANIMATION_JSON_ENV = "CINEMATH_ANIMATION_JSON"
 
 
 class ScriptedScene(ThreeDScene):
     def construct(self) -> None:
-        import sys
+        import os
 
-        module = sys.modules[type(self).__module__]
-        animation_path = Path(module.__file__).resolve().with_name("animation.json")
+        animation_json = os.environ.get(_ANIMATION_JSON_ENV)
+        if not animation_json:
+            raise RuntimeError(f"{_ANIMATION_JSON_ENV} is not set")
+        animation_path = Path(animation_json).resolve()
         script = validate_animation(json.loads(animation_path.read_text(encoding="utf-8")))
         ScriptRunner(self, script).run()
 
@@ -109,17 +81,23 @@ class ScriptRunner:
         self.mobjects: dict[str, VMobject] = {}
         self._obj_type: dict[str, str] = {}
         self.on_screen: set[str] = set()
-        self.caption_mob: VMobject | None = None
-        self.left_panel: VMobject | None = None
-        self._use_right_stage = False
-        self._mode = "2d"
-        self.board = EquationChain(
+        self.stage = StageConductor(scene)
+        self._board_scene = False
+        self.board = EquationBoard(
             scene,
             mobjects=self.mobjects,
             on_screen=self.on_screen,
-            use_right_stage=lambda: self._use_right_stage,
+            content_region=self.stage.board_region,
             accent_color=lambda: self._color("yellow"),
         )
+
+    @property
+    def caption_mob(self) -> VMobject | None:
+        return self.stage.caption_mob
+
+    @property
+    def left_panel(self) -> VMobject | None:
+        return self.stage.left_panel
 
     def run(self) -> None:
         self._set_flat_camera(animate=False)
@@ -128,23 +106,20 @@ class ScriptRunner:
             self._run_scene(scene_data)
 
         # Closing beat: clear the split stage, show the answer centered.
-        outro = []
-        if self.left_panel is not None:
-            outro.append(FadeOut(self.left_panel))
-            self.left_panel = None
+        outro = self.stage.clear_left_panel()
         leftovers = [self.mobjects[i] for i in list(self.on_screen) if i in self.mobjects]
-        if self.caption_mob is not None:
-            leftovers.append(self.caption_mob)
+        if self.stage.caption_mob is not None:
+            leftovers.append(self.stage.caption_mob)
         if leftovers:
             outro.extend(FadeOut(m) for m in leftovers)
         if outro:
             self.scene.play(*outro, run_time=0.45)
         self.on_screen.clear()
-        self.caption_mob = None
+        self.stage.caption_mob = None
         self.mobjects.clear()
 
         answer = self._answer_mob(self.script["answer"])
-        answer.move_to(_SLOT["center"])
+        self.stage.place(answer, at="center")
         self.scene.play(FadeIn(answer))
         self.scene.wait(1.3)
 
@@ -152,10 +127,10 @@ class ScriptRunner:
         self.mobjects.clear()
         self._obj_type.clear()
         self.on_screen.clear()
-        self.caption_mob = None
         self.board.clear()
-        # After the first scene parks left, new work happens on the right half.
-        self._use_right_stage = self.left_panel is not None
+        pin_caption_top = self._will_be_board_scene(scene_data)
+        self._board_scene = pin_caption_top
+        self.stage.begin_scene(pin_caption_top=pin_caption_top)
         self._ensure_mode(scene_data.get("mode", "2d"))
 
         for obj in scene_data["objects"]:
@@ -168,56 +143,53 @@ class ScriptRunner:
                     _DIRECTION[obj.get("direction", "down")],
                 )
 
-        # Before playing: keep formulas clear of axes / plots / regions.
         if scene_data.get("separate_labels", True):
             self._separate_labels_from_geometry(scene_data)
 
-        # 3D surfaces need the full frame; half-stage AABB fit fights the camera.
         is_3d = scene_data.get("mode") == "3d"
-        if is_3d and self.left_panel is not None:
-            self.scene.play(FadeOut(self.left_panel, shift=LEFT * 0.4), run_time=0.4)
-            self.left_panel = None
-            self._use_right_stage = False
+        if is_3d and self.stage.left_panel is not None:
+            self.stage.release_left_for_3d()
 
-        if self._use_right_stage and self.mobjects and not is_3d:
+        if self.stage.use_right_stage and self.mobjects and not is_3d and not self._board_scene:
             content = VGroup(*self.mobjects.values())
-            self._fit_group_to_region(
-                content,
-                center=_RIGHT_CENTER,
-                max_w=_HALF_MAX_W,
-                max_h=_HALF_MAX_H,
-            )
+            self.stage.fit_active_if_split(content)
 
         if scene_data.get("caption"):
-            self.caption_mob = instr.build_instruction(
+            self.stage.show_caption(
                 scene_data["caption"],
                 color=self._color("gray"),
-                right_stage=self._use_right_stage and not is_3d,
+                content=list(self.mobjects.values()),
             )
-            instr.place_instruction(
-                self.caption_mob,
-                right_stage=self._use_right_stage and not is_3d,
-            )
-            self.scene.play(FadeIn(self.caption_mob), run_time=0.35)
             if is_3d:
-                graph_3d.fix_caption_in_frame(self.scene, self.caption_mob)
+                graph_3d.fix_caption_in_frame(self.scene, self.stage.caption_mob)
 
         for action in scene_data["actions"]:
             self._run_action(action)
 
         if is_3d:
-            graph_3d.unfix_caption(self.scene, self.caption_mob)
+            graph_3d.unfix_caption(self.scene, self.stage.caption_mob)
 
         if scene_data.get("pin", True):
-            self._swipe_to_left_half()
+            pieces = [self.mobjects[i] for i in list(self.on_screen) if i in self.mobjects]
+            self.stage.pin_active_to_left(pieces)
+            self.on_screen.clear()
+            self.mobjects.clear()
+            self.board.clear()
         else:
-            self._fade_scene_out()
-            if is_3d and self._mode == "3d":
+            pieces = [self.mobjects[i] for i in list(self.on_screen) if i in self.mobjects]
+            self.stage.clear_active(pieces)
+            self.on_screen.clear()
+            self.mobjects.clear()
+            self.board.clear()
+            if is_3d and self.stage.mode == "3d":
                 graph_3d.exit_3d(self.scene)
-                self._mode = "2d"
+                self.stage.mode = "2d"
+
+    def _will_be_board_scene(self, scene_data: dict[str, Any]) -> bool:
+        types = [o.get("type") for o in scene_data.get("objects") or []]
+        return bool(types) and all(t == "math" for t in types)
 
     def _separate_labels_from_geometry(self, scene_data: dict[str, Any]) -> None:
-        """Push math/text above axes/plots/regions when their bounding boxes collide."""
         meta = {o["id"]: o for o in scene_data.get("objects") or []}
         chrome = [
             self.mobjects[oid]
@@ -229,33 +201,7 @@ class ScriptRunner:
             for oid, obj in meta.items()
             if obj.get("type") in _LABEL_TYPES and oid in self.mobjects
         ]
-        if not chrome or not labels:
-            return
-
-        chrome_group = VGroup(*chrome)
-        buff = 0.45
-
-        def _overlaps(a: VMobject, b: VMobject, pad: float = 0.1) -> bool:
-            return not (
-                a.get_right()[0] + pad < b.get_left()[0]
-                or b.get_right()[0] + pad < a.get_left()[0]
-                or a.get_top()[1] + pad < b.get_bottom()[1]
-                or b.get_top()[1] + pad < a.get_bottom()[1]
-            )
-
-        for lab in labels:
-            if not any(_overlaps(lab, c) for c in chrome):
-                continue
-            lab.next_to(chrome_group, UP, buff=buff)
-
-        # If labels now hit the caption band, drop the geometry instead.
-        highest_label = max(float(lab.get_top()[1]) for lab in labels)
-        if highest_label > _CAPTION_CEILING:
-            drop = highest_label - _CAPTION_CEILING + 0.15
-            chrome_group.shift(DOWN * drop)
-            for lab in labels:
-                if any(_overlaps(lab, c, pad=0.05) for c in chrome):
-                    lab.next_to(chrome_group, UP, buff=buff)
+        self.stage.separate_labels_from_chrome(labels, chrome)
 
     def _answer_mob(self, answer: str) -> VMobject:
         """Render the closing answer with real math (not escaped plain text)."""
@@ -267,13 +213,13 @@ class ScriptRunner:
             return plain_tex(f"Answer: {answer}", font_size=40, color=color)
 
     def _ensure_mode(self, mode: str) -> None:
-        if mode == self._mode:
+        if mode == self.stage.mode:
             return
         if mode == "3d":
             graph_3d.enter_3d(self.scene, phi=70, theta=-45, run_time=0.55)
         else:
             graph_3d.exit_3d(self.scene, run_time=0.45)
-        self._mode = mode
+        self.stage.mode = mode
 
     def _set_flat_camera(self, *, animate: bool) -> None:
         if animate:
@@ -281,112 +227,28 @@ class ScriptRunner:
         else:
             self.scene.set_camera_orientation(phi=0, theta=-90 * DEGREES)
 
-    def _fit_group_to_region(
-        self,
-        group: VMobject,
-        *,
-        center,
-        max_w: float,
-        max_h: float,
-        max_scale: float = 1.0,
-    ) -> None:
-        """Scale + move a group so it fits inside a half-frame region."""
-        w = max(float(group.width), 1e-3)
-        h = max(float(group.height), 1e-3)
-        scale = min(max_w / w, max_h / h, max_scale)
-        if scale < 0.999:
-            group.scale(scale)
-        group.move_to(center)
-
-    def _swipe_to_left_half(self) -> None:
-        """Park the finished step on the left half; next step will use the right."""
-        pieces = [self.mobjects[i] for i in list(self.on_screen) if i in self.mobjects]
-        # Fade the caption out — keeping it in the left pin overlaps the next
-        # scene's instruction banner across the top of the frame.
-        anims = []
-        if self.caption_mob is not None:
-            anims.append(FadeOut(self.caption_mob, shift=UP * 0.15))
-            self.caption_mob = None
-        if not pieces:
-            if anims:
-                self.scene.play(*anims, run_time=0.35)
-            return
-
-        group = VGroup(*pieces)
-        w = max(float(group.width), 1e-3)
-        h = max(float(group.height), 1e-3)
-        scale = min(_HALF_MAX_W / w, _HALF_MAX_H / h, 1.0)
-
-        if self.left_panel is not None:
-            anims.append(FadeOut(self.left_panel, shift=LEFT * 0.6))
-        # ONE transform on the whole group. Do NOT also .animate children here —
-        # concurrent child animations steal them from the parent move (axes move,
-        # plots/ticks/tips/points get left behind).
-        anims.append(group.animate.scale(scale).move_to(_LEFT_CENTER))
-        self.scene.play(*anims, run_time=0.75)
-        self._apply_panel_dim(group, _LEFT_PANEL_OPACITY)
-        self.left_panel = group
-        self.on_screen.clear()
-        self.mobjects.clear()
-        self.board.clear()
-        self.scene.wait(0.12)
-
-    def _apply_panel_dim(self, mob: VMobject, opacity: float) -> None:
-        """Dim a parked left panel without enabling stroke-only plot fills."""
-        name = type(mob).__name__
-        if name == "ParametricFunction":
-            mob.set_fill(opacity=0)
-            mob.set_stroke(opacity=opacity)
-            return
-        if name not in {"MathTex", "Tex", "SingleStringMathTex", "DecimalNumber"} and getattr(
-            mob, "submobjects", None
-        ):
-            for sub in list(mob.submobjects):
-                self._apply_panel_dim(sub, opacity)
-            if mob.submobjects:
-                return
-        mob.set_opacity(opacity)
-        if name == "ParametricFunction":
-            mob.set_fill(opacity=0)
-
-    def _force_stroke_curves_unfilled(self, mob: VMobject) -> None:
-        """Safety net: plots must stay fill-free after panel dimming."""
-        if type(mob).__name__ == "ParametricFunction":
-            mob.set_fill(opacity=0)
-            return
-        for sub in getattr(mob, "submobjects", []) or []:
-            self._force_stroke_curves_unfilled(sub)
-
-    def _fade_scene_out(self) -> None:
-        pieces = [self.mobjects[i] for i in list(self.on_screen) if i in self.mobjects]
-        if self.caption_mob is not None:
-            pieces.append(self.caption_mob)
-        if pieces:
-            self.scene.play(*[FadeOut(m) for m in pieces], run_time=0.45)
-        self.on_screen.clear()
-        self.caption_mob = None
-        self.mobjects.clear()
-        self.board.clear()
-
     def _run_action(self, action: dict[str, Any]) -> None:
         op = action["op"]
         if op == "wait":
             self.scene.wait(float(action["seconds"]))
             return
         if op == "set_caption":
-            self._set_caption(action["text"])
+            self.stage.set_caption(
+                action["text"],
+                color=self._color("gray"),
+                content=self._instruction_content(),
+            )
             return
         if op == "derive":
             self.board.derive(action["from"], action["to"], buff=float(action.get("buff", 0.55)))
             return
+        if op == "fork":
+            self.board.fork(action["from"], list(action["to"]), buff=float(action.get("buff", 0.75)))
+            return
         if op == "clear":
             fade = [self.mobjects[i] for i in list(self.on_screen) if i in self.mobjects]
-            if self.caption_mob is not None:
-                fade.append(self.caption_mob)
-            if fade:
-                self.scene.play(*[FadeOut(m) for m in fade])
+            self.stage.clear_active(fade)
             self.on_screen.clear()
-            self.caption_mob = None
             self.board.clear()
             return
         if op == "move_camera":
@@ -396,7 +258,7 @@ class ScriptRunner:
                 theta=float(action["theta"]),
                 run_time=float(action.get("run_time", 1)),
             )
-            self._mode = "3d"
+            self.stage.mode = "3d"
             return
         if op == "transform":
             src, dst = action["from"], action["to"]
@@ -408,7 +270,6 @@ class ScriptRunner:
         targets = action["targets"]
         mobs = [self.mobjects[t] for t in targets]
         if op == "create":
-            # Prefer axes→surface reveal for 3D volume beats.
             surf_ids = [t for t in targets if self._obj_type.get(t) == "surface"]
             axes_ids = [t for t in targets if self._obj_type.get(t) == "axes3d"]
             if (
@@ -421,8 +282,6 @@ class ScriptRunner:
                 )
                 self.on_screen.update(targets)
             else:
-                # Stroke-only plots: FadeIn (Create can flash a closed-path fill
-                # between equal-height endpoints of a parabola).
                 plot_ids = [t for t in targets if self._obj_type.get(t) == "plot"]
                 other_ids = [t for t in targets if t not in plot_ids]
                 anims = []
@@ -436,7 +295,7 @@ class ScriptRunner:
             stmt_ids = [t for t in targets if self._obj_type.get(t) == "statement"]
             if stmt_ids and set(stmt_ids) == set(targets):
                 for tid in stmt_ids:
-                    stmt.play_write_statement(self.scene, self.mobjects[tid])
+                    stmt.play_write_statement(self.scene, self.mobjects[tid], place=False)
                 self.on_screen.update(targets)
             else:
                 self.board.write(targets)
@@ -450,14 +309,8 @@ class ScriptRunner:
         elif op == "indicate":
             self.scene.play(*[Indicate(m) for m in mobs])
 
-    def _set_caption(self, text: str) -> None:
-        self.caption_mob = instr.play_set_instruction(
-            self.scene,
-            self.caption_mob,
-            text,
-            color=self._color("gray"),
-            right_stage=self._use_right_stage and self._mode != "3d",
-        )
+    def _instruction_content(self) -> list[VMobject]:
+        return [self.mobjects[i] for i in self.on_screen if i in self.mobjects]
 
     def _build_object(self, obj: dict[str, Any]) -> VMobject:
         otype = obj["type"]
@@ -474,7 +327,6 @@ class ScriptRunner:
                 font_size=font_size,
                 right_stage=False,
             )
-            # build_instruction pins to the top; relocate to the requested slot.
             self._place(mob, obj)
             return mob
         elif otype == "axes":
@@ -497,6 +349,10 @@ class ScriptRunner:
             axes = self.mobjects[obj["axes"]]
             assert isinstance(axes, ThreeDAxes)
             mob = graph_3d.build_surface(obj, axes, color=color)
+        elif otype == "plane":
+            axes = self.mobjects[obj["axes"]]
+            assert isinstance(axes, ThreeDAxes)
+            mob = graph_3d.build_plane(obj, axes, color=color)
         elif otype == "polygon":
             axes = self.mobjects[obj["axes"]]
             assert isinstance(axes, Axes)
@@ -504,8 +360,11 @@ class ScriptRunner:
         elif otype == "dot":
             if "axes" in obj:
                 axes = self.mobjects[obj["axes"]]
-                assert isinstance(axes, Axes)
-                mob = graph_2d.build_axes_dot(obj, axes, color=color)
+                if isinstance(axes, ThreeDAxes):
+                    mob = graph_3d.build_axes3d_dot(obj, axes, color=color)
+                else:
+                    assert isinstance(axes, Axes)
+                    mob = graph_2d.build_axes_dot(obj, axes, color=color)
             elif "number_line" in obj:
                 nl = self.mobjects[obj["number_line"]]
                 assert isinstance(nl, NumberLine)
@@ -546,7 +405,7 @@ class ScriptRunner:
                 color=color,
                 font_size=int(obj.get("font_size", 30)),
             )
-            stmt.place_statement(mob)
+            self.stage.fit(mob, self.stage.content())
             return mob
         else:
             raise RuntimeError(otype)
@@ -558,32 +417,44 @@ class ScriptRunner:
     def _endpoints(self, obj: dict[str, Any]):
         if "axes" in obj:
             axes = self.mobjects[obj["axes"]]
+            start = list(obj["start"])
+            end = list(obj["end"])
+            if isinstance(axes, ThreeDAxes):
+                while len(start) < 3:
+                    start.append(0.0)
+                while len(end) < 3:
+                    end.append(0.0)
+                return axes.c2p(*start[:3]), axes.c2p(*end[:3])
             assert isinstance(axes, Axes)
-            return axes.c2p(*obj["start"]), axes.c2p(*obj["end"])
+            return axes.c2p(*start[:2]), axes.c2p(*end[:2])
         return (
             float(obj["start"][0]) * RIGHT + float(obj["start"][1]) * UP,
             float(obj["end"][0]) * RIGHT + float(obj["end"][1]) * UP,
         )
 
     def _place(self, mob: VMobject, obj: dict[str, Any]) -> None:
-        if obj["type"] in {"plot", "surface", "polygon", "flow_field"}:
+        if obj["type"] == "math" and self._board_scene:
+            # Board playback owns absolute placement (anchor + derive/fork).
+            return
+        if obj["type"] in {"plot", "surface", "plane", "polygon", "flow_field"}:
             return
         if obj["type"] == "dot" and ("axes" in obj or "number_line" in obj):
             return
-        # Absolute start/end already place the segment; do not re-center it.
         if obj["type"] in {"line", "arrow"}:
             return
         if obj["type"] == "axes3d":
-            graph_3d.place_axes3d(mob, obj)
+            # Built at origin; conductor fits the whole scene into content().
             return
-        if obj["type"] == "axes" and not isinstance(obj.get("at"), str):
-            graph_2d.place_axes(mob, obj)
+        if obj["type"] == "axes":
+            at = obj.get("at", "center")
+            if isinstance(at, str):
+                self.stage.place(mob, at=at)
+            else:
+                # Explicit coords still honored for rare overrides.
+                mob.move_to(float(at[0]) * RIGHT + float(at[1]) * UP)
             return
         at = obj.get("at", "center")
-        if isinstance(at, str):
-            mob.move_to(_SLOT["title"] if at == "title" else _SLOT[at])
-        else:
-            mob.move_to(float(at[0]) * RIGHT + float(at[1]) * UP)
+        self.stage.place(mob, at=at if isinstance(at, (str, list, tuple)) else "center")
 
     def _color(self, name: str):
         if isinstance(name, str) and name.startswith("#"):

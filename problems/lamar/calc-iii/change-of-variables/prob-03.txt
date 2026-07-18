@@ -1,0 +1,7 @@
+# Section 15.8 : Change of Variables (problem 3)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/ChangeOfVariables.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ChangeOfVariables/Prob3.aspxSolution
+
+Evaluate
+
+$x = \fracvu\hspace0.25in\hspace0.25iny = u^{2} - 4v^{2}$

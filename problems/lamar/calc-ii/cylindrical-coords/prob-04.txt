@@ -1,0 +1,7 @@
+# Section 12.12 : Cylindrical Coordinates (problem 4)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/CylindricalCoords.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/CylindricalCoords/Prob4.aspxSolution
+
+Evaluate
+
+$z\,r = 2 - r^{2}$

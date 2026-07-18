@@ -1,0 +1,7 @@
+# Section 15.3 : Double Integrals over General Regions (problem 12)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/DIGeneralRegion.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/DIGeneralRegion/Prob11.aspxSolution
+
+Evaluate
+
+$\int_0^{1}{{\int_{- \sqrt y }^{{{y^\,2}}}{6x - y\,dx}\,dy}}$

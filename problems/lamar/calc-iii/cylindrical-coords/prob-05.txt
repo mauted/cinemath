@@ -1,0 +1,7 @@
+# Section 12.12 : Cylindrical Coordinates (problem 5)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/CylindricalCoords.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/CylindricalCoords/Prob5.aspxSolution
+
+Evaluate
+
+$4\sin \left \theta \right - 2\cos \left \theta \right = \fracrz$

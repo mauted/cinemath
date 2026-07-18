@@ -1,0 +1,7 @@
+# Section 12.1 : The 3-D Coordinate System (problem 5)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/3DCoords.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/3DCoords/Prob5.aspxSolution
+
+Evaluate
+
+$x^{3} + \sqrt {y^{2} + 1} - 6z = 2$

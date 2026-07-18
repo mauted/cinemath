@@ -1,0 +1,7 @@
+# Section 7.8 : Improper Integrals (problem 5)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ImproperIntegrals.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ImproperIntegrals/Prob5.aspxSolution
+
+Evaluate
+
+$\int_{- \infty }^{1}{{\sqrt 6 - y \,dy}}$

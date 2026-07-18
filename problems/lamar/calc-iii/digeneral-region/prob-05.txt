@@ -1,0 +1,7 @@
+# Section 15.3 : Double Integrals over General Regions (problem 5)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/DIGeneralRegion.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/DIGeneralRegion/Prob5.aspxSolution
+
+Evaluate
+
+$Evaluate \iint\limits_D{{5x^{3}\cos {y^{3}} \right\,dA}} where D is the region bounded by y = 2, y = \frac14x^{2} and the y-axis.$

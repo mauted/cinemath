@@ -1,0 +1,7 @@
+# Section 7.3 : Trig Substitutions (problem 11)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/TrigSubstitutions.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/TrigSubstitutions/Prob11.aspxSolution
+
+Evaluate
+
+$\int{{t^{3}{{{3t^{2} - 4} }^{\frac52}}\,dt}}$

@@ -1,0 +1,7 @@
+# Section 9.1 : Parametric Equations and Curves (problem 13)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ParametricEqn.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ParametricEqn/Prob9.aspxSolution
+
+Evaluate
+
+$x = \sqrt {4 + \cos {\frac52t} } \hspace0.5iny = 1 + \frac13\cos {\frac52t} \right \hspace0.5in - 48\pi \le t \le 2\pi$

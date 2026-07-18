@@ -1,0 +1,7 @@
+# Section 7.4 : Partial Fractions (problem 1)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/PartialFractions.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/PartialFractions/Prob1.aspxSolution
+
+Evaluate
+
+$\int{{\frac4{{x^{2} + 5x - 14}}\,dx}}$

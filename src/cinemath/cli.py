@@ -9,6 +9,7 @@ import typer
 from dotenv import load_dotenv
 
 from cinemath import __version__
+from cinemath.logger import configure, fmt_path, get_logger
 from cinemath.pipeline import run_pipeline
 
 app = typer.Typer(
@@ -30,8 +31,10 @@ def main(
     version: Optional[bool] = typer.Option(
         None, "--version", "-V", callback=_version_callback, is_eager=True
     ),
+    verbose: bool = typer.Option(False, "--verbose", "-v", help="Debug logging."),
 ) -> None:
     load_dotenv()
+    configure(level="DEBUG" if verbose else None)
 
 
 @app.command("solve")
@@ -44,30 +47,38 @@ def solve(
         help="Path to .txt, .md, or image of the math problem.",
     ),
     out: Optional[Path] = typer.Option(None, "--out", "-o", help="Output root (default ./outputs)."),
-    quality: str = typer.Option("l", "--quality", "-q", help="Manim quality: l|m|h."),
+    quality: str = typer.Option("m", "--quality", "-q", help="Manim quality: l (480p15), m (720p60), h (1080p60)."),
     skip_render: bool = typer.Option(False, "--skip-render", help="Write plan/animation JSON only."),
+    keep_media: bool = typer.Option(
+        False, "--keep-media", help="Keep Manim cache (media/) in the run directory."
+    ),
 ) -> None:
     """Teach a problem with the LLM, then animate it with local templates."""
-    typer.echo(f"Loading {input_path} …")
+    log = get_logger("cli")
+    log.info("solve %s", fmt_path(input_path))
     try:
         result = run_pipeline(
             input_path,
             output_root=out.resolve() if out else None,
             quality=quality,
             skip_render=skip_render,
+            keep_media=keep_media,
         )
     except Exception as exc:
-        typer.secho(f"Error: {exc}", fg=typer.colors.RED, err=True)
+        log.error("failed: %s", exc)
         raise typer.Exit(code=1) from exc
 
-    typer.secho(f"Run directory: {result.run_dir}", fg=typer.colors.GREEN)
-    typer.echo(f"  plan:       {result.plan_path}")
-    typer.echo(f"  verify:     {result.verify_path}")
-    typer.echo(f"  animation:  {result.animation_path}")
-    if skip_render:
-        typer.echo("  video:      (skipped)")
+    log.info("done — %s", fmt_path(result.run_dir))
+    log.info("  plan:       %s", fmt_path(result.plan_path))
+    if result.verify_path is not None:
+        log.info("  verify:     %s", fmt_path(result.verify_path))
     else:
-        typer.echo(f"  video:      {result.video_path}")
+        log.info("  verify:     (skipped — %s)", result.teacher.planner)
+    log.info("  animation:  %s", fmt_path(result.animation_path))
+    if skip_render:
+        log.info("  video:      (skipped)")
+    else:
+        log.info("  video:      %s", fmt_path(result.video_path))
 
 
 if __name__ == "__main__":

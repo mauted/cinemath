@@ -1,11 +1,12 @@
-"""3D graphing: axes, surfaces, z-range sampling, and camera/caption helpers."""
+"""3D graphing: axes, surfaces, planes, z-range sampling, and camera/caption helpers."""
 
 from __future__ import annotations
 
 from typing import Any
 
-from manim import DEGREES, DOWN, FadeIn, ThreeDAxes, ThreeDScene, VMobject
+from manim import DEGREES, Dot, FadeIn, ThreeDAxes, ThreeDScene, VGroup, VMobject
 
+from cinemath.render_engine.geometry import plane_box_polygon
 from cinemath.render_engine.validate import compile_expr2
 
 SURFACE_RESOLUTION = 28
@@ -38,8 +39,9 @@ def build_surface(obj: dict[str, Any], axes: ThreeDAxes, *, color: Any) -> VMobj
 
 
 def place_axes3d(mob: VMobject, obj: dict[str, Any] | None = None) -> None:
-    # Slight drop keeps the surface clear of the fixed caption band.
-    mob.move_to(DOWN * 0.45)
+    """Build-time no-op: StageConductor places the 3D group into the content region."""
+    del mob, obj
+    return
 
 
 def sample_z_range(
@@ -172,6 +174,66 @@ def surface_object(
         "opacity": opacity,
         "resolution": resolution,
     }
+
+
+def plane_object(
+    oid: str,
+    *,
+    axes: str,
+    a: float,
+    b: float,
+    c: float,
+    d: float,
+    color: str = "blue",
+    opacity: float = 0.35,
+) -> dict[str, Any]:
+    """Plane ``a x + b y + c z = d`` clipped to the axes box."""
+    return {
+        "id": oid,
+        "type": "plane",
+        "axes": axes,
+        "a": float(a),
+        "b": float(b),
+        "c": float(c),
+        "d": float(d),
+        "color": color,
+        "opacity": opacity,
+    }
+
+
+def build_plane(obj: dict[str, Any], axes: ThreeDAxes, *, color: Any) -> VMobject:
+    from manim import Polygon
+
+    pts = plane_box_polygon(
+        float(obj["a"]),
+        float(obj["b"]),
+        float(obj["c"]),
+        float(obj["d"]),
+        float(axes.x_range[0]),
+        float(axes.x_range[1]),
+        float(axes.y_range[0]),
+        float(axes.y_range[1]),
+        float(axes.z_range[0]),
+        float(axes.z_range[1]),
+    )
+    if len(pts) < 3:
+        return VGroup()
+    manim_pts = [axes.c2p(*p) for p in pts]
+    poly = Polygon(
+        *manim_pts,
+        color=color,
+        fill_color=color,
+        fill_opacity=float(obj.get("opacity", 0.35)),
+    )
+    poly.set_stroke(color=color, width=2, opacity=0.9)
+    return poly
+
+
+def build_axes3d_dot(obj: dict[str, Any], axes: ThreeDAxes, *, color: Any) -> Dot:
+    at = list(obj["at"])
+    while len(at) < 3:
+        at.append(0.0)
+    return Dot(axes.c2p(float(at[0]), float(at[1]), float(at[2])), color=color, radius=0.08)
 
 
 def _nice_step(span: float) -> float:

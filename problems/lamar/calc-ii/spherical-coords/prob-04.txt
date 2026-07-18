@@ -1,0 +1,8 @@
+# Section 12.13 : Spherical Coordinates (problem 4)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/SphericalCoords.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/SphericalCoords/Prob4.aspxSolution
+    
+
+Evaluate
+
+$Convert the following equation written in Cartesian coordinates into an equation in Spherical coordinates. \[x^{2} + y^{2} = 4x + z - 2\]$

@@ -1,0 +1,7 @@
+# Section 17.1 : Curl and Divergence (problem 4)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/CurlDivergence.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/CurlDivergence/Prob4.aspxSolution
+
+Evaluate
+
+$\vec F = 6x\,\vec i + {2y - y^{2}} \right\vec j + {6z - x^{3}} \right\vec k$

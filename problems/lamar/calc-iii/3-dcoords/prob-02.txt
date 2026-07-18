@@ -1,0 +1,7 @@
+# Section 12.1 : The 3-D Coordinate System (problem 2)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/3DCoords.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/3DCoords/Prob2.aspxSolution
+
+Evaluate
+
+$Which of the points P = 4, - 2,6 \right and Q = - 6, - 3,2 \right is closest to the yz-plane?$

@@ -1,0 +1,7 @@
+# Section 12.5 : Functions of Several Variables (problem 5)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/MultiVrbleFcns.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/MultiVrbleFcns/Prob5.aspxSolution
+
+Evaluate
+
+$2x - 3y + z^{2} = 1$

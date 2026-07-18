@@ -1,0 +1,7 @@
+# Section 15.3 : Double Integrals over General Regions (problem 1)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/DIGeneralRegion.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/DIGeneralRegion/Prob1.aspxSolution
+
+Evaluate
+
+$Evaluate \iint\limits_D{{42y^{2} - 12x\,dA}} where D = \left\{ {x,y \right|0 \le x \le 4,{{x - 2 }^{2}} \le y \le 6} \right\}$

@@ -1,0 +1,6 @@
+# Section 9.1 : Parametric Equations and Curves (problem 8)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ParametricEqn.aspx
+
+Evaluate
+
+$Limits on x and y.$

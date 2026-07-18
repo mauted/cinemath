@@ -1,7 +1,10 @@
-"""Equation-board scenes: DSL for continuous algebra chains.
+"""Equation-board scenes: DSL for algebra chains and simple forks.
 
-Playback (scroll → morph) lives in ``render_engine.equation_chain``.
+Playback (scroll, morph, fork) lives in ``render_engine.equation_chain``.
 Captions prefer teacher ``explanation`` prose (see ``narration``).
+
+After a ``fork``, ``branch_tips`` tracks the last equation id on each branch so
+later steps can continue leaves independently instead of re-deriving from the stem.
 """
 
 from __future__ import annotations
@@ -20,66 +23,96 @@ def equation_board_scene(
     font_size: int = 36,
     pin: bool = True,
 ) -> dict[str, Any] | None:
-    """
-    Build one continuous board scene from teacher steps.
-
-    First math line is written near the top; each following line is derived
-    underneath (renderer scrolls first, then morphs). Caption updates use the
-    step's spoken explanation when present.
-    """
-    lines: list[tuple[str, str]] = []  # (caption_for_line, tex)
-    for step in steps:
-        maths = [m for m in (step.get("math") or []) if str(m).strip()]
-        if not maths:
-            # Explanation-only steps still get a narration beat (no new equation).
-            narr = step_narration(step)
-            if narr:
-                lines.append((narr, ""))
-            continue
-        narr = step_narration(step)
-        for j, tex in enumerate(maths):
-            # Narration once per teacher step (on the first math line).
-            line_caption = narr if j == 0 else ""
-            lines.append((line_caption, tex.strip()))
-
-    # Drop empty placeholder rows that somehow have neither caption nor math.
-    lines = [(c, t) for c, t in lines if c or t]
-    if not lines:
+    """Build one continuous board scene from teacher steps."""
+    if not steps:
         return None
 
     objects: list[dict[str, Any]] = []
     actions: list[dict[str, Any]] = []
-    prev_id: str | None = None
+    spine_id: str | None = None
+    branch_tips: list[str] | None = None
     eq_i = 0
 
-    opening = caption or next((c for c, _ in lines if c), "Working")
+    opening = caption or next((step_narration(step) for step in steps if step_narration(step)), "Working")
     saw_opening = False
 
-    for line_caption, tex in lines:
-        if line_caption:
-            if not saw_opening and line_caption == opening:
-                # Scene already faded this caption in; just give reading time.
-                saw_opening = True
-                actions.append(dsl.wait(read_wait(line_caption)))
-            else:
-                actions.append(dsl.set_caption(line_caption))
-                actions.append(dsl.wait(read_wait(line_caption)))
-                saw_opening = True
-
-        if not tex:
-            # Narration-only beat (no board line).
-            continue
-
+    def next_id() -> str:
+        nonlocal eq_i
         oid = f"{sid}_eq{eq_i}"
         eq_i += 1
-        at = "upper" if prev_id is None else "center"
-        objects.append(dsl.math(oid, tex, at=at, font_size=font_size))
-        if prev_id is None:
+        return oid
+
+    def append_chain(prev: str | None, tex: str) -> str:
+        oid = next_id()
+        objects.append(dsl.math(oid, tex.strip(), at="center", font_size=font_size))
+        if prev is None:
             actions.append(dsl.write(oid))
         else:
-            actions.append(dsl.derive(prev_id, oid))
+            actions.append(dsl.derive(prev, oid))
         actions.append(dsl.wait(0.4))
-        prev_id = oid
+        return oid
+
+    for step in steps:
+        narr = step_narration(step)
+        maths = [m for m in (step.get("math") or []) if str(m).strip()]
+        cases = [case for case in (step.get("cases") or []) if case.get("math")]
+
+        if narr:
+            if not saw_opening and narr == opening:
+                saw_opening = True
+                actions.append(dsl.wait(read_wait(narr)))
+            else:
+                actions.append(dsl.set_caption(narr))
+                actions.append(dsl.wait(read_wait(narr)))
+                saw_opening = True
+
+        local_prev = spine_id
+        if maths:
+            if branch_tips is not None:
+                # Parallel branches are active: spine math starts a fresh chain.
+                branch_tips = None
+                local_prev = None
+            for tex in maths:
+                local_prev = append_chain(local_prev, tex)
+            spine_id = local_prev
+
+        if cases:
+            if branch_tips is not None and len(branch_tips) == len(cases):
+                new_tips: list[str] = []
+                for tip, case in zip(branch_tips, cases, strict=True):
+                    lines = [m for m in case["math"] if str(m).strip()]
+                    prev = tip
+                    for tex in lines:
+                        prev = append_chain(prev, tex)
+                    new_tips.append(prev)
+                branch_tips = new_tips
+                spine_id = None
+                continue
+
+            anchor_id = local_prev if local_prev is not None else spine_id
+            if anchor_id is None:
+                raise ValueError("equation_board cases require prior math")
+
+            first_ids: list[str] = []
+            tails: list[tuple[str, list[str]]] = []
+            for case in cases:
+                lines = [m for m in case["math"] if str(m).strip()]
+                first_id = next_id()
+                objects.append(dsl.math(first_id, lines[0].strip(), at="center", font_size=font_size))
+                first_ids.append(first_id)
+                tails.append((first_id, lines[1:]))
+
+            actions.append(dsl.fork(anchor_id, *first_ids))
+            actions.append(dsl.wait(0.4))
+
+            new_tips = []
+            for branch_id, lines in tails:
+                prev = branch_id
+                for tex in lines:
+                    prev = append_chain(prev, tex)
+                new_tips.append(prev)
+            branch_tips = new_tips
+            spine_id = anchor_id
 
     if not objects:
         return None

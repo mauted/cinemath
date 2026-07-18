@@ -1,0 +1,7 @@
+# Section 7.1 : Integration by Parts (problem 7)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/IntegrationByParts.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/IntegrationByParts/Prob7.aspxSolution
+
+Evaluate
+
+$\int{{t^{7}\sin {2t^{4}} \right\,dt}}$

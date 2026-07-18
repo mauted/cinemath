@@ -1,0 +1,8 @@
+# Section 16.7 : Green's Theorem (problem 4)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/GreensTheorem.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/GreensTheorem/Prob4.aspxSolution
+    
+
+Evaluate
+
+$Use Green’s Theorem to evaluate \int\limits_C{{{y^{4} - 2y} \right\,dx - {6x - 4xy^{3}} \right\,dy}} where C is shown below.$

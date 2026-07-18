@@ -1,0 +1,7 @@
+# Section 9.2 : Tangents with Parametric Equations (problem 4)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ParaTangent.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ParaTangent/Prob4.aspxSolution
+
+Evaluate
+
+$x = t^{2} - 2t - 11\hspace0.25iny = t{t - 4 \right^{3}} - 3t^{2}{t - 4 \right^{2}} + 7 at - 3,7 \right$

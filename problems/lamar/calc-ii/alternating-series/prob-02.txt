@@ -1,0 +1,7 @@
+# Section 10.8 : Alternating Series Test (problem 2)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/AlternatingSeries.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/AlternatingSeries/Prob2.aspxSolution
+
+Evaluate
+
+$\sum\limits_n = 0^\infty {\frac{{{{- 1 }^n + 3}}}{{n^{3} + 4n + 1}}}$

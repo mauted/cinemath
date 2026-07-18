@@ -1,0 +1,7 @@
+# Section 9.5 : Surface Area with Parametric Equations (problem 5)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ParaSurfaceArea.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ParaSurfaceArea/Prob5.aspxSolution
+
+Evaluate
+
+$Rotate x = 1 + 3t^{2}\hspace0.25iny = \sin 2t \right\cos {\frac14t} \right\hspace0.25in0 \le t \le \frac12 about the y-axis.$

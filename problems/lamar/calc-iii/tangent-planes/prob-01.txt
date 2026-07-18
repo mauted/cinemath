@@ -1,0 +1,7 @@
+# Section 14.1 : Tangent Planes and Linear Approximations (problem 1)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/TangentPlanes.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/TangentPlanes/Prob1.aspxSolution
+
+Evaluate
+
+$Find the equation of the tangent plane to z = x^{2}\cos \pi y \right - \frac6{{xy^{2}}} at 2, - 1 \right.$

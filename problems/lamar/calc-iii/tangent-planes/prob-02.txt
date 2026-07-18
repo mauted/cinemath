@@ -1,0 +1,7 @@
+# Section 14.1 : Tangent Planes and Linear Approximations (problem 2)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/TangentPlanes.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/TangentPlanes/Prob2.aspxSolution
+
+Evaluate
+
+$Find the equation of the tangent plane to z = x\sqrt {x^{2} + y^{2}} + y^{3} at - 4,3 \right.$

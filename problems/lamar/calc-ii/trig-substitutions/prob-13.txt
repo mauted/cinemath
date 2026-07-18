@@ -1,0 +1,7 @@
+# Section 7.3 : Trig Substitutions (problem 13)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/TrigSubstitutions.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/TrigSubstitutions/Prob13.aspxSolution
+
+Evaluate
+
+$\int_1^{4}{{2z^{5}\sqrt {2 + 9z^{2}} \,dz}}$

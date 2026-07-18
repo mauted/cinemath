@@ -1,0 +1,7 @@
+# Section 14.5 : Lagrange Multipliers (problem 5)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/LagrangeMultipliers.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/LagrangeMultipliers/Prob5.aspxSolution
+
+Evaluate
+
+$Find the maximum and minimum values of fx,y,z \right = 3x^{2} + y subject to the constraints 4x - 3y = 9 and x^{2} + z^{2} = 9.$

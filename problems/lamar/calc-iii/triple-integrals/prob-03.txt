@@ -1,0 +1,7 @@
+# Section 15.5 : Triple Integrals (problem 3)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/TripleIntegrals.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/TripleIntegrals/Prob3.aspxSolution
+
+Evaluate
+
+$Evaluate \iiint\limits_E{{6z^{2}\,dV}} where E is the region below 4x + y + 2z = 10 in the first octant.$

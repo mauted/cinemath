@@ -1,0 +1,7 @@
+# Section 15.8 : Change of Variables (problem 11)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/ChangeOfVariables.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ChangeOfVariables/Prob11.aspxSolution
+
+Evaluate
+
+$Derive a transformation that will convert the triangle with vertices 1,0 \right, 6,0 \right and 3,8 \right into a right triangle with the right angle occurring at the origin of the uv system.$

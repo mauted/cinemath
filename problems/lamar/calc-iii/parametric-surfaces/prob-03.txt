@@ -1,0 +1,7 @@
+# Section 17.2 : Parametric Surfaces (problem 3)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/ParametricSurfaces.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ParametricSurfaces/Prob3.aspxSolution
+
+Evaluate
+
+$The cylinder x^{2} + y^{2} = 5 for - 1 \le z \le 6.$

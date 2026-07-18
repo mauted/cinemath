@@ -1,0 +1,7 @@
+# Section 15.8 : Change of Variables (problem 1)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/ChangeOfVariables.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ChangeOfVariables/Prob1.aspxSolution
+
+Evaluate
+
+$x = 4u - 3v^{2}\hspace0.25iny = u^{2} - 6v$

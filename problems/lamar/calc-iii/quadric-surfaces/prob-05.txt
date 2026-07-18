@@ -1,0 +1,7 @@
+# Section 12.4 : Quadric Surfaces (problem 5)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/QuadricSurfaces.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/QuadricSurfaces/Prob5.aspxSolution
+
+Evaluate
+
+$x = 4 - 5y^{2} - 9z^{2}$

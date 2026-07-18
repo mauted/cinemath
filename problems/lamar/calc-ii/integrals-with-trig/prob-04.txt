@@ -1,0 +1,7 @@
+# Section 7.2 : Integrals Involving Trig Functions (problem 4)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/IntegralsWithTrig.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/IntegralsWithTrig/Prob4.aspxSolution
+
+Evaluate
+
+$\int_\pi ^{2\pi }{{{\cos ^{3}}{\frac12w} \right{\sin ^{5}}{\frac12w} \right\,dw}}$

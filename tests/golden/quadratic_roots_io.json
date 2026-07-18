@@ -1,0 +1,113 @@
+{
+  "planner": "plan_quadratic",
+  "tool_input": {
+    "problem_statement": "Solve for $x$: $x^2 - 5x + 6 = 0$.",
+    "a": 1,
+    "b": -5,
+    "c": 6
+  },
+  "plan": {
+    "version": 2,
+    "problem": "Solve for $x$: $x^2 - 5x + 6 = 0$.",
+    "answer": "x = 2, x = 3",
+    "steps": [
+      {
+        "title": "Identify the quadratic",
+        "explanation": "Standard form $ax^{2}+bx+c=0$ with $a=1$, $b=-5$, $c=6$.",
+        "math": [
+          "x^{2} - 5 x + 6 = 0"
+        ]
+      },
+      {
+        "title": "Find two numbers",
+        "explanation": "Find two numbers that multiply to $6$ and add to $-5$.",
+        "math": [
+          "(-2) \\cdot (-3) = 6,\\quad (-2) + (-3) = -5"
+        ]
+      },
+      {
+        "title": "Split the middle term",
+        "explanation": "Rewrite the $-5x$ term using $-2$ and $-3$.",
+        "math": [
+          "x^{2} - 2x - 3x + 6 = 0"
+        ]
+      },
+      {
+        "title": "Factor by grouping",
+        "explanation": "Group the four terms and pull out the common binomial.",
+        "math": [
+          "x(x - 2) - 3(x - 2) = 0",
+          "(x - 2)(x - 3) = 0"
+        ]
+      },
+      {
+        "title": "Solve for x",
+        "explanation": "Set each factor equal to zero.",
+        "math": [],
+        "cases": [
+          {
+            "math": [
+              "x - 2 = 0",
+              "x = 2"
+            ]
+          },
+          {
+            "math": [
+              "x - 3 = 0",
+              "x = 3"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Verify",
+        "explanation": "Substitute each root back into the original equation.",
+        "math": [],
+        "cases": [
+          {
+            "math": [
+              "2^{2} - 5(2) + 6 = 0"
+            ]
+          },
+          {
+            "math": [
+              "3^{2} - 5(3) + 6 = 0"
+            ]
+          }
+        ]
+      }
+    ],
+    "visuals": [
+      {
+        "tool": "plot_2d",
+        "equation": "x^2-5x+6=0",
+        "coefficients": {
+          "a": 1.0,
+          "b": -5.0,
+          "c": 6.0
+        },
+        "roots": [
+          2.0,
+          3.0
+        ]
+      },
+      {
+        "tool": "equation_board"
+      },
+      {
+        "tool": "show_answer",
+        "tex": "x=2,\\; x=3",
+        "caption": "Solutions"
+      }
+    ]
+  },
+  "animation_summary": {
+    "scene_count": 4,
+    "scene_ids": [
+      "problem",
+      "plot_2d_0",
+      "board_1",
+      "answer_2"
+    ]
+  }
+}

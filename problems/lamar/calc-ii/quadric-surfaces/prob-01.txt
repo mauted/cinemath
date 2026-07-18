@@ -1,0 +1,7 @@
+# Section 12.4 : Quadric Surfaces (problem 1)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/QuadricSurfaces.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/QuadricSurfaces/Prob1.aspxSolution
+
+Evaluate
+
+$\frac{{y^{2}}}9 + z^{2} = 1$

@@ -1,0 +1,7 @@
+# Section 17.2 : Parametric Surfaces (problem 2)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/ParametricSurfaces.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ParametricSurfaces/Prob2.aspxSolution
+
+Evaluate
+
+$The portion of the plane 7x + 3y + 4z = 15 that lies in the 1st octant.$

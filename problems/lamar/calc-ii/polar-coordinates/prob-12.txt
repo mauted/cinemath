@@ -1,0 +1,7 @@
+# Section 9.6 : Polar Coordinates (problem 12)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/PolarCoordinates.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/PolarCoordinates/Prob12.aspxSolution
+
+Evaluate
+
+$r = 7$

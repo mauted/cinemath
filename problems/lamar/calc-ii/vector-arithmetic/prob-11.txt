@@ -1,0 +1,7 @@
+# Section 11.2 : Vector Arithmetic (problem 11)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/VectorArithmetic.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/VectorArithmetic/Prob7.aspxSolution
+
+Evaluate
+
+$Prove the property : \vec v + \vec w = \vec w + \vec v.$

@@ -1,0 +1,7 @@
+# Section 15.9 : Surface Area (problem 4)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/SurfaceArea.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/SurfaceArea/Prob4.aspxSolution
+
+Evaluate
+
+$Determine the surface area of the portion of y = 2x^{2} + 2z^{2} - 7that is inside the cylinder x^{2} + z^{2} = 4.$

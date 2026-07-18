@@ -1,0 +1,7 @@
+# Section 12.7 : Calculus with Vector Functions (problem 7)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/VectorFcnsCalculus.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/VectorFcnsCalculus/Prob7.aspxSolution
+
+Evaluate
+
+$\int{\vec r\left t \right\,dt}, where \vec r\left t \right = t^{3}\,\vec i - \frac{2t}{{t^{2} + 1}}\vec j + \cos ^{23}t \right\vec k$

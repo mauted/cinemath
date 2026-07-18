@@ -1,0 +1,7 @@
+# Section 7.1 : Integration by Parts (problem 6)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/IntegrationByParts.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/IntegrationByParts/Prob6.aspxSolution
+
+Evaluate
+
+$\int_0^\pi {{x^{2}\cos 4x \right\,dx}}$

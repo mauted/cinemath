@@ -1,0 +1,7 @@
+# Section 17.5 : Stokes' Theorem (problem 2)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/StokesTheorem.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/StokesTheorem/Prob2.aspxSolution
+
+Evaluate
+
+$Use Stokes’ Theorem to evaluate \iint\limits_S{{{\mathop\rm curl\nolimits} \vec F\centerdot d\vec S}} where \vec F = {z^{2} - 1} \right\,\vec i + {z + xy^{3}} \right\,\vec j + 6\,\vec k and S is the portion of x = 6 - 4y^{2} - 4z^{2} in front of x = - 2 with orientation in the negative x-axis direction.$

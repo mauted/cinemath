@@ -1,0 +1,6 @@
+# Section 9.1 : Parametric Equations and Curves (problem 7)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ParametricEqn.aspx
+
+Evaluate
+
+$A sketch of the parametric curve including direction of motion based on the equation you get by eliminating the parameter.$

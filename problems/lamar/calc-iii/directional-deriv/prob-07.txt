@@ -1,0 +1,7 @@
+# Section 13.7 : Directional Derivatives (problem 7)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/DirectionalDeriv.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/DirectionalDeriv/Prob7.aspxSolution
+
+Evaluate
+
+$fx,y,z \right = {e^{2}x}\cos y - 2z \right at 4, - 2,0 \right$

@@ -1,0 +1,7 @@
+# Section 16.1 : Vector Fields (problem 1)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/VectorFields.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/VectorFields/Prob1.aspxSolution
+
+Evaluate
+
+$Sketch the vector field for \vec Fx,y \right = 2x\,\vec i - 2\vec j.$

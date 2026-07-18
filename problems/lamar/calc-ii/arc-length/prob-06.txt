@@ -1,0 +1,7 @@
+# Section 8.1 : Arc Length (problem 6)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ArcLength.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ArcLength/Prob4.aspxSolution
+
+Evaluate
+
+$Determine the length of x = 4{3 + y \right^{2}} , 1 \le y \le 4.$

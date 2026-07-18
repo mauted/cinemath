@@ -1,0 +1,7 @@
+# Section 12.2 : Equations of Lines (problem 7)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/EqnsOfLines.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/EqnsOfLines/Prob7.aspxSolution
+
+Evaluate
+
+$Does the line given by x = 9 + 21t, y = - 7, z = 12 - 11t intersect the xz-plane? If so, give the point.$

@@ -1,0 +1,7 @@
+# Section 11.3 : Dot Product (problem 8)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/DotProduct.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/DotProduct/Prob8.aspxSolution
+
+Evaluate
+
+$\vec w = \vec i + 4\vec j - 2\vec k, \vec v = - 3\vec i - 12\vec j + 6\vec k$

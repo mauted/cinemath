@@ -1,0 +1,7 @@
+# Section 10.16 : Taylor Series (problem 5)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/TaylorSeries.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/TaylorSeries/Prob5.aspxSolution
+
+Evaluate
+
+$f\left x \right = \frac7{{x^{4}}} about x = - 3$

@@ -1,0 +1,7 @@
+# Section 7.4 : Partial Fractions (problem 7)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/PartialFractions.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/PartialFractions/Prob7.aspxSolution
+
+Evaluate
+
+$\int{{\frac{{z^{2} + 2z + 3}}{{z - 6 \right{z^{2} + 4} }}\,dz}}$

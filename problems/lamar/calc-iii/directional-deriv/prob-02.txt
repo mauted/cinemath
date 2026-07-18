@@ -1,0 +1,7 @@
+# Section 13.7 : Directional Derivatives (problem 2)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/DirectionalDeriv.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/DirectionalDeriv/Prob2.aspxSolution
+
+Evaluate
+
+$fx,y,z \right = x\cos xy \right + z^{2}y^{4} - 7xz$

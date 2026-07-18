@@ -1,0 +1,8 @@
+# Section 13.6 : Chain Rule (problem 6)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/ChainRule.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ChainRule/Prob6.aspxSolution
+    
+
+Evaluate
+
+$Given the following information use the Chain Rule to determine \frac{\partial w}{\partial t} and \frac{\partial w}{\partial s} . \[w = \sqrt {x^{2} + y^{2}} + \frac{6z}y\,\hspace0.5inx = \sin \left p \right,\,\,\,\,y = p + 3t - 4s,\,\,\,\,z = \frac{{t^{3}}}{{s^{2}}},\,\,\,\,p = 1 - 2t\]$

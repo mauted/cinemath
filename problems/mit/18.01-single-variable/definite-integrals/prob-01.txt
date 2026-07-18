@@ -1,0 +1,6 @@
+# MIT 18.01 style - sine integral
+# Source: https://ocw.mit.edu/courses/18-01-single-variable-calculus-fall-2006/
+
+Evaluate
+
+$\int_0^{\pi/2} \sin(x)\, dx$

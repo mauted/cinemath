@@ -1,0 +1,6 @@
+# Section 8.5 : Probability (problem 2)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/Probability.aspx
+
+Evaluate
+
+$Find PX \le 7 \right.$

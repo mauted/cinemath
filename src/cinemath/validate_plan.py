@@ -63,13 +63,15 @@ def _validate_steps(steps_raw: Any) -> list[dict[str, Any]]:
             raise PlanValidationError(f"steps[{i}].explanation must be a string")
         if not isinstance(math, list) or not all(isinstance(m, str) for m in math):
             raise PlanValidationError(f"steps[{i}].math must be a list of strings")
-        steps.append(
-            {
-                "title": title.strip(),
-                "explanation": explanation.strip(),
-                "math": [m.strip() for m in math if m.strip()],
-            }
-        )
+        clean_step = {
+            "title": title.strip(),
+            "explanation": explanation.strip(),
+            "math": [m.strip() for m in math if m.strip()],
+        }
+        cases = _validate_cases(step.get("cases"), step_index=i)
+        if cases:
+            clean_step["cases"] = cases
+        steps.append(clean_step)
     return steps
 
 
@@ -101,6 +103,20 @@ def _validate_visual_call(index: int, raw: Any) -> dict[str, Any]:
             "equation": str(raw.get("equation") or "").strip(),
             "coefficients": _validate_coefficients(raw, index=index),
             "roots": _validate_number_list(raw.get("roots"), f"visuals[{index}].roots"),
+        }
+
+    if tool == "plot_lines_2d":
+        return {
+            "tool": tool,
+            "equations": _validate_line_equations(raw.get("equations"), index=index),
+            "solution": _validate_xy_solution(raw.get("solution"), index=index),
+        }
+
+    if tool == "plot_planes_3d":
+        return {
+            "tool": tool,
+            "equations": _validate_plane_equations(raw.get("equations"), index=index),
+            "solution": _validate_xyz_solution(raw.get("solution"), index=index),
         }
 
     if tool == "show_region_rectangle":
@@ -260,6 +276,71 @@ def _validate_coefficients(data: dict[str, Any], *, index: int) -> dict[str, flo
     }
 
 
+def _validate_line_equations(raw: Any, *, index: int) -> list[dict[str, float]]:
+    if not isinstance(raw, list) or len(raw) != 2:
+        raise PlanValidationError(f"visuals[{index}].equations must be a list of 2 lines")
+    out: list[dict[str, float]] = []
+    for i, eq in enumerate(raw):
+        if not isinstance(eq, dict):
+            raise PlanValidationError(f"visuals[{index}].equations[{i}] must be an object")
+        for key in ("a", "b", "c"):
+            if key not in eq or not isinstance(eq[key], (int, float)):
+                raise PlanValidationError(
+                    f"visuals[{index}].equations[{i}].{key} must be a number"
+                )
+        if abs(float(eq["a"])) < 1e-12 and abs(float(eq["b"])) < 1e-12:
+            raise PlanValidationError(f"visuals[{index}].equations[{i}] is degenerate")
+        out.append({"a": float(eq["a"]), "b": float(eq["b"]), "c": float(eq["c"])})
+    return out
+
+
+def _validate_plane_equations(raw: Any, *, index: int) -> list[dict[str, float]]:
+    if not isinstance(raw, list) or len(raw) != 3:
+        raise PlanValidationError(f"visuals[{index}].equations must be a list of 3 planes")
+    out: list[dict[str, float]] = []
+    for i, eq in enumerate(raw):
+        if not isinstance(eq, dict):
+            raise PlanValidationError(f"visuals[{index}].equations[{i}] must be an object")
+        for key in ("a", "b", "c", "d"):
+            if key not in eq or not isinstance(eq[key], (int, float)):
+                raise PlanValidationError(
+                    f"visuals[{index}].equations[{i}].{key} must be a number"
+                )
+        if (
+            abs(float(eq["a"])) < 1e-12
+            and abs(float(eq["b"])) < 1e-12
+            and abs(float(eq["c"])) < 1e-12
+        ):
+            raise PlanValidationError(f"visuals[{index}].equations[{i}] is degenerate")
+        out.append(
+            {
+                "a": float(eq["a"]),
+                "b": float(eq["b"]),
+                "c": float(eq["c"]),
+                "d": float(eq["d"]),
+            }
+        )
+    return out
+
+
+def _validate_xy_solution(raw: Any, *, index: int) -> dict[str, float]:
+    if not isinstance(raw, dict):
+        raise PlanValidationError(f"visuals[{index}].solution must be an object")
+    for key in ("x", "y"):
+        if key not in raw or not isinstance(raw[key], (int, float)):
+            raise PlanValidationError(f"visuals[{index}].solution.{key} must be a number")
+    return {"x": float(raw["x"]), "y": float(raw["y"])}
+
+
+def _validate_xyz_solution(raw: Any, *, index: int) -> dict[str, float]:
+    if not isinstance(raw, dict):
+        raise PlanValidationError(f"visuals[{index}].solution must be an object")
+    for key in ("x", "y", "z"):
+        if key not in raw or not isinstance(raw[key], (int, float)):
+            raise PlanValidationError(f"visuals[{index}].solution.{key} must be a number")
+    return {"x": float(raw["x"]), "y": float(raw["y"]), "z": float(raw["z"])}
+
+
 def _validate_number_list(value: Any, label: str) -> list[float]:
     if not isinstance(value, list) or not value:
         raise PlanValidationError(f"{label} must be a non-empty list")
@@ -283,8 +364,32 @@ def _validate_rect_visual(data: dict[str, Any], *, index: int) -> dict[str, Any]
     }
 
 
+def _validate_cases(cases_raw: Any, *, step_index: int) -> list[dict[str, list[str]]]:
+    if cases_raw is None:
+        return []
+    if not isinstance(cases_raw, list) or not cases_raw:
+        raise PlanValidationError(f"steps[{step_index}].cases must be a non-empty list")
+
+    out: list[dict[str, list[str]]] = []
+    for case_index, case in enumerate(cases_raw):
+        if not isinstance(case, dict):
+            raise PlanValidationError(f"steps[{step_index}].cases[{case_index}] must be an object")
+        math = case.get("math")
+        if not isinstance(math, list) or not all(isinstance(m, str) for m in math):
+            raise PlanValidationError(
+                f"steps[{step_index}].cases[{case_index}].math must be a list of strings"
+            )
+        lines = [m.strip() for m in math if m.strip()]
+        if not lines:
+            raise PlanValidationError(
+                f"steps[{step_index}].cases[{case_index}].math must be non-empty"
+            )
+        out.append({"math": lines})
+    return out
+
+
 def _steps_have_math(steps: list[dict[str, Any]]) -> bool:
-    return any(step["math"] for step in steps)
+    return any(step["math"] or step.get("cases") for step in steps)
 
 
 def _string_field(data: dict[str, Any], key: str, *, message: str) -> str:

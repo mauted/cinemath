@@ -1,0 +1,7 @@
+# Section 10.1 : Sequences (problem 5)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/Sequences.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/Sequences/Prob5.aspxSolution
+
+Evaluate
+
+$\left\{ {\frac{{{e^{5}n}}}{{3 - {e^{2}n}}}} \right\}_n = 1^\infty$

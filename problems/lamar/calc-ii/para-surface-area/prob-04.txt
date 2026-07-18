@@ -1,0 +1,7 @@
+# Section 9.5 : Surface Area with Parametric Equations (problem 4)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ParaSurfaceArea.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ParaSurfaceArea/Prob4.aspxSolution
+
+Evaluate
+
+$Rotate x = 1 + \ln {5 + t^{2}} \right\hspace0.25iny = 2t - 2t^{2}\hspace0.25in0 \le t \le 2 about the x-axis.$

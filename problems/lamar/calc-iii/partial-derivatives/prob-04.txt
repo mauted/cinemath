@@ -1,0 +1,7 @@
+# Section 13.2 : Partial Derivatives (problem 4)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/PartialDerivatives.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/PartialDerivatives/Prob4.aspxSolution
+
+Evaluate
+
+$fu,v \right = u^{2}\sin {u + v^{3}} \right - \sec 4u \right{\tan ^- 1}2v \right$

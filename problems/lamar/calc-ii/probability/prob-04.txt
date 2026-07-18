@@ -1,0 +1,6 @@
+# Section 8.5 : Probability (problem 4)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/Probability.aspx
+
+Evaluate
+
+$Find P3 \le X \le 14 \right.$

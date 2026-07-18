@@ -1,0 +1,7 @@
+# Section 12.8 : Tangent, Normal and Binormal Vectors (problem 3)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/TangentNormalVectors.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/TangentNormalVectors/Prob3.aspxSolution
+
+Evaluate
+
+$\vec r\left t \right = \cos 4t \right\vec i + 3\sin 4t \right\vec j + t^{3}\vec k at t = \pi .$

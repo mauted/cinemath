@@ -1,0 +1,7 @@
+# Section 17.4 : Surface Integrals of Vector Fields (problem 1)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/SurfIntVectorField.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/SurfIntVectorField/Prob1.aspxSolution
+
+Evaluate
+
+$Evaluate \iint\limits_S{\vec F\centerdot \,d\vec S} where \vec F = 3x\,\vec i + 2z\,\vec j + {1 - y^{2}} \right\vec k and S is the portion of z = 2 - 3y + x^{2} that lies over the triangle in the xy-plane with vertices 0,0 \right, 2,0 \right and 2, - 4 \right oriented in the negative z-axis direction.$

@@ -1,0 +1,6 @@
+# Section 11.2 : Vector Arithmetic (problem 3)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/VectorArithmetic.aspx
+
+Evaluate
+
+$\left\| 10\vec a + 3\vec b \right\|$

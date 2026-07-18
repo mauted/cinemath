@@ -1,0 +1,6 @@
+# Section 16.2 : Line Integrals - Part I (problem 9)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/LineIntegralsPtI.aspx
+
+Evaluate
+
+$C is the line segment from 3,6 \right to 3, - 6 \right.$

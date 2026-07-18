@@ -1,0 +1,7 @@
+# Section 13.4 : Higher Order Partial Derivatives (problem 7)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/HighOrderPartialDerivs.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/HighOrderPartialDerivs/Prob7.aspxSolution
+
+Evaluate
+
+$Given fx,y,z \right = x^{4}y^{3}z^{6} find \frac{{\partial ^{6}f}}{{\partial y\partial z^{2}\partial y\partial x^{2}}}.$

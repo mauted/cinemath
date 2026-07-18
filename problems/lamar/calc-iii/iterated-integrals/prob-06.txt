@@ -1,0 +1,7 @@
+# Section 15.2 : Iterated Integrals (problem 6)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/IteratedIntegrals.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/IteratedIntegrals/Prob6.aspxSolution
+
+Evaluate
+
+$\iint\limits_R{{xy^{2}\,\sqrt {x^{2} + y^{3}} \,dA}}\hspace0.25in\hspace0.25inR = [ 0,3 ] \times [ 0,2 ]$

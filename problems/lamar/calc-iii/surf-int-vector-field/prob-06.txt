@@ -1,0 +1,7 @@
+# Section 17.4 : Surface Integrals of Vector Fields (problem 6)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/SurfIntVectorField.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/SurfIntVectorField/Prob6.aspxSolution
+
+Evaluate
+
+$Evaluate \iint\limits_S{\vec F\centerdot \,d\vec S} where \vec F = yz\,\vec i + x\,\vec j + 3y^{2}\,\vec k and S is the surface of the solid bounded by x^{2} + y^{2} = 4, z = x - 3, and z = x + 2 with the negative orientation. Note that all three surfaces of this solid are included in S.$

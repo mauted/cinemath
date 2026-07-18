@@ -1,0 +1,8 @@
+# Section 15.7 : Triple Integrals in Spherical Coordinates (problem 5)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/TISphericalCoords.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/TISphericalCoords/Prob5.aspxSolution
+    
+
+Evaluate
+
+$Evaluate the following integral by first converting to an integral in spherical coordinates. \[\int_{- 1}^{0}{{\int_{{ - \sqrt {1 - {x^\,2}} }}^{{\sqrt {1 - {x^\,2}} }}{{\int_{{\sqrt {6{x^\,2} + 6{y^\,2}} }}^{{\sqrt {7 - {x^\,2} - {y^\,2}} }}{\,\,\,18y\,\,\,dz}\,dy}}\,dx}}\]$

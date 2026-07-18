@@ -1,0 +1,7 @@
+# Section 15.5 : Triple Integrals (problem 2)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/TripleIntegrals.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/TripleIntegrals/Prob2.aspxSolution
+
+Evaluate
+
+$Evaluate \int_0^{1}{{\int_0^{{{z^\,2}}}{{\int_0^{3}{{y\cos {z^{5}} \right\,dx}}\,dy}}\,dz}}$

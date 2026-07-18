@@ -1,0 +1,7 @@
+# Section 13.2 : Partial Derivatives (problem 7)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/PartialDerivatives.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/PartialDerivatives/Prob7.aspxSolution
+
+Evaluate
+
+$Rx,y \right = \frac{{x^{2}}}{{y^{2} + 1}} - \frac{{y^{2}}}{{x^{2} + y}}$

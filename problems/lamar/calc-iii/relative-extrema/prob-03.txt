@@ -1,0 +1,7 @@
+# Section 14.3 : Relative Minimums and Maximums (problem 3)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/RelativeExtrema.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/RelativeExtrema/Prob3.aspxSolution
+
+Evaluate
+
+$fx,y \right = {3x + 4x^{3}} \right{y^{2} + 2y} \right$

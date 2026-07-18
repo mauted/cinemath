@@ -1,0 +1,7 @@
+# Section 10.13 : Estimating the Value of a Series (problem 3)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/EstimatingSeries.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/EstimatingSeries/Prob3.aspxSolution
+
+Evaluate
+
+$Use the Alternating Series Test and n = 16 to estimate the value of \sum\limits_n = 2^\infty {\frac{{{{- 1 }^n}n}}{{n^{2} + 1}}} .$

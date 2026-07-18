@@ -76,8 +76,13 @@ def move_camera(phi: float = 70, theta: float = -40, run_time: float = 1.0) -> d
 
 
 def derive(frm: str, to: str, *, buff: float = 0.55) -> dict[str, Any]:
-    """Copy equation below and morph into the next line (emphasize changes)."""
+    """Copy equation below and morph into the next line."""
     return {"op": "derive", "from": frm, "to": to, "buff": buff}
+
+
+def fork(frm: str, *to: str, buff: float = 0.75) -> dict[str, Any]:
+    """Fan one equation into multiple child equations underneath it."""
+    return {"op": "fork", "from": frm, "to": list(to), "buff": buff}
 
 
 def set_caption(text: str) -> dict[str, Any]:

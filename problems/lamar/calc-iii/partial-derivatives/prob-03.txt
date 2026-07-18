@@ -1,0 +1,7 @@
+# Section 13.2 : Partial Derivatives (problem 3)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/PartialDerivatives.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/PartialDerivatives/Prob3.aspxSolution
+
+Evaluate
+
+$fu,v,p,t \right = 8u^{2}t^{3}p - \sqrt v \,p^{2}{t^- 5} + 2u^{2}t + 3p^{4} - v$

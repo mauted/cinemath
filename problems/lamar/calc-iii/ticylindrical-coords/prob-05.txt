@@ -1,0 +1,8 @@
+# Section 15.6 : Triple Integrals in Cylindrical Coordinates (problem 5)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/TICylindricalCoords.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/TICylindricalCoords/Prob5.aspxSolution
+    
+
+Evaluate
+
+$Evaluate the following integral by first converting to an integral in cylindrical coordinates. \[\int_0^{\sqrt 5 }{{\int_{{ - \sqrt {5 - {x^\,2}} }}^{0}{{\int_{{{x^\,2} + {y^\,2} - 11}}^{{9 - 3{x^\,2} - 3{y^\,2}}}{\,\,\,2x - 3y\,\,\,dz}\,dy}}\,dx}}\]$

@@ -1,1 +1,1 @@
-Solve for x: x² - 5x + 6 = 0
+Solve for $x$: $x^2 - 5x + 6 = 0$

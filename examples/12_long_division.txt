@@ -1,3 +1,0 @@
-Compute using long division:
-
-  9876 ÷ 24

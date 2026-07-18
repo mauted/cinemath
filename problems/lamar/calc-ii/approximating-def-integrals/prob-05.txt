@@ -1,0 +1,7 @@
+# Section 7.10 : Approximating Definite Integrals (problem 5)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ApproximatingDefIntegrals.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ApproximatingDefIntegrals/Prob2.aspxSolution
+
+Evaluate
+
+$\int_{- 1}^{2}{{\sqrt {{e^{ - \,{x^\,2}}} + 1} \,dx}} using n = 6$

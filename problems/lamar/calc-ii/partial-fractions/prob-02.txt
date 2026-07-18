@@ -1,0 +1,7 @@
+# Section 7.4 : Partial Fractions (problem 2)
+# Source: https://tutorial.math.lamar.edu/problems/calcii/PartialFractions.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/PartialFractions/Prob2.aspxSolution
+
+Evaluate
+
+$\int{{\frac{8 - 3t}{{10t^{2} + 13t - 3}}\,dt}}$

@@ -1,0 +1,7 @@
+# Section 13.1 : Limits (problem 4)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/Limits.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/Limits/Prob4.aspxSolution
+
+Evaluate
+
+$\mathop \lim \limits_{x,y \right \to 0,0 } \frac{{x^{2} - y^{6}}}{{xy^{3}}}$

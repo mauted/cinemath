@@ -1,0 +1,7 @@
+# Section 12.13 : Spherical Coordinates (problem 2)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/SphericalCoords.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/SphericalCoords/Prob2.aspxSolution
+
+Evaluate
+
+$- 2, - 1, - 7 \right$

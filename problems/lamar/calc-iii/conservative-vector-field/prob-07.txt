@@ -1,0 +1,7 @@
+# Section 16.6 : Conservative Vector Fields (problem 7)
+# Source: https://tutorial.math.lamar.edu/problems/calciii/ConservativeVectorField.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ConservativeVectorField/Prob7.aspxSolution
+
+Evaluate
+
+$\vec F = \frac{2xy}{{z^{3}}}\vec i + {2y - z^{2} + \frac{{x^{2}}}{{z^{3}}}} \right\vec j - {4z^{3} + 2yz + \frac{{3x^{2}y}}{{z^{4}}}} \right\vec k$
