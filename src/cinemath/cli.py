@@ -9,8 +9,9 @@ import typer
 from dotenv import load_dotenv
 
 from cinemath import __version__
+from cinemath.api import JobContext, generate_lesson
+from cinemath.api.models import GenerationOptions, ProblemInput
 from cinemath.core.logger import configure, fmt_path, get_logger
-from cinemath.core.pipeline import run_pipeline
 
 app = typer.Typer(
     name="cinemath",
@@ -56,13 +57,17 @@ def solve(
     """Teach a problem with the LLM, then animate it with local templates."""
     log = get_logger("cli")
     log.info("solve %s", fmt_path(input_path))
+    context = JobContext(job_id="cli", attempt_id=input_path.stem)
     try:
-        result = run_pipeline(
-            input_path,
-            output_root=out.resolve() if out else None,
-            quality=quality,
-            skip_render=skip_render,
-            keep_media=keep_media,
+        result = generate_lesson(
+            ProblemInput(source_path=input_path.resolve()),
+            context=context,
+            options=GenerationOptions(
+                output_root=out.resolve() if out else None,
+                quality=quality,
+                skip_render=skip_render,
+                keep_media=keep_media,
+            ),
         )
     except Exception as exc:
         log.error("failed: %s", exc)
@@ -70,15 +75,16 @@ def solve(
 
     log.info("done — %s", fmt_path(result.run_dir))
     log.info("  plan:       %s", fmt_path(result.plan_path))
-    if result.verify_path is not None:
-        log.info("  verify:     %s", fmt_path(result.verify_path))
+    if result.verification is not None:
+        log.info("  verify:     %s", result.verification.status.value)
     else:
-        log.info("  verify:     (skipped — %s)", result.teacher.planner)
+        log.info("  verify:     (skipped)")
     log.info("  animation:  %s", fmt_path(result.animation_path))
     if skip_render:
         log.info("  video:      (skipped)")
     else:
         log.info("  video:      %s", fmt_path(result.video_path))
+    log.info("  engine:     %s (schema %s)", result.manifest.engine_version, result.manifest.schema_version)
 
 
 if __name__ == "__main__":
