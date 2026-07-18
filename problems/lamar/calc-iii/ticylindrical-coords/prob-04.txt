@@ -1,7 +1,0 @@
-# Section 15.6 : Triple Integrals in Cylindrical Coordinates (problem 4)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/TICylindricalCoords.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/TICylindricalCoords/Prob4.aspxSolution
-
-Evaluate
-
-$Use a triple integral to determine the volume of the region below z = 6 - x, above z = - \sqrt {4x^{2} + 4y^{2}} inside the cylinder x^{2} + y^{2} = 3 with x \le 0.$

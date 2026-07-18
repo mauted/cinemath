@@ -1,7 +1,0 @@
-# Section 9.1 : Parametric Equations and Curves (problem 1)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/ParametricEqn.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ParametricEqn/Prob1.aspxSolution
-
-Evaluate
-
-$x = 4 - 2t\hspace0.5iny = 3 + 6t - 4t^{2}$

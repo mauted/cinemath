@@ -1,7 +1,0 @@
-# Section 10.7 : Comparison Test/Limit Comparison Test (problem 8)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/SeriesCompTest.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/SeriesCompTest/Prob8.aspxSolution
-
-Evaluate
-
-$\sum\limits_n = 3^\infty {\frac{{{e^- n}}}{{n^{2} + 2n}}}$

@@ -1,7 +1,0 @@
-# Section 7.1 : Integration by Parts (problem 5)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/IntegrationByParts.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/IntegrationByParts/Prob5.aspxSolution
-
-Evaluate
-
-$\int{{{e^{2}z}\cos {\frac14z} \right\,dz}}$

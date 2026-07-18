@@ -1,0 +1,9 @@
+# Section 16.6 : Conservative Vector Fields (problem 8)
+# Pack: lamar-calc-iii-conservative-vector-field
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/ConservativeVectorField.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ConservativeVectorField/Prob8.aspxSolution
+
+Evaluate
+
+$Evaluate \int\limits_C{\vec F\centerdot d\vec r} where C is the portion of the circle centered at the origin with radius 2 in the 1st quadrant with counter clockwise rotation and \vec Fx,y \right = {2xy - 4 - \frac12\sin {\frac12x} \right\sin {\frac12y} } \right\,\vec i + {x^{2} + \frac12\cos {\frac12x} \right\cos {\frac12y} } \right\vec j.$

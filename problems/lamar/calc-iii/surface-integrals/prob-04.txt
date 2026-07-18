@@ -1,7 +1,0 @@
-# Section 17.3 : Surface Integrals (problem 4)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/SurfaceIntegrals.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/SurfaceIntegrals/Prob4.aspxSolution
-
-Evaluate
-
-$Evaluate \iint\limits_S{xz\,dS} where S is the portion of the sphere of radius 3 with x \le 0, y \ge 0 and z \ge 0.$

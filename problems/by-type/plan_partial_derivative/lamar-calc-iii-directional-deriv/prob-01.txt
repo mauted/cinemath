@@ -1,0 +1,9 @@
+# Section 13.7 : Directional Derivatives (problem 1)
+# Pack: lamar-calc-iii-directional-deriv
+# Planner: plan_partial_derivative
+# Source: https://tutorial.math.lamar.edu/problems/calciii/DirectionalDeriv.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/DirectionalDeriv/Prob1.aspxSolution
+
+Evaluate
+
+$fx,y \right = x^{2}\sec 3x \right - \frac{{x^{2}}}{{y^{3}}}$

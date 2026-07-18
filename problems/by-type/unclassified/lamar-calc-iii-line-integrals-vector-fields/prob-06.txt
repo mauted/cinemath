@@ -1,0 +1,10 @@
+# Section 16.4 : Line Integrals of Vector Fields (problem 6)
+# Pack: lamar-calc-iii-line-integrals-vector-fields
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/LineIntegralsVectorFields.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/LineIntegralsVectorFields/Prob6.aspxSolution
+    
+
+Evaluate
+
+$Evaluate \int\limits_C{\vec F\centerdot d\vec r} where \vec Fx,y \right = xy\,\vec i + 1 + 3y \right\vec j and C is the line segment from 0, - 4 \right to - 2, - 4 \right followed by portion of y = - x^{2} from x = - 2 to x = 2 which is in turn followed by the line segment from 2, - 4 \right to 5,1 \right. See the sketch below.$

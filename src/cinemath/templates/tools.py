@@ -37,6 +37,8 @@ def compile_visual(visual: dict[str, Any], plan: dict[str, Any], *, index: int) 
         return [_show_qed_scene(visual, index=index)]
     if tool == "plot_2d":
         return [_plot_2d_scene(visual, index=index)]
+    if tool == "plot_integral_1d":
+        return [_plot_integral_1d_scene(visual, index=index)]
     if tool == "plot_lines_2d":
         return [_plot_lines_2d_scene(visual, index=index)]
     if tool == "plot_planes_3d":
@@ -100,6 +102,110 @@ def _show_qed_scene(visual: dict[str, Any], *, index: int) -> dict[str, Any]:
         caption="QED",
         objects=[dsl.math(obj_id, visual["tex"], at="center", font_size=40, color="green")],
         actions=[dsl.write(obj_id), dsl.indicate(obj_id), dsl.wait(1.0)],
+    )
+
+
+def _plot_integral_1d_scene(visual: dict[str, Any], *, index: int) -> dict[str, Any]:
+    expr = visual["expr"]
+    x0, x1 = visual["x_min"], visual["x_max"]
+    x_range = graph_2d.integer_axis_range(x0, x1, step=1.0, pad=0.0)
+    plot_x0, plot_x1 = x_range[0], x_range[1]
+    y_range = graph_2d.auto_y_range(expr, plot_x0, plot_x1, include=[0.0], max_step=1.0)
+    y_range = graph_2d.integer_axis_range(y_range[0], y_range[1], step=1.0)
+
+    label_id = f"int_lab_{index}"
+    axis_id = f"int_ax_{index}"
+    curve_id = f"int_curve_{index}"
+
+    shade_min = visual.get("shade_min")
+    shade_max = visual.get("shade_max")
+    plot_range = None
+    shade = graph_2d.SHADE_NONE
+    if shade_min is not None and shade_max is not None:
+        plot_range = [float(shade_min), float(shade_max)]
+        shade = graph_2d.SHADE_X_AXIS
+
+    if visual.get("lower_infinite") and visual.get("upper_infinite"):
+        lo_tex = r"-\infty"
+        hi_tex = r"\infty"
+    elif visual.get("lower_infinite"):
+        lo_tex = r"-\infty"
+        hi_tex = _fmt(visual["upper"])
+    elif visual.get("upper_infinite"):
+        lo_tex = _fmt(visual["lower"])
+        hi_tex = r"\infty"
+    else:
+        lo_tex = _fmt(visual["lower"])
+        hi_tex = _fmt(visual["upper"])
+
+    import sympy as sp
+
+    body = sp.latex(sp.sympify(expr))
+    label_tex = rf"\int_{{{lo_tex}}}^{{{hi_tex}}} {body}\,dx"
+
+    if visual.get("lower_infinite") and visual.get("upper_infinite"):
+        caption = "Shape of the integrand near the origin"
+    elif visual.get("upper_infinite"):
+        caption = "Area under the curve from the finite bound"
+    elif visual.get("lower_infinite"):
+        caption = "Area under the curve up to the finite bound"
+    else:
+        caption = "Area under the curve on the interval"
+
+    objects: list[dict[str, Any]] = [
+        {
+            "id": label_id,
+            "type": "math",
+            "tex": label_tex,
+            "font_size": 32,
+            "next_to": axis_id,
+            "direction": "up",
+            "buff": graph_2d.INTEGRAL_LABEL_BUFF,
+        },
+        graph_2d.axes_object(
+            axis_id,
+            x_range=x_range,
+            y_range=y_range,
+            at=graph_2d.INTEGRAL_PLOT_AT,
+            x_length=graph_2d.PLOT_X_LENGTH,
+            y_length=graph_2d.PLOT_Y_LENGTH,
+        ),
+        graph_2d.plot_object(
+            curve_id,
+            axes=axis_id,
+            expr=expr,
+            color="blue",
+            x_range=plot_range,
+            shade=shade,
+        ),
+    ]
+
+    dot_ids: list[str] = []
+    for side, bound in (("lo", visual.get("lower")), ("hi", visual.get("upper"))):
+        if bound is None:
+            continue
+        dot_id = f"int_bound_{index}_{side}"
+        dot_ids.append(dot_id)
+        objects.append(
+            {
+                "id": dot_id,
+                "type": "dot",
+                "axes": axis_id,
+                "at": [float(bound), 0],
+                "color": "yellow",
+            }
+        )
+
+    actions = [dsl.write(label_id), dsl.create(axis_id, curve_id)]
+    if dot_ids:
+        actions.extend([dsl.fade_in(*dot_ids), dsl.indicate(*dot_ids)])
+    actions.append(dsl.wait(0.9))
+
+    return dsl.scene(
+        f"plot_integral_1d_{index}",
+        caption=caption,
+        objects=objects,
+        actions=actions,
     )
 
 

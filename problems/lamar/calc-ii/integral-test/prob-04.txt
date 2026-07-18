@@ -1,7 +1,0 @@
-# Section 10.6 : Integral Test (problem 4)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/IntegralTest.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/IntegralTest/Prob4.aspxSolution
-
-Evaluate
-
-$\sum\limits_n = 0^\infty {\frac{{n^{2}}}{{n^{3} + 1}}}$

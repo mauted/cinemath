@@ -1,7 +1,0 @@
-# Section 13.1 : Limits (problem 1)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/Limits.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/Limits/Prob1.aspxSolution
-
-Evaluate
-
-$\mathop \lim \limits_{x,y,z \right \to - 1,0,4 } \frac{{x^{3} - z{e^{2}y}}}{6x + 2y - 3z}$

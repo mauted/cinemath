@@ -1,7 +1,0 @@
-# Section 10.10 : Ratio Test (problem 5)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/RatioTest.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/RatioTest/Prob5.aspxSolution
-
-Evaluate
-
-$\sum\limits_n = 1^\infty {\frac{{{{- 1 }^n + 1}}}{6n + 7}}$

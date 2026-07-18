@@ -1,0 +1,9 @@
+# Section 9.2 : Tangents with Parametric Equations (problem 2)
+# Pack: lamar-calc-ii-para-tangent
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ParaTangent.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ParaTangent/Prob2.aspxSolution
+
+Evaluate
+
+$x = {e^- 7t} + 2\hspace0.5in\,\,y = 6{e^{2}t} + {e^- 3t} - 4t$

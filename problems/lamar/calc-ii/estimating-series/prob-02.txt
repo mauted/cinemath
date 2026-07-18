@@ -1,7 +1,0 @@
-# Section 10.13 : Estimating the Value of a Series (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/EstimatingSeries.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/EstimatingSeries/Prob2.aspxSolution
-
-Evaluate
-
-$Use the Comparison Test and n = 20 to estimate the value of \sum\limits_n = 3^\infty {\frac1{{n^{3}\ln \left n }}} .$

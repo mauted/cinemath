@@ -1,0 +1,9 @@
+# Section 14.1 : Tangent Planes and Linear Approximations (problem 3)
+# Pack: lamar-calc-iii-tangent-planes
+# Planner: plan_partial_derivative
+# Source: https://tutorial.math.lamar.edu/problems/calciii/TangentPlanes.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/TangentPlanes/Prob3.aspxSolution
+
+Evaluate
+
+$Find the linear approximation to z = 4x^{2} - y{e^{2}x + y} at - 2,4 \right.$

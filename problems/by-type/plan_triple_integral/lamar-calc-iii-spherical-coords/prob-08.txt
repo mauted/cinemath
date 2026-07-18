@@ -1,0 +1,9 @@
+# Section 12.13 : Spherical Coordinates (problem 8)
+# Pack: lamar-calc-iii-spherical-coords
+# Planner: plan_triple_integral
+# Source: https://tutorial.math.lamar.edu/problems/calciii/SphericalCoords.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/SphericalCoords/Prob8.aspxSolution
+
+Evaluate
+
+$\rho = - 2\sin \varphi \cos \theta$

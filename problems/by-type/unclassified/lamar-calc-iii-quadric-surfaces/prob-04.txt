@@ -1,0 +1,9 @@
+# Section 12.4 : Quadric Surfaces (problem 4)
+# Pack: lamar-calc-iii-quadric-surfaces
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/QuadricSurfaces.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/QuadricSurfaces/Prob4.aspxSolution
+
+Evaluate
+
+$y^{2} = 4x^{2} + 16z^{2}$

@@ -1,8 +1,0 @@
-# Section 17.5 : Stokes' Theorem (problem 3)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/StokesTheorem.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/StokesTheorem/Prob3.aspxSolution
-    
-
-Evaluate
-
-$Use Stokes’ Theorem to evaluate \int\limits_C{\vec F\centerdot d\vec r} where \vec F = - yz\,\vec i + 4y + 1 \right\,\vec j + xy\,\vec k and C is is the circle of radius 3 at y = 4 and perpendicular to the y-axis. C has a clockwise rotation if you are looking down the y-axis from the positive y-axis to the negative y-axis. See the figure below for a sketch of the curve.$

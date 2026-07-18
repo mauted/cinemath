@@ -1,0 +1,9 @@
+# Section 11.2 : Vector Arithmetic (problem 7)
+# Pack: lamar-calc-ii-vector-arithmetic
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/VectorArithmetic.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/VectorArithmetic/Prob3.aspxSolution
+
+Evaluate
+
+$Find a unit vector that points in the same direction as \vec q = \vec i + 3\vec j + 9\vec k.$

@@ -1,7 +1,0 @@
-# Section 8.3 : Center Of Mass (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/CenterOfMass.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/CenterOfMass/Prob2.aspxSolution
-
-Evaluate
-
-$The region bounded by y = 3 - {e^- x}, the x-axis, x = 2 and the y-axis.$

@@ -1,0 +1,11 @@
+{
+  "source": "mit",
+  "slug": "double-integrals",
+  "title": "Double integrals",
+  "url": "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/resources/problem-set-solutions/",
+  "problem_count": 1,
+  "planner": "plan_double_integral",
+  "pack_id": "mit-18.02-multivariable-double-integrals",
+  "course": "18.02-multivariable",
+  "topic": "double-integrals"
+}

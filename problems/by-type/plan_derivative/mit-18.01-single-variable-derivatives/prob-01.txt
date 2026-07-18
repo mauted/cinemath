@@ -1,0 +1,7 @@
+# MIT 18.01-single-variable / derivatives
+# Planner: plan_derivative
+# Pack: mit-18.01-single-variable-derivatives
+
+Differentiate with respect to $x$:
+
+$f(x) = 3x^4 - 2x^2 + 7$

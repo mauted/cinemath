@@ -9,8 +9,8 @@ import typer
 from dotenv import load_dotenv
 
 from cinemath import __version__
-from cinemath.logger import configure, fmt_path, get_logger
-from cinemath.pipeline import run_pipeline
+from cinemath.core.logger import configure, fmt_path, get_logger
+from cinemath.core.pipeline import run_pipeline
 
 app = typer.Typer(
     name="cinemath",

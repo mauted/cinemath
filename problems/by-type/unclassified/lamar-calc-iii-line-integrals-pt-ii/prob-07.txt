@@ -1,0 +1,8 @@
+# Section 16.3 : Line Integrals - Part II (problem 7)
+# Pack: lamar-calc-iii-line-integrals-pt-ii
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/LineIntegralsPtII.aspx
+
+Evaluate
+
+$C is the line segment from 0, - 6 \right to 6,0 \right.$

@@ -1,0 +1,9 @@
+# Section 10.10 : Ratio Test (problem 1)
+# Pack: lamar-calc-ii-ratio-test
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/RatioTest.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/RatioTest/Prob1.aspxSolution
+
+Evaluate
+
+$\sum\limits_n = 1^\infty {\frac{{{3^{1} - 2n}}}{{n^{2} + 1}}}$

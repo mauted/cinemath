@@ -1,0 +1,10 @@
+# Section 15.2 : Iterated Integrals (problem 1)
+# Pack: lamar-calc-iii-iterated-integrals
+# Planner: plan_double_integral
+# Source: https://tutorial.math.lamar.edu/problems/calciii/IteratedIntegrals.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/IteratedIntegrals/Prob1.aspxSolution
+    
+
+Evaluate
+
+$Compute the following double integral over the indicated rectangle a by integrating with respect to x first and b by integrating with respect to y first. \[\iint\limits_R{12x - 18y\,dA}\hspace0.25in\hspace0.25inR = [ - 1,4 ] \times [ 2,3 ]\]$

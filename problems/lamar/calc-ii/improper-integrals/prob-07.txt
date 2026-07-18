@@ -1,7 +1,0 @@
-# Section 7.8 : Improper Integrals (problem 7)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/ImproperIntegrals.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ImproperIntegrals/Prob7.aspxSolution
-
-Evaluate
-
-$\int_0^{4}{{\fracx{{x^{2} - 9}}\,dx}}$

@@ -1,7 +1,0 @@
-# Section 13.2 : Partial Derivatives (problem 5)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/PartialDerivatives.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/PartialDerivatives/Prob5.aspxSolution
-
-Evaluate
-
-$fx,z \right = {e^- x}\sqrt {z^{4} + x^{2}} - \frac{2x + 3z}{4z - 7x}$

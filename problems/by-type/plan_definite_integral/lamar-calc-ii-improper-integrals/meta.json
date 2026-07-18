@@ -1,0 +1,10 @@
+{
+  "source": "lamar",
+  "course": "calc-ii",
+  "section": "improper-integrals",
+  "title": "Section 7.8 : Improper Integrals",
+  "url": "https://tutorial.math.lamar.edu/problems/calcii/ImproperIntegrals.aspx",
+  "problem_count": 10,
+  "planner": "plan_definite_integral",
+  "pack_id": "lamar-calc-ii-improper-integrals"
+}

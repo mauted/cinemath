@@ -1,0 +1,9 @@
+# Section 7.5 : Integrals Involving Roots (problem 3)
+# Pack: lamar-calc-ii-integrals-with-roots
+# Planner: plan_definite_integral
+# Source: https://tutorial.math.lamar.edu/problems/calcii/IntegralsWithRoots.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/IntegralsWithRoots/Prob3.aspxSolution
+
+Evaluate
+
+$\int{{\frac{t - 2}{{t - 3\sqrt 2t - 4 + 2}}\,dt}}$

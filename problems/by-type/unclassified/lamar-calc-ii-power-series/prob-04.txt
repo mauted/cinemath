@@ -1,0 +1,9 @@
+# Section 10.14 : Power Series (problem 4)
+# Pack: lamar-calc-ii-power-series
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/PowerSeries.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/PowerSeries/Prob4.aspxSolution
+
+Evaluate
+
+$\sum\limits_n = 0^\infty {\frac{{{4^{1} + 2n}}}{{{5^n + 1}}}{{x + 3 }^n}}$

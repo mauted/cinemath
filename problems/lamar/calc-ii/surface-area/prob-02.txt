@@ -1,6 +1,0 @@
-# Section 8.2 : Surface Area (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/SurfaceArea.aspx
-
-Evaluate
-
-$ds = \sqrt {1 + {{[ {\frac{dx}{dy}} ]}^{2}}} \,dy$

@@ -1,6 +1,0 @@
-# Section 16.3 : Line Integrals - Part II (problem 8)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/LineIntegralsPtII.aspx
-
-Evaluate
-
-$C is the line segment from 1,7 \right to - 2,4 \right.$

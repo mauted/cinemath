@@ -1,7 +1,0 @@
-# Section 12.7 : Calculus with Vector Functions (problem 4)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/VectorFcnsCalculus.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/VectorFcnsCalculus/Prob4.aspxSolution
-
-Evaluate
-
-$\vec r\left t \right = {t^{3} - 1} \right\vec i + {e^{2}t}\,\vec j + \cos \left t \right\vec k$

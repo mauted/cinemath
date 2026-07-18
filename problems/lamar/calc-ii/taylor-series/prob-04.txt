@@ -1,7 +1,0 @@
-# Section 10.16 : Taylor Series (problem 4)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/TaylorSeries.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/TaylorSeries/Prob4.aspxSolution
-
-Evaluate
-
-$f\left x \right = \ln 3 + 4x \right about x = 0$

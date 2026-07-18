@@ -1,7 +1,0 @@
-# Section 11.3 : Dot Product (problem 5)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/DotProduct.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/DotProduct/Prob5.aspxSolution
-
-Evaluate
-
-$\vec a = \vec i + 3\vec j - 2\vec k, \vec b = \left\langle - 9,1, - 5 \right\rangle$

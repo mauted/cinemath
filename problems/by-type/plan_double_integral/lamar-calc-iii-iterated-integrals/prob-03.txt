@@ -1,0 +1,9 @@
+# Section 15.2 : Iterated Integrals (problem 3)
+# Pack: lamar-calc-iii-iterated-integrals
+# Planner: plan_double_integral
+# Source: https://tutorial.math.lamar.edu/problems/calciii/IteratedIntegrals.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/IteratedIntegrals/Prob3.aspxSolution
+
+Evaluate
+
+$\iint\limits_R{{\frac{{e^x}}{2y} - \frac{4x - 1}{{y^{2}}}\,dA}}\hspace0.25in\hspace0.25inR = [ - 1,0 ] \times [ 1,2 ]$

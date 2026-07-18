@@ -1,0 +1,9 @@
+# Section 12.13 : Spherical Coordinates (problem 3)
+# Pack: lamar-calc-ii-spherical-coords
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/SphericalCoords.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/SphericalCoords/Prob3.aspxSolution
+
+Evaluate
+
+$Convert the Cylindrical coordinates for the point 2,0.345, - 3 \right into Spherical coordinates.$

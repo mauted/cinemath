@@ -1,7 +1,0 @@
-# Section 11.3 : Dot Product (problem 3)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/DotProduct.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/DotProduct/Prob3.aspxSolution
-
-Evaluate
-
-$\left\| \vec a \right\| = 5, \left\| \vec b \right\| = \frac37 and the angle between the two vectors is \theta = \frac\pi 12.$

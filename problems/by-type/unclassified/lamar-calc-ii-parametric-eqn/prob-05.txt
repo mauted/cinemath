@@ -1,0 +1,9 @@
+# Section 9.1 : Parametric Equations and Curves (problem 5)
+# Pack: lamar-calc-ii-parametric-eqn
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ParametricEqn.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ParametricEqn/Prob5.aspxSolution
+
+Evaluate
+
+$x = 3\sin 2t \right\hspace0.5iny = - 4\cos 2t \right \hspace0.5in0 \le t \le 2\pi$

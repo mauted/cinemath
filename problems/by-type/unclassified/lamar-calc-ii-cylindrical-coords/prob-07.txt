@@ -1,0 +1,9 @@
+# Section 12.12 : Cylindrical Coordinates (problem 7)
+# Pack: lamar-calc-ii-cylindrical-coords
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/CylindricalCoords.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/CylindricalCoords/Prob7.aspxSolution
+
+Evaluate
+
+$z = 7 - 4r^{2}$

@@ -1,0 +1,9 @@
+# Section 7.2 : Integrals Involving Trig Functions (problem 5)
+# Pack: lamar-calc-ii-integrals-with-trig
+# Planner: plan_definite_integral
+# Source: https://tutorial.math.lamar.edu/problems/calcii/IntegralsWithTrig.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/IntegralsWithTrig/Prob5.aspxSolution
+
+Evaluate
+
+$\int{{{\sec ^{6}}3y \right{\tan ^{2}}3y \right\,dy}}$

@@ -1,7 +1,0 @@
-# Section 7.5 : Integrals Involving Roots (problem 1)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/IntegralsWithRoots.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/IntegralsWithRoots/Prob1.aspxSolution
-
-Evaluate
-
-$\int{{\frac7{{2 + \sqrt x - 4 }}\,dx}}$

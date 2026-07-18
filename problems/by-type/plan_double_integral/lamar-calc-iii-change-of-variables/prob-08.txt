@@ -1,0 +1,9 @@
+# Section 15.8 : Change of Variables (problem 8)
+# Pack: lamar-calc-iii-change-of-variables
+# Planner: plan_double_integral
+# Source: https://tutorial.math.lamar.edu/problems/calciii/ChangeOfVariables.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ChangeOfVariables/Prob8.aspxSolution
+
+Evaluate
+
+$Evaluate \iint\limits_R{6x - 3y\,dA} where R is the parallelogram with vertices 2,0 \right, 5,3 \right, 6,7 \right and 3,4 \right using the transformation x = \frac13v - u \right, y = \frac134v - u \right to R.$

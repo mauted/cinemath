@@ -1,7 +1,0 @@
-# Section 7.8 : Improper Integrals (problem 10)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/ImproperIntegrals.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ImproperIntegrals/Prob10.aspxSolution
-
-Evaluate
-
-$\int_{- \infty }^{0}{{\frac{{{e^{\frac1x}}}}{{x^{2}}}\,dx}}$

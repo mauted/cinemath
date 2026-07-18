@@ -1,0 +1,9 @@
+# Section 15.8 : Change of Variables (problem 4)
+# Pack: lamar-calc-iii-change-of-variables
+# Planner: plan_double_integral
+# Source: https://tutorial.math.lamar.edu/problems/calciii/ChangeOfVariables.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ChangeOfVariables/Prob4.aspxSolution
+
+Evaluate
+
+$If R is the region inside \frac{{x^{2}}}4 + \frac{{y^{2}}}36 = 1 determine the region we would get applying the transformation x = 2u, y = 6v to R.$

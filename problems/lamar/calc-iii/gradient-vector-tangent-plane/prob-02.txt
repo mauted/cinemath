@@ -1,7 +1,0 @@
-# Section 14.2 : Gradient Vector, Tangent Planes and Normal Lines (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/GradientVectorTangentPlane.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/GradientVectorTangentPlane/Prob2.aspxSolution
-
-Evaluate
-
-$Find the tangent plane and normal line to \ln {\fracx{2y}} \right = z^{2}x - 2y \right + 3z + 3 at 4,2, - 1 \right.$

@@ -1,0 +1,9 @@
+# Section 10.1 : Sequences (problem 4)
+# Pack: lamar-calc-ii-sequences
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/Sequences.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/Sequences/Prob4.aspxSolution
+
+Evaluate
+
+$\left\{ {\frac{{{{- 1 }^n - 2}n^{2}}}{{4 + n^{3}}}} \right\}_n = 0^\infty$

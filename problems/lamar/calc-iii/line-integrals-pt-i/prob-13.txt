@@ -1,6 +1,0 @@
-# Section 16.2 : Line Integrals - Part I (problem 13)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/LineIntegralsPtI.aspx
-
-Evaluate
-
-$C is the portion y = x^{3} from x = 2 to x = - 1.$

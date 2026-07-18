@@ -1,7 +1,0 @@
-# Section 15.3 : Double Integrals over General Regions (problem 4)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/DIGeneralRegion.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/DIGeneralRegion/Prob4.aspxSolution
-
-Evaluate
-
-$Evaluate \iint\limits_D{{xy - 1 \right\,dA}} where D is the region bounded by y = 1 - x^{2} and y = x^{2} - 3.$

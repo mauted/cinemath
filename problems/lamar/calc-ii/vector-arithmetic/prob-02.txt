@@ -1,6 +1,0 @@
-# Section 11.2 : Vector Arithmetic (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/VectorArithmetic.aspx
-
-Evaluate
-
-$7\vec b - 2\vec a$

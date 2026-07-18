@@ -1,0 +1,9 @@
+# Section 10.9 : Absolute Convergence (problem 1)
+# Pack: lamar-calc-ii-absolute-convergence
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/AbsoluteConvergence.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/AbsoluteConvergence/Prob1.aspxSolution
+
+Evaluate
+
+$\sum\limits_n = 2^\infty {\frac{{{{- 1 }^n + 1}}}{{n^{3} + 1}}}$

@@ -1,0 +1,9 @@
+# Section 10.7 : Comparison Test/Limit Comparison Test (problem 6)
+# Pack: lamar-calc-ii-series-comp-test
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/SeriesCompTest.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/SeriesCompTest/Prob6.aspxSolution
+
+Evaluate
+
+$\sum\limits_n = 1^\infty {\frac{{2n^{3} + 7}}{{n^{4}{\sin ^{2}}\left n }}}$

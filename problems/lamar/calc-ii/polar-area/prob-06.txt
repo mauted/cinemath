@@ -1,7 +1,0 @@
-# Section 9.8 : Area with Polar Coordinates (problem 6)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/PolarArea.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/PolarArea/Prob6.aspxSolution
-
-Evaluate
-
-$Find the area that is inside both r = 1 - \sin \theta and r = 2 + \sin \theta .$

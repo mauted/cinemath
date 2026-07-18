@@ -1,0 +1,10 @@
+{
+  "source": "lamar",
+  "course": "calc-iii",
+  "section": "gradient-vector-tangent-plane",
+  "title": "Section 14.2 : Gradient Vector, Tangent Planes and Normal Lines",
+  "url": "https://tutorial.math.lamar.edu/problems/calciii/GradientVectorTangentPlane.aspx",
+  "problem_count": 2,
+  "planner": "plan_partial_derivative",
+  "pack_id": "lamar-calc-iii-gradient-vector-tangent-plane"
+}

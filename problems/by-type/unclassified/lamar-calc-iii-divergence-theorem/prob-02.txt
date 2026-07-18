@@ -1,0 +1,9 @@
+# Section 17.6 : Divergence Theorem (problem 2)
+# Pack: lamar-calc-iii-divergence-theorem
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/DivergenceTheorem.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/DivergenceTheorem/Prob2.aspxSolution
+
+Evaluate
+
+$Use the Divergence Theorem to evaluate \iint\limits_S{\vec F\centerdot d\vec S} where \vec F = \sin \pi x \right\,\vec i + zy^{3}\,\vec j + {z^{2} + 4x} \right\,\vec k and S is the surface of the box with - 1 \le x \le 2, 0 \le y \le 1 and 1 \le z \le 4. Note that all six sides of the box are included in S.$

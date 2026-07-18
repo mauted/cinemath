@@ -1,0 +1,9 @@
+# Section 10.17 : Applications of Series (problem 2)
+# Pack: lamar-calc-ii-taylor-series-apps
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/TaylorSeriesApps.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/TaylorSeriesApps/Prob2.aspxSolution
+
+Evaluate
+
+$Write down T_2\left x \right, T_3\left x \right and T_4\left x \right for the Taylor Series of f\left x \right = {e^- 6x} about x = - 4. Graph all three of the Taylor polynomials and f\left x \right on the same graph for the interval [ - 8, - 2 ].$

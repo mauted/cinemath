@@ -87,7 +87,7 @@ Same style as Calc II: web problems + full solutions + PDFs.
 
 Curated ladder lives in [`problems/curated/`](../problems/curated/) (also reachable as [`examples/`](../examples/) via symlink).
 
-Full scraped banks: [`problems/README.md`](../problems/README.md). Refresh with `uv run python scripts/sync_problem_banks.py`.
+Full scraped banks: [`problems/README.md`](../problems/README.md) (`problems/by-type/<planner>/`). Refresh with `uv run python scripts/sync_problem_banks.py`.
 
 | File | Style | Expected planner |
 |------|-------|------------------|
@@ -102,7 +102,7 @@ Full scraped banks: [`problems/README.md`](../problems/README.md). Refresh with 
 Run locally:
 
 ```bash
-uv run cinemath solve problems/lamar/calc-ii/integration-by-parts/prob-01.txt -q l
+uv run cinemath solve problems/by-type/plan_integration_by_parts/lamar-calc-ii-integration-by-parts/prob-01.txt -q l
 uv run cinemath solve problems/curated/20_partial_derivative.txt -q l
 ```
 

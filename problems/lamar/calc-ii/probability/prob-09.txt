@@ -1,6 +1,0 @@
-# Section 8.5 : Probability (problem 9)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/Probability.aspx
-
-Evaluate
-
-$What is the probability that a light bulb will have a life span between 14 and 30 months?$

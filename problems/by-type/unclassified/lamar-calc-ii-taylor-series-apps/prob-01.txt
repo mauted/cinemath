@@ -1,0 +1,10 @@
+# Section 10.17 : Applications of Series (problem 1)
+# Pack: lamar-calc-ii-taylor-series-apps
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/TaylorSeriesApps.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/TaylorSeriesApps/Prob1.aspxSolution
+    
+
+Evaluate
+
+$Determine a Taylor Series about x = 0 for the following integral. \[\int{{\frac{{e^x - 1}}x\,dx}}\]$

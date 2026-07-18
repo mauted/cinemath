@@ -1,0 +1,9 @@
+# Section 11.3 : Dot Product (problem 1)
+# Pack: lamar-calc-ii-dot-product
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/DotProduct.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/DotProduct/Prob1.aspxSolution
+
+Evaluate
+
+$\vec a = \left\langle 9,5, - 4,2 \right\rangle , \vec b = \left\langle - 3, - 2,7, - 1 \right\rangle$

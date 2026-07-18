@@ -1,7 +1,0 @@
-# Section 9.1 : Parametric Equations and Curves (problem 11)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/ParametricEqn.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ParametricEqn/Prob7.aspxSolution
-
-Evaluate
-
-$x = 3 - 2\cos 3t \right\hspace0.5iny = 1 + 4\sin 3t \right$

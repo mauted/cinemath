@@ -1,7 +1,0 @@
-# Section 15.5 : Triple Integrals (problem 1)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/TripleIntegrals.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/TripleIntegrals/Prob1.aspxSolution
-
-Evaluate
-
-$Evaluate \int_2^{3}{{\int_{- 1}^{4}{{\int_1^{0}{{4x^{2}y - z^{3}\,dz}}\,dy}}\,dx}}$

@@ -1,0 +1,9 @@
+# Section 12.6 : Vector Functions (problem 4)
+# Pack: lamar-calc-iii-vector-functions
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/VectorFunctions.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/VectorFunctions/Prob4.aspxSolution
+
+Evaluate
+
+$\vec r\left t \right = \left\langle {t + 1,\frac14t^{2} + 3} \right\rangle$

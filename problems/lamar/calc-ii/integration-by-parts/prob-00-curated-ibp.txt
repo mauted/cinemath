@@ -1,6 +1,0 @@
-# Lamar Calc II - integration by parts (cinemath curated)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/integrationbyparts.aspx
-
-Evaluate the definite integral
-
-$\int_0^1 x e^x\, dx$

@@ -1,0 +1,10 @@
+# Section 16.3 : Line Integrals - Part II (problem 4)
+# Pack: lamar-calc-iii-line-integrals-pt-ii
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/LineIntegralsPtII.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/LineIntegralsPtII/Prob4.aspxSolution
+    
+
+Evaluate
+
+$Evaluate \int\limits_C{{1 + x^{3}\,dx}} where C is the right half of the circle of radius 2 with counter clockwise rotation followed by the line segment from 0,2 \right to - 3, - 4 \right. See the sketch below for the direction.$

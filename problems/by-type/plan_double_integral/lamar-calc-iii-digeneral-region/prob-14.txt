@@ -1,0 +1,9 @@
+# Section 15.3 : Double Integrals over General Regions (problem 14)
+# Pack: lamar-calc-iii-digeneral-region
+# Planner: plan_double_integral
+# Source: https://tutorial.math.lamar.edu/problems/calciii/DIGeneralRegion.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/DIGeneralRegion/Prob13.aspxSolution
+
+Evaluate
+
+$Use a double integral to determine the volume of the region that is between the xy‑plane andfx,y \right = 2 + \cos {x^{2}} \right and is above the triangle with vertices 0,0 \right, 6,0 \right and 6,2 \right.$

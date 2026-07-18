@@ -1,7 +1,0 @@
-# Section 7.8 : Improper Integrals (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/ImproperIntegrals.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ImproperIntegrals/Prob2.aspxSolution
-
-Evaluate
-
-$\int_{- \infty }^{0}{{1 + 2x \right{e^- x}\,dx}}$

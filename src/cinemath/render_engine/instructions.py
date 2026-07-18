@@ -10,7 +10,18 @@ import re
 from collections.abc import Callable, Sequence
 from typing import Any
 
-from manim import DOWN, LEFT, RIGHT, UP, FadeIn, FadeOut, VGroup, VMobject
+from manim import (
+    DOWN,
+    LEFT,
+    RIGHT,
+    UP,
+    AnimationGroup,
+    FadeIn,
+    FadeOut,
+    VGroup,
+    VMobject,
+    rate_functions,
+)
 
 from cinemath.render_engine.sanitize import unicode_math_char
 from cinemath.render_engine.stage import Region, full_frame
@@ -24,6 +35,8 @@ _FONT_SIZE = 34
 _FULL_PARBOX_CM = 11.8
 _HALF_PARBOX_CM = 6.6
 _OVERLAP_PAD = 0.28
+_CAPTION_ENTER_TIME = 0.35
+_CAPTION_CROSSFADE_TIME = 0.4
 # Already-delimited inline math.
 _DELIM_MATH = re.compile(r"\$.+?\$|\\\(.+?\\\)")
 
@@ -138,12 +151,20 @@ def play_set_instruction(
     )
     place_instruction(new_mob, region=region, content=content, pin_top=pin_top)
     if old is None:
-        scene.play(FadeIn(new_mob), run_time=0.3)
+        scene.play(
+            FadeIn(new_mob),
+            run_time=_CAPTION_ENTER_TIME,
+            rate_func=rate_functions.smooth,
+        )
         return new_mob
     scene.play(
-        FadeOut(old, shift=UP * 0.1),
-        FadeIn(new_mob, shift=DOWN * 0.05),
-        run_time=0.4,
+        AnimationGroup(
+            FadeOut(old),
+            FadeIn(new_mob),
+            lag_ratio=0.3,
+        ),
+        run_time=_CAPTION_CROSSFADE_TIME,
+        rate_func=rate_functions.smooth,
     )
     return new_mob
 

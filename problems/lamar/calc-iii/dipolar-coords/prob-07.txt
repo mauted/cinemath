@@ -1,7 +1,0 @@
-# Section 15.4 : Double Integrals in Polar Coordinates (problem 7)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/DIPolarCoords.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/DIPolarCoords/Prob7.aspxSolution
-
-Evaluate
-
-$Use a double integral to determine the volume of the solid that is bounded by z = 8 - x^{2} - y^{2} and z = 3x^{2} + 3y^{2} - 4.$

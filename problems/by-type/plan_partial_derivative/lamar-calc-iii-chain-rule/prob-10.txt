@@ -1,0 +1,10 @@
+# Section 13.6 : Chain Rule (problem 10)
+# Pack: lamar-calc-iii-chain-rule
+# Planner: plan_partial_derivative
+# Source: https://tutorial.math.lamar.edu/problems/calciii/ChainRule.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ChainRule/Prob10.aspxSolution
+    
+
+Evaluate
+
+$Compute \frac{\partial z}{\partial x} and \frac{\partial z}{\partial y} for the following equation. \[{e^z\,y} + xz^{2} = 6xy^{4}z^{3}\]$

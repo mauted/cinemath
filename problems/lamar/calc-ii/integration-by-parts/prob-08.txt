@@ -1,7 +1,0 @@
-# Section 7.1 : Integration by Parts (problem 8)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/IntegrationByParts.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/IntegrationByParts/Prob8.aspxSolution
-
-Evaluate
-
-$\int{{y^{6}\cos 3y \right\,dy}}$

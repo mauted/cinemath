@@ -1,0 +1,9 @@
+# Section 12.3 : Equations of Planes (problem 8)
+# Pack: lamar-calc-iii-eqns-of-planes
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/EqnsOfPlanes.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/EqnsOfPlanes/Prob8.aspxSolution
+
+Evaluate
+
+$Find the line of intersection of the plane given by 3x + 6y - 5z = - 3 and the plane given by - 2x + 7y - z = 24.$

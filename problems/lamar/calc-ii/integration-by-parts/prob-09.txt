@@ -1,7 +1,0 @@
-# Section 7.1 : Integration by Parts (problem 9)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/IntegrationByParts.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/IntegrationByParts/Prob9.aspxSolution
-
-Evaluate
-
-$\int{{{4x^{3} - 9x^{2} + 7x + 3} \right{e^- x}\,dx}}$

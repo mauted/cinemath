@@ -1,7 +1,0 @@
-# Section 15.6 : Triple Integrals in Cylindrical Coordinates (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/TICylindricalCoords.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/TICylindricalCoords/Prob2.aspxSolution
-
-Evaluate
-
-$Evaluate \iiint\limits_E{{{e^{ - {x^\,2} - {z^\,2}}}\,dV}} where E is the region between the two cylinders x^{2} + z^{2} = 4 and x^{2} + z^{2} = 9 with 1 \le y \le 5 and z \le 0.$

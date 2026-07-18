@@ -1,0 +1,8 @@
+# Section 8.1 : Arc Length (problem 4)
+# Pack: lamar-calc-ii-arc-length
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ArcLength.aspx
+
+Evaluate
+
+$ds = \sqrt {1 + {{[ {\frac{dx}{dy}} ]}^{2}}} \,dy$

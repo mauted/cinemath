@@ -1,0 +1,9 @@
+# Section 7.3 : Trig Substitutions (problem 7)
+# Pack: lamar-calc-ii-trig-substitutions
+# Planner: plan_definite_integral
+# Source: https://tutorial.math.lamar.edu/problems/calcii/TrigSubstitutions.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/TrigSubstitutions/Prob7.aspxSolution
+
+Evaluate
+
+${{x^{2} - 8x + 21} \right^{\frac32}}$

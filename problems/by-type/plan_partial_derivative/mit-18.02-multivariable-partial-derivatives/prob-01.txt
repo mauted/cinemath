@@ -1,0 +1,5 @@
+# MIT 18.02-multivariable / partial-derivatives
+# Planner: plan_partial_derivative
+# Pack: mit-18.02-multivariable-partial-derivatives
+
+Let $f(x, y) = x^2 y + \sin(xy)$. Find $\frac{\partial f}{\partial x}$.

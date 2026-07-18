@@ -1,7 +1,0 @@
-# Section 10.6 : Integral Test (problem 5)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/IntegralTest.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/IntegralTest/Prob5.aspxSolution
-
-Evaluate
-
-$\sum\limits_n = 3^\infty {\frac3{{n^{2} - 3n + 2}}}$

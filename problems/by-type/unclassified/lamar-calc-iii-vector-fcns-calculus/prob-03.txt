@@ -1,0 +1,9 @@
+# Section 12.7 : Calculus with Vector Functions (problem 3)
+# Pack: lamar-calc-iii-vector-fcns-calculus
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/VectorFcnsCalculus.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/VectorFcnsCalculus/Prob3.aspxSolution
+
+Evaluate
+
+$\mathop \lim \limits_t \to \infty \left\langle {\frac1{{t^{2}}},\frac{{2t^{2}}}{{1 - t - t^{2}}},{e^- t}} \right\rangle$

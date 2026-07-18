@@ -1,0 +1,9 @@
+# Section 9.4 : Arc Length with Parametric Equations (problem 4)
+# Pack: lamar-calc-ii-para-arc-length
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ParaArcLength.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ParaArcLength/Prob4.aspxSolution
+
+Evaluate
+
+$x = 2 + t^{2}\hspace0.25iny = e^t\sin 2t \right\hspace0.25in\,0 \le t \le 3$

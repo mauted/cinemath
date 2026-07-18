@@ -1,7 +1,0 @@
-# Section 17.3 : Surface Integrals (problem 6)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/SurfaceIntegrals.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/SurfaceIntegrals/Prob6.aspxSolution
-
-Evaluate
-
-$Evaluate \iint\limits_S{x - z\,dS} where S is the surface of the solid bounded by x^{2} + y^{2} = 4, z = x - 3, and z = x + 2. Note that all three surfaces of this solid are included in S.$

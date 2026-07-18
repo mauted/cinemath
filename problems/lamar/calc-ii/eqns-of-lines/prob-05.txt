@@ -1,7 +1,0 @@
-# Section 12.2 : Equations of Lines (problem 5)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/EqnsOfLines.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/EqnsOfLines/Prob5.aspxSolution
-
-Evaluate
-
-$The line passing through the points 1, - 2,13 \right and 2,0, - 5 \right and the line given by \vec r\left t \right = \left\langle 2 + 4t, - 1 - t,3 \right\rangle .$

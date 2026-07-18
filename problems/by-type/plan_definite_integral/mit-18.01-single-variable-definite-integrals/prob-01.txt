@@ -1,0 +1,7 @@
+# MIT 18.01-single-variable / definite-integrals
+# Planner: plan_definite_integral
+# Pack: mit-18.01-single-variable-definite-integrals
+
+Evaluate
+
+$\int_0^{\pi/2} \sin(x)\, dx$

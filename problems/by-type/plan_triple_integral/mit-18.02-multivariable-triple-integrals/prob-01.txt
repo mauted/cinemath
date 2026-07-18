@@ -1,0 +1,9 @@
+# MIT 18.02-multivariable / triple-integrals
+# Planner: plan_triple_integral
+# Pack: mit-18.02-multivariable-triple-integrals
+
+Evaluate
+
+$\iiint_E x y z \, dV$
+
+where $E$ is the box $0 \le x \le 1$, $0 \le y \le 2$, $0 \le z \le 1$.

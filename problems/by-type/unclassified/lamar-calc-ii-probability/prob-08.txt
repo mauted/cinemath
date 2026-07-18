@@ -1,0 +1,8 @@
+# Section 8.5 : Probability (problem 8)
+# Pack: lamar-calc-ii-probability
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/Probability.aspx
+
+Evaluate
+
+$What is the probability that a light bulb will have a life span more than 20 months?$

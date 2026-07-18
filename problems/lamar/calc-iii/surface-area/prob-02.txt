@@ -1,7 +1,0 @@
-# Section 15.9 : Surface Area (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/SurfaceArea.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/SurfaceArea/Prob2.aspxSolution
-
-Evaluate
-
-$Determine the surface area of the portion of z = 13 - 4x^{2} - 4y^{2} that is above z = 1 with x \le 0 and y \le 0.$

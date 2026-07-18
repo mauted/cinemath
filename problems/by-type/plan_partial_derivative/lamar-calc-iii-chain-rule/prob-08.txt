@@ -1,0 +1,10 @@
+# Section 13.6 : Chain Rule (problem 8)
+# Pack: lamar-calc-iii-chain-rule
+# Planner: plan_partial_derivative
+# Source: https://tutorial.math.lamar.edu/problems/calciii/ChainRule.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ChainRule/Prob8.aspxSolution
+    
+
+Evaluate
+
+$Determine formulas for \frac{\partial w}{\partial t} and \frac{\partial w}{\partial u} for the following situation. \[w = wx,y,z \right\hspace0.5inx = x\left t \right,\,\,\,\,y = yu,v,p \right,\,\,\,\,z = zv,p \right,\,\,\,\,v = vr,u \right,\,\,\,\,p = pt,u \right\]$

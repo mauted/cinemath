@@ -1,0 +1,9 @@
+# Section 12.2 : Equations of Lines (problem 1)
+# Pack: lamar-calc-iii-eqns-of-lines
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/EqnsOfLines.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/EqnsOfLines/Prob1.aspxSolution
+
+Evaluate
+
+$The line through the points 2, - 4,1 \right and 0,4, - 10 \right.$

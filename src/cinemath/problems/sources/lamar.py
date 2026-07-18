@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import json
 import re
 import urllib.request
 from dataclasses import dataclass
@@ -10,6 +9,8 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 from cinemath.problems.latex_normalize import normalize_lamar_latex
+from cinemath.problems.layout import pack_dir, write_pack_meta, write_problem_file
+from cinemath.problems.topic_map import lamar_pack_id, resolve_lamar_planner
 
 LAMAR_BASE = "https://tutorial.math.lamar.edu"
 INTRO_SLUGS = frozenset({"inttechintro", "intappsintro", "parametricintro", "seriesintro", "vectorsintro", "3dspace", "partialderivsintro", "partialderivappsintro", "multipleintegralsintro", "surfaceintegralsintro", "lineintegralsintro"})
@@ -123,43 +124,48 @@ def problem_statement_tex(problem: LamarProblem) -> str:
     return f"Evaluate\n\n${problem.latex}$"
 
 
-def write_section(section: LamarSection, out_dir: Path) -> int:
-    out_dir.mkdir(parents=True, exist_ok=True)
+def write_section(section: LamarSection, problems_dir: Path) -> int:
+    course = section.course.replace("calc", "calc-")
+    planner = resolve_lamar_planner(course, section.slug)
+    pack_id = lamar_pack_id(course, section.slug)
+    out_dir = pack_dir(problems_dir, planner, pack_id)
     meta = {
+        "planner": planner,
+        "pack_id": pack_id,
         "source": "lamar",
-        "course": section.course,
+        "course": course,
         "section": section.slug,
         "title": section.title,
         "url": section.source_url,
         "problem_count": len(section.problems),
     }
-    (out_dir / "meta.json").write_text(json.dumps(meta, indent=2) + "\n", encoding="utf-8")
+    write_pack_meta(out_dir, meta)
     written = 0
     for problem in section.problems:
         path = out_dir / f"prob-{problem.number:02d}.txt"
         header = (
             f"# {section.title} (problem {problem.number})\n"
+            f"# Planner: {planner}\n"
+            f"# Pack: {pack_id}\n"
             f"# Source: {section.source_url}\n"
         )
         if problem.solution_url:
             header += f"# Solution: {problem.solution_url}\n"
-        path.write_text(header + "\n" + problem_statement_tex(problem) + "\n", encoding="utf-8")
+        write_problem_file(path, header=header, body=problem_statement_tex(problem))
         written += 1
     return written
 
 
 def sync_lamar(problems_dir: Path, *, courses: tuple[str, ...] = ("calcii", "calciii")) -> dict[str, int]:
-    """Download all Lamar practice problems into problems/lamar/<course>/<section>/."""
+    """Download Lamar practice problems into problems/by-type/<planner>/<pack>/."""
     stats: dict[str, int] = {"sections": 0, "problems": 0}
     for course in courses:
-        course_dir = problems_dir / "lamar" / course.replace("calc", "calc-")
         slugs = fetch_section_slugs(course)
         for slug in slugs:
             section = fetch_section(course, slug)
             if not section.problems:
                 continue
-            out_dir = course_dir / section.slug
-            count = write_section(section, out_dir)
+            count = write_section(section, problems_dir)
             stats["sections"] += 1
             stats["problems"] += count
     return stats

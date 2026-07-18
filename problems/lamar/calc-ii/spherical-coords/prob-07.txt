@@ -1,7 +1,0 @@
-# Section 12.13 : Spherical Coordinates (problem 7)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/SphericalCoords.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/SphericalCoords/Prob7.aspxSolution
-
-Evaluate
-
-$\varphi = \frac{4\pi }5$

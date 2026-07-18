@@ -1,0 +1,9 @@
+# Section 12.2 : Equations of Lines (problem 4)
+# Pack: lamar-calc-ii-eqns-of-lines
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/EqnsOfLines.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/EqnsOfLines/Prob4.aspxSolution
+
+Evaluate
+
+$The line given by x = 8 + t, y = 5 + 6t, z = 4 - 2t and the line given by \vec r\left t \right = \left\langle - 7 + 12t,3 - t,14 + 8t \right\rangle .$

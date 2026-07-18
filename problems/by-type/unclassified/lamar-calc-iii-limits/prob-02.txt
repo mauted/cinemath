@@ -1,0 +1,9 @@
+# Section 13.1 : Limits (problem 2)
+# Pack: lamar-calc-iii-limits
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/Limits.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/Limits/Prob2.aspxSolution
+
+Evaluate
+
+$\mathop \lim \limits_{x,y \right \to 2,1 } \frac{{x^{2} - 2xy}}{{x^{2} - 4y^{2}}}$

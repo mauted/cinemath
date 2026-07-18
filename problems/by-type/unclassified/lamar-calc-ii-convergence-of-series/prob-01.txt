@@ -1,0 +1,9 @@
+# Section 10.4 : Convergence/Divergence of Series (problem 1)
+# Pack: lamar-calc-ii-convergence-of-series
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ConvergenceOfSeries.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ConvergenceOfSeries/Prob1.aspxSolution
+
+Evaluate
+
+$\sum\limits_n = 1^\infty {n\,2^n}$

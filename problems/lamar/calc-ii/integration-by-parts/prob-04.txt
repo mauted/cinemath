@@ -1,7 +1,0 @@
-# Section 7.1 : Integration by Parts (problem 4)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/IntegrationByParts.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/IntegrationByParts/Prob4.aspxSolution
-
-Evaluate
-
-$\int{{6{\tan ^- 1}{\frac8w} \right\,dw}}$

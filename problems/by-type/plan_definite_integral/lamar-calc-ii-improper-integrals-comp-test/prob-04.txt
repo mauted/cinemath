@@ -1,0 +1,9 @@
+# Section 7.9 : Comparison Test for Improper Integrals (problem 4)
+# Pack: lamar-calc-ii-improper-integrals-comp-test
+# Planner: plan_definite_integral
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ImproperIntegralsCompTest.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ImproperIntegralsCompTest/Prob4.aspxSolution
+
+Evaluate
+
+$\int_1^\infty {{\frac{z - 1}{{z^{4} + 2z^{2}}}\,dz}}$

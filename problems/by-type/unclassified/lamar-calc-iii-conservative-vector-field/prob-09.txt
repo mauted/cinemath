@@ -1,0 +1,10 @@
+# Section 16.6 : Conservative Vector Fields (problem 9)
+# Pack: lamar-calc-iii-conservative-vector-field
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/ConservativeVectorField.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ConservativeVectorField/Prob9.aspxSolution
+    
+
+Evaluate
+
+$Evaluate \int\limits_C{\vec F\centerdot d\vec r} where \vec Fx,y \right = {2y{e^x\,y} + 2x{e^{{x^\,2} - {y^\,2}}}} \right\,\vec i + {2x{e^x\,y} - 2y{e^{{x^\,2} - {y^\,2}}}} \right\vec j and C is the curve shown below.$

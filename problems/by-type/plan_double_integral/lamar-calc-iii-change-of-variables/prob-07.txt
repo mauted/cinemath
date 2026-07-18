@@ -1,0 +1,9 @@
+# Section 15.8 : Change of Variables (problem 7)
+# Pack: lamar-calc-iii-change-of-variables
+# Planner: plan_double_integral
+# Source: https://tutorial.math.lamar.edu/problems/calciii/ChangeOfVariables.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ChangeOfVariables/Prob7.aspxSolution
+
+Evaluate
+
+$Evaluate \iint\limits_R{{xy^{3}\,dA}} where R is the region bounded by xy = 1, xy = 3, y = 2 and y = 6 using the transformation x = \fracv{6u}, y = 2u.$

@@ -1,0 +1,9 @@
+# Section 17.3 : Surface Integrals (problem 5)
+# Pack: lamar-calc-iii-surface-integrals
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/SurfaceIntegrals.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/SurfaceIntegrals/Prob5.aspxSolution
+
+Evaluate
+
+$Evaluate \iint\limits_S{yz + 4xy\,dS} where S is the surface of the solid bounded by 4x + 2y + z = 8, z = 0, y = 0 and x = 0. Note that all four surfaces of this solid are included in S.$

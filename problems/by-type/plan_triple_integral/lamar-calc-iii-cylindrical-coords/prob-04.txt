@@ -1,0 +1,9 @@
+# Section 12.12 : Cylindrical Coordinates (problem 4)
+# Pack: lamar-calc-iii-cylindrical-coords
+# Planner: plan_triple_integral
+# Source: https://tutorial.math.lamar.edu/problems/calciii/CylindricalCoords.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/CylindricalCoords/Prob4.aspxSolution
+
+Evaluate
+
+$z\,r = 2 - r^{2}$

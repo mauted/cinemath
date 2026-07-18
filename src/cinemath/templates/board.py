@@ -5,6 +5,10 @@ Captions prefer teacher ``explanation`` prose (see ``narration``).
 
 After a ``fork``, ``branch_tips`` tracks the last equation id on each branch so
 later steps can continue leaves independently instead of re-deriving from the stem.
+
+Steps may include ``side_math`` for scratch work in a right-hand column (partial
+fractions, etc.). Use ``side_begin`` + ``side_hold`` on the first side step,
+then ``close_side`` + ``break_spine`` when returning to the main integral chain.
 """
 
 from __future__ import annotations
@@ -31,6 +35,8 @@ def equation_board_scene(
     actions: list[dict[str, Any]] = []
     spine_id: str | None = None
     branch_tips: list[str] | None = None
+    side_tip: str | None = None
+    side_ids: list[str] = []
     eq_i = 0
 
     opening = caption or next((step_narration(step) for step in steps if step_narration(step)), "Working")
@@ -52,9 +58,36 @@ def equation_board_scene(
         actions.append(dsl.wait(0.4))
         return oid
 
+    def append_side(tex: str, prev: str) -> str:
+        oid = next_id()
+        objects.append(dsl.math(oid, tex.strip(), at="center", font_size=font_size))
+        actions.append(dsl.derive(prev, oid))
+        actions.append(dsl.wait(0.4))
+        side_ids.append(oid)
+        return oid
+
+    def begin_side_column(anchor_id: str, hold_tex: str, first_tex: str) -> str:
+        hold_id = next_id()
+        first_id = next_id()
+        objects.append(dsl.math(hold_id, hold_tex.strip(), at="center", font_size=font_size))
+        objects.append(dsl.math(first_id, first_tex.strip(), at="center", font_size=font_size))
+        actions.append(dsl.fork(anchor_id, hold_id, first_id))
+        actions.append(dsl.wait(0.4))
+        side_ids.extend([hold_id, first_id])
+        return first_id
+
+    def close_side_column() -> None:
+        nonlocal side_tip
+        if side_ids:
+            actions.append(dsl.fade_out(*side_ids))
+            actions.append(dsl.wait(0.35))
+        side_ids.clear()
+        side_tip = None
+
     for step in steps:
         narr = step_narration(step)
         maths = [m for m in (step.get("math") or []) if str(m).strip()]
+        side_lines = [m for m in (step.get("side_math") or []) if str(m).strip()]
         cases = [case for case in (step.get("cases") or []) if case.get("math")]
 
         if narr:
@@ -66,11 +99,34 @@ def equation_board_scene(
                 actions.append(dsl.wait(read_wait(narr)))
                 saw_opening = True
 
+        if side_lines:
+            if step.get("side_begin") and side_tip is None:
+                anchor_id = spine_id
+                if anchor_id is None:
+                    raise ValueError("side_begin requires prior spine math")
+                hold_tex = str(step.get("side_hold") or "").strip()
+                if not hold_tex:
+                    raise ValueError("side_begin requires side_hold")
+                side_tip = begin_side_column(anchor_id, hold_tex, side_lines[0])
+                for tex in side_lines[1:]:
+                    assert side_tip is not None
+                    side_tip = append_side(tex, side_tip)
+            elif side_tip is not None:
+                for tex in side_lines:
+                    side_tip = append_side(tex, side_tip)
+            else:
+                raise ValueError("side_math requires side_begin or an active side column")
+
+        if step.get("close_side"):
+            close_side_column()
+
         local_prev = spine_id
         if maths:
             if branch_tips is not None:
                 # Parallel branches are active: spine math starts a fresh chain.
                 branch_tips = None
+                local_prev = None
+            if step.get("break_spine"):
                 local_prev = None
             for tex in maths:
                 local_prev = append_chain(local_prev, tex)

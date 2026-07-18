@@ -1,0 +1,8 @@
+# Section 8.5 : Probability (problem 10)
+# Pack: lamar-calc-ii-probability
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/Probability.aspx
+
+Evaluate
+
+$Determine the mean value of the life span of the light bulbs.$

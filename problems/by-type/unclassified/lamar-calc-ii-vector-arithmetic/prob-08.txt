@@ -1,0 +1,9 @@
+# Section 11.2 : Vector Arithmetic (problem 8)
+# Pack: lamar-calc-ii-vector-arithmetic
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/VectorArithmetic.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/VectorArithmetic/Prob4.aspxSolution
+
+Evaluate
+
+$Find a vector that points in the same direction as \vec c = \left\langle - 1,4 \right\rangle with a magnitude of 10.$

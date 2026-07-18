@@ -1,7 +1,0 @@
-# Section 13.4 : Higher Order Partial Derivatives (problem 9)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/HighOrderPartialDerivs.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/HighOrderPartialDerivs/Prob9.aspxSolution
-
-Evaluate
-
-$Given Gx,y \right = y^{4}\sin 2x \right + x^{2}{{{y^{10}} - \cos {y^{2}} } \right^{7}} find {G_y\,y\,y\,x\,x\,x\,y}.$

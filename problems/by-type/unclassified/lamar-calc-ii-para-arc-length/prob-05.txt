@@ -1,0 +1,9 @@
+# Section 9.4 : Arc Length with Parametric Equations (problem 5)
+# Pack: lamar-calc-ii-para-arc-length
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ParaArcLength.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ParaArcLength/Prob5.aspxSolution
+
+Evaluate
+
+$x = \cos ^{32}t \right\hspace0.25in y = \sin {1 - t^{2}} \right\hspace0.25in\, - \frac32 \le t \le 0$

@@ -1,0 +1,8 @@
+# Section 13.3 : Interpretations of Partial Derivatives (problem 2)
+# Pack: lamar-calc-iii-partial-deriv-interp
+# Planner: plan_partial_derivative
+# Source: https://tutorial.math.lamar.edu/problems/calciii/PartialDerivInterp.aspx
+
+Evaluate
+
+$we allow y to vary and hold x fixed.$

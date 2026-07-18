@@ -1,6 +1,0 @@
-# Section 11.2 : Vector Arithmetic (problem 5)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/VectorArithmetic.aspx
-
-Evaluate
-
-$12\vec u + \vec v$

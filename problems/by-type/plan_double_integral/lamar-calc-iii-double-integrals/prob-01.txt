@@ -1,0 +1,9 @@
+# Section 15.1 : Double Integrals (problem 1)
+# Pack: lamar-calc-iii-double-integrals
+# Planner: plan_double_integral
+# Source: https://tutorial.math.lamar.edu/problems/calciii/DoubleIntegrals.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/DoubleIntegrals/Prob1.aspxSolution
+
+Evaluate
+
+$Use the Midpoint Rule to estimate the volume under fx,y \right = x^{2} + y and above the rectangle given by - 1 \le x \le 3, 0 \le y \le 4 in the xy-plane. Use 4 subdivisions in the x direction and 2 subdivisions in the y direction.$

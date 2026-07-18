@@ -36,7 +36,7 @@ tool list instead of one hard-coded problem type. In practice that means:
 | 20 | `20_partial_derivative.txt` | Lamar Calc III - $\partial f/\partial x$ |
 | 21 | `21_triple_integral.md` | Lamar Calc III - triple integral on a box |
 
-See also [docs/calculus_problem_sources.md](../docs/calculus_problem_sources.md) for full Calc 2/3 problem banks.
+See also [docs/calculus_problem_sources.md](../docs/calculus_problem_sources.md) for full Calc 2/3 problem banks (`problems/by-type/<planner>/`).
 
 ```bash
 uv run cinemath solve examples/01_watermelons.txt

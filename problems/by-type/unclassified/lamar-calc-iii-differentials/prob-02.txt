@@ -1,0 +1,9 @@
+# Section 13.5 : Differentials (problem 2)
+# Pack: lamar-calc-iii-differentials
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/Differentials.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/Differentials/Prob2.aspxSolution
+
+Evaluate
+
+$fx,y,z \right = \ln {\frac{{xy^{2}}}{{z^{3}}}} \right$

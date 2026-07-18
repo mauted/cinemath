@@ -1,7 +1,0 @@
-# Section 12.4 : Quadric Surfaces (problem 4)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/QuadricSurfaces.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/QuadricSurfaces/Prob4.aspxSolution
-
-Evaluate
-
-$y^{2} = 4x^{2} + 16z^{2}$

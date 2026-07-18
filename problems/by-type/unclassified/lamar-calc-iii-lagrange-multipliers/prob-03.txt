@@ -1,0 +1,9 @@
+# Section 14.5 : Lagrange Multipliers (problem 3)
+# Pack: lamar-calc-iii-lagrange-multipliers
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/LagrangeMultipliers.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/LagrangeMultipliers/Prob3.aspxSolution
+
+Evaluate
+
+$Find the maximum and minimum values of fx,y,z \right = y^{2} - 10z subject to the constraint x^{2} + y^{2} + z^{2} = 36.$

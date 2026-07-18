@@ -1,0 +1,10 @@
+# Section 16.3 : Line Integrals - Part II (problem 5)
+# Pack: lamar-calc-iii-line-integrals-pt-ii
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/LineIntegralsPtII.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/LineIntegralsPtII/Prob5.aspxSolution
+    
+
+Evaluate
+
+$Evaluate \int\limits_C{{2x^{2}\,dy - xy\,dx}} where C is the line segment from 1, - 5 \right to - 2, - 3 \right followed by the portion of y = 1 - x^{2} from x = - 2 to x = 2 which in turn is followed by the line segment from 2, - 3 \right to 4, - 3 \right. See the sketch below for the direction.$

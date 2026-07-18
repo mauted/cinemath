@@ -1,0 +1,9 @@
+# Section 10.15 : Power Series and Functions (problem 1)
+# Pack: lamar-calc-ii-power-seriesand-functions
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/PowerSeriesandFunctions.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/PowerSeriesandFunctions/Prob1.aspxSolution
+
+Evaluate
+
+$f\left x \right = \frac6{{1 + 7x^{4}}}$

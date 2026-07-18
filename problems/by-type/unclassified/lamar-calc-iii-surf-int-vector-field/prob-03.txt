@@ -1,0 +1,9 @@
+# Section 17.4 : Surface Integrals of Vector Fields (problem 3)
+# Pack: lamar-calc-iii-surf-int-vector-field
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/SurfIntVectorField.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/SurfIntVectorField/Prob3.aspxSolution
+
+Evaluate
+
+$Evaluate \iint\limits_S{\vec F\centerdot \,d\vec S} where \vec F = x^{2}\,\vec i + 2z\,\vec j - 3y\,\vec k and S is the portion of y^{2} + z^{2} = 4 between x = 0 and x = 3 - z oriented outwards i.e. away from the x-axis.$

@@ -1,0 +1,9 @@
+# Section 17.5 : Stokes' Theorem (problem 1)
+# Pack: lamar-calc-iii-stokes-theorem
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/StokesTheorem.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/StokesTheorem/Prob1.aspxSolution
+
+Evaluate
+
+$Use Stokes’ Theorem to evaluate \iint\limits_S{{{\mathop\rm curl\nolimits} \vec F\centerdot d\vec S}} where \vec F = y\,\vec i - x\,\vec j + yx^{3}\,\vec k and S is the portion of the sphere of radius 4 with z \ge 0 and the upwards orientation.$

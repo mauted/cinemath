@@ -1,0 +1,8 @@
+# Section 16.2 : Line Integrals - Part I (problem 10)
+# Pack: lamar-calc-iii-line-integrals-pt-i
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/LineIntegralsPtI.aspx
+
+Evaluate
+
+$C is the portion of the circle centered at the origin of radius 2 in the 1st quadrant rotating in the clockwise direction.$

@@ -1,7 +1,0 @@
-# Section 13.2 : Partial Derivatives (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/PartialDerivatives.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/PartialDerivatives/Prob2.aspxSolution
-
-Evaluate
-
-$w = \cos {x^{2} + 2y} \right - {e^{4x - {z^\,4}y}} + y^{3}$

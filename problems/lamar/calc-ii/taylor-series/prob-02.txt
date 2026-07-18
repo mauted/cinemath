@@ -1,7 +1,0 @@
-# Section 10.16 : Taylor Series (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/TaylorSeries.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/TaylorSeries/Prob2.aspxSolution
-
-Evaluate
-
-$f\left x \right = x^{6}{e^{2{x^\,3}}} about x = 0$

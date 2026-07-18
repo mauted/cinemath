@@ -1,7 +1,0 @@
-# Section 9.3 : Area with Parametric Equations (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/ParaArea.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ParaArea/Prob2.aspxSolution
-
-Evaluate
-
-$x = 3 - \cos ^{3}\left t \right\hspace0.25in y = 4 + \sin \left t \right\hspace0.25in0 \le t \le \pi$

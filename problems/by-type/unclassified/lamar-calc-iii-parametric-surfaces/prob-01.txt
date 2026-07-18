@@ -1,0 +1,9 @@
+# Section 17.2 : Parametric Surfaces (problem 1)
+# Pack: lamar-calc-iii-parametric-surfaces
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/ParametricSurfaces.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ParametricSurfaces/Prob1.aspxSolution
+
+Evaluate
+
+$The plane 7x + 3y + 4z = 15.$

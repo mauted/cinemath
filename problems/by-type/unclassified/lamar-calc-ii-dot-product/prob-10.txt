@@ -1,0 +1,9 @@
+# Section 11.3 : Dot Product (problem 10)
+# Pack: lamar-calc-ii-dot-product
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/DotProduct.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/DotProduct/Prob10.aspxSolution
+
+Evaluate
+
+$Given \vec u = 7\vec i - \vec j + \vec k and \vec w = - 2\vec i + 5\vec j - 6\vec k compute {{\mathop\rm proj\nolimits} _\,\vec w}\,\vec u.$

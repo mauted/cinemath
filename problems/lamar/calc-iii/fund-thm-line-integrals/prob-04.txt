@@ -1,8 +1,0 @@
-# Section 16.5 : Fundamental Theorem for Line Integrals (problem 4)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/FundThmLineIntegrals.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/FundThmLineIntegrals/Prob4.aspxSolution
-    
-
-Evaluate
-
-$Evaluate \int\limits_C{\nabla f\centerdot d\vec r} where fx,y \right = {e^x\,y} - x^{2} + y^{3} and C is the curve shown below.$

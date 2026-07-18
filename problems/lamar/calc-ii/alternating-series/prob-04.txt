@@ -1,7 +1,0 @@
-# Section 10.8 : Alternating Series Test (problem 4)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/AlternatingSeries.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/AlternatingSeries/Prob4.aspxSolution
-
-Evaluate
-
-$\sum\limits_n = 0^\infty {\frac{{{{- 1 }^n + 6}n}}{{n^{2} + 9}}}$

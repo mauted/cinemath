@@ -1,7 +1,0 @@
-# Section 17.1 : Curl and Divergence (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/CurlDivergence.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/CurlDivergence/Prob2.aspxSolution
-
-Evaluate
-
-$\vec F = {3x + 2z^{2}} \right\,\vec i + \frac{{x^{3}y^{2}}}z\vec j - z - 7x \right\vec k$

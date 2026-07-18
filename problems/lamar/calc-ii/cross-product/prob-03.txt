@@ -1,7 +1,0 @@
-# Section 11.4 : Cross Product (problem 3)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/CrossProduct.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/CrossProduct/Prob3.aspxSolution
-
-Evaluate
-
-$Find a vector that is orthogonal to the plane containing the points P = 3,0,1 \right, Q = 4, - 2,1 \right and R = 5,3, - 1 \right.$

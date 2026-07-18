@@ -1,0 +1,9 @@
+# Section 7.1 : Integration by Parts (problem 3)
+# Pack: lamar-calc-ii-integration-by-parts
+# Planner: plan_integration_by_parts
+# Source: https://tutorial.math.lamar.edu/problems/calcii/IntegrationByParts.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/IntegrationByParts/Prob3.aspxSolution
+
+Evaluate
+
+$\int{{{3t + t^{2}} \right\sin 2t \right\,dt}}$

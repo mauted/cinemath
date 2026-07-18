@@ -1,0 +1,8 @@
+# Section 15.3 : Double Integrals over General Regions (problem 10)
+# Pack: lamar-calc-iii-digeneral-region
+# Planner: plan_double_integral
+# Source: https://tutorial.math.lamar.edu/problems/calciii/DIGeneralRegion.aspx
+
+Evaluate
+
+$Integrate with respect to y first and then x.$

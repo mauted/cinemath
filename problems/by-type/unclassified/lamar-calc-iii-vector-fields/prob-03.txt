@@ -1,0 +1,9 @@
+# Section 16.1 : Vector Fields (problem 3)
+# Pack: lamar-calc-iii-vector-fields
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/VectorFields.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/VectorFields/Prob3.aspxSolution
+
+Evaluate
+
+$Compute the gradient vector field for fx,y \right = y^{2}\cos 2x - y \right.$

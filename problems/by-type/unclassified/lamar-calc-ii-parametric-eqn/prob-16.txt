@@ -1,0 +1,9 @@
+# Section 9.1 : Parametric Equations and Curves (problem 16)
+# Pack: lamar-calc-ii-parametric-eqn
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ParametricEqn.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ParametricEqn/Prob12.aspxSolution
+
+Evaluate
+
+$y = 3x^{2} - \ln 4x + 2 \right$

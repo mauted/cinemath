@@ -1,7 +1,0 @@
-# Section 16.6 : Conservative Vector Fields (problem 4)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/ConservativeVectorField.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ConservativeVectorField/Prob4.aspxSolution
-
-Evaluate
-
-$\vec F = {6x^{2} - 2xy^{2} + \fracy{2\sqrt x }} \right\vec i - {2x^{2}y - 4 - \sqrt x } \right\vec j$

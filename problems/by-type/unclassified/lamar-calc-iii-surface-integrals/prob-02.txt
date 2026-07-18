@@ -1,0 +1,9 @@
+# Section 17.3 : Surface Integrals (problem 2)
+# Pack: lamar-calc-iii-surface-integrals
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/SurfaceIntegrals.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/SurfaceIntegrals/Prob2.aspxSolution
+
+Evaluate
+
+$Evaluate \iint\limits_S{40y\,dS} where S is the portion of y = 3x^{2} + 3z^{2} that lies behind y = 6.$

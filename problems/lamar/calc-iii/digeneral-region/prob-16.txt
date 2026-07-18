@@ -1,7 +1,0 @@
-# Section 15.3 : Double Integrals over General Regions (problem 16)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/DIGeneralRegion.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/DIGeneralRegion/Prob15.aspxSolution
-
-Evaluate
-
-$Use a double integral to determine the volume of the region formed by the intersection of the two cylinders x^{2} + y^{2} = 4 and x^{2} + z^{2} = 4.$

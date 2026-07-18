@@ -1,7 +1,0 @@
-# Section 16.3 : Line Integrals - Part II (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/LineIntegralsPtII.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/LineIntegralsPtII/Prob2.aspxSolution
-
-Evaluate
-
-$Evaluate \int\limits_C{{2y\,dx + 1 - x \right\,dy}} where C is portion of y = 1 - x^{3} from x = - 1 to x = 2.$

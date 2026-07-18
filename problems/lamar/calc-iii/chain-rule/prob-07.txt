@@ -1,8 +1,0 @@
-# Section 13.6 : Chain Rule (problem 7)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/ChainRule.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ChainRule/Prob7.aspxSolution
-    
-
-Evaluate
-
-$Determine formulas for \frac{\partial w}{\partial t} and \frac{\partial w}{\partial v} for the following situation. \[w = wx,y \right\hspace0.5inx = xp,q,s \right,\,\,\,\,y = yp,u,v \right,\,\,\,\,s = su,v \right,\,\,\,\,p = p\left t \right\]$

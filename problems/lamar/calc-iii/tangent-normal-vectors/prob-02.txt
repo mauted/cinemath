@@ -1,7 +1,0 @@
-# Section 12.8 : Tangent, Normal and Binormal Vectors (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/TangentNormalVectors.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/TangentNormalVectors/Prob2.aspxSolution
-
-Evaluate
-
-$\vec r\left t \right = t{e^{2}t}\,\vec i + {2 - t^{2}} \right\vec j - {e^{2}t}\vec k$

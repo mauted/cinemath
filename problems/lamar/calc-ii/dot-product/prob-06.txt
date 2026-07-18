@@ -1,7 +1,0 @@
-# Section 11.3 : Dot Product (problem 6)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/DotProduct.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/DotProduct/Prob6.aspxSolution
-
-Evaluate
-
-$\vec q = \left\langle 4, - 2,7 \right\rangle , \vec p = - 3\vec i + \vec j + 2\vec k$

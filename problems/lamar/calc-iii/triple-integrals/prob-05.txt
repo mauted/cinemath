@@ -1,7 +1,0 @@
-# Section 15.5 : Triple Integrals (problem 5)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/TripleIntegrals.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/TripleIntegrals/Prob5.aspxSolution
-
-Evaluate
-
-$Evaluate \iiint\limits_E{12y - 8x\,dV} where E is the region behind y = 10 - 2z and in front of the region in the xz-plane bounded by z = 2x, z = 5 and x = 0.$

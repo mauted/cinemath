@@ -1,7 +1,0 @@
-# Section 10.9 : Absolute Convergence (problem 3)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/AbsoluteConvergence.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/AbsoluteConvergence/Prob3.aspxSolution
-
-Evaluate
-
-$\sum\limits_n = 3^\infty {\frac{{{{- 1 }^n + 1}n + 1 }}{{n^{3} + 1}}}$

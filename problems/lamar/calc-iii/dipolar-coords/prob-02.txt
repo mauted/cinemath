@@ -1,7 +1,0 @@
-# Section 15.4 : Double Integrals in Polar Coordinates (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/DIPolarCoords.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/DIPolarCoords/Prob2.aspxSolution
-
-Evaluate
-
-$Evaluate \iint\limits_D{{\sqrt {1 + 4x^{2} + 4y^{2}} \,dA}} where D is the bottom half of x^{2} + y^{2} = 16.$

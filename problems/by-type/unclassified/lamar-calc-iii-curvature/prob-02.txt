@@ -1,0 +1,9 @@
+# Section 12.10 : Curvature (problem 2)
+# Pack: lamar-calc-iii-curvature
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/Curvature.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/Curvature/Prob2.aspxSolution
+
+Evaluate
+
+$\vec r\left t \right = \left\langle {4t, - t^{2},2t^{3}} \right\rangle$

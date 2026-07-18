@@ -11,7 +11,7 @@ from cinemath.planners.algebra import (
     plan_percent_off,
     plan_quadratic,
 )
-from cinemath.planners.arithmetic import (
+from cinemath.planners.arithmetic.planner import (
     plan_long_add,
     plan_long_divide,
     plan_long_multiply,
@@ -25,9 +25,12 @@ from cinemath.planners.calculus import (
     plan_double_integral,
     plan_integration_by_parts,
     plan_partial_derivative,
+    plan_partial_fractions,
+    plan_trig_substitution,
     plan_triple_integral,
+    plan_u_substitution,
 )
-from cinemath.planners.common import _problem
+from cinemath.planners.common import CatalogFreeform, _problem
 
 Handler = Callable[[dict[str, Any]], dict[str, Any]]
 
@@ -43,12 +46,26 @@ Do NOT solve the problem. Do NOT write JSON lesson plans.
 Catalog planners (each returns a full teacher plan.json):
 plan_quadratic, plan_linear, plan_linear_system_2d, plan_linear_system_3d,
 plan_percent_off, plan_derivative, plan_double_integral,
-plan_definite_integral, plan_integration_by_parts, plan_partial_derivative, plan_triple_integral,
-plan_long_multiply, plan_long_divide, plan_long_add, plan_long_subtract.
+plan_integration_by_parts, plan_partial_fractions, plan_trig_substitution,
+plan_u_substitution, plan_definite_integral, plan_partial_derivative,
+plan_triple_integral, plan_long_multiply, plan_long_divide, plan_long_add,
+plan_long_subtract.
 
-Use plan_integration_by_parts for products that need integration by parts
-(e.g. x*exp(x), polynomial*trig or polynomial*exp). Include lower/upper when definite.
-Use plan_definite_integral for elementary definite/improper integrals that do not need IBP.
+Integration technique (pick the first matching rule):
+- plan_integration_by_parts: products needing IBP (x*exp(x), poly*exp, poly*trig, ln*poly).
+- plan_partial_fractions: rational functions (poly)/(poly) after factoring the denominator.
+- plan_trig_substitution: sqrt of a quadratic (a^2-x^2, a^2+x^2, x^2-a^2), including
+  after completing the square.
+- plan_u_substitution: chain-rule / composition forms, and trig powers that rewrite then
+  substitute (e.g. 2x*exp(x**2), sin^n cos^m, sqrt(e^{ax}-c)).
+- plan_definite_integral: elementary antiderivatives only (power rule, sin/cos/exp, FTC /
+  improper limits). Never use when a specialized technique applies.
+- teach_freeform: stacked or exotic integrals that need multiple techniques chained
+  (e.g. sqrt(tan x)), or when no single catalog planner can walk the full solution.
+
+Omit lower and upper for indefinite integrals (+C). Include them for definite/improper
+(use 'oo' for infinity). Do NOT use teach_freeform for standard Calc 2 integration
+exercises when a catalog planner fits.
 Use plan_derivative for ordinary derivatives d/dx.
 Use plan_partial_derivative for partial derivatives (Calc 3).
 Use plan_double_integral / plan_triple_integral for box regions in R^2 and R^3.
@@ -357,4 +374,7 @@ def run_catalog(name: str, tool_input: dict[str, Any]) -> dict[str, Any] | None:
     handler = _HANDLERS.get(name)
     if handler is None:
         raise ValueError(f"Unknown catalog planner: {name}")
-    return handler(tool_input)
+    try:
+        return handler(tool_input)
+    except CatalogFreeform:
+        return None

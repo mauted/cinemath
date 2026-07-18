@@ -1,0 +1,9 @@
+# Section 15.4 : Double Integrals in Polar Coordinates (problem 1)
+# Pack: lamar-calc-iii-dipolar-coords
+# Planner: plan_double_integral
+# Source: https://tutorial.math.lamar.edu/problems/calciii/DIPolarCoords.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/DIPolarCoords/Prob1.aspxSolution
+
+Evaluate
+
+$Evaluate \iint\limits_D{{y^{2} + 3x\,dA}} where D is the region in the 3rd quadrant between x^{2} + y^{2} = 1 and x^{2} + y^{2} = 9.$

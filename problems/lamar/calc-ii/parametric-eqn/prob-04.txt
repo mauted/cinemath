@@ -1,7 +1,0 @@
-# Section 9.1 : Parametric Equations and Curves (problem 4)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/ParametricEqn.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ParametricEqn/Prob4.aspxSolution
-
-Evaluate
-
-$x = 3\sin \left t \right\hspace0.5iny = - 4\cos \left t \right \hspace0.5in 0 \le t \le 2\pi$

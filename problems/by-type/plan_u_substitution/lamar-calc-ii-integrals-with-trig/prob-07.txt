@@ -1,0 +1,9 @@
+# Section 7.2 : Integrals Involving Trig Functions (problem 7)
+# Pack: lamar-calc-ii-integrals-with-trig
+# Planner: plan_definite_integral
+# Source: https://tutorial.math.lamar.edu/problems/calcii/IntegralsWithTrig.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/IntegralsWithTrig/Prob7.aspxSolution
+
+Evaluate
+
+$\int_0^{{\frac\pi 4}}{{{\tan ^{7}}\left z \right{\sec ^{3}}\left z \right\,dz}}$

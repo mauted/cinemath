@@ -1,0 +1,9 @@
+# Section 9.4 : Arc Length with Parametric Equations (problem 1)
+# Pack: lamar-calc-ii-para-arc-length
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ParaArcLength.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ParaArcLength/Prob1.aspxSolution
+
+Evaluate
+
+$x = 8{t^{\frac32}}\hspace0.25in y = 3 + {8 - t \right^{\frac32}}\hspace0.25in 0 \le t \le 4$

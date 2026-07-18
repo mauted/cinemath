@@ -1,0 +1,10 @@
+# Section 17.2 : Parametric Surfaces (problem 6)
+# Pack: lamar-calc-iii-parametric-surfaces
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/ParametricSurfaces.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ParametricSurfaces/Prob6.aspxSolution
+    
+
+Evaluate
+
+$The tangent plane to the surface given by the following parametric equation at the point 8,14,2 \right. \[\vec ru,v \right = {u^{2} + 2u} \right\vec i + 3v - 2u \right\vec j + 6v - 10 \right\vec k\]$

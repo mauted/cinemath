@@ -1,0 +1,9 @@
+# Section 12.3 : Equations of Planes (problem 1)
+# Pack: lamar-calc-ii-eqns-of-planes
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/EqnsOfPlanes.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/EqnsOfPlanes/Prob1.aspxSolution
+
+Evaluate
+
+$The plane containing the points 4, - 3,1 \right, - 3, - 1,1 \right and 4, - 2,8 \right.$

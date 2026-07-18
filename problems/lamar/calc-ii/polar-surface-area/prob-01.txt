@@ -1,7 +1,0 @@
-# Section 9.10 : Surface Area with Polar Coordinates (problem 1)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/PolarSurfaceArea.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/PolarSurfaceArea/Prob1.aspxSolution
-
-Evaluate
-
-$r = 5 - 4\sin \theta , 0 \le \theta \le \pi rotated about the x-axis.$

@@ -1,0 +1,9 @@
+# Section 14.3 : Relative Minimums and Maximums (problem 2)
+# Pack: lamar-calc-iii-relative-extrema
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/RelativeExtrema.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/RelativeExtrema/Prob2.aspxSolution
+
+Evaluate
+
+$fx,y \right = 7x - 8y + 2xy - x^{2} + y^{3}$

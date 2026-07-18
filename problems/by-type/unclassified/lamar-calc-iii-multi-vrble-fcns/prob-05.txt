@@ -1,0 +1,9 @@
+# Section 12.5 : Functions of Several Variables (problem 5)
+# Pack: lamar-calc-iii-multi-vrble-fcns
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/MultiVrbleFcns.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/MultiVrbleFcns/Prob5.aspxSolution
+
+Evaluate
+
+$2x - 3y + z^{2} = 1$

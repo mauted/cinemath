@@ -1,8 +1,0 @@
-# Section 13.6 : Chain Rule (problem 5)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/ChainRule.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ChainRule/Prob5.aspxSolution
-    
-
-Evaluate
-
-$Given the following information use the Chain Rule to determine z_t and z_p . \[z = 4y\sin 2x \right\,\hspace0.5inx = 3u - p,\,\,\,\,y = p^{2}u,\,\,\,\,\,\,u = t^{2} + 1\]$

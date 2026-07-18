@@ -1,7 +1,0 @@
-# Section 9.4 : Arc Length with Parametric Equations (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/ParaArcLength.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ParaArcLength/Prob2.aspxSolution
-
-Evaluate
-
-$x = 3t + 1\hspace0.25in y = 4 - t^{2}\hspace0.25in - 2 \le t \le 0$

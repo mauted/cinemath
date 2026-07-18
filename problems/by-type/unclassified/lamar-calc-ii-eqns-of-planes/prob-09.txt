@@ -1,0 +1,9 @@
+# Section 12.3 : Equations of Planes (problem 9)
+# Pack: lamar-calc-ii-eqns-of-planes
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/EqnsOfPlanes.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/EqnsOfPlanes/Prob9.aspxSolution
+
+Evaluate
+
+$Determine if the line given by x = 8 - 15t, y = 9t, z = 5 + 18t and the plane given by 10x - 6y - 12z = 7 are parallel, orthogonal or neither.$

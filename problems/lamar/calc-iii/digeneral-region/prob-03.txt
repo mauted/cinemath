@@ -1,7 +1,0 @@
-# Section 15.3 : Double Integrals over General Regions (problem 3)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/DIGeneralRegion.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/DIGeneralRegion/Prob3.aspxSolution
-
-Evaluate
-
-$Evaluate \iint\limits_D{{10x^{2}y^{3} - 6\,dA}} where D is the region bounded by x = - 2y^{2} and x = y^{3}.$

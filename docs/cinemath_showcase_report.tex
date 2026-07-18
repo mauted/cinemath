@@ -31,18 +31,23 @@ Large language models can explain mathematical and physical reasoning, but
 they are unreliable authors of low-level animation code. We present
 \textsc{Cinemath}, an open-source pipeline that turns a typed or photographed
 problem into a short educational Manim video while keeping those roles
-strictly separated. An LLM acts only as a teacher: it produces a structured
-lesson plan consisting of conceptual steps and a list of named visual-tool
-calls. Local compilers then expand those calls into a validated animation
-script, optionally check arithmetic and symbolic claims with SymPy, and
-render the result with Manim Community. Because scene construction never
-depends on free-form model-generated Python, visual fidelity is controlled by
-hand-written templates spanning paper arithmetic, algebra boards, calculus
-plots, formal proofs, and quantum-field-theory diagrams including
-one-loop layouts and renormalization-group flow sketches. We describe the
-architecture, the plan schema, the visual-tool catalog, and a difficulty
-ladder from elementary arithmetic through Peskin-style $\beta$-function
-problems.
+strictly separated. A lightweight classifier routes each problem either to a
+local catalog planner (SymPy-backed \texttt{plan\_*} functions that emit a
+complete lesson plan without freeform generation) or to a freeform teacher
+LLM that returns a structured plan of conceptual steps and named visual-tool
+calls. Integration problems route to technique-specific catalog planners
+(partial fractions, trigonometric substitution, $u$-substitution, integration
+by parts, or elementary antiderivatives); stacked or SymPy-unwalkable integrals
+fall through to freeform. Local compilers expand those calls into a validated animation script,
+re-check freeform claims with SymPy (retrying on failure), and render with
+Manim Community. Because scene construction never depends on free-form
+model-generated Python, visual fidelity is controlled by hand-written
+templates spanning paper arithmetic, algebra boards, calculus plots, formal
+proofs, and quantum-field-theory diagrams including one-loop layouts and
+renormalization-group flow sketches. We describe the architecture, the
+classify-and-catalog layer, the plan schema, the visual-tool catalog, curated
+and scraped problem banks, and a difficulty ladder from elementary arithmetic
+through Peskin-style $\beta$-function problems.
 \end{abstract}
 
 \section{Introduction}
@@ -61,20 +66,23 @@ breaks \LaTeX \ mid-expression, hard-codes fragile layout constants, or
 silently skips pedagogically important beats. Even when the mathematics in
 the explanation is correct, the animation layer may not compile.
 
-\textsc{Cinemath} adopts the opposite contract. The language model is
-restricted to \emph{teaching}: it must return a versioned JSON plan with a
-normalized problem statement, a final answer, a short sequence of conceptual
-steps, and a non-empty list of visual tools drawn from a fixed catalog. All
-animation construction, validation, and rendering remain local and
-deterministic. This separation mirrors classical compiler design: the LLM
-emits an intermediate representation; trusted backends lower it to pixels.
+\textsc{Cinemath} adopts the opposite contract. The language model never
+authors Manim source. For common problem shapes it may not author the lesson
+plan either: a classifier selects a local catalog planner that builds
+\texttt{plan.json} with SymPy or exact arithmetic. Only when no planner fits
+does a freeform teacher return a versioned JSON plan---normalized statement,
+final answer, conceptual steps, and a non-empty list of visual tools from a
+fixed catalog. All animation construction, validation, and rendering remain
+local and deterministic. This separation mirrors classical compiler design:
+the front end emits an intermediate representation; trusted backends lower it
+to pixels.
 
 The system is deliberately domain-agnostic at the plan level. Instead of a
-single mutually exclusive ``problem type,'' the teacher selects a
-composition of tools (for example, a rectangular double integral may request
-a region outline, an equation board, a three-dimensional surface, and a
-final answer beat). Specialized QFT tools cover interaction Lagrangians,
-tree-level $1\to 2$ decays, one-loop / 1PI diagrams, and two-dimensional
+single mutually exclusive ``problem type,'' the plan selects a composition of
+tools (for example, a rectangular double integral may request a region
+outline, an equation board, a three-dimensional surface, and a final answer
+beat). Specialized QFT tools cover interaction Lagrangians, tree-level
+$1\to 2$ decays, one-loop / 1PI diagrams, and two-dimensional
 renormalization-group flow fields of the kind appearing in textbook exercises
 \citep{peskin1995introduction}.
 
@@ -82,16 +90,22 @@ renormalization-group flow fields of the kind appearing in textbook exercises
 
 Figure~\ref{fig:pipeline} summarizes the end-to-end pipeline. A run begins
 with a text file, Markdown note, or image of a problem. Images are OCR'd /
-transcribed by the same model family used for teaching; the extracted
-statement is then passed to the teacher prompt. The teacher may call local
-arithmetic tools for long multiplication, division, addition, or
-subtraction so that digit-level results are ground-truth rather than
-model-invented. After the plan is accepted, a verifier inspects known
-visual-tool payloads (for example, quadratic coefficients and roots, or
-paper-arithmetic products). Local template compilers expand
-\texttt{visuals[]} into an internal animation DSL, prepend a problem-statement
-scene, and validate the script. Manim finally renders \texttt{animation.mp4}
-together with a Markdown lesson transcript.
+transcribed; the extracted statement is then classified. Classification calls
+exactly one tool: either a catalog \texttt{plan\_*} entry (quadratic, linear
+systems, derivatives, technique-specific integrals---partial fractions,
+trigonometric substitution, $u$-substitution, integration by parts, elementary
+definite / improper integrals---partial derivatives, double / triple box
+integrals, paper arithmetic, \ldots) or \texttt{teach\_freeform}. Catalog
+planners emit a complete plan locally. When a catalog planner cannot finish
+an integral (for example a stacked $\sqrt{\tan x}$ exercise), it signals
+freeform rather than silently stacking techniques inside one lesson. The
+freeform teacher may call local arithmetic tools for long multiplication,
+division, addition, or subtraction so that digit-level results are
+ground-truth rather than model-invented; its plan is then verified with SymPy
+and retried with structured feedback on failure. Local template compilers
+expand \texttt{visuals[]} into an internal animation DSL, prepend a
+problem-statement scene, and validate the script. Manim finally renders
+\texttt{animation.mp4} together with a Markdown lesson transcript.
 
 \begin{figure}[H]
 \centering
@@ -99,15 +113,15 @@ together with a Markdown lesson transcript.
 \begin{tikzpicture}[
   font=\sffamily\small,
   >=Latex,
-  node distance=0.55cm and 0.5cm,
+  node distance=0.45cm and 0.38cm,
   stage/.style={
     draw=black!65,
     rounded corners=2.5pt,
     align=center,
-    inner xsep=6pt,
-    inner ysep=5pt,
-    minimum height=1.0cm,
-    minimum width=2.5cm,
+    inner xsep=5pt,
+    inner ysep=4pt,
+    minimum height=0.95cm,
+    minimum width=2.15cm,
     fill=black!4
   },
   llm/.style={stage, fill=blue!10},
@@ -117,7 +131,7 @@ together with a Markdown lesson transcript.
     dashed,
     rounded corners=1.5pt,
     align=center,
-    inner sep=3.5pt,
+    inner sep=3pt,
     font=\ttfamily\scriptsize,
     fill=white
   },
@@ -126,19 +140,22 @@ together with a Markdown lesson transcript.
   % Top row
   \node[stage] (in) {Input\\[-0.1em]{\scriptsize text / image}};
   \node[llm, right=of in] (extract) {Extract\\[-0.1em]{\scriptsize statement}};
-  \node[llm, right=of extract] (teach) {Teach\\[-0.1em]{\scriptsize plan + visuals}};
-  \node[local, right=of teach] (arith) {Arithmetic\\[-0.1em]{\scriptsize tools}};
+  \node[llm, right=of extract] (classify) {Classify\\[-0.1em]{\scriptsize plan\_* / freeform}};
+  \node[local, right=of classify] (catalog) {Catalog\\[-0.1em]{\scriptsize plan\_* + SymPy}};
+  \node[llm, below=0.55cm of catalog] (teach) {Freeform teach\\[-0.1em]{\scriptsize + arith tools}};
 
   \draw[arr] (in) -- (extract);
-  \draw[arr] (extract) -- (teach);
-  \draw[arr,<->] (teach) -- (arith);
+  \draw[arr] (extract) -- (classify);
+  \draw[arr] (classify) -- (catalog);
+  \draw[arr] (classify) |- (teach);
 
-  % Bridge artifact under teach
-  \node[file, below=0.7cm of teach] (plan) {plan.json};
+  % Bridge artifact
+  \node[file, below=0.55cm of teach] (plan) {plan.json};
+  \draw[arr] (catalog) -- (plan);
   \draw[arr] (teach) -- (plan);
 
-  % Bottom row, anchored so verify sits under plan
-  \node[local, below=0.7cm of plan] (verify) {Verify\\[-0.1em]{\scriptsize SymPy / checks}};
+  % Bottom row
+  \node[local, below=0.55cm of plan] (verify) {Verify\\[-0.1em]{\scriptsize freeform only}};
   \node[local, right=of verify] (compile) {Compile\\[-0.1em]{\scriptsize visual tools}};
   \node[local, right=of compile] (validate) {Validate\\[-0.1em]{\scriptsize animation DSL}};
   \node[local, right=of validate] (render) {Render\\[-0.1em]{\scriptsize Manim}};
@@ -148,17 +165,15 @@ together with a Markdown lesson transcript.
   \draw[arr] (compile) -- (validate);
   \draw[arr] (validate) -- (render);
 
-  % Output artifacts
-  \node[file, below=0.45cm of verify] (ver) {verify.json};
-  \node[file, below=0.45cm of compile] (anim) {animation.json};
-  \node[file, below=0.45cm of render] (mp4) {animation.mp4};
+  \node[file, below=0.4cm of verify] (ver) {verify.json};
+  \node[file, below=0.4cm of compile] (anim) {animation.json};
+  \node[file, below=0.4cm of render] (mp4) {animation.mp4};
   \draw[arr] (verify) -- (ver);
   \draw[arr] (compile) -- (anim);
   \draw[arr] (render) -- (mp4);
 
-  % Legend
   \node[anchor=south west, font=\scriptsize, text=black!60]
-    at ([yshift=0.45cm]in.north west) {%
+    at ([yshift=0.4cm]in.north west) {%
     {\tikz[baseline=-0.45ex]\fill[blue!10,draw=black!65,rounded corners=1pt]
       (0,0) rectangle (0.4,0.2);}~~LLM
     \quad
@@ -168,20 +183,21 @@ together with a Markdown lesson transcript.
 \end{tikzpicture}%
 }
 \caption{Cinemath pipeline. Blue stages may call the language model; green stages
-are fully local. Dashed boxes are on-disk artifacts written for every run.
-The teacher may call local arithmetic tools before emitting the final plan;
-it never authors Manim scenes.}
+are fully local. Classification routes to a local catalog planner or a freeform
+teacher. \texttt{verify.json} is written for freeform plans (with SymPy retry);
+catalog plans skip that stage. Neither path authors Manim scenes.}
 \label{fig:pipeline}
 \end{figure}
 
 \subsection{Trust boundary}
 
 The critical invariant is that \texttt{animation.json} is never authored by
-the model. The teacher may choose \emph{which} visual capabilities to invoke
-and fill their typed fields (coefficients, region bounds, Feynman labels,
-$\beta$-function expressions), but scene graph construction, caption timing,
-equation-chain morphs, and camera moves live in versioned Python modules
-under \texttt{templates/} and \texttt{render\_engine/}.
+the model. Catalog planners fill typed visual fields locally; the freeform
+teacher may choose \emph{which} visual capabilities to invoke and fill their
+typed fields (coefficients, region bounds, Feynman labels, $\beta$-function
+expressions). Scene graph construction, caption timing, equation-chain
+morphs, and camera moves live in versioned Python modules under
+\texttt{templates/} and \texttt{render\_engine/}.
 
 \subsection{Artifacts}
 
@@ -190,23 +206,46 @@ containing
 \begin{itemize}
   \item \texttt{problem.txt} --- normalized statement with ASCII \LaTeX\ in
     \texttt{\$...\$};
-  \item \texttt{plan.json} --- teacher plan (version~2);
-  \item \texttt{verify.json} --- local check summary;
+  \item \texttt{plan.json} --- lesson plan (version~2), from a catalog planner
+    or the freeform teacher;
+  \item \texttt{verify.json} --- freeform SymPy check / retry summary (omitted
+    for catalog plans);
   \item \texttt{lesson.md} --- human-readable lesson transcript;
   \item \texttt{animation.json} --- validated internal DSL;
-  \item \texttt{scene.py} / \texttt{animation.mp4} --- Manim entrypoint and
-    rendered video.
+  \item \texttt{animation.mp4} --- rendered video (optional retained
+    \texttt{media/} with \texttt{--keep-media}).
 \end{itemize}
+
+\subsection{Catalog planners}
+\label{sec:catalog}
+
+When classification hits a catalog entry, a local \texttt{plan\_*} function in
+\texttt{src/cinemath/planners/} builds the entire plan---steps, answer, and
+\texttt{visuals[]}---using SymPy or exact arithmetic. Shipped planners include
+\texttt{plan\_quadratic}, \texttt{plan\_linear}, \texttt{plan\_linear\_system\_2d/3d},
+\texttt{plan\_percent\_off}, \texttt{plan\_derivative},
+\texttt{plan\_partial\_fractions}, \texttt{plan\_trig\_substitution},
+\texttt{plan\_u\_substitution}, \texttt{plan\_integration\_by\_parts},
+\texttt{plan\_definite\_integral} (elementary antiderivatives and improper
+limits only), \texttt{plan\_partial\_derivative},
+\texttt{plan\_double\_integral}, \texttt{plan\_triple\_integral}, and the four
+\texttt{plan\_long\_*} arithmetic planners. The classifier picks exactly one
+integration technique; \texttt{plan\_definite\_integral} rejects integrands
+that need a specialized planner, and unwalkable stacked integrals route to
+\texttt{teach\_freeform}. Proofs, series arguments, vector calculus, and QFT
+exercises also fall through to \texttt{teach\_freeform}.
 
 \subsection{Worked example: quadratic roots}
 \label{sec:worked}
 
 Figure~\ref{fig:artifact-shapes} summarizes the on-disk contract for a real run of
-\texttt{examples/04\_quadratic.txt} ($x^{2}-5x+6=0$).
-The LLM writes only \texttt{plan.json}; local stages emit
-\texttt{verify.json} and \texttt{animation.json}, then Manim produces
-\texttt{animation.mp4}. The JSON chips show \emph{shape}, not full payloads.
-Figure~\ref{fig:artifact-frames} shows four frames from that same video.
+\texttt{examples/04\_quadratic.txt} ($x^{2}-5x+6=0$; also
+\texttt{problems/curated/04\_quadratic.txt}).
+Classification selects \texttt{plan\_quadratic}, so the LLM does not write
+\texttt{plan.json}; local stages emit \texttt{animation.json}, then Manim
+produces \texttt{animation.mp4}. The JSON chips show \emph{shape}, not full
+payloads. Figure~\ref{fig:artifact-frames} shows four frames from that same
+video.
 
 \begin{figure}[H]
 \centering
@@ -230,17 +269,16 @@ Figure~\ref{fig:artifact-frames} shows four frames from that same video.
     {\ttfamily\tiny $x^{2}-5x+6=0$}
   };
   \node[llm, right=0.42cm of c1] (c2) {%
-    {\color{blue!50!black}\ttfamily\bfseries\tiny plan.json}\\[4pt]
+    {\color{blue!50!black}\ttfamily\bfseries\tiny classify}\\[4pt]
+    {\ttfamily\tiny plan\_quadratic}\\[3pt]
+    {\sffamily\tiny (not freeform)}
+  };
+  \node[loc, right=0.42cm of c2] (c3) {%
+    {\color{green!35!black}\ttfamily\bfseries\tiny plan.json}\\[4pt]
     {\ttfamily\tiny version}\\[-1pt]
     {\ttfamily\tiny steps[\,]}\\[-1pt]
     {\ttfamily\tiny visuals[\,]}\\[3pt]
     {\sffamily\tiny plot\_2d $\cdot$ board $\cdot$ answer}
-  };
-  \node[loc, right=0.42cm of c2] (c3) {%
-    {\color{green!35!black}\ttfamily\bfseries\tiny verify.json}\\[4pt]
-    {\ttfamily\tiny ok: true}\\[-1pt]
-    {\ttfamily\tiny tools[\,]}\\[-1pt]
-    {\ttfamily\tiny roots: [2, 3]}
   };
   \node[loc, right=0.42cm of c3] (c4) {%
     {\color{green!35!black}\ttfamily\bfseries\tiny animation.json}\\[4pt]
@@ -261,14 +299,15 @@ Figure~\ref{fig:artifact-frames} shows four frames from that same video.
   \node[font=\scriptsize, text=black!60, anchor=north]
     at ([yshift=-0.22cm]current bounding box.south) {%
     {\tikz[baseline=-0.45ex]\fill[blue!6,draw=blue!35!black!55,rounded corners=1pt]
-      (0,0) rectangle (0.4,0.2);}~~LLM artifact
+      (0,0) rectangle (0.4,0.2);}~~LLM stage
     \quad
     {\tikz[baseline=-0.45ex]\fill[green!6,draw=green!35!black!55,rounded corners=1pt]
       (0,0) rectangle (0.4,0.2);}~~local artifact%
     };
 \end{tikzpicture}
-\caption{Quadratic run as pictographs. Boxes sketch the JSON \emph{shape}
-(keys / tool names), not complete file contents.}
+\caption{Quadratic catalog run as pictographs. Classification selects
+\texttt{plan\_quadratic}; the plan and animation artifacts are local.
+Boxes sketch \emph{shape}, not complete file contents.}
 \label{fig:artifact-shapes}
 \end{figure}
 
@@ -307,21 +346,22 @@ Plans are JSON objects with schema version~2. The required fields are
 \texttt{visuals} array. Each step carries a short board title, a one-to-three
 sentence explanation, and zero or more display-math fragments. Visual entries
 are tagged by \texttt{tool} and validated against a closed catalog
-(Section~\ref{sec:tools}).
+(Section~\ref{sec:tools}). Catalog planners and the freeform teacher share this
+schema so the compilers need not know which front end produced the plan.
 
-The system prompt forbids animation design language: the model must not
-mention Manim, colors, camera angles, or frame timing. Mathematical hygiene
+The freeform system prompt forbids animation design language: the model must
+not mention Manim, colors, camera angles, or frame timing. Mathematical hygiene
 rules require ASCII \LaTeX \ (no Unicode glyphs such as $\mu$ or $\phi$ written
 as code points) and consistent dollar wrapping in prose fields. Pure formula
 fields omit surrounding dollars so that Manim's \texttt{MathTex} path remains
 unambiguous.
 
-For long arithmetic, the teacher must call the matching local tool
-(\texttt{long\_multiply}, \texttt{long\_divide}, \texttt{long\_add}, or
-\texttt{long\_subtract}) and copy the returned digits into both
-\texttt{answer} and the corresponding \texttt{paper\_long\_*} visual. This
-prevents the common failure mode in which a fluent explanation ends with an
-incorrect product.
+For long arithmetic outside the catalog path, the freeform teacher must call
+the matching local tool (\texttt{long\_multiply}, \texttt{long\_divide},
+\texttt{long\_add}, or \texttt{long\_subtract}) and copy the returned digits
+into both \texttt{answer} and the corresponding \texttt{paper\_long\_*} visual.
+Catalog arithmetic planners skip that round-trip and write the digits
+directly.
 
 \section{Visual tools}
 \label{sec:tools}
@@ -344,6 +384,7 @@ Tool & Role \\
 \texttt{equation\_board} & Caption + stacked derivation lines \\
 \texttt{state\_claim} / \texttt{show\_qed} & Proof opener / closer \\
 \texttt{plot\_2d} & Quadratic parabola with marked roots \\
+\texttt{plot\_integral\_1d} & Shaded definite integral under a curve \\
 \texttt{show\_region\_rectangle} & 2D rectangular integration region \\
 \texttt{plot\_surface\_3d} & Surface over a rectangular domain \\
 \texttt{paper\_long\_*} & Stacked paper arithmetic layouts \\
@@ -378,14 +419,19 @@ schematic Feynman layouts and sample renormalization-group arrow fields from
 safe arithmetic expressions in variables $(x,y)$, which the teacher uses as
 stand-ins for couplings such as $(\lambda,g)$.
 
-\section{Examples}
+\section{Examples and problem banks}
 
-The repository ships a difficulty ladder from elementary word problems to
-tree-level scalar decay and related QFT exercises
-(Table~\ref{tab:ladder}). In practice the same architecture also covers
-photographed textbook problems, including Callan--Symanzik $\beta$-function
-computations in pseudoscalar Yukawa theory with qualitative RG-flow sketches
-\citep{peskin1995introduction}.
+The repository ships a curated difficulty ladder under
+\texttt{problems/curated/} (symlinked as \texttt{examples/} at the repo root),
+from elementary word problems through linear systems, Calc~II/III catalog
+targets, tree-level scalar decay, and related QFT exercises
+(Table~\ref{tab:ladder}). Scraped banks from Paul's Online Math Notes (Lamar),
+MIT~18.01/18.02, Arizona Math~129, and OpenStax live under \texttt{problems/}
+with per-topic \texttt{meta.json} manifests; sync with
+\texttt{scripts/sync\_problem\_banks.py}. In practice the same architecture
+also covers photographed textbook problems, including Callan--Symanzik
+$\beta$-function computations in pseudoscalar Yukawa theory with qualitative
+RG-flow sketches \citep{peskin1995introduction}.
 Figure~\ref{fig:snapshots} shows representative frames from rendered lessons
 across several tool recipes.
 
@@ -413,59 +459,73 @@ across several tool recipes.
 
 \begin{table}[H]
 \centering
-\caption{Representative example ladder shipped with the package.}
+\caption{Representative curated ladder (\texttt{problems/curated/}).}
 \label{tab:ladder}
-\begin{tabular}{@{}cll@{}}
+\begin{tabular}{@{}clll@{}}
 \toprule
-Level & Example & Typical visuals \\
+Level & Example & Planner & Typical visuals \\
 \midrule
-1--3 & Arithmetic / percent word problems & \texttt{equation\_board} \\
-4 & Quadratic equation & \texttt{plot\_2d}, board, answer \\
-7 & Rectangular double integral & region, board, surface, answer \\
-8 & Euler totient identity & claim, board, QED \\
-10 & Scalar $\Phi\to\phi\phi$ decay & Lagrangian, Feynman, board, answer \\
-11--15 & Paper long arithmetic & matching \texttt{paper\_long\_*} \\
+1--3 & Arithmetic / percent & catalog / freeform & \texttt{equation\_board} \\
+4 & Quadratic & \texttt{plan\_quadratic} & \texttt{plot\_2d}, board, answer \\
+6--7 & Derivative / double integral & catalog & board / region+surface \\
+8 & Euler totient identity & freeform & claim, board, QED \\
+9--10 & Improper integral / $\Phi\to\phi\phi$ & catalog / freeform & board / Feynman \\
+11--15 & Paper long arithmetic & \texttt{plan\_long\_*} & \texttt{paper\_long\_*} \\
+16--17 & Linear systems $2\times2$ / $3\times3$ & catalog & board, answer \\
+18--21 & IBP / sine / partial / triple & catalog & board (+ plot/region) \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \section{Discussion}
 
-Restricting the model to a typed intermediate representation trades
-expressive freedom for reliability. New visual genres require new local
-compilers, but once written they are reused across every problem that selects
-them. The current catalog already tags tools by coarse domain
-(\texttt{core}, \texttt{proof}, \texttt{calculus}, \texttt{arithmetic},
-\texttt{qft}) in preparation for a classify-then-gate prompt strategy that
-would expose only the relevant subset and thereby save context as the catalog
-grows.
+Restricting generation to a typed intermediate representation---and, for
+catalog hits, removing freeform plan authorship entirely---trades expressive
+freedom for reliability. New visual genres and new \texttt{plan\_*} entries
+require local code, but once written they are reused across every problem that
+routes to them. Classification already implements a coarse gate: only the
+chosen planner's parameters (or the freeform teach path) are in play, which
+keeps context smaller as the planner registry grows. Visual tools remain tagged
+by domain (\texttt{core}, \texttt{proof}, \texttt{calculus},
+\texttt{arithmetic}, \texttt{qft}) for further prompt gating if needed.
 
-Limitations remain. Verification coverage is uneven across tools; symbolic
-checks are strongest for arithmetic and selected algebraic payloads.
-Pedagogical quality still depends on the teacher's step decomposition.
-Schematic Feynman diagrams are illustrative rather than automated 1PI
-generators, and RG flow fields visualize provided $\beta$ expressions rather
-than deriving them. Finally, image OCR inherits the usual transcription
-failure modes for dense blackboard photography.
+Limitations remain. Verification coverage is uneven across freeform tools;
+symbolic checks are strongest for arithmetic and selected algebraic payloads.
+Catalog calculus planners now cover partial fractions, trigonometric
+substitution, $u$-substitution, integration by parts, and elementary definite
+integrals with stepped SymPy \texttt{manualintegrate} walks; stacked or
+SymPy-unwalkable integrals defer to the freeform teacher rather than
+auto-chaining techniques inside one catalog lesson. Remaining gaps include
+series tests, vector calculus, and richer diagrammatic calculus. Pedagogical
+quality on the freeform path still depends on the teacher's step
+decomposition. Schematic Feynman diagrams are illustrative rather than
+automated 1PI generators, and RG flow fields visualize provided $\beta$
+expressions rather than deriving them. Finally, image OCR inherits the usual
+transcription failure modes for dense blackboard photography.
 
-Natural extensions include domain-gated tool catalogs, richer diagrammatic
-calculus, tighter SymPy verification of board lines, and optional narration
+Natural extensions include richer series and vector-calculus planners,
+tighter SymPy verification of board lines, golden tests over the curated
+ladder and Lamar banks organized by \texttt{plan\_*}, and optional narration
 audio aligned to scene captions.
 
 \section{Conclusions}
 
-\textsc{Cinemath} demonstrates a practical split between LLM pedagogy and
-deterministic educational animation. A language model teaches; local visual
-tools compile and Manim renders. The resulting pipeline produces short lesson
-videos across arithmetic, algebra, calculus, proof, and selected quantum
-field theory topics without asking the model to write animation code. Source
-code and examples are available in the accompanying repository.
+\textsc{Cinemath} demonstrates a practical split between LLM routing /
+pedagogy and deterministic educational animation. Classification and catalog
+planners keep common problems off the freeform path; when the teacher is
+needed, it still never writes animation code. Local visual tools compile and
+Manim renders. The resulting pipeline produces short lesson videos across
+arithmetic, algebra, calculus, proof, and selected quantum field theory
+topics, backed by curated examples and scraped Calc~II/III problem banks.
+Source code and examples are available in the accompanying repository.
 
 \section*{Software}
 
 Implementation is in Python~3.12+ using the Anthropic API
 \citep{anthropic2024claude}, SymPy \citep{meurer2017sympy}, Typer, and Manim
-Community \citep{manim2024community}. The command-line entrypoint is
+Community \citep{manim2024community}. Optional model overrides separate a
+fast classify/OCR model from the freeform teach model. The command-line
+entrypoint is
 \begin{verbatim}
 uv run cinemath solve path/to/problem
 \end{verbatim}
@@ -481,6 +541,9 @@ From the project root,
 uv sync
 cp .env.example .env   # set ANTHROPIC_API_KEY
 uv run cinemath solve examples/04_quadratic.txt
+uv run cinemath solve problems/curated/18_lamar_integration_by_parts.txt
+uv run cinemath solve problems/by-type/plan_trig_substitution/lamar-calc-ii-trig-substitutions/prob-01.txt
+uv run python scripts/sync_problem_banks.py   # refresh scraped banks
 \end{verbatim}
 
 \bibliographystyle{unsrtnat}

@@ -1,7 +1,0 @@
-# Section 15.9 : Surface Area (problem 3)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/SurfaceArea.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/SurfaceArea/Prob3.aspxSolution
-
-Evaluate
-
-$Determine the surface area of the portion of z = 3 + 2y + \frac14x^{4} that is above the region in the xy-plane bounded by y = x^{5}, x = 1 and the x-axis.$

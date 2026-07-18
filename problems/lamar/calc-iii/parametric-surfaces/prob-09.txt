@@ -1,7 +1,0 @@
-# Section 17.2 : Parametric Surfaces (problem 9)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/ParametricSurfaces.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ParametricSurfaces/Prob9.aspxSolution
-
-Evaluate
-
-$Determine the surface area of the portion of z = 3 + 2y + \frac14x^{4} that is above the region in the xy-plane bounded by y = x^{5}, x = 1 and the x-axis.$

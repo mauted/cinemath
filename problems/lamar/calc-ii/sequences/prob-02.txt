@@ -1,7 +1,0 @@
-# Section 10.1 : Sequences (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/Sequences.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/Sequences/Prob2.aspxSolution
-
-Evaluate
-
-$\left\{ {\frac{{{{- 1 }^n + 1}}}{{2n + {{- 3 }^n}}}} \right\}_n = 2^\infty$

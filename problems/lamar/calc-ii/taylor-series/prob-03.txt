@@ -1,7 +1,0 @@
-# Section 10.16 : Taylor Series (problem 3)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/TaylorSeries.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/TaylorSeries/Prob3.aspxSolution
-
-Evaluate
-
-$f\left x \right = {e^- 6x} about x = - 4$

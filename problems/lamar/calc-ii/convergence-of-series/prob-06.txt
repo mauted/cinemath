@@ -1,7 +1,0 @@
-# Section 10.4 : Convergence/Divergence of Series (problem 6)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/ConvergenceOfSeries.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ConvergenceOfSeries/Prob6.aspxSolution
-
-Evaluate
-
-$\sum\limits_n = 5^\infty {\frac{{6 + 8n + 9n^{2}}}{{3 + 2n + n^{2}}}}$

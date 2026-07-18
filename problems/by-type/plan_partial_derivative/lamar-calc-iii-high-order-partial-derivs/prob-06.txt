@@ -1,0 +1,9 @@
+# Section 13.4 : Higher Order Partial Derivatives (problem 6)
+# Pack: lamar-calc-iii-high-order-partial-derivs
+# Planner: plan_partial_derivative
+# Source: https://tutorial.math.lamar.edu/problems/calciii/HighOrderPartialDerivs.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/HighOrderPartialDerivs/Prob6.aspxSolution
+
+Evaluate
+
+$fx,y,z \right = \frac{{x^{2}y^{6}}}{{z^{3}}} - 2x^{6}z + 8{y^- 3}x^{4} + 4z^{2}$

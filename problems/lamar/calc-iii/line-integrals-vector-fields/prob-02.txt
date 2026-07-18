@@ -1,7 +1,0 @@
-# Section 16.4 : Line Integrals of Vector Fields (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/LineIntegralsVectorFields.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/LineIntegralsVectorFields/Prob2.aspxSolution
-
-Evaluate
-
-$Evaluate \int\limits_C{\vec F\centerdot d\vec r} where \vec Fx,y \right = x + y \right\,\vec i + 1 - x \right\vec j and C is the portion of \frac{{x^{2}}}4 + \frac{{y^{2}}}9 = 1 that is in the 4th quadrant with the counter clockwise rotation.$

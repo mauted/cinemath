@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any, Callable
 
-from cinemath.arithmetic import (
+from cinemath.planners.arithmetic.tools import (
     analyze_long_addition,
     analyze_long_division,
     analyze_long_multiplication,

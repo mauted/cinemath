@@ -1,7 +1,0 @@
-# Section 11.3 : Dot Product (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/DotProduct.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/DotProduct/Prob2.aspxSolution
-
-Evaluate
-
-$\vec a = \left\langle 0,4, - 2 \right\rangle , \vec b = 2\vec i - \vec j + 7\vec k$

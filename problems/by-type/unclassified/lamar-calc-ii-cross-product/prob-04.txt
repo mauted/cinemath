@@ -1,0 +1,9 @@
+# Section 11.4 : Cross Product (problem 4)
+# Pack: lamar-calc-ii-cross-product
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/CrossProduct.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/CrossProduct/Prob4.aspxSolution
+
+Evaluate
+
+$Are the vectors \vec u = \left\langle 1,2, - 4 \right\rangle , \vec v = \left\langle - 5,3, - 7 \right\rangle and \vec w = \left\langle - 1,4,2 \right\rangle in the same plane?$

@@ -1,7 +1,0 @@
-# Section 13.7 : Directional Derivatives (problem 5)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/DirectionalDeriv.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/DirectionalDeriv/Prob5.aspxSolution
-
-Evaluate
-
-$Determine {D_\vec u}f3, - 1,0 \right for fx,y,z \right = 4x - y^{2}{e^{3}x\,z} in the direction of \vec v = \left\langle - 1,4,2 \right\rangle .$

@@ -1,0 +1,9 @@
+# Section 17.6 : Divergence Theorem (problem 3)
+# Pack: lamar-calc-iii-divergence-theorem
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/DivergenceTheorem.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/DivergenceTheorem/Prob3.aspxSolution
+
+Evaluate
+
+$Use the Divergence Theorem to evaluate \iint\limits_S{\vec F\centerdot d\vec S} where \vec F = 2xz\vec i + {1 - 4xy^{2}} \right\,\vec j + {2z - z^{2}} \right\,\vec k and S is the surface of the solid bounded by z = 6 - 2x^{2} - 2y^{2} and the plane z = 0 . Note that both of the surfaces of this solid included in S.$

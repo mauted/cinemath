@@ -1,0 +1,9 @@
+# Section 17.2 : Parametric Surfaces (problem 7)
+# Pack: lamar-calc-iii-parametric-surfaces
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/ParametricSurfaces.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ParametricSurfaces/Prob7.aspxSolution
+
+Evaluate
+
+$Determine the surface area of the portion of 2x + 3y + 6z = 9 that is inside the cylinder x^{2} + y^{2} = 7.$

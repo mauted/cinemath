@@ -1,0 +1,10 @@
+# Section 8.4 : Hydrostatic Pressure and Force (problem 1)
+# Pack: lamar-calc-ii-hydrostatic-pressure
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/HydrostaticPressure.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/HydrostaticPressure/Prob3.aspxSolution
+    
+
+Evaluate
+
+$3. The plate in this case is the top half of a diamond formed from a square whose sides have a length of 2.$

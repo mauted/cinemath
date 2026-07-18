@@ -1,0 +1,9 @@
+# Section 7.2 : Integrals Involving Trig Functions (problem 2)
+# Pack: lamar-calc-ii-integrals-with-trig
+# Planner: plan_definite_integral
+# Source: https://tutorial.math.lamar.edu/problems/calcii/IntegralsWithTrig.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/IntegralsWithTrig/Prob2.aspxSolution
+
+Evaluate
+
+$\int{{{\sin ^{8}}3z \right{\cos ^{5}}3z \right\,dz}}$

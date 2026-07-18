@@ -1,7 +1,0 @@
-# Section 9.1 : Parametric Equations and Curves (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/ParametricEqn.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ParametricEqn/Prob2.aspxSolution
-
-Evaluate
-
-$x = 4 - 2t\hspace0.5iny = 3 + 6t - 4t^{2}\hspace0.5in0 \le t \le 3$

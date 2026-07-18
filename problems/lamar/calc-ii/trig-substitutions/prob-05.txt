@@ -1,7 +1,0 @@
-# Section 7.3 : Trig Substitutions (problem 5)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/TrigSubstitutions.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/TrigSubstitutions/Prob5.aspxSolution
-
-Evaluate
-
-$\sqrt {4{{9t - 5 }^{2}} + 1}$

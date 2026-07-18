@@ -1,0 +1,9 @@
+# Section 12.9 : Arc Length with Vector Functions (problem 5)
+# Pack: lamar-calc-ii-vector-arc-length
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/VectorArcLength.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/VectorArcLength/Prob5.aspxSolution
+
+Evaluate
+
+$Determine where on the curve given by \vec r\left t \right = \left\langle {t^{2},2t^{3},1 - t^{3}} \right\rangle we are after traveling a distance of 20.$

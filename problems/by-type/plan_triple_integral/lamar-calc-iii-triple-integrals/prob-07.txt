@@ -1,0 +1,9 @@
+# Section 15.5 : Triple Integrals (problem 7)
+# Pack: lamar-calc-iii-triple-integrals
+# Planner: plan_triple_integral
+# Source: https://tutorial.math.lamar.edu/problems/calciii/TripleIntegrals.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/TripleIntegrals/Prob7.aspxSolution
+
+Evaluate
+
+$Evaluate \iiint\limits_E{15z\,dV} where E is the region between 2x + y + z = 4 and 4x + 4y + 2z = 20 that is in front of the region in the yz-plane bounded by z = 2y^{2} and z = \sqrt 4y .$

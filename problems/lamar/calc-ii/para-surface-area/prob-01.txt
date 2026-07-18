@@ -1,7 +1,0 @@
-# Section 9.5 : Surface Area with Parametric Equations (problem 1)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/ParaSurfaceArea.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ParaSurfaceArea/Prob1.aspxSolution
-
-Evaluate
-
-$Rotate x = 3 + 2t\hspace0.25iny = 9 - 3t\hspace0.25in1 \le t \le 4 about the y-axis.$

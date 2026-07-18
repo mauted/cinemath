@@ -1,7 +1,0 @@
-# Section 12.6 : Vector Functions (problem 3)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/VectorFunctions.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/VectorFunctions/Prob3.aspxSolution
-
-Evaluate
-
-$\vec r\left t \right = \left\langle 4t,10 - 2t \right\rangle$

@@ -1,8 +1,0 @@
-# Section 15.4 : Double Integrals in Polar Coordinates (problem 5)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/DIPolarCoords.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/DIPolarCoords/Prob5.aspxSolution
-    
-
-Evaluate
-
-$Evaluate the following integral by first converting to an integral in polar coordinates. \[\int_0^{3}{{\int_{{ - \sqrt {9 - {x^\,2}} }}^{0}{{\,\,\,{e^{{x^\,2} + {y^\,2}}}\,dy}}\,dx}}\]$

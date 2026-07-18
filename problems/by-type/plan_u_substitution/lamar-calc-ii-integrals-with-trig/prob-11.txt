@@ -1,0 +1,9 @@
+# Section 7.2 : Integrals Involving Trig Functions (problem 11)
+# Pack: lamar-calc-ii-integrals-with-trig
+# Planner: plan_definite_integral
+# Source: https://tutorial.math.lamar.edu/problems/calcii/IntegralsWithTrig.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/IntegralsWithTrig/Prob11.aspxSolution
+
+Evaluate
+
+$\int{{{\csc ^{6}}{\frac14w} \right{\cot ^{4}}{\frac14w} \right\,dw}}$

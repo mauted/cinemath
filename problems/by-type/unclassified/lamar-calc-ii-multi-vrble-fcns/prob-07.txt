@@ -1,0 +1,9 @@
+# Section 12.5 : Functions of Several Variables (problem 7)
+# Pack: lamar-calc-ii-multi-vrble-fcns
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/MultiVrbleFcns.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/MultiVrbleFcns/Prob7.aspxSolution
+
+Evaluate
+
+$y^{2} = 2x^{2} + z$

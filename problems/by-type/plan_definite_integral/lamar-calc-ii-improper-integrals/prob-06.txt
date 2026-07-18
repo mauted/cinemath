@@ -1,0 +1,9 @@
+# Section 7.8 : Improper Integrals (problem 6)
+# Pack: lamar-calc-ii-improper-integrals
+# Planner: plan_definite_integral
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ImproperIntegrals.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ImproperIntegrals/Prob6.aspxSolution
+
+Evaluate
+
+$\int_2^\infty {{\frac9{{{{1 - 3z }^{4}}}}\,dz}}$

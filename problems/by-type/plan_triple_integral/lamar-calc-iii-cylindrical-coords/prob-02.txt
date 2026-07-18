@@ -1,0 +1,9 @@
+# Section 12.12 : Cylindrical Coordinates (problem 2)
+# Pack: lamar-calc-iii-cylindrical-coords
+# Planner: plan_triple_integral
+# Source: https://tutorial.math.lamar.edu/problems/calciii/CylindricalCoords.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/CylindricalCoords/Prob2.aspxSolution
+
+Evaluate
+
+$- 4, - 1,8 \right$

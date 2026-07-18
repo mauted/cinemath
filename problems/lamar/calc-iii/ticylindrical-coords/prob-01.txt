@@ -1,7 +1,0 @@
-# Section 15.6 : Triple Integrals in Cylindrical Coordinates (problem 1)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/TICylindricalCoords.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/TICylindricalCoords/Prob1.aspxSolution
-
-Evaluate
-
-$Evaluate \iiint\limits_E{4xy\,dV} where E is the region bounded by z = 2x^{2} + 2y^{2} - 7 and z = 1.$

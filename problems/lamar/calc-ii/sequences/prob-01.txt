@@ -1,7 +1,0 @@
-# Section 10.1 : Sequences (problem 1)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/Sequences.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/Sequences/Prob1.aspxSolution
-
-Evaluate
-
-$\left\{ {\frac{4n}{{n^{2} - 7}}} \right\}_n = 0^\infty$

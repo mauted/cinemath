@@ -1,0 +1,9 @@
+# Section 16.4 : Line Integrals of Vector Fields (problem 1)
+# Pack: lamar-calc-iii-line-integrals-vector-fields
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/LineIntegralsVectorFields.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/LineIntegralsVectorFields/Prob1.aspxSolution
+
+Evaluate
+
+$Evaluate \int\limits_C{\vec F\centerdot d\vec r} where \vec Fx,y \right = y^{2}\,\vec i + 3x - 6y \right\vec j and C is the line segment from 3,7 \right to 0,12 \right.$

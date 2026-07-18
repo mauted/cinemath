@@ -1,7 +1,0 @@
-# Section 12.2 : Equations of Lines (problem 3)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/EqnsOfLines.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/EqnsOfLines/Prob3.aspxSolution
-
-Evaluate
-
-$Is the line through the points 2,0,9 \right and - 4,1, - 5 \right parallel, orthogonal or neither to the line given by \vec r\left t \right = \left\langle 5,1 - 9t, - 8 - 4t \right\rangle ?$

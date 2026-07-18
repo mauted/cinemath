@@ -1,0 +1,9 @@
+# Section 12.3 : Equations of Planes (problem 6)
+# Pack: lamar-calc-ii-eqns-of-planes
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/EqnsOfPlanes.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/EqnsOfPlanes/Prob6.aspxSolution
+
+Evaluate
+
+$The line given by \vec r\left t \right = \left\langle - 2t,2 + 7t, - 1 - 4t \right\rangle and the plane given by 4x + 9y - 2z = - 8.$

@@ -1,0 +1,9 @@
+# Section 15.7 : Triple Integrals in Spherical Coordinates (problem 2)
+# Pack: lamar-calc-iii-tispherical-coords
+# Planner: plan_triple_integral
+# Source: https://tutorial.math.lamar.edu/problems/calciii/TISphericalCoords.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/TISphericalCoords/Prob2.aspxSolution
+
+Evaluate
+
+$Evaluate \iiint\limits_E{{x^{2} + y^{2}\,dV}} where E is the region portion of x^{2} + y^{2} + z^{2} = 4 with y \ge 0.$

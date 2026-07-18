@@ -1,7 +1,0 @@
-# Section 16.6 : Conservative Vector Fields (problem 5)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/ConservativeVectorField.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ConservativeVectorField/Prob5.aspxSolution
-
-Evaluate
-
-$\vec F = y^{2}{1 + \cos x + y } \right\vec i + {2xy - 2y + y^{2}\cos x + y \right + 2y\sin x + y } \right\vec j$

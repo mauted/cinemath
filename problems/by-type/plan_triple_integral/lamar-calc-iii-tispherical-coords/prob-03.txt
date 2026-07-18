@@ -1,0 +1,9 @@
+# Section 15.7 : Triple Integrals in Spherical Coordinates (problem 3)
+# Pack: lamar-calc-iii-tispherical-coords
+# Planner: plan_triple_integral
+# Source: https://tutorial.math.lamar.edu/problems/calciii/TISphericalCoords.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/TISphericalCoords/Prob3.aspxSolution
+
+Evaluate
+
+$Evaluate \iiint\limits_E{3z\,dV} where E is the region inside both x^{2} + y^{2} + z^{2} = 1 and z = \sqrt {x^{2} + y^{2}} .$

@@ -1,0 +1,9 @@
+# Section 17.4 : Surface Integrals of Vector Fields (problem 5)
+# Pack: lamar-calc-iii-surf-int-vector-field
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/SurfIntVectorField.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/SurfIntVectorField/Prob5.aspxSolution
+
+Evaluate
+
+$Evaluate \iint\limits_S{\vec F\centerdot \,d\vec S} where \vec F = y\,\vec i + 2x\,\vec j + z - 8 \right\,\vec k and S is the surface of the solid bounded by 4x + 2y + z = 8, z = 0, y = 0 and x = 0 with the positive orientation. Note that all four surfaces of this solid are included in S.$

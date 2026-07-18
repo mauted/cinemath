@@ -1,7 +1,0 @@
-# Section 17.1 : Curl and Divergence (problem 3)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/CurlDivergence.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/CurlDivergence/Prob3.aspxSolution
-
-Evaluate
-
-$\vec F = {4y^{2} + \frac{{3x^{2}y}}{{z^{2}}}} \right\,\vec i + {8xy + \frac{{x^{3}}}{{z^{2}}}} \right\vec j + {11 - \frac{{2x^{3}y}}{{z^{3}}}} \right\vec k$

@@ -1,0 +1,9 @@
+# Section 15.2 : Iterated Integrals (problem 4)
+# Pack: lamar-calc-iii-iterated-integrals
+# Planner: plan_double_integral
+# Source: https://tutorial.math.lamar.edu/problems/calciii/IteratedIntegrals.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/IteratedIntegrals/Prob4.aspxSolution
+
+Evaluate
+
+$\iint\limits_R{{\sin 2x \right - \frac1{1 + 6y}\,dA}}\hspace0.25inR = [ {\frac\pi 4,\frac\pi 2} ] \times [ 0,1 ]$

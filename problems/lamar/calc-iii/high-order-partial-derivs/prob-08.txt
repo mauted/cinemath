@@ -1,7 +1,0 @@
-# Section 13.4 : Higher Order Partial Derivatives (problem 8)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/HighOrderPartialDerivs.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/HighOrderPartialDerivs/Prob8.aspxSolution
-
-Evaluate
-
-$Given w = u^{2}{e^- 6v} + \cos {u^{6} - 4u + 1} \right find {w_v\,u\,u\,v\,v}.$

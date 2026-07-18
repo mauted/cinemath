@@ -1,6 +1,0 @@
-# Section 7.10 : Approximating Definite Integrals (problem 1)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/ApproximatingDefIntegrals.aspx
-
-Evaluate
-
-$the Midpoint Rule,$

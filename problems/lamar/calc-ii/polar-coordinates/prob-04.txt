@@ -1,7 +1,0 @@
-# Section 9.6 : Polar Coordinates (problem 4)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/PolarCoordinates.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/PolarCoordinates/Prob4.aspxSolution
-
-Evaluate
-
-$The Cartesian coordinate of a point are - 8,1 \right. Determine a set of polar coordinates for the point.$

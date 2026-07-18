@@ -1,7 +1,0 @@
-# Section 12.8 : Tangent, Normal and Binormal Vectors (problem 1)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/TangentNormalVectors.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/TangentNormalVectors/Prob1.aspxSolution
-
-Evaluate
-
-$\vec r\left t \right = \left\langle {t^{2} + 1,3 - t,t^{3}} \right\rangle$

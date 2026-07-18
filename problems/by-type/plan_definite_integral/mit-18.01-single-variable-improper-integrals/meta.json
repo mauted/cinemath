@@ -1,0 +1,11 @@
+{
+  "source": "mit",
+  "slug": "improper-integrals",
+  "title": "Improper integrals",
+  "url": "https://ocw.mit.edu/courses/18-01-single-variable-calculus-fall-2006/resources/problem-sets/",
+  "problem_count": 1,
+  "planner": "plan_definite_integral",
+  "pack_id": "mit-18.01-single-variable-improper-integrals",
+  "course": "18.01-single-variable",
+  "topic": "improper-integrals"
+}

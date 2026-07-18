@@ -1,0 +1,9 @@
+# Section 7.3 : Trig Substitutions (problem 9)
+# Pack: lamar-calc-ii-trig-substitutions
+# Planner: plan_definite_integral
+# Source: https://tutorial.math.lamar.edu/problems/calcii/TrigSubstitutions.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/TrigSubstitutions/Prob9.aspxSolution
+
+Evaluate
+
+$\int{{\frac{{\sqrt {x^{2} + 16} }}{{x^{4}}}\,dx}}$

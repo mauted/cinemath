@@ -1,0 +1,9 @@
+# Section 10.18 : Binomial Series (problem 2)
+# Pack: lamar-calc-ii-binomial-series
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/BinomialSeries.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/BinomialSeries/Prob2.aspxSolution
+
+Evaluate
+
+${9 - x \right^{4}}$

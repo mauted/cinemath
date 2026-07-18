@@ -1,7 +1,0 @@
-# Section 7.3 : Trig Substitutions (problem 12)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/TrigSubstitutions.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/TrigSubstitutions/Prob12.aspxSolution
-
-Evaluate
-
-$\int_{- 7}^{- 5}{{\frac2{{y^{4}\sqrt {y^{2} - 25} }}\,dy}}$

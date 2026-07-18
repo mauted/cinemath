@@ -1,7 +1,0 @@
-# Section 13.4 : Higher Order Partial Derivatives (problem 1)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/HighOrderPartialDerivs.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/HighOrderPartialDerivs/Prob1.aspxSolution
-
-Evaluate
-
-$fx,y \right = x^{3}y^{2} - \frac{{4y^{6}}}{{x^{3}}}$

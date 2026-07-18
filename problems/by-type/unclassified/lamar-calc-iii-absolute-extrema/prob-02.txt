@@ -1,0 +1,9 @@
+# Section 14.4 : Absolute Extrema (problem 2)
+# Pack: lamar-calc-iii-absolute-extrema
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/AbsoluteExtrema.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/AbsoluteExtrema/Prob2.aspxSolution
+
+Evaluate
+
+$Find the absolute minimum and absolute maximum of fx,y \right = {9x^{2} - 1} \right1 + 4y \right on the rectangle given by - 2 \le x \le 3, - 1 \le y \le 4.$

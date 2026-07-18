@@ -1,0 +1,9 @@
+# Section 12.12 : Cylindrical Coordinates (problem 6)
+# Pack: lamar-calc-iii-cylindrical-coords
+# Planner: plan_triple_integral
+# Source: https://tutorial.math.lamar.edu/problems/calciii/CylindricalCoords.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/CylindricalCoords/Prob6.aspxSolution
+
+Evaluate
+
+$r^{2} - 4r\cos \left \theta \right = 14$

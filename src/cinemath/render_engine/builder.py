@@ -138,9 +138,13 @@ class ScriptRunner:
             self.mobjects[obj["id"]] = self._build_object(obj)
         for obj in scene_data["objects"]:
             if "next_to" in obj:
+                kwargs: dict[str, Any] = {}
+                if "buff" in obj:
+                    kwargs["buff"] = float(obj["buff"])
                 self.mobjects[obj["id"]].next_to(
                     self.mobjects[obj["next_to"]],
                     _DIRECTION[obj.get("direction", "down")],
+                    **kwargs,
                 )
 
         if scene_data.get("separate_labels", True):

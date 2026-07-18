@@ -1,0 +1,9 @@
+# Section 12.5 : Functions of Several Variables (problem 3)
+# Pack: lamar-calc-ii-multi-vrble-fcns
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/MultiVrbleFcns.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/MultiVrbleFcns/Prob3.aspxSolution
+
+Evaluate
+
+$fx,y,z \right = \frac1{{x^{2} + y^{2} + 4z}}$

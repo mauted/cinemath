@@ -1,8 +1,0 @@
-# Section 9.4 : Arc Length with Parametric Equations (problem 3)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/ParaArcLength.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ParaArcLength/Prob3.aspxSolution
-    
-
-Evaluate
-
-$A particle travels along a path defined by the following set of parametric equations. Determine the total distance the particle travels and compare this to the length of the parametric curve itself. \[x = 4\sin {\frac14t} \right\hspace0.25iny = 1 - 2\cos ^{2}{\frac14t} \right\hspace0.5in - 52\pi \le t \le 34\pi \]$

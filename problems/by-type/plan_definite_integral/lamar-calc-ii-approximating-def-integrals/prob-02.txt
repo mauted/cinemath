@@ -1,0 +1,8 @@
+# Section 7.10 : Approximating Definite Integrals (problem 2)
+# Pack: lamar-calc-ii-approximating-def-integrals
+# Planner: plan_definite_integral
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ApproximatingDefIntegrals.aspx
+
+Evaluate
+
+$the Trapezoid Rule, and$

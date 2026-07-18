@@ -1,0 +1,9 @@
+# Section 8.3 : Center Of Mass (problem 3)
+# Pack: lamar-calc-ii-center-of-mass
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/CenterOfMass.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/CenterOfMass/Prob3.aspxSolution
+
+Evaluate
+
+$The triangle with vertices 0, 0, -4, 2 and 0,6.$

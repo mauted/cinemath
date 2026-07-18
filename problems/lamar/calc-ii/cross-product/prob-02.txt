@@ -1,7 +1,0 @@
-# Section 11.4 : Cross Product (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/CrossProduct.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/CrossProduct/Prob2.aspxSolution
-
-Evaluate
-
-$If \vec w = \left\langle 1,6, - 8 \right\rangle and \vec v = \left\langle 4, - 2, - 1 \right\rangle compute \vec w \times \vec v.$

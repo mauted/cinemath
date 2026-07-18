@@ -1,0 +1,9 @@
+# Section 15.4 : Double Integrals in Polar Coordinates (problem 6)
+# Pack: lamar-calc-iii-dipolar-coords
+# Planner: plan_double_integral
+# Source: https://tutorial.math.lamar.edu/problems/calciii/DIPolarCoords.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/DIPolarCoords/Prob6.aspxSolution
+
+Evaluate
+
+$Use a double integral to determine the volume of the solid that is inside the cylinder x^{2} + y^{2} = 16, below z = 2x^{2} + 2y^{2} and above the xy-plane.$

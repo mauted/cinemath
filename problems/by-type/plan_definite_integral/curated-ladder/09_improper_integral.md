@@ -1,0 +1,1 @@
+/Users/MauricioTedeschi/Documents/Codes/projects/2026/cinemath/problems/curated/09_improper_integral.md

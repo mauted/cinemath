@@ -1,0 +1,9 @@
+# Section 16.6 : Conservative Vector Fields (problem 3)
+# Pack: lamar-calc-iii-conservative-vector-field
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/ConservativeVectorField.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ConservativeVectorField/Prob3.aspxSolution
+
+Evaluate
+
+$\vec F = {6 - 2xy + y^{3}} \right\vec i + {x^{2} - 8y + 3xy^{2}} \right\vec j$

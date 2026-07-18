@@ -1,6 +1,0 @@
-# Section 9.1 : Parametric Equations and Curves (problem 10)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/ParametricEqn.aspx
-
-Evaluate
-
-$The number of traces of the curve the particle makes if an overall range of t’s is provided in the problem.$

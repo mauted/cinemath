@@ -1,7 +1,0 @@
-# Section 17.2 : Parametric Surfaces (problem 4)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/ParametricSurfaces.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ParametricSurfaces/Prob4.aspxSolution
-
-Evaluate
-
-$The portion of y = 4 - x^{2} - z^{2} that is in front of y = - 6.$

@@ -1,0 +1,9 @@
+# Section 7.2 : Integrals Involving Trig Functions (problem 13)
+# Pack: lamar-calc-ii-integrals-with-trig
+# Planner: plan_definite_integral
+# Source: https://tutorial.math.lamar.edu/problems/calcii/IntegralsWithTrig.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/IntegralsWithTrig/Prob13.aspxSolution
+
+Evaluate
+
+$\int{{\frac{{2 + 7{\sin ^{3}}\left z }}{{{\cos ^{2}}\left z }}\,dz}}$

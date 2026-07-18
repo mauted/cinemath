@@ -1,7 +1,0 @@
-# Section 11.3 : Dot Product (problem 7)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/DotProduct.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/DotProduct/Prob7.aspxSolution
-
-Evaluate
-
-$\vec a = \left\langle 3,10 \right\rangle , \vec b = \left\langle 4, - 1 \right\rangle$

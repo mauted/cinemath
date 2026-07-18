@@ -1,0 +1,9 @@
+# Section 17.1 : Curl and Divergence (problem 1)
+# Pack: lamar-calc-iii-curl-divergence
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/CurlDivergence.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/CurlDivergence/Prob1.aspxSolution
+
+Evaluate
+
+$\vec F = x^{2}y\,\vec i - {z^{3} - 3x} \right\vec j + 4y^{2}\vec k$

@@ -1,0 +1,9 @@
+# Section 17.6 : Divergence Theorem (problem 1)
+# Pack: lamar-calc-iii-divergence-theorem
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/DivergenceTheorem.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/DivergenceTheorem/Prob1.aspxSolution
+
+Evaluate
+
+$Use the Divergence Theorem to evaluate \iint\limits_S{\vec F\centerdot d\vec S} where \vec F = yx^{2}\,\vec i + {xy^{2} - 3z^{4}} \right\,\vec j + {x^{3} + y^{2}} \right\,\vec k and S is the surface of the sphere of radius 4 with z \le 0 and y \le 0. Note that all three surfaces of this solid are included in S.$

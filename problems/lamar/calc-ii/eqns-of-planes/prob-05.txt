@@ -1,7 +1,0 @@
-# Section 12.3 : Equations of Planes (problem 5)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/EqnsOfPlanes.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/EqnsOfPlanes/Prob5.aspxSolution
-
-Evaluate
-
-$The plane given by - 3x + 2y + 7z = 9 and the plane containing the points - 2,6,1 \right, - 2,5,0 \right and - 1,4, - 3 \right.$

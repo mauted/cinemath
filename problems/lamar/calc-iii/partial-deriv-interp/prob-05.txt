@@ -1,7 +1,0 @@
-# Section 13.3 : Interpretations of Partial Derivatives (problem 5)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/PartialDerivInterp.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/PartialDerivInterp/Prob3.aspxSolution
-
-Evaluate
-
-$Write down the vector equations of the tangent lines to the traces for fx,y \right = x\,{e^{2x - {y^\,2}}} at 2,0 \right.$

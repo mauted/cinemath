@@ -1,0 +1,9 @@
+# Section 10.10 : Ratio Test (problem 3)
+# Pack: lamar-calc-ii-ratio-test
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/RatioTest.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/RatioTest/Prob3.aspxSolution
+
+Evaluate
+
+$\sum\limits_n = 2^\infty {\frac{{{{- 2 }^{1} + 3n}n + 1 }}{{n^{2}{5^{1} + n}}}}$

@@ -1,7 +1,0 @@
-# Section 15.2 : Iterated Integrals (problem 8)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/IteratedIntegrals.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/IteratedIntegrals/Prob8.aspxSolution
-
-Evaluate
-
-$\iint\limits_R{{xy\cos \left y \right - x^{2}\,dA}}\hspace0.25in\hspace0.25inR = [ 1,2 ] \times [ {\frac\pi 2,\pi } ]$

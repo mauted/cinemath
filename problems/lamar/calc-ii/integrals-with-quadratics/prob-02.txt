@@ -1,7 +1,0 @@
-# Section 7.6 : Integrals Involving Quadratics (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/IntegralsWithQuadratics.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/IntegralsWithQuadratics/Prob2.aspxSolution
-
-Evaluate
-
-$\int{{\frac{10x}{{4x^{2} - 8x + 9}}\,dx}}$

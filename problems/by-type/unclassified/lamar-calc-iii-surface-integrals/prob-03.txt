@@ -1,0 +1,9 @@
+# Section 17.3 : Surface Integrals (problem 3)
+# Pack: lamar-calc-iii-surface-integrals
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/SurfaceIntegrals.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/SurfaceIntegrals/Prob3.aspxSolution
+
+Evaluate
+
+$Evaluate \iint\limits_S{2y\,dS} where S is the portion of y^{2} + z^{2} = 4 between x = 0 and x = 3 - z.$

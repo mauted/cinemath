@@ -1,0 +1,9 @@
+# Section 16.5 : Fundamental Theorem for Line Integrals (problem 1)
+# Pack: lamar-calc-iii-fund-thm-line-integrals
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/FundThmLineIntegrals.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/FundThmLineIntegrals/Prob1.aspxSolution
+
+Evaluate
+
+$Evaluate \int\limits_C{\nabla f\centerdot d\vec r} where fx,y \right = x^{3}{3 - y^{2}} \right + 4y and C is given by \vec r\left t \right = \left\langle {3 - t^{2},5 - t} \right\rangle with - 2 \le t \le 3.$

@@ -1,0 +1,9 @@
+# Section 15.3 : Double Integrals over General Regions (problem 6)
+# Pack: lamar-calc-iii-digeneral-region
+# Planner: plan_double_integral
+# Source: https://tutorial.math.lamar.edu/problems/calciii/DIGeneralRegion.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/DIGeneralRegion/Prob6.aspxSolution
+
+Evaluate
+
+$Evaluate \iint\limits_D{{\frac1{{{y^{\frac13}}{x^{3} + 1} }}\,dA}} where D is the region bounded by x = - {y^{\frac13}}, x = 3 and the x-axis.$

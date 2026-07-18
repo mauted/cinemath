@@ -1,0 +1,9 @@
+# Section 12.1 : The 3-D Coordinate System (problem 4)
+# Pack: lamar-calc-iii-3-dcoords
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/3DCoords.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/3DCoords/Prob4.aspxSolution
+
+Evaluate
+
+$7x^{2} - 9y^{3} = 3x + 1$

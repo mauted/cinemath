@@ -1,0 +1,9 @@
+# Section 12.3 : Equations of Planes (problem 4)
+# Pack: lamar-calc-iii-eqns-of-planes
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/EqnsOfPlanes.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/EqnsOfPlanes/Prob4.aspxSolution
+
+Evaluate
+
+$The plane given by 4x - 9y - z = 2 and the plane given by x + 2y - 14z = - 6.$

@@ -1,7 +1,0 @@
-# Section 11.2 : Vector Arithmetic (problem 10)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/VectorArithmetic.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/VectorArithmetic/Prob6.aspxSolution
-
-Evaluate
-
-$Determine if \vec v = 9\vec i - 6\vec j - 24\vec k and \vec w = \left\langle - 15,10,40 \right\rangle are parallel vectors.$

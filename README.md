@@ -41,9 +41,15 @@ uv run cinemath solve path/to/photo.png
 
 See [`problems/curated/README.md`](../problems/curated/README.md) for the full **difficulty ladder** (arithmetic → QFT).
 
-**Problem banks:** [`problems/README.md`](problems/README.md) — Lamar (650+ scraped), MIT, Arizona, OpenStax topic trees. Sync with `uv run python scripts/sync_problem_banks.py`.
+**Problem banks:** [`problems/README.md`](problems/README.md) — Lamar (650+ scraped), MIT, Arizona, OpenStax, organized under `problems/by-type/<planner>/` for batch testing. Sync with `uv run python scripts/sync_problem_banks.py`.
 
-**Source layout:** catalog planners live in `src/cinemath/planners/` (`algebra`, `calculus`, `arithmetic`, `registry`); problem-bank tooling in `src/cinemath/problems/`.
+**Source layout:** `src/cinemath/` is grouped by concern:
+
+- `core/` — pipeline, ingest, logging
+- `plan/` — teacher plan schema and validation
+- `teaching/` — LLM teacher and SymPy verify
+- `planners/` — catalog solvers by domain (`algebra/`, `arithmetic/`, `calculus/`)
+- `render_engine/`, `templates/`, `problems/` — animation IR and problem banks
 
 ## Preprint
 

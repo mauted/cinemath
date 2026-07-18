@@ -1,7 +1,0 @@
-# Section 7.9 : Comparison Test for Improper Integrals (problem 3)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/ImproperIntegralsCompTest.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ImproperIntegralsCompTest/Prob3.aspxSolution
-
-Evaluate
-
-$\int_4^\infty {{\frac{{{e^- y}}}y\,dy}}$

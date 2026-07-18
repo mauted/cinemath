@@ -1,0 +1,9 @@
+# Section 7.4 : Partial Fractions (problem 6)
+# Pack: lamar-calc-ii-partial-fractions
+# Planner: plan_definite_integral
+# Source: https://tutorial.math.lamar.edu/problems/calcii/PartialFractions.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/PartialFractions/Prob6.aspxSolution
+
+Evaluate
+
+$\int{{\frac{4x - 11}{{x^{3} - 9x^{2}}}\,dx}}$

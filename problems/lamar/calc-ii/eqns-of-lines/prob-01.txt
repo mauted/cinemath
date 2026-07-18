@@ -1,7 +1,0 @@
-# Section 12.2 : Equations of Lines (problem 1)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/EqnsOfLines.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/EqnsOfLines/Prob1.aspxSolution
-
-Evaluate
-
-$The line through the points 2, - 4,1 \right and 0,4, - 10 \right.$

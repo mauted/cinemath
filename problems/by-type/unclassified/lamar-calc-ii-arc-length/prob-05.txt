@@ -1,0 +1,9 @@
+# Section 8.1 : Arc Length (problem 5)
+# Pack: lamar-calc-ii-arc-length
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ArcLength.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ArcLength/Prob3.aspxSolution
+
+Evaluate
+
+$Determine the length of y = 7{6 + x \right^{\frac32}} , 189 \le y \le 875.$

@@ -6,8 +6,8 @@ from typing import Any
 
 import sympy as sp
 
-from cinemath.plan import PLAN_VERSION
-from cinemath.validate_plan import validate_plan
+from cinemath.plan.schema import PLAN_VERSION
+from cinemath.plan.validate import validate_plan
 
 def _fmt(value: float) -> str:
     if abs(value - round(value)) < 1e-9:
@@ -250,6 +250,10 @@ def _factor_zero_lines(roots: list[float]) -> list[str]:
 def _plan(raw: dict[str, Any]) -> dict[str, Any]:
     raw["version"] = PLAN_VERSION
     return validate_plan(raw)
+
+
+class CatalogFreeform(Exception):
+    """Catalog planners cannot teach this problem; use the freeform LLM teacher."""
 
 
 def _problem(tool_input: dict[str, Any], *, name: str) -> str:

@@ -1,0 +1,9 @@
+# Section 12.7 : Calculus with Vector Functions (problem 5)
+# Pack: lamar-calc-ii-vector-fcns-calculus
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/VectorFcnsCalculus.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/VectorFcnsCalculus/Prob5.aspxSolution
+
+Evaluate
+
+$\vec r\left t \right = \left\langle {\ln {t^{2} + 1} \right,t{e^- t},4} \right\rangle$

@@ -1,0 +1,10 @@
+# Section 16.7 : Green's Theorem (problem 2)
+# Pack: lamar-calc-iii-greens-theorem
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/GreensTheorem.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/GreensTheorem/Prob2.aspxSolution
+    
+
+Evaluate
+
+$Use Green’s Theorem to evaluate \int\limits_C{{6y - 9x \rightdy - {yx - x^{3}} \right\,dx}} where C is shown below.$

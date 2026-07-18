@@ -1,0 +1,9 @@
+# Section 9.8 : Area with Polar Coordinates (problem 2)
+# Pack: lamar-calc-ii-polar-area
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/PolarArea.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/PolarArea/Prob2.aspxSolution
+
+Evaluate
+
+$Find the area inside the graph of r = 7 + 3\cos \theta and to the left of the y-axis.$

@@ -1,7 +1,0 @@
-# Section 10.18 : Binomial Series (problem 4)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/BinomialSeries.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/BinomialSeries/Prob4.aspxSolution
-
-Evaluate
-
-$\sqrt[3]{8 - 2x}$

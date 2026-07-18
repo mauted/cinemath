@@ -1,0 +1,10 @@
+# Section 12.12 : Cylindrical Coordinates (problem 3)
+# Pack: lamar-calc-iii-cylindrical-coords
+# Planner: plan_triple_integral
+# Source: https://tutorial.math.lamar.edu/problems/calciii/CylindricalCoords.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/CylindricalCoords/Prob3.aspxSolution
+    
+
+Evaluate
+
+$Convert the following equation written in Cartesian coordinates into an equation in Cylindrical coordinates. \[x^{3} + 2x^{2} - 6z = 4 - 2y^{2}\]$

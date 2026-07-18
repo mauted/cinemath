@@ -1,0 +1,9 @@
+# Section 9.1 : Parametric Equations and Curves (problem 17)
+# Pack: lamar-calc-ii-parametric-eqn
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ParametricEqn.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ParametricEqn/Prob13.aspxSolution
+
+Evaluate
+
+$x^{2} + y^{2} = 36 and the parametric curve resulting from the parametric equations should be at 6,0 \right when t = 0 and the curve should have a counter clockwise rotation.$

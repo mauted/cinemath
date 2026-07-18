@@ -1,0 +1,9 @@
+# Section 12.5 : Functions of Several Variables (problem 1)
+# Pack: lamar-calc-iii-multi-vrble-fcns
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/MultiVrbleFcns.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/MultiVrbleFcns/Prob1.aspxSolution
+
+Evaluate
+
+$fx,y \right = \sqrt {x^{2} - 2y}$

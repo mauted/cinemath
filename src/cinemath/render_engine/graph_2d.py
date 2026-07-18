@@ -14,6 +14,9 @@ PLOT_AT = "center"
 PLOT_X_LENGTH = 6.5
 PLOT_Y_LENGTH = 3.0
 LABEL_AT = "title"
+# Definite-integral plots: tuck axes down a bit and pin the ∫ label above with extra gap.
+INTEGRAL_PLOT_AT: list[float] = [0.0, -0.45]
+INTEGRAL_LABEL_BUFF = 0.85
 
 # When to paint area under/inside a curve.
 # - "none": stroke only (roots, function shape, most algebra graphs)
@@ -84,6 +87,35 @@ def integer_axis_range(
     if abs(b - a) < step:
         b = a + step
     return [float(a), float(b), float(step)]
+
+
+def integral_plot_window(
+    lower: float | None,
+    upper: float | None,
+    *,
+    span: float = 6.0,
+) -> tuple[float, float, float | None, float | None]:
+    """
+    Pick a display window and shaded interval for a 1D definite integral.
+
+    Returns ``(x_lo, x_hi, shade_lo, shade_hi)``. ``shade_*`` are ``None`` when
+    both bounds are infinite (curve only).
+    """
+    lo_ok = lower is not None
+    hi_ok = upper is not None
+
+    if lo_ok and hi_ok:
+        pad = max(0.2 * (upper - lower), 0.5)
+        return lower - pad, upper + pad, lower, upper
+
+    if lo_ok and not hi_ok:
+        return lower, lower + span, lower, lower + span
+
+    if hi_ok and not lo_ok:
+        return upper - span, upper, upper - span, upper
+
+    half = span / 2.0
+    return -half, half, None, None
 
 
 def build_plot(obj: dict[str, Any], axes: Axes, *, color: Any) -> VMobject:

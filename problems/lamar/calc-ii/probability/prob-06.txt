@@ -1,6 +1,0 @@
-# Section 8.5 : Probability (problem 6)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/Probability.aspx
-
-Evaluate
-
-$Verify that f\left t \right is a probability density function.$

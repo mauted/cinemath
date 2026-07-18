@@ -1,0 +1,9 @@
+# Section 16.4 : Line Integrals of Vector Fields (problem 3)
+# Pack: lamar-calc-iii-line-integrals-vector-fields
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/LineIntegralsVectorFields.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/LineIntegralsVectorFields/Prob3.aspxSolution
+
+Evaluate
+
+$Evaluate \int\limits_C{\vec F\centerdot d\vec r} where \vec Fx,y \right = y^{2}\,\vec i + {x^{2} - 4} \right\vec j and C is the portion of y = {x - 1 \right^{2}} from x = 0 to x = 3.$

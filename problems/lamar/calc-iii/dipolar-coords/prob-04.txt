@@ -1,7 +1,0 @@
-# Section 15.4 : Double Integrals in Polar Coordinates (problem 4)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/DIPolarCoords.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/DIPolarCoords/Prob4.aspxSolution
-
-Evaluate
-
-$Use a double integral to determine the area of the region that is inside r = 4 + 2\sin \theta and outside r = 3 - \sin \theta .$

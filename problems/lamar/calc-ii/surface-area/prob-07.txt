@@ -1,7 +1,0 @@
-# Section 8.2 : Surface Area (problem 7)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/SurfaceArea.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/SurfaceArea/Prob4.aspxSolution
-
-Evaluate
-
-$Find the surface area of the object obtained by rotating y = 4 + 3x^{2} , 1 \le x \le 2 about the y-axis.$

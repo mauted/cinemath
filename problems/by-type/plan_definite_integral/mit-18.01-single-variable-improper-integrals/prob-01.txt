@@ -1,0 +1,8 @@
+# MIT 18.01-single-variable / improper-integrals
+# Planner: plan_definite_integral
+# Pack: mit-18.01-single-variable-improper-integrals
+
+Evaluate the improper integral
+
+$\int_1^\infty \frac{1}{x^2}\, dx$
+and explain why it converges.

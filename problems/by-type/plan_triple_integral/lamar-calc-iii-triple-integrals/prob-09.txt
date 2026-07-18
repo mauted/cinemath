@@ -1,0 +1,9 @@
+# Section 15.5 : Triple Integrals (problem 9)
+# Pack: lamar-calc-iii-triple-integrals
+# Planner: plan_triple_integral
+# Source: https://tutorial.math.lamar.edu/problems/calciii/TripleIntegrals.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/TripleIntegrals/Prob9.aspxSolution
+
+Evaluate
+
+$Use a triple integral to determine the volume of the region that is below z = 8 - x^{2} - y^{2} above z = - \sqrt {4x^{2} + 4y^{2}} and inside x^{2} + y^{2} = 4.$

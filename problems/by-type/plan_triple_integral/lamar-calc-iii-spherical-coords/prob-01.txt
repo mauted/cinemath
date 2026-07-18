@@ -1,0 +1,9 @@
+# Section 12.13 : Spherical Coordinates (problem 1)
+# Pack: lamar-calc-iii-spherical-coords
+# Planner: plan_triple_integral
+# Source: https://tutorial.math.lamar.edu/problems/calciii/SphericalCoords.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/SphericalCoords/Prob1.aspxSolution
+
+Evaluate
+
+$3, - 4,1 \right$

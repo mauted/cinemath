@@ -1,0 +1,9 @@
+# Section 12.9 : Arc Length with Vector Functions (problem 4)
+# Pack: lamar-calc-iii-vector-arc-length
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/VectorArcLength.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/VectorArcLength/Prob4.aspxSolution
+
+Evaluate
+
+$\vec r\left t \right = \left\langle {4t, - 2t,\sqrt 5 \,\,t^{2}} \right\rangle$

@@ -1,0 +1,10 @@
+# Section 17.2 : Parametric Surfaces (problem 10)
+# Pack: lamar-calc-iii-parametric-surfaces
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/ParametricSurfaces.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ParametricSurfaces/Prob10.aspxSolution
+    
+
+Evaluate
+
+$Determine the surface area of the portion of the surface given by the following parametric equation that lies inside the cylinder u^{2} + v^{2} = 4. \[\vec ru,v \right = \left\langle 2u,vu,1 - 2v \right\rangle \]$

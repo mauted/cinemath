@@ -1,7 +1,0 @@
-# Section 15.6 : Triple Integrals in Cylindrical Coordinates (problem 3)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/TICylindricalCoords.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/TICylindricalCoords/Prob3.aspxSolution
-
-Evaluate
-
-$Evaluate \iiint\limits_E{z\,dV} where E is the region between the two planes x + y + z = 2 and x = 0 and inside the cylinder y^{2} + z^{2} = 1.$

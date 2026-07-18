@@ -1,7 +1,0 @@
-# Section 15.8 : Change of Variables (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/ChangeOfVariables.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ChangeOfVariables/Prob2.aspxSolution
-
-Evaluate
-
-$x = u^{2}v^{3}\hspace0.25iny = 4 - 2\sqrt u$

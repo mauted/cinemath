@@ -1,0 +1,11 @@
+{
+  "source": "mit",
+  "slug": "triple-integrals",
+  "title": "Triple integrals",
+  "url": "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/resources/problem-set-solutions/",
+  "problem_count": 1,
+  "planner": "plan_triple_integral",
+  "pack_id": "mit-18.02-multivariable-triple-integrals",
+  "course": "18.02-multivariable",
+  "topic": "triple-integrals"
+}

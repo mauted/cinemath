@@ -1,7 +1,0 @@
-# Section 13.4 : Higher Order Partial Derivatives (problem 3)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/HighOrderPartialDerivs.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/HighOrderPartialDerivs/Prob3.aspxSolution
-
-Evaluate
-
-$gu,v \right = u^{3}v^{4} - 2u\sqrt {v^{3}} + u^{6} - \sin 3v \right$

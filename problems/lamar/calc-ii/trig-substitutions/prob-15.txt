@@ -1,7 +1,0 @@
-# Section 7.3 : Trig Substitutions (problem 15)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/TrigSubstitutions.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/TrigSubstitutions/Prob15.aspxSolution
-
-Evaluate
-
-$\int{{\frac{{{{z + 3 }^{5}}}}{{{{{40 - 6z - z^{2}} }^{\frac32}}}}\,dz}}$

@@ -1,0 +1,9 @@
+# Section 10.13 : Estimating the Value of a Series (problem 1)
+# Pack: lamar-calc-ii-estimating-series
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/EstimatingSeries.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/EstimatingSeries/Prob1.aspxSolution
+
+Evaluate
+
+$Use the Integral Test and n = 10 to estimate the value of \sum\limits_n = 1^\infty {\fracn{{{{{n^{2} + 1} }^{2}}}}} .$

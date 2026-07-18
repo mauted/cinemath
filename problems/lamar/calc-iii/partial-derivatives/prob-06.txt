@@ -1,7 +1,0 @@
-# Section 13.2 : Partial Derivatives (problem 6)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/PartialDerivatives.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/PartialDerivatives/Prob6.aspxSolution
-
-Evaluate
-
-$gs,t,v \right = t^{2}\ln s + 2t \right - \ln 3v \right{s^{3} + t^{2} - 4v} \right$

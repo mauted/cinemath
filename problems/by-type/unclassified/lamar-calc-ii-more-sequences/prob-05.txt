@@ -1,0 +1,9 @@
+# Section 10.2 : More on Sequences (problem 5)
+# Pack: lamar-calc-ii-more-sequences
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/MoreSequences.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/MoreSequences/Prob5.aspxSolution
+
+Evaluate
+
+$\left\{ {\frac{4 - n}{2n + 3}} \right\}_n = 1^\infty$

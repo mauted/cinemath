@@ -1,7 +1,0 @@
-# Section 12.7 : Calculus with Vector Functions (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/VectorFcnsCalculus.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/VectorFcnsCalculus/Prob2.aspxSolution
-
-Evaluate
-
-$\mathop \lim \limits_t \to - 2 {\frac{{1 - {e^t + 2}}}{{t^{2} + t - 2}}\vec i + \vec j + {t^{2} + 6t} \right\vec k} \right$

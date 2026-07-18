@@ -1,7 +1,0 @@
-# Section 15.2 : Iterated Integrals (problem 9)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/IteratedIntegrals.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/IteratedIntegrals/Prob9.aspxSolution
-
-Evaluate
-
-$Determine the volume that lies under fx,y \right = 9x^{2} + 4xy + 4 and above the rectangle given by [ - 1,1 ] \times [ 0,2 ] in the xy-plane.$

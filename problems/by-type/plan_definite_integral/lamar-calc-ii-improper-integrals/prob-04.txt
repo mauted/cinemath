@@ -1,0 +1,9 @@
+# Section 7.8 : Improper Integrals (problem 4)
+# Pack: lamar-calc-ii-improper-integrals
+# Planner: plan_definite_integral
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ImproperIntegrals.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ImproperIntegrals/Prob4.aspxSolution
+
+Evaluate
+
+$\int_1^{2}{{\frac{4w}{{\sqrt[3]{{w^{2} - 4}}}}\,dw}}$

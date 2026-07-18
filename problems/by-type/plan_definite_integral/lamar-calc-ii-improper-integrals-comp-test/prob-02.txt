@@ -1,0 +1,9 @@
+# Section 7.9 : Comparison Test for Improper Integrals (problem 2)
+# Pack: lamar-calc-ii-improper-integrals-comp-test
+# Planner: plan_definite_integral
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ImproperIntegralsCompTest.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ImproperIntegralsCompTest/Prob2.aspxSolution
+
+Evaluate
+
+$\int_3^\infty {{\frac{{z^{2}}}{{z^{3} - 1}}\,dz}}$

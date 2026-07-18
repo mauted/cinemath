@@ -1,0 +1,9 @@
+# Section 10.11 : Root Test (problem 1)
+# Pack: lamar-calc-ii-root-test
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/RootTest.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/RootTest/Prob1.aspxSolution
+
+Evaluate
+
+$\sum\limits_n = 1^\infty {{{{\frac{3n + 1}{4 - 2n}} }^{2}n}}$

@@ -1,7 +1,0 @@
-# Section 9.2 : Tangents with Parametric Equations (problem 5)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/ParaTangent.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ParaTangent/Prob5.aspxSolution
-
-Evaluate
-
-$Find the values of t that will have horizontal or vertical tangent lines for the following set of parametric equations. x = t^{5} - 7t^{4} - 3t^{3}\hspace0.25iny = 2\cos 3t \right + 4t$

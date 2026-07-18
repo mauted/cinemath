@@ -1,0 +1,9 @@
+# Section 7.2 : Integrals Involving Trig Functions (problem 9)
+# Pack: lamar-calc-ii-integrals-with-trig
+# Planner: plan_definite_integral
+# Source: https://tutorial.math.lamar.edu/problems/calcii/IntegralsWithTrig.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/IntegralsWithTrig/Prob9.aspxSolution
+
+Evaluate
+
+$\int_1^{3}{{\sin 8x \right\sin \left x \right\,dx}}$

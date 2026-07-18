@@ -1,0 +1,9 @@
+# Section 7.9 : Comparison Test for Improper Integrals (problem 5)
+# Pack: lamar-calc-ii-improper-integrals-comp-test
+# Planner: plan_definite_integral
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ImproperIntegralsCompTest.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ImproperIntegralsCompTest/Prob5.aspxSolution
+
+Evaluate
+
+$\int_6^\infty {{\frac{{w^{2} + 1}}{{w^{3}{{\cos ^{2}}\left w \right + 1} }}\,dw}}$

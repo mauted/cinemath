@@ -1,0 +1,10 @@
+{
+  "source": "lamar",
+  "course": "calc-ii",
+  "section": "approximating-def-integrals",
+  "title": "Section 7.10 : Approximating Definite Integrals",
+  "url": "https://tutorial.math.lamar.edu/problems/calcii/ApproximatingDefIntegrals.aspx",
+  "problem_count": 6,
+  "planner": "plan_definite_integral",
+  "pack_id": "lamar-calc-ii-approximating-def-integrals"
+}

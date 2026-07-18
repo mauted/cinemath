@@ -1,4 +1,0 @@
-# MIT 18.02 / Lamar Calc III - partial derivative
-# Source: https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/
-
-Let $f(x, y) = x^2 y + \sin(xy)$. Find $\frac{\partial f}{\partial x}$.

@@ -1,0 +1,9 @@
+# Section 7.4 : Partial Fractions (problem 10)
+# Pack: lamar-calc-ii-partial-fractions
+# Planner: plan_definite_integral
+# Source: https://tutorial.math.lamar.edu/problems/calcii/PartialFractions.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/PartialFractions/Prob10.aspxSolution
+
+Evaluate
+
+$\int{{\frac{{2 + w^{4}}}{{w^{3} + 9w}}\,dw}}$

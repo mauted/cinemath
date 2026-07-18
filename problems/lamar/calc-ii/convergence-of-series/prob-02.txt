@@ -1,7 +1,0 @@
-# Section 10.4 : Convergence/Divergence of Series (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/ConvergenceOfSeries.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ConvergenceOfSeries/Prob2.aspxSolution
-
-Evaluate
-
-$\sum\limits_n = 3^\infty {\frac{2n}{n + 2}}$

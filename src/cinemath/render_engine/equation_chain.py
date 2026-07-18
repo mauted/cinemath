@@ -93,7 +93,7 @@ class EquationBoard:
 
         dst.set_opacity(0)
         branch = self._branch_id.get(src_id)
-        self._make_room_for(src, dst, buff=buff)
+        self._prepare_room_below(src, dst, buff=buff)
         if branch:
             self._branch_id[dst_id] = branch
             self._repack_branch_columns(animate=False, pending={dst_id: dst})
@@ -128,8 +128,6 @@ class EquationBoard:
         self.on_screen.add(dst_id)
         if dst_id not in self.stack:
             self.stack.append(dst_id)
-        if src_id in self.on_screen:
-            self.scene.play(src.animate.set_opacity(0.4), run_time=0.2)
         self._repack_branch_columns(animate=True)
         self._fit_after_write()
 
@@ -141,7 +139,7 @@ class EquationBoard:
 
         for dst in dsts:
             dst.set_opacity(0)
-        self._make_room_for_fork(src, dsts, buff=buff)
+        self._prepare_room_for_fork(src, dsts, buff=buff)
         pending = {dst_id: self.mobjects[dst_id] for dst_id in dst_ids}
         for dst_id in dst_ids:
             self._branch_id[dst_id] = dst_id
@@ -166,8 +164,6 @@ class EquationBoard:
             self.on_screen.add(dst_id)
             if dst_id not in self.stack:
                 self.stack.append(dst_id)
-        if src_id in self.on_screen:
-            self.scene.play(src.animate.set_opacity(0.4), run_time=0.2)
         self._repack_branch_columns(animate=True)
         self._fit_after_write()
 
@@ -207,45 +203,37 @@ class EquationBoard:
             rate_func=rate_functions.smooth,
         )
 
-    def _make_room_for(self, src: VMobject, dst: VMobject, *, buff: float) -> None:
-        safe_bottom, safe_top = self._bounds()
-        for _ in range(8):
-            dst.next_to(src, DOWN, buff=buff)
-            overflow = safe_bottom - float(dst.get_bottom()[1])
-            if overflow <= 0.01:
-                return
-            visible = self._visible()
-            if not visible:
-                self._shift_group(overflow, extra=[src, dst])
-                dst.next_to(src, DOWN, buff=buff)
-                return
-            tops_after = [float(self.mobjects[i].get_top()[1]) + overflow for i in visible]
-            if max(tops_after) > safe_top and len(visible) > 1:
-                self._fade_oldest()
-                continue
-            self._shift_group(overflow, extra=[dst])
-            dst.next_to(src, DOWN, buff=buff)
+    def _prepare_room_below(
+        self,
+        anchor: VMobject,
+        incoming: VMobject,
+        *,
+        buff: float,
+    ) -> None:
+        """Scroll the board up, then park ``incoming`` below ``anchor`` (still hidden)."""
+        safe_bottom, _ = self._bounds()
+        incoming.next_to(anchor, DOWN, buff=buff)
+        overflow = safe_bottom - float(incoming.get_bottom()[1])
+        if overflow <= 0.01:
             return
+        self._shift_group(overflow, extra=[anchor, incoming])
+        incoming.next_to(anchor, DOWN, buff=buff)
 
-    def _make_room_for_fork(self, src: VMobject, dsts: list[VMobject], *, buff: float) -> None:
-        safe_bottom, safe_top = self._bounds()
-        for _ in range(8):
-            self._place_fork_children(src, dsts, buff=buff)
-            overflow = max(safe_bottom - float(dst.get_bottom()[1]) for dst in dsts)
-            if overflow <= 0.01:
-                return
-            visible = self._visible()
-            if not visible:
-                self._shift_group(overflow, extra=[src, *dsts])
-                self._place_fork_children(src, dsts, buff=buff)
-                return
-            tops_after = [float(self.mobjects[i].get_top()[1]) + overflow for i in visible]
-            if max(tops_after) > safe_top and len(visible) > 1:
-                self._fade_oldest()
-                continue
-            self._shift_group(overflow, extra=dsts)
-            self._place_fork_children(src, dsts, buff=buff)
+    def _prepare_room_for_fork(
+        self,
+        src: VMobject,
+        dsts: list[VMobject],
+        *,
+        buff: float,
+    ) -> None:
+        """Scroll the board up, then park fork children below ``src`` (still hidden)."""
+        safe_bottom, _ = self._bounds()
+        self._place_fork_children(src, dsts, buff=buff)
+        overflow = max(safe_bottom - float(dst.get_bottom()[1]) for dst in dsts)
+        if overflow <= 0.01:
             return
+        self._shift_group(overflow, extra=[src, *dsts])
+        self._place_fork_children(src, dsts, buff=buff)
 
     def _place_fork_children(self, src: VMobject, dsts: list[VMobject], *, buff: float) -> None:
         region = self._content_region()

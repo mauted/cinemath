@@ -1,7 +1,0 @@
-# Section 17.4 : Surface Integrals of Vector Fields (problem 4)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/SurfIntVectorField.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/SurfIntVectorField/Prob4.aspxSolution
-
-Evaluate
-
-$Evaluate \iint\limits_S{\vec F\centerdot \,d\vec S} where \vec F = \,\vec i + z\,\vec j + 6x\,\vec k and S is the portion of the sphere of radius 3 with x \le 0, y \ge 0 and z \ge 0 oriented inward i.e. towards the origin.$

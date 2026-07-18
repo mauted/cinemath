@@ -1,7 +1,0 @@
-# Section 14.5 : Lagrange Multipliers (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/LagrangeMultipliers.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/LagrangeMultipliers/Prob2.aspxSolution
-
-Evaluate
-
-$Find the maximum and minimum values of fx,y \right = 8x^{2} - 2y subject to the constraint x^{2} + y^{2} = 1.$

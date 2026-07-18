@@ -1,7 +1,0 @@
-# Section 9.1 : Parametric Equations and Curves (problem 15)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/ParametricEqn.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ParametricEqn/Prob11.aspxSolution
-
-Evaluate
-
-$x = \frac12{e^- 3t}\hspace0.5iny = {e^- 6t} + 2{e^- 3t} - 8$

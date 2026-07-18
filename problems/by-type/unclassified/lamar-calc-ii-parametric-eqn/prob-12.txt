@@ -1,0 +1,9 @@
+# Section 9.1 : Parametric Equations and Curves (problem 12)
+# Pack: lamar-calc-ii-parametric-eqn
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ParametricEqn.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ParametricEqn/Prob8.aspxSolution
+
+Evaluate
+
+$x = 4\sin {\frac14t} \right\hspace0.5iny = 1 - 2\cos ^{2}{\frac14t} \right \hspace0.5in - 52\pi \le t \le 34\pi$

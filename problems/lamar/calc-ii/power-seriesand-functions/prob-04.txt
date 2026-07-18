@@ -1,8 +1,0 @@
-# Section 10.15 : Power Series and Functions (problem 4)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/PowerSeriesandFunctions.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/PowerSeriesandFunctions/Prob4.aspxSolution
-    
-
-Evaluate
-
-$Give a power series representation for the derivative of the following function. \[g\left x \right = \frac{5x}{{1 - 3x^{5}}}\]$

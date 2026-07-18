@@ -1,0 +1,9 @@
+# Section 9.8 : Area with Polar Coordinates (problem 5)
+# Pack: lamar-calc-ii-polar-area
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/PolarArea.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/PolarArea/Prob5.aspxSolution
+
+Evaluate
+
+$Find the area that is inside r = 4 - 2\cos \theta and outside r = 6 + 2\cos \theta .$

@@ -1,0 +1,9 @@
+# Section 9.9 : Arc Length with Polar Coordinates (problem 3)
+# Pack: lamar-calc-ii-polar-arc-length
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/PolarArcLength.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/PolarArcLength/Prob3.aspxSolution
+
+Evaluate
+
+$r = \cos 2\theta \right + \sin 3\theta \right, 0 \le \theta \le 2\pi$

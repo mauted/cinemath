@@ -1,0 +1,9 @@
+# Section 12.5 : Functions of Several Variables (problem 4)
+# Pack: lamar-calc-iii-multi-vrble-fcns
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/MultiVrbleFcns.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/MultiVrbleFcns/Prob4.aspxSolution
+
+Evaluate
+
+$fx,y \right = \frac1x + \sqrt y + 4 - \sqrt x + 1$

@@ -140,6 +140,8 @@ def _object(obj: Any, sid: str, index: int) -> dict[str, Any]:
     if "next_to" in obj:
         out["next_to"] = str(obj["next_to"])
         out["direction"] = obj.get("direction", "down")
+        if "buff" in obj:
+            out["buff"] = float(obj["buff"])
 
     if otype == "text":
         out["content"] = str(obj["content"])

@@ -1,7 +1,0 @@
-# Section 7.10 : Approximating Definite Integrals (problem 4)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/ApproximatingDefIntegrals.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ApproximatingDefIntegrals/Prob1.aspxSolution
-
-Evaluate
-
-$\int_1^{7}{{\frac1{{x^{3} + 1}}\,dx}} using n = 6$

@@ -1,0 +1,9 @@
+# Section 9.6 : Polar Coordinates (problem 3)
+# Pack: lamar-calc-ii-polar-coordinates
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/PolarCoordinates.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/PolarCoordinates/Prob3.aspxSolution
+
+Evaluate
+
+$The Cartesian coordinate of a point are 2, - 6 \right. Determine a set of polar coordinates for the point.$

@@ -1,0 +1,10 @@
+# Section 17.5 : Stokes' Theorem (problem 4)
+# Pack: lamar-calc-iii-stokes-theorem
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/StokesTheorem.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/StokesTheorem/Prob4.aspxSolution
+    
+
+Evaluate
+
+$Use Stokes’ Theorem to evaluate \int\limits_C{\vec F\centerdot d\vec r} where \vec F = {3yx^{2} + z^{3}} \right\,\vec i + y^{2}\,\vec j + 4yx^{2}\,\vec k and C is is triangle with vertices 0,0,3 \right, 0,2,0 \right and 4,0,0 \right. C has a counter clockwise rotation if you are above the triangle and looking down towards the xy-plane. See the figure below for a sketch of the curve.$

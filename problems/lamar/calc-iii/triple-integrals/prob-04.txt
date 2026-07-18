@@ -1,7 +1,0 @@
-# Section 15.5 : Triple Integrals (problem 4)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/TripleIntegrals.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/TripleIntegrals/Prob4.aspxSolution
-
-Evaluate
-
-$Evaluate \iiint\limits_E{3 - 4x\,dV} where E is the region below z = 4 - xy and above the region in the xy-plane defined by 0 \le x \le 2, 0 \le y \le 1.$

@@ -1,7 +1,0 @@
-# Section 7.8 : Improper Integrals (problem 3)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/ImproperIntegrals.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ImproperIntegrals/Prob3.aspxSolution
-
-Evaluate
-
-$\int_{- 5}^{1}{{\frac1{10 + 2z}\,dz}}$

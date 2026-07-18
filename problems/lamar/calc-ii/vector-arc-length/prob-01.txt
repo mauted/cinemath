@@ -1,7 +1,0 @@
-# Section 12.9 : Arc Length with Vector Functions (problem 1)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/VectorArcLength.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/VectorArcLength/Prob1.aspxSolution
-
-Evaluate
-
-$\vec r\left t \right = 3 - 4t \right\vec i + 6t\,\vec j - 9 + 2t \right\vec k from - 6 \le t \le 8.$

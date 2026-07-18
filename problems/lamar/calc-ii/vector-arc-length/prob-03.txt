@@ -1,7 +1,0 @@
-# Section 12.9 : Arc Length with Vector Functions (problem 3)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/VectorArcLength.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/VectorArcLength/Prob3.aspxSolution
-
-Evaluate
-
-$\vec r\left t \right = \left\langle {t^{2},2t^{3},1 - t^{3}} \right\rangle$

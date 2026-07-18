@@ -1,7 +1,0 @@
-# Section 7.2 : Integrals Involving Trig Functions (problem 14)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/IntegralsWithTrig.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/IntegralsWithTrig/Prob14.aspxSolution
-
-Evaluate
-
-$\int{{[ {9{\sin ^{5}}3x \right - 2{\cos ^{3}}3x } ]{\csc ^{4}}3x \right\,dx}}$

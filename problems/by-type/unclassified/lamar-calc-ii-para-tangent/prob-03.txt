@@ -1,0 +1,9 @@
+# Section 9.2 : Tangents with Parametric Equations (problem 3)
+# Pack: lamar-calc-ii-para-tangent
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ParaTangent.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/ParaTangent/Prob3.aspxSolution
+
+Evaluate
+
+$x = 2\cos 3t \right - 4\sin 3t \right\hspace0.25iny = 3\tan 6t \right at t = \frac\pi 2$

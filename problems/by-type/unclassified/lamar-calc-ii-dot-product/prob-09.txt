@@ -1,0 +1,9 @@
+# Section 11.3 : Dot Product (problem 9)
+# Pack: lamar-calc-ii-dot-product
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/DotProduct.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/DotProduct/Prob9.aspxSolution
+
+Evaluate
+
+$Given \vec a = \left\langle - 8,2 \right\rangle and \vec b = \left\langle - 1, - 7 \right\rangle compute {{\mathop\rm proj\nolimits} _\,\vec a}\,\vec b.$

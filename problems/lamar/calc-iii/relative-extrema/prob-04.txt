@@ -1,7 +1,0 @@
-# Section 14.3 : Relative Minimums and Maximums (problem 4)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/RelativeExtrema.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/RelativeExtrema/Prob4.aspxSolution
-
-Evaluate
-
-$fx,y \right = 3y^{3} - x^{2}y^{2} + 8y^{2} + 4x^{2} - 20y$

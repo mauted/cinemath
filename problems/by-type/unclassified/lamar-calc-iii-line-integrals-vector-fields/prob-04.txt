@@ -1,0 +1,9 @@
+# Section 16.4 : Line Integrals of Vector Fields (problem 4)
+# Pack: lamar-calc-iii-line-integrals-vector-fields
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/LineIntegralsVectorFields.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/LineIntegralsVectorFields/Prob4.aspxSolution
+
+Evaluate
+
+$Evaluate \int\limits_C{\vec F\centerdot d\vec r} where \vec Fx,y,z \right = {e^{2}x}\,\vec i + zy + 1 \right\vec j + z^{3}\,\vec k and C is given by \vec r\left t \right = t^{3}\,\vec i + 1 - 3t \right\vec j + e^t\,\vec k for 0 \le t \le 2.$

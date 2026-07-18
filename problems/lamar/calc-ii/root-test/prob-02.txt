@@ -1,7 +1,0 @@
-# Section 10.11 : Root Test (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/RootTest.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/RootTest/Prob2.aspxSolution
-
-Evaluate
-
-$\sum\limits_n = 0^\infty {\frac{{{n^{1} - 3n}}}{{{4^{2}n}}}}$

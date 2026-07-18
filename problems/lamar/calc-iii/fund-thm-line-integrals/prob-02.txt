@@ -1,7 +1,0 @@
-# Section 16.5 : Fundamental Theorem for Line Integrals (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/FundThmLineIntegrals.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/FundThmLineIntegrals/Prob2.aspxSolution
-
-Evaluate
-
-$Evaluate \int\limits_C{\nabla f\centerdot d\vec r} where fx,y \right = y{e^{{x^\,2} - 1}} + 4x\sqrt y and C is given by \vec r\left t \right = \left\langle {1 - t,2t^{2} - 2t} \right\rangle with 0 \le t \le 2.$

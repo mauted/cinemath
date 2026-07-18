@@ -1,0 +1,8 @@
+# Section 9.1 : Parametric Equations and Curves (problem 8)
+# Pack: lamar-calc-ii-parametric-eqn
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/ParametricEqn.aspx
+
+Evaluate
+
+$Limits on x and y.$

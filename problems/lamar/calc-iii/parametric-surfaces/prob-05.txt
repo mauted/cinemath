@@ -1,7 +1,0 @@
-# Section 17.2 : Parametric Surfaces (problem 5)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/ParametricSurfaces.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ParametricSurfaces/Prob5.aspxSolution
-
-Evaluate
-
-$The portion of the sphere of radius 6 with x \ge 0.$

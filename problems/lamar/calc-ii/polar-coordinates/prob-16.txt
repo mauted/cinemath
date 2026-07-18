@@ -1,7 +1,0 @@
-# Section 9.6 : Polar Coordinates (problem 16)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/PolarCoordinates.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/PolarCoordinates/Prob16.aspxSolution
-
-Evaluate
-
-$r = 4 - 9\sin \theta$

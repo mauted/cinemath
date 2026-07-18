@@ -1,7 +1,0 @@
-# Section 10.15 : Power Series and Functions (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calcii/PowerSeriesandFunctions.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/PowerSeriesandFunctions/Prob2.aspxSolution
-
-Evaluate
-
-$f\left x \right = \frac{{x^{3}}}{{3 - x^{2}}}$

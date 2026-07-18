@@ -1,0 +1,9 @@
+# Section 12.4 : Quadric Surfaces (problem 3)
+# Pack: lamar-calc-iii-quadric-surfaces
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/QuadricSurfaces.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/QuadricSurfaces/Prob3.aspxSolution
+
+Evaluate
+
+$z = \frac{{x^{2}}}4 + \frac{{y^{2}}}4 - 6$

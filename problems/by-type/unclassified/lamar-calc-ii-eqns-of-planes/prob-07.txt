@@ -1,0 +1,9 @@
+# Section 12.3 : Equations of Planes (problem 7)
+# Pack: lamar-calc-ii-eqns-of-planes
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/EqnsOfPlanes.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/EqnsOfPlanes/Prob7.aspxSolution
+
+Evaluate
+
+$The line given by \vec r\left t \right = \left\langle 4 + t, - 1 + 8t,3 + 2t \right\rangle and the plane given by 2x - y + 3z = 15.$

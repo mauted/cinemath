@@ -1,8 +1,0 @@
-# Section 13.2 : Partial Derivatives (problem 9)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/PartialDerivatives.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/PartialDerivatives/Prob9.aspxSolution
-    
-
-Evaluate
-
-$Find \frac{\partial z}{\partial x} and \frac{\partial z}{\partial y} for the following function. \[x^{2}\sin {y^{3}} \right + x{e^{3}z} - \cos {z^{2}} \right = 3y - 6z + 8\]$

@@ -1,7 +1,0 @@
-# Section 12.13 : Spherical Coordinates (problem 5)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/SphericalCoords.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/SphericalCoords/Prob5.aspxSolution
-
-Evaluate
-
-$\rho ^{2} = 3 - \cos \varphi$

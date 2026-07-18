@@ -1,7 +1,0 @@
-# Section 15.9 : Surface Area (problem 1)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/SurfaceArea.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/SurfaceArea/Prob1.aspxSolution
-
-Evaluate
-
-$Determine the surface area of the portion of 2x + 3y + 6z = 9 that is in the 1st octant.$

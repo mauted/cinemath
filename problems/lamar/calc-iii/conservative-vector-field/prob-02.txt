@@ -1,7 +1,0 @@
-# Section 16.6 : Conservative Vector Fields (problem 2)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/ConservativeVectorField.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/ConservativeVectorField/Prob2.aspxSolution
-
-Evaluate
-
-$\vec F = {2x\sin 2y \right - 3y^{2}} \right\vec i + {2 - 6xy + 2x^{2}\cos 2y } \right\vec j$

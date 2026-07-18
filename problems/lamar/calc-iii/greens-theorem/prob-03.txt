@@ -1,8 +1,0 @@
-# Section 16.7 : Green's Theorem (problem 3)
-# Source: https://tutorial.math.lamar.edu/problems/calciii/GreensTheorem.aspx
-# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/GreensTheorem/Prob3.aspxSolution
-    
-
-Evaluate
-
-$Use Green’s Theorem to evaluate \int\limits_C{{x^{2}y^{2}\,dx + {yx^{3} + y^{2}} \right\,dy}} where C is shown below.$

@@ -1,0 +1,9 @@
+# Section 15.3 : Double Integrals over General Regions (problem 2)
+# Pack: lamar-calc-iii-digeneral-region
+# Planner: plan_double_integral
+# Source: https://tutorial.math.lamar.edu/problems/calciii/DIGeneralRegion.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/DIGeneralRegion/Prob2.aspxSolution
+
+Evaluate
+
+$Evaluate \iint\limits_D{{2yx^{2} + 9y^{3}\,dA}} where D is the region bounded by y = \frac23x and y = 2\sqrt x .$

@@ -1,0 +1,9 @@
+# Section 9.10 : Surface Area with Polar Coordinates (problem 2)
+# Pack: lamar-calc-ii-polar-surface-area
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calcii/PolarSurfaceArea.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcII/PolarSurfaceArea/Prob2.aspxSolution
+
+Evaluate
+
+$r = \cos ^{2}\theta , - \frac\pi 6 \le \theta \le \frac\pi 6 rotated about the y-axis.$

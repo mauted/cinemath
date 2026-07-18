@@ -1,0 +1,9 @@
+# Section 14.5 : Lagrange Multipliers (problem 4)
+# Pack: lamar-calc-iii-lagrange-multipliers
+# Planner: unclassified
+# Source: https://tutorial.math.lamar.edu/problems/calciii/LagrangeMultipliers.aspx
+# Solution: https://tutorial.math.lamar.edu/Solutions/CalcIII/LagrangeMultipliers/Prob4.aspxSolution
+
+Evaluate
+
+$Find the maximum and minimum values of fx,y,z \right = xyz subject to the constraint x + 9y^{2} + z^{2} = 4. Assume that x \ge 0 for this problem. Why is this assumption needed?$
